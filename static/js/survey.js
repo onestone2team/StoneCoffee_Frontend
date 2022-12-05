@@ -6,7 +6,6 @@ function saveCookie(name, value, unixTime){
 }
 
 function startSurvey(){
-    console.log("시작하기 버튼 눌림")
     const icon = document.getElementById('icon')
     const removeText1 = document.getElementById('removeText1')
     const removeText2 = document.getElementById('removeText2')
@@ -25,8 +24,17 @@ function sendSurvey(){
     const sweet_grade = document.querySelector('input[name="sweet"]:checked').value;
     const acidity_grade = document.querySelector('input[name="acidity"]:checked').value;
     const balance_grade = document.querySelector('input[name="balance"]:checked').value;
+    const sendSurvey = document.getElementsByClassName('sendSurvey')[0].style
+    const showSurvey = document.getElementById('showSurvey')
+
 
     console.log(aroma_grade, sweet_grade, acidity_grade, balance_grade)
+
+    const coffeeshow = document.getElementById('coffeeShow')
+    showSurvey.style.display = "none"
+    sendSurvey.display= "none"
+    coffeeshow.style.display = "block";
+
 }
 
 const sweetChecks = document.querySelectorAll('input[name="sweet"]');

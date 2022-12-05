@@ -32,7 +32,7 @@
     </div>
 
     <div class="notView scrollBar" id="showSurvey">
-        <table>
+        <table class="survey-table">
             <tbody>
               <tr>
                 <td>
@@ -46,6 +46,7 @@
                             <input type="radio" name="sweet" value="1" id="sweet5"><label for="sweet5">☕</label>
                         </fieldset>
                     </div>
+                    <hr size="2px" color="#3E240C">
                 </td>
               </tr>
               <tr>
@@ -60,6 +61,7 @@
                             <input type="radio" name="aroma" value="1" id="aroma5"><label for="aroma5">☕</label>
                         </fieldset>
                     </div>
+                    <hr size="2px" color="#3E240C">
                 </td>
               </tr>
               <tr>
@@ -74,6 +76,7 @@
                             <input type="radio" name="acidity" value="1" id="acidity5"><label for="acidity5">☕</label>
                         </fieldset>
                     </div>
+                    <hr size="2px" color="#3E240C">
                 </td>
               </tr>
               <tr>
@@ -88,13 +91,36 @@
                             <input type="radio" name="balance" value="1" id="balance5"><label for="balance5">☕</label>
                         </fieldset>
                     </div>
+                    <hr size="2px" color="#3E240C">
                 </td>
               </tr>
             </tbody>
           </table>
     </div>
-    
+
         <button class="sendSurvey" onclick="sendSurvey()">제출하기</button>
+    <div class="show-screen" id="coffeeShow">
+        <table>
+            <thead>
+              <tr>
+                <th>브라질 산토스</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                    <image class="show-image" src="https://media.istockphoto.com/id/1177900338/ko/%EC%82%AC%EC%A7%84/%EC%BB%A4%ED%94%BC-%EC%BD%A9%EC%9D%84-%EA%B3%81%EB%93%A4%EC%9D%B8-%EC%97%90%EC%8A%A4%ED%94%84%EB%A0%88%EC%86%8C-%ED%95%9C-%EC%9E%94.jpg?s=612x612&w=0&k=20&c=iH6mFbBAd6Wv2OWQLYb_ZJQSCIFwsBAIiIrgDsOAdjc="></image>
+                </td>
+                <td style="padding: 20px;">
+                    <p class="show-txt">브라질 산토스는 세계 커피생산량의 30%를 차지하며, 산토스 지방의 3,4년 정도 된 어린 커피나무에서 수확한 커피로, NO.2등급이 최고 등급입니다. 부드러운 맛과 신맛이 균일하게 조화를 이루고, 부드러운 풍미와 적당히 쓴맛이 어우러진 중성적인 커피로 향이 깊고 깔끔한 마일드 커피입니다.</p>
+                    <a href="index.html"><button class="signup-btn" onclick="saveCookie('guestCheck', 'True')">회원 가입 후 구매하러 가기</button></a>
+                </td>
+              </tr>
+              
+            </tbody>
+        </table>
+        <p class="login-text">이미 회원이신가요? <a href="index.html" onclick="saveCookie('guestCheck', 'True')">로그인하러 가기</a></p>
+    </div>
 
     <script src="static/js/survey.js"></script>
 </body>
