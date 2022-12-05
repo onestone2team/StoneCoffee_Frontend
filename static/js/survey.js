@@ -3,5 +3,4 @@ function saveCookie(name, value, unixTime){
     date.setTime(date.getTime() + unixTime*1000*60*60*24);
     console.log(date)
     document.cookie = encodeURIComponent(name) + '=' + encodeURIComponent(value) + ';expires=' + date.toUTCString() + ';path=/';
-    
 }
