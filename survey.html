@@ -14,7 +14,7 @@
 <body>
     <img class="logo-image"src="static/img/logo.png" alt="Coffee logo">
     
-    <div class="icon">
+    <div class="icon" id="icon">
         <div class="cup">
             <div class="coffee"></div>
         </div>
@@ -26,14 +26,75 @@
             <span>나</span><span>에</span><span>게</span><span> </span><span>맞</span><span>는</span><span> </span><span>커</span><span>피</span><span>는</span><span>?</span>
         </div>
         <br>
-        <a class="gradient-btn" href="#">설문조사 시작하기</a>
+        <a id="removeText1" class="gradient-btn" onclick="startSurvey()">설문조사 시작하기</a>
 
-        <p onclick="saveCookie('guestCheck', 'True', 1)">⊗ 오늘 하루 그만보기</p>
+        <p id="removeText2" onclick="saveCookie('guestCheck', 'True', 1)">⊗ 오늘 하루 그만보기</p>
     </div>
 
-    <div class="notView">
-        
+    <div class="notView scrollBar" id="showSurvey">
+        <table>
+            <tbody>
+              <tr>
+                <td>
+                    <p>선호하는 커피 당도</p>
+                    <div class="star-grade" name="sweet" id="sweet" method="post" action="./save">
+                        <fieldset>
+                            <input type="radio" name="sweet" value="5" id="sweet1"><label for="sweet1">☕</label>
+                            <input type="radio" name="sweet" value="4" id="sweet2"><label for="sweet2">☕</label>
+                            <input type="radio" name="sweet" value="3" id="sweet3"><label for="sweet3">☕</label>
+                            <input type="radio" name="sweet" value="2" id="sweet4"><label for="sweet4">☕</label>
+                            <input type="radio" name="sweet" value="1" id="sweet5"><label for="sweet5">☕</label>
+                        </fieldset>
+                    </div>
+                </td>
+              </tr>
+              <tr>
+                <td class="aromaform">
+                    <p>선호하는 커피의 향 정도</p>
+                    <div class="star-grade" name="aroma" id="aroma" method="post" action="./save">
+                        <fieldset>
+                            <input type="radio" name="aroma" value="5" id="aroma1"><label for="aroma1">☕</label>
+                            <input type="radio" name="aroma" value="4" id="aroma2"><label for="aroma2">☕</label>
+                            <input type="radio" name="aroma" value="3" id="aroma3"><label for="aroma3">☕</label>
+                            <input type="radio" name="aroma" value="2" id="aroma4"><label for="aroma4">☕</label>
+                            <input type="radio" name="aroma" value="1" id="aroma5"><label for="aroma5">☕</label>
+                        </fieldset>
+                    </div>
+                </td>
+              </tr>
+              <tr>
+                <td class="acidityform">
+                    <p>선호하는 커피의 신맛</p>
+                    <div class="star-grade" name="acidity" id="acidity" method="post" action="./save">
+                        <fieldset>
+                            <input type="radio" name="acidity" value="5" id="acidity1"><label for="acidity1">☕</label>
+                            <input type="radio" name="acidity" value="4" id="acidity2"><label for="acidity2">☕</label>
+                            <input type="radio" name="acidity" value="3" id="acidity3"><label for="acidity3">☕</label>
+                            <input type="radio" name="acidity" value="2" id="acidity4"><label for="acidity4">☕</label>
+                            <input type="radio" name="acidity" value="1" id="acidity5"><label for="acidity5">☕</label>
+                        </fieldset>
+                    </div>
+                </td>
+              </tr>
+              <tr>
+                <td class="balanceform">
+                    <p>선호하는 커피의 균형</p>
+                    <div class="star-grade" name="balance" id="balance" method="post" action="./save">
+                        <fieldset>
+                            <input type="radio" name="balance" value="5" id="balance1"><label for="balance1">☕</label>
+                            <input type="radio" name="balance" value="4" id="balance2"><label for="balance2">☕</label>
+                            <input type="radio" name="balance" value="3" id="balance3"><label for="balance3">☕</label>
+                            <input type="radio" name="balance" value="2" id="balance4"><label for="balance4">☕</label>
+                            <input type="radio" name="balance" value="1" id="balance5"><label for="balance5">☕</label>
+                        </fieldset>
+                    </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
     </div>
+    
+        <button class="sendSurvey" onclick="sendSurvey()">제출하기</button>
 
     <script src="static/js/survey.js"></script>
 </body>
