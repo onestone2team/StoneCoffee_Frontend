@@ -1,0 +1,197 @@
+<html lang="ko">
+  <head>
+    <title>StoneCoffee 고객센터</title>
+    <meta charset="utf-8">
+    <script src="http://www.dongsuh.co.kr/2017/lib/js/jquery.form.js" type="text/javascript"></script>
+    <link href="../static/css/sevicecenter.css" rel="stylesheet">
+    <!-- Font awesome -->
+    <link href="../static/css/font-awesome.css" rel="stylesheet">
+    <!-- Bootstrap -->
+    <link href="../static/css/bootstrap.css" rel="stylesheet">   
+    <!-- SmartMenus jQuery Bootstrap Addon CSS -->
+    <link href="../static/css/jquery.smartmenus.bootstrap.css" rel="stylesheet">
+    <!-- Product view slider -->
+    <link rel="stylesheet" type="text/css" href="../static/css/jquery.simpleLens.css">    
+    <!-- slick slider -->
+    <link rel="stylesheet" type="text/css" href="../static/css/slick.css">
+    <!-- price picker slider -->
+    <link rel="stylesheet" type="text/css" href="../static/css/nouislider.css">
+    <!-- Theme color -->
+    <link id="switcher" href="../static/css/theme-color/default-theme.css" rel="stylesheet">
+    <!-- Top Slider CSS -->
+    <link href="../static/css/sequence-theme.modern-slide-in.css" rel="stylesheet" media="all">
+
+    <!-- Main style sheet -->
+    <link href="../static/css/style.css" rel="stylesheet">    
+
+    <!-- Google Font -->
+    <link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
+  </head>
+  <body>
+    <header id="aa-header">
+   
+    </header>
+    <!-- / header section -->
+    <!-- menu -->
+    <section id="menu">
+      
+    </section>
+    <!-- s contentsWrap -->
+    <div id="contentsWrap" class=" bg-fff">
+      <!-- s:lnbWrap -->
+      <div id="lnbWrap">
+      </div>
+      <!-- //e:lnbWrap -->
+      <!-- s:contents -->
+      <div class="contents default-wrap">
+        <h2 class="tit-sub mb20 ta-c">고객문의</h2>
+        <p class="des-h2 ta-c mb60">고객의 작은 목소리 하나까지도 귀 기울이겠습니다</p>
+
+        <!-- s:customer -->
+        <div class="customer">
+          <p class="deco"><img src="http://www.dongsuh.co.kr/2017/images/common/bg_tit_wave.png" alt=""></p>
+          <div class="detail">
+            <p><span class="color-ef2e36">* </span>연락받으실 휴대폰 번호를 정확히 입력해주세요</p>
+            <p>* 주소변경 시 회원정보가 업데이트 됩니다</p>
+          </div>
+          <form name="doc_frm" id="doc_frm" method="post" enctype="multipart/form-data">
+            <table class="tb-form">
+              <caption>고객문의 - 이름, 이메일, 휴대폰번호, 주소, 상세내용, 파일첨부로 구성</caption>
+              <colgroup>
+                <col width="164px">
+                <col width="*">
+              </colgroup>
+              <tbody>
+                <tr>
+                  <th scope="row">구분</th>
+                  <td>
+                    <label for="adver" class="radio r-on"><input type="radio" name="gubun" id="adver" value="adver" checked="checked">광고</label>
+                    <label for="goods" class="radio"><input type="radio" name="gubun" id="goods" value="goods">제품</label>
+                    <label for="home" class="radio"><input type="radio" name="gubun" id="home" value="home">홈페이지</label>
+                    <label for="etc" class="radio"><input type="radio" name="gubun" id="etc" value="etc">기타</label>
+                    <label for="maxwell" class="radio"><input type="radio" name="gubun" id="maxwell" value="maxwell">웹진삶의향기</label>
+                  </td>
+                </tr>
+                <tr>
+                  <th scope="row">이름</th>
+                  <td>
+                    <input type="text" name="name" id="name" value="" class="input-name" title="이름 입력">
+                  </td>
+                </tr>
+                <tr>
+                  <th scope="row">이메일</th>
+                  <td>
+                    <input type="text" name="email1" id="email1" value="" title="이메일 아이디" class="input-email-id fl-l" >
+                    <span class="separation fl-l">@</span>
+                    <input type="text" name="email2" id="email2" value="" title="이메일 주소" class="input-domain fl-l">
+                    <div class="select-wrap type3 select-domain fl-l">
+                      <select class="" name="email_domain" onChange="Email_Sel(this)">
+                        <option value="">직접입력</option>
+                        <option value="chol.com">chol.com</option>
+                        <option value="daum.net">daum.net</option>
+                        <option value="dreamwiz.com">dreamwiz.com</option>
+                        <option value="empal.com">empal.com</option>
+                        <option value="freechal.com">freechal.com</option>
+                        <option value="hanafos.com">hanafos.com</option>
+                        <option value="hotmail.com">hotmail.com</option>
+                        <option value="intizen.com">intizen.com</option>
+                        <option value="kebi.com">kebi.com</option>
+                        <option value="korea.com">korea.com</option>
+                        <option value="lycos.co.kr">lycos.co.kr</option>
+                        <option value="nate.com">nate.com</option>
+                        <option value="naver.com">naver.com</option>
+                        <option value="paran.com">paran.com</option>
+                        <option value="yahoo.co.kr">yahoo.co.kr</option>
+                      </select>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <th scope="row"><span class="color-ef2e36">* </span>휴대폰번호</th>
+                  <td>
+                    <input type="text" name="tel1" id="tel1" value="" maxlength="3" title="휴대폰번호 첫째자리 입력" class="input-mobile">
+                    <span class="separation">-</span>
+                    <input type="text" name="tel2" id="tel2" value="" maxlength="4" title="휴대폰번호 중간자리 입력" class="input-mobile">
+                    <span class="separation">-</span>
+                    <input type="text" name="tel3" id="tel3" value="" maxlength="4" title="휴대폰번호 끝자리 입력" class="input-mobile">
+                  </td>
+                </tr>
+                <tr>
+                  <th scope="row">주소</th>
+                  <td>
+                    <div class="mb20">
+                      <button type="button" name="button" class="btn-cs-common" onclick="searchPostCode()">우편번호</button>
+                      <input type="text" name="zip" id="zip" value="" readonly title="우편번호" class="fl-l" onclick="searchPostCode();">
+                      <span class="des">*상세주소는 직접 입력해 주세요</span>
+                      <p class="mt30 mb15 color-848484">도로명 주소</p>
+                      <input type="text" name="addr1" id="addr1" value="" readonly title="주소 입력" class="input-address" onclick="searchPostCode()">
+                      <input type="text" name="addr2" id="addr2" value="" title="상세 주소 입력" class="input-address" placeholder="상세주소를 입력해주세요">
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <th scope="row">상세내용</th>
+                  <td>
+                    <textarea name="con" id="con" rows="8" cols="80" class="textarea-detail"></textarea>
+                  </td>
+                </tr>
+                <tr>
+                  <th scope="row">파일첨부</th>
+                  <td>
+                    <div class="file-wrap of-hi">
+                      <input type="text" id="fileName" class="input-file-textbox fl-l" readonly="readonly">
+                      <span class="btn file fl-l">파일선택</span>
+                      <input type="file" name="fname" id="fname" class="input-file-hidden" onchange="javascript:document.getElementById('fileName').value = this.value">
+                    </div>
+                    <p class="mt25">*사진,이미지파일 (JPG,GIF,PNG) 만 첨부 가능하며 파일사이즈는 1.5mb이하로 해주시기 바랍니다</p>
+                  </td>
+                </tr>
+                <tr>
+                  <td colspan="2" class="ta-c">
+                    <label for="agree" class="check c-on" id="agreeWrap"><input type="checkbox" name="persnal-agree" id="agree" value="" checked="checked">개인정보정책에 동의합니다</label>
+                    <p class="agree-comment mt15">
+                      동서식품(주)은 고객님의 개인정보를 중요시하고 있습니다.<br>이용을 위하여 개인정보취급방침에 동의해주세요.
+                    </p>
+                  </td>
+                </tr>
+                <tr>
+                  <th scope="row">개인정보 취급방침</th>
+                  <td>
+                    <div class="persnal-wrap">
+                      <ul>
+                        <li>
+                          <strong>개인정보의 수집 및 이용목적</strong><br>
+                          ‘고객문의’, 제품아이디어, 제품 불편사항 서비스를 이용하시고자 할 경우, 해당 서비스를 위한 최소한의 개인정보만을 수집합니다.
+                        </li>
+                        <li>
+                          <strong>수집하는 개인정보의 항목</strong><br>
+                          이름, 주소, 전화번호, 이메일<br>
+                          단, 이용자의 기본적 인권 침해의 우려가 있는 민감한 개인정보 (인종 및 민족, 사상 및 신조, 출신지 및 본적지, 정치적 성향 및 범죄기록,
+                          건강상태 및 성생활 등)는 수집하지 않습니다.
+                        </li>
+                        <li>
+                          <strong>개인정보의 보유 및 이용기간</strong><br>
+                          수집된 개인정보 보유기간은 부정 제보 신고 후 삭제 요청 때까지 입니다. 또한 삭제 시 회원님의 개인정보는 재생이 불가능한 방법으로 즉시 파기합니다.
+                        </li>
+                      </ul>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </form>
+        </div>
+        <!-- //e:customer -->
+        <div class="tb-form-confirm">
+          <a href="javascript:goCheck();" class="btn big bg-ed1c24">확인</a>
+        </div>
+      </div>
+      <!-- //e:contents -->			      
+    </div>
+    <!-- //e: contentsWrap -->
+   </body>
+   <script src="../static/js/includeHTML.js"></script>
+   <script src="../static/js/servicecenter.js"></script>
+   
+</html>
