@@ -1,25 +1,41 @@
 var check = false;
 
+function cartlist() {
+
+    const response = fetch(`${BACK_END_URL}/product/cart/`, {
+        headers: {
+            "content-type": "applycation/son",
+            "Authorization": "Bearer " + localStorage.getItem("access"),
+        },
+        method: "GET"
+    })
+    cart_data = response.json()
+    cart_frame = document.getElementById('cart')
+    cart_data.foreach(element => {
+        const cart = document.createElement('div')
+        cart.setAttribute("class", product)
+
+        // const weight = element.weight
+        // const price = element.price *
+    })
+}
+
 function changeVal(el) {
     var qt = parseFloat(el.parent().children(".qt").html());
     var price = parseFloat(el.parent().children(".price").html());
     var eq = Math.round(price * qt * 100) / 100;
-
-    el.parent().children(".full-price").html(eq + "€");
-
+    el.parent().children(".full-price").html(eq + "원");
     changeTotal();
 }
 
 function changeTotal() {
 
     var price = 0;
-
     $(".full-price").each(function (index) {
         price += parseFloat($(".full-price").eq(index).html());
     });
 
-    price = Math.round(price * 100) / 100;
-    var tax = Math.round(price * 0.05 * 100) / 100
+    price = Math.round(price * 100);
     var shipping = parseFloat($(".shipping span").html());
     var fullPrice = Math.round((price + tax + shipping) * 100) / 100;
 
@@ -27,7 +43,7 @@ function changeTotal() {
         fullPrice = 0;
     }
 
-    $(".subtotal span").html(price);
+    $(".total span").html(price);
     $(".tax span").html(tax);
     $(".total span").html(fullPrice);
 }
@@ -55,9 +71,7 @@ $(document).ready(function () {
 
     $(".qt-plus").click(function () {
         $(this).parent().children(".qt").html(parseInt($(this).parent().children(".qt").html()) + 1);
-
         $(this).parent().children(".full-price").addClass("added");
-
         var el = $(this);
         window.setTimeout(function () { el.parent().children(".full-price").removeClass("added"); changeVal(el); }, 150);
     });
@@ -65,21 +79,56 @@ $(document).ready(function () {
     $(".qt-minus").click(function () {
 
         child = $(this).parent().children(".qt");
-
         if (parseInt(child.html()) > 1) {
             child.html(parseInt(child.html()) - 1);
         }
-
         $(this).parent().children(".full-price").addClass("minused");
-
         var el = $(this);
         window.setTimeout(function () { el.parent().children(".full-price").removeClass("minused"); changeVal(el); }, 150);
     });
 
     window.setTimeout(function () { $(".is-open").removeClass("is-open") }, 1200);
-
     $(".btn").click(function () {
         check = true;
         $(".remove").click();
     });
 });
+
+
+
+{/* <article class="product">
+    <header>
+        <a class="remove">
+            <img src="http://www.astudio.si/preview/blockedwp/wp-content/uploads/2012/08/3.jpg" alt=""/>
+
+                <h3>Remove product</h3>
+        </a>
+    </header>
+
+    <div class="content">
+
+        <h1>Lorem ipsum dolor</h1>
+
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Soluta, numquam quis perspiciatis ea ad
+        omnis
+        provident laborum dolore in atque.
+
+        <div title="You have selected this product to be shipped in the color red." style="top: 0"
+            class="color red"></div>
+        <div title="You have selected this product to be shipped sized Small." style="top: 43px"></div>
+    </div>
+    <footer class="content">
+
+        <span class="qt-minus">-</span>
+        <span class="qt">1</span>
+        <span class="qt-plus">+</span>
+
+        <h2 class="full-price">
+
+        </h2>
+
+        <h2 class="price">
+
+        </h2>
+    </footer>
+</article>  */}
