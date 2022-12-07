@@ -1,0 +1,25 @@
+@charset "UTF-8";
+
+li {
+  font-size: 30px;
+  border: 1px solid #000;
+  list-style: none;
+  display: inline-block;
+  padding: 4px 20px;
+}
+
+div#insAfter {
+  border: 3px solid #08f;
+  margin: 20px 160px;
+  width: 88px;
+  padding: 4px;
+  overflow: hidden;
+}
+
+div > ul {
+  width: 300px;
+  padding: 0;
+  border: 3px solid #f30;
+  margin: 0;
+  position: relative;
+}

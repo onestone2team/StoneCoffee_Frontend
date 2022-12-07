@@ -55,7 +55,7 @@ productinformation2.appendChild(productinformations2)
         
 async function cart() {
     
-    const response = await fetch(`${BACK_END_URL}/product/${product_id}/cart/`, {
+    const response = await fetch(`${BACK_END_URL}/product/cart/`, {
         headers: {
             "content-type": "application/json",
             // "Authorization": "Bearer " + localStorage.getItem("access")

@@ -34,9 +34,6 @@ async function show_product_list() {
                     <span class="aa-product-price">${data["data"]["coffee"][i]["price"]}원</span><span class="aa-product-price"></span>
                 </figcaption>
             </figure>                        
-                <div class="aa-product-hvr-content">           
-                <a class="aa-add-to-cart-btn"onclick="like()">좋아요</a>
-                </div>
           </li>`
             products.appendChild(product)
         }
