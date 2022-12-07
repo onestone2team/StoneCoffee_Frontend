@@ -11,8 +11,11 @@ window.onload = async function ProductDetail() {
     //     alert("권한이 없습니다. 로그인 해주세요")
     //     location.replace("../index.html")
     // }
+    // data["data"]["coffee"]["0"]["product_name"]
+    console.log(product_id)
+    console.log(product_id1)
 
-    const product = await fetch(`${BACK_END_URL}/product/${product_id}/view/ `, {
+    const product = await fetch(`${BACK_END_URL}/product/detail/?product_id=${product_id} `, {
         headers: {
             'content-type': 'application/json',
             // "Authorization": "Bearer " + localStorage.getItem("access")
@@ -23,26 +26,27 @@ window.onload = async function ProductDetail() {
 
 //========제품 정보 불러오기========
     product_json = await product.json()
+    console.log(product_json.products["id"])
     console.log(product_json)
     const product_image = document.getElementById("productimage")
-    product_image.setAttribute("src", `${BACK_END_URL}${product_json.image}`)
+    product_image.setAttribute("src", `${BACK_END_URL}${product_json.products["image"]}`)
 //이름,가격불러오는 코드
     productinformation=document.getElementById('productinformation')
     const productinformations = document.createElement('p')
-    productinformation.innerHTML=`<h3>${product_json.name}</h3>
+    productinformation.innerHTML=`<h3>${product_json.products["product_name"]}</h3>
     <div class="aa-price-block">
-      <span class="aa-product-view-price">가격:${product_json.price}</span>
-      <li class="aa-product-view-price">향${product_json.aroma_grade}</li>
-      <li class="aa-product-view-price">당도${product_json.sweet_grade}</li>
-      <li class="aa-product-view-price">산도${product_json.acidity_grade}</li>
-      <li class="aa-product-view-price">무게감${product_json.body_grade}</li>
+      <span class="aa-product-view-price">가격:${product_json.products["price"]}</span>
+      <li class="aa-product-view-price">향${product_json.products["aroma_grade"]}</li>
+      <li class="aa-product-view-price">당도${product_json.products["sweet_grade"]}</li>
+      <li class="aa-product-view-price">산도${product_json.products["acidity_grade"]}</li>
+      <li class="aa-product-view-price">무게감${product_json.products["body_grade"]}</li>
     </div>
     </p>`
     productinformation.appendChild(productinformations)
 //상품 내용 description
 productinformation2=document.getElementById('description')
 const productinformations2 = document.createElement('p')
-productinformation2.innerHTML=`<h3>${product_json.content}</h3>`
+productinformation2.innerHTML=`<h3>${product_json.products["content"]}</h3>`
 productinformation2.appendChild(productinformations2)
 }
 
