@@ -1,109 +1,93 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
+
+<head>
+    <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">    
-    <title>Daily Shop | Cart Page</title>
-    
-    <!-- Font awesome -->
-    <link href="../css/font-awesome.css" rel="stylesheet">
-    <!-- Bootstrap -->
-    <link href="../css/bootstrap.css" rel="stylesheet">   
-    <!-- SmartMenus jQuery Bootstrap Addon CSS -->
-    <link href="../css/jquery.smartmenus.bootstrap.css" rel="stylesheet">
-    <!-- Product view slider -->
-    <link rel="stylesheet" type="text/css" href="../css/jquery.simpleLens.css">    
-    <!-- slick slider -->
-    <link rel="stylesheet" type="text/css" href="../css/slick.css">
-    <!-- price picker slider -->
-    <link rel="stylesheet" type="text/css" href="../css/nouislider.css">
-    <!-- Theme color -->
-    <link id="switcher" href="../css/theme-color/default-theme.css" rel="stylesheet">
-    <!-- Top Slider CSS -->
-    <link href="../css/sequence-theme.modern-slide-in.css" rel="stylesheet" media="all">
-
-    <!-- Main style sheet -->
-    <link href="../css/style.css" rel="stylesheet">    
-
-    <!-- Google Font -->
-    <link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
-    <link href='https://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>stone coffee</title>
+    <link rel="stylesheet" type="text/css" href="/css/cart.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 </head>
 
 <body>
-    <header id="aa-header">
-    </header>
-    <div class="container">
-
-        <section id="cart">
-
-            <article class="product">
-                <header>
-                    <a class="remove">
-                        <img src="http://www.astudio.si/preview/blockedwp/wp-content/uploads/2012/08/5.jpg" alt="">
-
-                        <h3>Remove product</h3>
-                    </a>
-                </header>
-
-                <div class="content">
-
-                    <h1>Lorem ipsum dolor ipsdu</h1>
-
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Soluta, numquam quis perspiciatis ea ad
-                    omnis provident laborum dolore in atque.
-
+    <html lang="en">
+        <main>
+            <div class="basket">
+                <div class="basket-labels">
+                    <ul>
+                        <li class="item item-heading">Item</li>
+                        <li class="price">Price</li>
+                        <li class="quantity">Quantity</li>
+                        <li class="subtotal">Subtotal</li>
+                    </ul>
                 </div>
-
-                <footer class="content">
-
-                    <span class="qt-minus">-</span>
-                    <span class="qt">3</span>
-                    <span class="qt-plus">+</span>
-                    <div>
-                        <!-- div *just* for simple centering -->
-                        <select name='options'>
-                            <option value='300'>300g</option>
-                            <option value='500'>500g</option>
-                        </select>
+                <div class="basket-product">
+                    <div class="item">
+                        <div class="product-image">
+                            <img src="http://placehold.it/120x166" alt="Placholder Image 2" class="product-frame">
+                        </div>
+                        <div class="product-details">
+                            <h1><strong><span class="item-quantity">4</span> x Eliza J</strong> Lace Sleeve Cuff Dress
+                            </h1>
+                            <p><strong>Navy, Size 18</strong></p>
+                            <p>Product Code - 232321939</p>
+                        </div>
                     </div>
-                    <h2 class="full-price">
-                        53.99€
-                    </h2>
+                    <div class="price">15000원</div>
+                    <div class="quantity">
+                    <div class="count">4</div>
+                    </div>
+                    <div class="subtotal">15000원</div>
+                    <div class="remove">
+                        <button>Remove</button>
+                    </div>
+                </div>
+                <div class="basket-product">
+                    <div class="item">
+                        <div class="product-image">
+                            <img src="http://placehold.it/120x166" alt="Placholder Image 2" class="product-frame">
+                        </div>
+                        <div class="product-details">
+                            <h1><strong><span class="item-quantity"></span> 케냐 AA</strong>
+                            </h1>
+                            <p><strong>300g</strong></p>
+                            <p>2022-12-08</p>
+                        </div>
+                    </div>
+                    <div class="price">26.00원</div>
+                    <div class="quantity">
+                    <div class="count">4</div>
 
-                    <h2 class="price">
-                        17.99€
-                    </h2>
-                </footer>
-            </article>
-        </section>
-
-    </div>
-
-    <div id="site-footer">
-        <div class="container clearfix">
-
-            <div class="left">
-                <h2 class="subtotal">Total: <span>163.96</span>원</h2>
-                <h3 class="tax">배송비 : <span>3000</span></h3>
-                <h4 class="shipping"><span>30000원 이상 배송비 무료</span>
+                    </div>
+                    <div class="subtotal">26.00원</div>
+                    <div class="remove">
+                        <button>Remove</button>
+                    </div>
+                </div>
             </div>
-
-            <div class="right">
-                <h1 class="total"><span></span>원</h1>
-                <a class="btn">결제하기</a>
-            </div>
-
-        </div>
-    </div>
-    <footer id="aa-footer">
-
-    </footer>
-    <script src="/js/cart.js"></script>
+            <aside>
+                <div class="summary">
+                    <div class="summary-total-items"><span class="total-items"></span> Items in your Bag</div>
+                    <div class="summary-subtotal">
+                        <div class="subtotal-title">Subtotal</div>
+                        <div class="subtotal-value final-value" id="basket-subtotal">130.00</div>
+                    </div>
+                    <div class="summary-subtotal">
+                        <div class="subtotal-title">배달비</div>
+                        <div class="subtotal-value final-value" id="basket-subtotal">3000</div>
+                    </div>
+                    <div class="summary-total">
+                        <div class="total-title">Total</div>
+                        <div class="total-value final-value" id="basket-total">130.00</div>
+                    </div>
+                    <div class="summary-checkout">
+                        <button class="checkout-cta">결재하기</button>
+                    </div>
+                </div>
+            </aside>
+        </main>
     <script src="/js/all_data.js"></script>
-    <script src="/includeHTML.js"></script>
-
+    <script src="/js/cart.js"></script>
 </body>
-
 </html>

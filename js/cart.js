@@ -1,7 +1,8 @@
-var check = false;
+var promoCode;
+var promoPrice;
+var fadeTime = 300;
 
 function cartlist() {
-
     const response = fetch(`${BACK_END_URL}/product/cart/`, {
         headers: {
             "content-type": "applycation/son",
@@ -20,115 +21,123 @@ function cartlist() {
     })
 }
 
-function changeVal(el) {
-    var qt = parseFloat(el.parent().children(".qt").html());
-    var price = parseFloat(el.parent().children(".price").html());
-    var eq = Math.round(price * qt * 100) / 100;
-    el.parent().children(".full-price").html(eq + "원");
-    changeTotal();
-}
-
-function changeTotal() {
-
-    var price = 0;
-    $(".full-price").each(function (index) {
-        price += parseFloat($(".full-price").eq(index).html());
-    });
-
-    price = Math.round(price * 100);
-    var shipping = parseFloat($(".shipping span").html());
-    var fullPrice = Math.round((price + tax + shipping) * 100) / 100;
-
-    if (price == 0) {
-        fullPrice = 0;
-    }
-
-    $(".total span").html(price);
-    $(".tax span").html(tax);
-    $(".total span").html(fullPrice);
-}
-
-$(document).ready(function () {
-
-    $(".remove").click(function () {
-        var el = $(this);
-        el.parent().parent().addClass("removed");
-        window.setTimeout(
-            function () {
-                el.parent().parent().slideUp('fast', function () {
-                    el.parent().parent().remove();
-                    if ($(".product").length == 0) {
-                        if (check) {
-                            $("#cart").html("<h1>The shop does not function, yet!</h1><p>If you liked my shopping cart, please take a second and heart this Pen on <a href='https://codepen.io/ziga-miklic/pen/xhpob'>CodePen</a>. Thank you!</p>");
-                        } else {
-                            $("#cart").html("<h1>No products!</h1>");
-                        }
-                    }
-                    changeTotal();
-                });
-            }, 200);
-    });
-
-    $(".qt-plus").click(function () {
-        $(this).parent().children(".qt").html(parseInt($(this).parent().children(".qt").html()) + 1);
-        $(this).parent().children(".full-price").addClass("added");
-        var el = $(this);
-        window.setTimeout(function () { el.parent().children(".full-price").removeClass("added"); changeVal(el); }, 150);
-    });
-
-    $(".qt-minus").click(function () {
-
-        child = $(this).parent().children(".qt");
-        if (parseInt(child.html()) > 1) {
-            child.html(parseInt(child.html()) - 1);
-        }
-        $(this).parent().children(".full-price").addClass("minused");
-        var el = $(this);
-        window.setTimeout(function () { el.parent().children(".full-price").removeClass("minused"); changeVal(el); }, 150);
-    });
-
-    window.setTimeout(function () { $(".is-open").removeClass("is-open") }, 1200);
-    $(".btn").click(function () {
-        check = true;
-        $(".remove").click();
-    });
+/* Assign actions */
+$('.quantity input').change(function () {
+    updateQuantity(this);
 });
 
+$('.remove button').click(function () {
+    removeItem(this);
+});
 
+$(document).ready(function () {
+    updateSumItems();
+});
 
-{/* <article class="product">
-    <header>
-        <a class="remove">
-            <img src="http://www.astudio.si/preview/blockedwp/wp-content/uploads/2012/08/3.jpg" alt=""/>
+$('.promo-code-cta').click(function () {
 
-                <h3>Remove product</h3>
-        </a>
-    </header>
+    promoCode = $('#promo-code').val();
 
-    <div class="content">
+    if (promoCode == '10off' || promoCode == '10OFF') {
+        //If promoPrice has no value, set it as 10 for the 10OFF promocode
+        if (!promoPrice) {
+            promoPrice = 10;
+        } else if (promoCode) {
+            promoPrice = promoPrice * 1;
+        }
+    } else if (promoCode != '') {
+        alert("Invalid Promo Code");
+        promoPrice = 0;
+    }
+    //If there is a promoPrice that has been set (it means there is a valid promoCode input) show promo
+    if (promoPrice) {
+        $('.summary-promo').removeClass('hide');
+        $('.promo-value').text(promoPrice.toFixed(2));
+        recalculateCart(true);
+    }
+});
 
-        <h1>Lorem ipsum dolor</h1>
+/* Recalculate cart */
+function recalculateCart(onlyTotal) {
+    var subtotal = 0;
 
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Soluta, numquam quis perspiciatis ea ad
-        omnis
-        provident laborum dolore in atque.
+    /* Sum up row totals */
+    $('.basket-product').each(function () {
+        subtotal += parseFloat($(this).children('.subtotal').text());
+    });
 
-        <div title="You have selected this product to be shipped in the color red." style="top: 0"
-            class="color red"></div>
-        <div title="You have selected this product to be shipped sized Small." style="top: 43px"></div>
-    </div>
-    <footer class="content">
+    /* Calculate totals */
+    var total = subtotal;
 
-        <span class="qt-minus">-</span>
-        <span class="qt">1</span>
-        <span class="qt-plus">+</span>
+    //If there is a valid promoCode, and subtotal < 10 subtract from total
+    var promoPrice = parseFloat($('.promo-value').text());
+    if (promoPrice) {
+        if (subtotal >= 10) {
+            total -= promoPrice;
+        } else {
+            alert('Order must be more than £10 for Promo code to apply.');
+            $('.summary-promo').addClass('hide');
+        }
+    }
 
-        <h2 class="full-price">
+    /*If switch for update only total, update only total display*/
+    if (onlyTotal) {
+        /* Update total display */
+        $('.total-value').fadeOut(fadeTime, function () {
+            $('#basket-total').html(total.toFixed(2));
+            $('.total-value').fadeIn(fadeTime);
+        });
+    } else {
+        /* Update summary display. */
+        $('.final-value').fadeOut(fadeTime, function () {
+            $('#basket-subtotal').html(subtotal.toFixed(2));
+            $('#basket-total').html(total.toFixed(2));
+            if (total == 0) {
+                $('.checkout-cta').fadeOut(fadeTime);
+            } else {
+                $('.checkout-cta').fadeIn(fadeTime);
+            }
+            $('.final-value').fadeIn(fadeTime);
+        });
+    }
+}
 
-        </h2>
+/* Update quantity */
+function updateQuantity(quantityInput) {
+    /* Calculate line price */
+    var productRow = $(quantityInput).parent().parent();
+    var price = parseFloat(productRow.children('.price').text());
+    var quantity = $(quantityInput).val();
+    var linePrice = price * quantity;
 
-        <h2 class="price">
+    /* Update line price display and recalc cart totals */
+    productRow.children('.subtotal').each(function () {
+        $(this).fadeOut(fadeTime, function () {
+            $(this).text(linePrice.toFixed(2));
+            recalculateCart();
+            $(this).fadeIn(fadeTime);
+        });
+    });
 
-        </h2>
-    </footer>
-</article>  */}
+    productRow.find('.item-quantity').text(quantity);
+    updateSumItems();
+}
+
+function updateSumItems() {
+    var sumItems = 0;
+    $('.quantity input').each(function () {
+        sumItems += parseInt($(this).val());
+    });
+    $('.total-items').text(sumItems);
+}
+
+/* Remove item from cart */
+function removeItem(removeButton) {
+    /* Remove row from DOM and recalc cart total */
+    var productRow = $(removeButton).parent().parent();
+    productRow.slideUp(fadeTime, function () {
+        productRow.remove();
+        recalculateCart();
+        updateSumItems();
+    });
+}

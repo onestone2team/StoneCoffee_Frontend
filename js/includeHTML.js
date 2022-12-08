@@ -1,10 +1,10 @@
-fetch(`../index.html`)
-  .then(response => {
-    return response.text()
-  })
-  .then(data => {
-    document.querySelector("header").innerHTML = 
-    `<!-- start header top  -->
+fetch(`/index.html`)
+    .then(response => {
+        return response.text()
+    })
+    .then(data => {
+        document.querySelector("header").innerHTML =
+            `<!-- start header top  -->
     <div class="aa-header-top">
       <div class="container">
         <div class="row">
@@ -97,13 +97,13 @@ fetch(`../index.html`)
     <!-- / header bottom  -->
 
 `;
-  });
-  fetch(`../index.html`)
-  .then(response => {
-    return response.text()
-  })
-  .then(data => {
-    document.querySelector("section").innerHTML = `
+    });
+fetch(`../index.html`)
+    .then(response => {
+        return response.text()
+    })
+    .then(data => {
+        document.querySelector("section").innerHTML = `
     <div class="container">
       <div class="menu-area">
         <!-- Navbar -->
@@ -232,14 +232,14 @@ fetch(`../index.html`)
       </div>       
     </div>
     `;
-  });
+    });
 
-  fetch(`../index.html`)
-  .then(response => {
-    return response.text()
-  })
-  .then(data => {
-    document.querySelector("section1").innerHTML = `<div class="container">
+fetch(`../index.html`)
+    .then(response => {
+        return response.text()
+    })
+    .then(data => {
+        document.querySelector("section1").innerHTML = `<div class="container">
                                                         <div class="row">
                                                           <div class="col-md-12">
                                                             <div class="aa-client-brand-area">
@@ -260,15 +260,15 @@ fetch(`../index.html`)
                                                           </div>
                                                         </div>
                                                       </div>`;
-  });
+    });
 
 fetch(`../index.html`)
-  .then(response => {
-    return response.text()
-  })
-  .then(data => {
-    document.querySelector("footer").innerHTML = 
-    `<!-- footer bottom -->
+    .then(response => {
+        return response.text()
+    })
+    .then(data => {
+        document.querySelector("footer").innerHTML =
+            `<!-- footer bottom -->
       <div class="aa-footer-top">
        <div class="container">
           <div class="row">
@@ -357,4 +357,4 @@ fetch(`../index.html`)
         </div>
         </div>
       </div>`;
-  });
+    });
