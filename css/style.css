@@ -24,6 +24,9 @@ a {
   transition: all 0.5s ease 0s;
 }
 /* 맨오른쪽 위 위치 고정 */
+#fixheader {
+  position: fixed;
+}
 #aa-header .aa-header-top .aa-header-top-right {
   float: right;
 }
@@ -244,6 +247,7 @@ a {
   background: #fff none repeat scroll 0 0;
   float: left;
   margin-left: 35px;
+  margin-top: 35px;
   text-align: center;
   width: 17%;
 }
@@ -271,9 +275,12 @@ a {
 #aa-footer .aa-footer-top .aa-footer-top-area .aa-footer-widget h3 {
   color: #fff;
 }
+#aa-footer .aa-footer-top .aa-footer-top-area .aa-footer-widget li a {
+  color: #fff;
+}
 /* 풋터 작은글씨 색 */
-#aa-footer .aa-footer-top .aa-footer-top-area .aa-footer-widget .aa-footer-nav li a {
-  color: #888;
+#aa-footer .aa-footer-top .aa-footer-top-area .aa-footer-widget .aa-footer-nav li {
+  color: rgb(235, 225, 225);
   -webkit-transition: all 0.5s;
   -moz-transition: all 0.5s;
   -ms-transition: all 0.5s;

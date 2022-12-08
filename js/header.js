@@ -4,7 +4,7 @@ fetch(` `)
   })
   .then(data => {
     document.querySelector("header").innerHTML = 
-    `<!-- start header top  -->
+    `
     <div class="aa-header-top">
       <div class="container">
         <div class="row">
@@ -38,58 +38,26 @@ fetch(` `)
           <div class="col-md-12">
             <div class="aa-header-bottom-area">
               <!-- logo  -->
-              <div class="aa-logo">
+              <div class="aa-logo" padding="30px">
                 <a href="main.html">
-                  <p>STONE<strong>COFFEE</strong> <span>Your Shopping Partner</span></p>
-                </a>
-                
-              </div>
-              <div class="aa-cartbox">
-                <div class="aa-cartbox-summary">
-                  <ul>
-                    <li>
-                      <a class="aa-cartbox-img" href="#"><img src="../img/wom an-small-2.jpg" alt="img"></a>
-                      <div class="aa-cartbox-info">
-                        <h4><a href="#">Product Name</a></h4>
-                        <p>1 x $250</p>
-                      </div>
-                      <a class="aa-remove-product" href="#"><span class="fa fa-times"></span></a>
-                    </li>
-                    <li>
-                      <a class="aa-cartbox-img" href="#"><img src="../img/woman-small-1.jpg" alt="img"></a>
-                      <div class="aa-cartbox-info">
-                        <h4><a href="#">Product Name</a></h4>
-                        <p>1 x $250</p>
-                      </div>
-                      <a class="aa-remove-product" href="#"><span class="fa fa-times"></span></a>
-                    </li>                    
-                    <li>
-                      <span class="aa-cartbox-total-title">
-                        Total
-                      </span>
-                      <span class="aa-cartbox-total-price">
-                        $500
-                      </span>
-                    </li>
-                  </ul>
-                  <a class="aa-cartbox-checkout aa-primary-btn" href="checkout.html">Checkout</a>
-                </div>
+                 <p>STONE<strong>COFFEE</strong> <span>Your Shopping Partner</span></p>
+                <!-- <img src="../img/logo.png"  height="250px" width="250px"  >--!>
+                </a>               
               </div>
               <!-- / cart box -->
               <!-- search box -->
               <div class="aa-search-box">
                 <form action="">
                   <input type="text" name="" id="" placeholder="검색할 상품명을 입력해주세요.">
-                  <button type="submit"><span class="fa fa-search"></span></button>
+                  <button type="submit"><span class="fa fa-search">검색 </span></button>
                 </form>
-              </div>
-              <!-- / search box -->             
+              </div>           
             </div>
           </div>
         </div>
       </div>
     </div>
-    <!-- / header bottom  -->
+ 
 
 `;
   });
