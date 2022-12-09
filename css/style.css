@@ -292,3 +292,7 @@ a {
   margin-bottom: 5px;
   color: #888;
 }
+.pagination-style{
+  position: absolute;
+  right: 50%;
+}

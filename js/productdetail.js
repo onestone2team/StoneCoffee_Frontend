@@ -41,11 +41,26 @@ window.onload = async function ProductDetail() {
     </div>
     </p>`
     productinformation.appendChild(productinformations)
-    //상품 내용 description 
+
+    //상품 내용 descri  ption 
     productinformation2=document.getElementById('description')
     const productinformations2 = document.createElement('p')
     productinformation2.innerHTML=`<h3>${product_json.products["content"]}</h3>`
     productinformation2.appendChild(productinformations2)
+    // 추천 상품
+    for (i = 0; i < 6; i++) {
+        recommend=document.getElementById('recommend')
+        const recommends = document.createElement('div')
+        recommends.setAttribute("class", `divrecommend`)
+        recommends.setAttribute("style", `float: left;width: 250px;`)
+        const recommend_image = document.getElementById("recommendimage")
+        recommends.innerHTML=`<ui id="header_navi"><li text-align : center;>
+        <a href="product-detail.html?product_id=${product_json.recommend[i]["id"]}/"><img  src="${BACK_END_URL}${product_json.recommend[i]["image"]}" ></a>
+        <span>${product_json.recommend[i]["product_name"]}</span></li></ui>`
+        
+        recommend.appendChild(recommends)
+    }
+
 }
 
 

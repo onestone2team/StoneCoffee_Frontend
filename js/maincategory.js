@@ -3,7 +3,7 @@ window.addEventListener('load', function() {
 });
 const urlparams = new URLSearchParams(window.location.search);
 const category_id= urlparams.get('id')
-console.log(category_id)
+// console.log(category_id)
 
 async function show_product_list() {
     const response = await fetch(`${BACK_END_URL}/product/category/?category_id=${category_id}`, {
@@ -19,14 +19,14 @@ async function show_product_list() {
         return response.json();
     })
     .then(data => {
-        console.log(data)
+        // console.log(data)
         var products = document.getElementById("products");
         // $("#products").empty();
         for (i = 0; i < 8; i++) {
             const product = document.createElement('p')
             // product.setAttribute("class", "aa-product-catg","style","max-width: 150; height: 150;")
-            console.log(category_id)
-            console.log(data["data"][0]["id"])
+            // console.log(category_id)
+            // console.log(data["data"][0]["id"])
             product.innerHTML = `<li>
             <figure>
               <a  id="img" class="aa-product-img" href="product-detail.html?product_id=${data["data"][i]["id"]}/"><img style="max-width: 100%; height: 100%;" src="${BACK_END_URL}${data["data"][i]["image"]}" alt="${data["data"][i]["id"]}"></a>
@@ -39,6 +39,7 @@ async function show_product_list() {
             </figure>                        
           </li>`
             products.appendChild(product)
+            total_page = data["max_page"]
         }
 
     })
@@ -85,4 +86,18 @@ async function like() {
         }
     
    
+}
+function pageNext1() {
+    console.log(total_page)
+    if (pageNum > 0 && pageNum < total_page) {
+        ++pageNum
+        show_product_list()
+    }
+}
+
+function pagePreview1() {
+    if (pageNum > 1) {
+        --pageNum
+        show_product_list()
+    }
 }
