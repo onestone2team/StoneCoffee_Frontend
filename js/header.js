@@ -72,25 +72,20 @@ fetch(` `)
         <!-- Navbar -->
         <div class="navbar navbar-default" role="navigation">
           <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-              <span class="sr-only">Toggle navigation</span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-            </button>          
+          
           </div>
           <div class="navbar-collapse collapse">
             <!-- Left nav -->
             <ul class="nav navbar-nav">
               <li><a href="main.html">Home</a></li>
-              <li><a href="#">원두 전체보기</a> 
+              <li><a href="mainAll.html?id=1" >원두 전체보기</a> 
               </li>
-              <li><a href="#">바디감</a>
+              <li><a href="mainbody.html?id=4" vlaue=4,category_id=4>바디감</a>
               </li>
-              <li><a href="#">산미 </a>
+              <li><a href="mainacidy.html?id=5" vlaue=4,category_id=4>산미 </a>
               </li>
-              <li><a href="#">커피 용품</a></li>
-             <li><a href="#">스톤커피 굿즈</a>
+              <li><a href="mainproduct.html?id=3" vlaue=4,category_id=4 >커피 용품</a></li>
+             <li><a href="maingoods.html?id=2" vlaue=4,category_id=4 >스톤커피 굿즈</a>
               </li>
               <li><a href="servicecenter.html">1:1문의</a></li>            
 

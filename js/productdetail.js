@@ -12,8 +12,6 @@ window.onload = async function ProductDetail() {
     //     location.replace("../index.html")
     // }
     // data["data"]["coffee"]["0"]["product_name"]
-    console.log(product_id)
-    console.log(product_id1)
 
     const product = await fetch(`${BACK_END_URL}/product/detail/?product_id=${product_id} `, {
         headers: {
@@ -43,11 +41,11 @@ window.onload = async function ProductDetail() {
     </div>
     </p>`
     productinformation.appendChild(productinformations)
-//상품 내용 description
-productinformation2=document.getElementById('description')
-const productinformations2 = document.createElement('p')
-productinformation2.innerHTML=`<h3>${product_json.products["content"]}</h3>`
-productinformation2.appendChild(productinformations2)
+    //상품 내용 description 
+    productinformation2=document.getElementById('description')
+    const productinformations2 = document.createElement('p')
+    productinformation2.innerHTML=`<h3>${product_json.products["content"]}</h3>`
+    productinformation2.appendChild(productinformations2)
 }
 
 
