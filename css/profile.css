@@ -45,16 +45,17 @@
 
 #modal .title h3 {
     display: inline;
+    position:fixed; top:30px; left:40px;
 }
 
 #modal .close-area {
-    display: inline;
-    position: relative;
-    left:350px;
-    top:-22px;
+    /* display: inline; */
+    position: fixed;
+    /* left:380px; */
+    right:2px;
+    top:7px;
     padding-right: 10px;
     cursor: pointer;
-    text-shadow: 1px 1px 2px gray;
     color: white;
 }
 
@@ -64,14 +65,20 @@
     text-shadow: 1px 1px 2px gray;
     color: white;
 }
-/* 사진 및 입력창 */
+
+/* 사진 */
 .profile-image{
     display: flex;
     align-items: center;
     justify-content: center;
+    margin-top:50px;
 }
 .profile-image p{
     margin-top:10px;
+}
+.profile-image i{
+    position:absolute;
+    top:170px;
 }
 .avatar {
     vertical-align: middle;
@@ -79,15 +86,11 @@
     height: 100px;
     border-radius: 50%;
   }
-.input-boxes{
-    display: flex;
-    flex-direction:
-    column;
-    text-align: center; 
-}
+
+/* 입력란 */
 .input-group-text{
-    text-decoration: none;
+    text-shadow: none;
 }
-span{
-    text-decoration: none;
+.content form button{
+    float:right; font-size:10px;
 }
