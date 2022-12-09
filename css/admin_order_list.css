@@ -5,7 +5,8 @@ button,
 .item,
 .price,
 .quantity,
-.order_status_dropdown,
+.order_status_dropdown1,
+.order_status_dropdown2,
 .subtotal,
 .basket-product,
 .product-image,
@@ -33,34 +34,48 @@ button,
 	width: 15%;
 }
 
-.order_status_dropdown {
+.order_status_dropdown2
+{
 	display: block;
 	font-size: 10px;
+	width: 20%;
 }
 
-.order_status_dropdown ul li {
+.order_status_dropdown1
+{
+	display: block;
+	font-size: 10px;
+	width: 20%;
+	padding-left: 30px;
+}
+
+.order_status_dropdown2 ul li {
 	list-style: none;
 	margin: 0 auto;
 	display: inline-block;
+	padding: 0 30px;
 	position: relative;
 	text-decoration: none;
 	text-align: center;
 	z-index: 2;
 }
+.li1{
+	padding: 0px;
+}
 
-.order_status_dropdown li a {
+.order_status_dropdown2 li a {
 	color: rgb(68, 68, 68);
 }
 
-.order_status_dropdown li a:hover {
+.order_status_dropdown2 li a:hover {
 	color: #d2d2d2;
 }
 
-.order_status_dropdown li:hover {
+.order_status_dropdown2 li:hover {
 	cursor: pointer;
 }
 
-.order_status_dropdown ul li ul {
+.order_status_dropdown2 ul li ul {
 	visibility: hidden;
 	opacity: 0;
 	position: absolute;
@@ -70,8 +85,8 @@ button,
 	background: rgb(251, 247, 242);
 }
 
-.order_status_dropdown ul li:hover>ul,
-.order_status_dropdown ul li ul:hover {
+.order_status_dropdown2 ul li:hover>ul,
+.order_status_dropdown2 ul li ul:hover {
 	visibility: visible;
 	opacity: 1;
 	display: block;
@@ -81,27 +96,27 @@ button,
 	box-shadow: 0px 3px 5px -1px #ccc;
 }
 
-.order_status_dropdown ul li ul li {
+.order_status_dropdown2 ul li ul li {
 	clear: both;
-	width: 20%;
+	width: 20;
 	text-align: left;
 	margin-bottom: 15px;
 	border-style: none;
 }
 
-.order_status_dropdown ul li ul li a:hover {
+.order_status_dropdown2 ul li ul li a:hover {
 	padding-left: 10px;
 	transition: all 0.3s ease;
 }
 
-.order_status_dropdown>a {
+.order_status_dropdown2>a {
 	text-decoration: none;
 }
 
-.order_status_dropdown a:hover {
+.order_status_dropdown2 a:hover {
 	color: #95b1c5;
 }
 
-.order_status_dropdown ul li ul li a {
+.order_status_dropdown2 ul li ul li a {
 	transition: all 0.5s ease;
 }
