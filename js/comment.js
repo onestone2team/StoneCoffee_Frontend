@@ -1,4 +1,3 @@
-console.log('안녕')
 // 없애도될듯
 const detail_page = document.getElementById("detail_page")
 

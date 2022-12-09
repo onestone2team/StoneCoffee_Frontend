@@ -1,0 +1,109 @@
+/* 모달 */
+#modal .modal-overlay {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    background: rgba(163, 21, 21, 0.25);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    backdrop-filter: blur(1.5px);
+    -webkit-backdrop-filter: blur(1.5px);
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+}
+#modal .modal-window {
+
+    background: rgba(37, 137, 10, 0.7);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    backdrop-filter: blur(13.5px);
+    -webkit-backdrop-filter: blur(13.5px);
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+
+    width: 400px;
+    height: 500px;
+    position: relative;
+    left:0;
+    top: 0;
+    padding: 10px;
+
+    overflow: hidden;
+    overflow-y: scroll !important;
+}
+#modal .close-area {
+    /* display: inline; */
+    position: fixed;
+    /* left:380px; */
+    right:2px;
+    top:7px;
+    padding-right: 10px;
+    cursor: pointer;
+    color: white;
+}
+
+.title {
+    /* display: inline; */
+    text-align: center;
+    margin-top:50px;
+    background-color: blueviolet;
+    color: rgb(0, 0, 0);
+}
+.title h3 {
+    display: inline;
+    
+    /* position:fixed; top:30px; left:40px; */
+}
+.content form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+/* 사진 */
+.profile-image{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top:50px;
+    margin-bottom: 10px;
+}
+.profile-image p{
+    margin-top:10px;
+    font-size: 20px;
+}
+.profile-image p i{
+    position:absolute;
+    top:150px;
+    font-size:20px
+}
+.profile-image button{
+    border:none;
+}
+.avatar {
+    vertical-align: middle;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+  }
+
+/* 입력란 */
+.input-boxes{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width:50%;
+}
+.input-boxes .input-group-text{
+    text-shadow: none;
+}
+.content form button{
+    /* float:right;  */
+    font-size:10px;
+}
