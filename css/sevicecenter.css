@@ -1,0 +1,190 @@
+/******* Common Class ***************/
+a {color:#555; text-decoration:none;}
+
+.clearfix { *zoom: 1; }
+.clearfix:before, .clearfix:after { display:table; line-height:0; content:""; }
+.clearfix:after { clear:both; }
+.hidden {position:absolute; left:-10000px; top:auto; width:1px; height:1px; overflow:hidden;}
+.of-hi{overflow:hidden;}
+.vi-hi { visibility:hidden;}
+.blind{width:0; height:0; text-indent:-10000px; font-size:0px; line-height:0px; position:absolute; left:-99999px;}
+.fl-l { float:left; }
+.fl-r { float:right; }
+.cl-b { width:0; height:0; font-size:0; line-height:0; clear:both;}
+.ta-c { text-align:center;}
+.ta-l { text-align:left;}
+.ta-r { text-align:right;}
+.img-box { width: 100%; margin: 0; padding: 0; position: relative; float: left;}
+.img-box img { width: 100%; height: auto; float: left; }
+.img-box > [class*="col-"]{ padding-left: 0; padding-right: 0; position: relative; float: left;}
+.img-box > [class*="col-"] img { width: 100%; height: auto; float: left; }
+
+
+.nmt10 { margin-top:-10px;}
+.nmt20{margin-top: -20px;}
+.nmt50 { margin-top:-50px;}
+.nmt80{margin-top: -80px;}
+
+.mt0 { margin-top:0;}
+.mt5 { margin-top:5px;}
+.mt10 { margin-top:10px;}
+.mt15 { margin-top:15px;}
+.mt20 { margin-top:20px;}
+.mt25 { margin-top:25px;}
+.mt30 { margin-top:30px;}
+.mt35 { margin-top:35px;}
+.mt40 { margin-top:40px;}
+.mt45 { margin-top:45px;}
+.mt50 { margin-top:50px;}
+.mt55 { margin-top:55px;}
+.mt60 { margin-top:60px;}
+.mt65 { margin-top:65px;}
+.mt70 { margin-top:70px;}
+.mt75 { margin-top:75px;}
+.mt80 { margin-top:80px;}
+.mt85 { margin-top:85px;}
+.mt90 { margin-top:90px;}
+.mt95 { margin-top:95px;}
+.mt100 { margin-top:100px;}
+.mt105 { margin-top:105px;}
+.mt110 { margin-top:110px;}
+.mt115 { margin-top:115px;}
+.mt120 { margin-top:120px;}
+.mt160 { margin-top:160px;}
+
+.mb0 { margin-bottom:0;}
+.mb5 { margin-bottom:5px;}
+.mb10 { margin-bottom:10px;}
+.mb15 { margin-bottom:15px;}
+.mb20 { margin-bottom:20px;}
+.mb25 { margin-bottom:25px;}
+.mb30 { margin-bottom:30px;}
+.mb35 { margin-bottom:35px;}
+.mb40 { margin-bottom:40px;}
+.mb45 { margin-bottom:45px;}
+.mb50 { margin-bottom:50px;}
+.mb55 { margin-bottom:55px;}
+.mb60 { margin-bottom:60px;}
+.mb65 { margin-bottom:65px;}
+.mb70 { margin-bottom:70px;}
+.mb75 { margin-bottom:75px;}
+.mb80 { margin-bottom:80px;}
+.mb85 { margin-bottom:85px;}
+.mb90 { margin-bottom:90px;}
+.mb95 { margin-bottom:95px;}
+.mb100 { margin-bottom:100px;}
+.mb105 { margin-bottom:105px;}
+.mb110 { margin-bottom:110px;}
+.mb115 { margin-bottom:115px;}
+.mb120 { margin-bottom:120px;}
+.mb140 { margin-bottom:140px;}
+
+.pt0 { padding-top:0;}
+.pt10 { padding-top:10px;}
+.pt15 { padding-top:15px;}
+.pt20 { padding-top:20px;}
+.pt25 { padding-top:25px;}
+.pt30 { padding-top:30px;}
+.pt35 { padding-top:35px;}
+.pt40 { padding-top:40px;}
+.pt45 { padding-top:45px;}
+.pt50 { padding-top:50px;}
+.pt55 { padding-top:55px;}
+.pt60 { padding-top:60px;}
+.pt65 { padding-top:65px;}
+.pt70 { padding-top:70px;}
+.pt75 { padding-top:75px;}
+.pt80 { padding-top:80px;}
+.pt85 { padding-top:85px;}
+.pt90 { padding-top:90px;}
+.pt95 { padding-top:95px;}
+.pt100 { padding-top:100px;}
+.pt130 { padding-top:130px;}
+.pt140 { padding-top:140px;}
+.pt150 { padding-top:150px;}
+
+.pt0 { padding-bottom:0;}
+.pb10 { padding-bottom:10px;}
+.pb15 { padding-bottom:15px;}
+.pb20 { padding-bottom:20px;}
+.pb25 { padding-bottom:25px;}
+.pb30 { padding-bottom:30px;}
+.pb35 { padding-bottom:35px;}
+.pb40 { padding-bottom:40px;}
+.pb45 { padding-bottom:45px;}
+.pb50 { padding-bottom:50px;}
+.pb55 { padding-bottom:55px;}
+.pb60 { padding-bottom:60px;}
+.pb65 { padding-bottom:65px;}
+.pb70 { padding-bottom:70px;}
+.pb75 { padding-bottom:75px;}
+.pb80 { padding-bottom:80px;}
+.pb85 { padding-bottom:85px;}
+.pb90 { padding-bottom:90px;}
+.pb95 { padding-bottom:95px;}
+.pb100 { padding-bottom:100px;}
+.pb120 { padding-bottom:120px;}
+.pb140 { padding-bottom:140px;}
+.pb150 { padding-bottom:150px;}
+
+.pd0 { padding:0;}
+.pdl0 { padding-left:0;}
+.pdr0 { padding-right:0;}
+.mg0 { margin:0}
+
+/* input.css */
+.check input, .radio input { position: absolute; left: -9999px; }
+
+input[type="radio"] { width: 13px; height: 13px; border: none;}
+.tb-form td input[type="text"], .tb-form td input[type="password"], .tb-form td input[type="tel"] { font-size: 13px; background: #fff; height: 34px; color: #000;}
+input[type="text"], input[type="password"], input[type="tel"] { height: auto; line-height: normal; padding: 8px; box-sizing: border-box; border: none; width: auto; background: #FBFBFB; border: 1px solid #C9C9C9; font-size: 16px; font-family: inherit;border-radius: 0; -webkit-appearance: none; -moz-appearance: none; appearance: none; }
+.select-wrap.type3 { display:inline-block; margin-right:6px; border:1px solid #c9c9c9; line-height:1; border-radius:0; }
+.tb-form .select-wrap.type3 select { height: 32px; padding: 6px 11px; color: #3c3c3c; background: url(../../images/page/05_cs/bg_cs_select_arrow.jpg) no-repeat right; vertical-align: middle; font-size: 13px; }
+.tb-form .select-domain { margin-left: 15px;}
+legend, caption { width: 0; height: 0; text-indent: -10000px; font-size: 0px; line-height: 0px; position: absolute; left: -99999px; }
+.customer .detail { text-align: center; }
+.detail { padding: 38px 0 30px; border-bottom: 1px solid #E3E3E3; text-align: center;}
+.customer .detail p:first-child {margin-right: 15px;}
+.customer .detail p {display: inline-block; text-align: center; font-size: 14px; margin: 0 7px; color: #6f6f6f;}
+.customer{border: 1px solid #c9c9c9; padding: 0 55px 85px; width:100%; max-width:1100px; margin:0 auto;}
+.customer .deco { margin: -10px auto 43px; width: 164px; background-color: #fff; text-align: center; }
+.color-ef2e36{color:#ef2e36;}
+.tb-form-confirm { width:123px; height:50px; margin: -23px auto; text-align: center; background:#ed1c24; margin-top:-30px; border-radius:23px;}
+.tb-form-confirm:hover{background:#000;}
+.tb-form-confirm a {line-height:40px; color:#fff;}
+.customer .persnal-wrap { width: 100%; max-width:871px; height: auto; border: 1px solid #c9c9c9; padding: 17px; overflow-y: auto; padding-left:0; }
+.customer .persnal-wrap ul li{margin-top:20px;}
+
+.tb-form .radio {padding-left: 34px;margin-right: 25px;}
+.tb-form .radio { padding-left: 34px; margin-right: 25px;}
+
+.customer label { font-size: 16px;}
+label.r-on { background: url(http://www.dongsuh.co.kr/2017/images/common/btn_radio_on.png) no-repeat center left; background-size: 24px 24px; color: #053343;}
+.radio { background: url(http://www.dongsuh.co.kr/2017/images/common/btn_radio_off.png) no-repeat center left; background-size: 24px 24px; color: #7a7a7a;}
+.check, .radio { display: inline-block; padding: 0px; height: 23px; line-height: 23px; padding-left: 25px;}
+.btn-cs-common { padding: 9px 20px; margin-left: 6px; background: #ebebeb; border: 1px solid #c1c1c1; color: #343434; font-weight: 700; font-size: 12px; }
+[class*='btn'] { display: inline-block; }
+.file-wrap .input-file-hidden { position: absolute; height:34px; opacity: 0; cursor: pointer;}
+input[type="file"] { height: 22px; color: #666; border: 1px solid #d4d4d4; line-height: 22px; vertical-align: middle; background: #fff; }
+input[type="file" i] { align-items: baseline; text-align: start !important; }
+.file-wrap .btn.file { display: inline-block; padding: 7.5px 20px; margin-left: 6px; border: 1px solid #c1c1c1; border-radius: 0; text-align: center; color: #4b4b4b; font-size: 12px; font-weight: 700; background: #ebebeb; }
+.tb-form th, .tb-form td { padding: 23px 0; }
+.customer .agree-comment { line-height: 1.57;}
+.customer p { color: #848484; }
+.customer label.c-on { background-size: 29px 28px;}
+.customer .check { background-size: 29px 28px; height: 28px; line-height: 28px; padding-left: 50px; }
+.customer label { font-size: 16px; }
+label.c-on { background: url(http://www.dongsuh.co.kr/2017/images/common/btn_checkbox_on.png) no-repeat center left; background-size: 23px 22px; }
+.check {background: url(http://www.dongsuh.co.kr/2017/images/common/btn_checkbox_off.png) no-repeat center left; background-size: 23px 22px;}
+.check, .radio { display: inline-block; padding: 0px; height: 23px; line-height: 23px; padding-left: 25px; }
+label { margin: 0; line-height: 1.5em; letter-spacing: -0.5px; }
+
+/*table*/
+table { border-collapse: collapse; border-spacing: 0; width: 100%; border-color:gray; display: table; }
+.tb-form tr { border-top: 1px solid #e3e3e3; }
+tr { display: table-row; vertical-align: inherit; border-color: inherit; }
+.tb-form th { font-size: 16px; font-weight: 400; color: #000; vertical-align: middle; text-align: left; }
+
+/*textarea*/
+.tb-form .textarea-detail { width: 100%; height: 360px; border: 1px solid #c9c9c9;}
+input, textarea { vertical-align: middle; font-size: 14px; color: #333333; font-family: "Nanum Barun Gothic", "나눔바른고딕", "맑은 고딕", "Malgun Gothic", "Apple SD Gothic Neo", sans-serif; padding: 0; margin: 0;}
