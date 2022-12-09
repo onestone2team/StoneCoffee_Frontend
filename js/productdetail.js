@@ -6,7 +6,7 @@ var product_id = product_id1.split('/')[0]
 window.onload = async function ProductDetail() {
     const payload = localStorage.getItem("payload")
     const parsed_payload = JSON.parse(payload)
-
+    console.log(product_id+"접속")
     // if(!parsed_payload){
     //     alert("권한이 없습니다. 로그인 해주세요")
     //     location.replace("../index.html")

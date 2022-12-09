@@ -3,12 +3,9 @@ window.addEventListener('load', function() {
 });
 const urlparams = new URLSearchParams(window.location.search);
 const category_id= urlparams.get('id')
-console.log(urlparams)
 console.log(category_id)
 
 async function show_product_list() {
-    // console.log(vlaue)
-    // console.log(data)
     const response = await fetch(`${BACK_END_URL}/product/category/?category_id=${category_id}`, {
         headers: {
             // "Access-Control-Allow-Origin": "*",
@@ -28,11 +25,13 @@ async function show_product_list() {
         for (i = 0; i < 8; i++) {
             const product = document.createElement('p')
             // product.setAttribute("class", "aa-product-catg","style","max-width: 150; height: 150;")
+            console.log(category_id)
+            console.log(data["data"][0]["id"])
             product.innerHTML = `<li>
             <figure>
               <a  id="img" class="aa-product-img" href="product-detail.html?product_id=${data["data"][i]["id"]}/"><img style="max-width: 100%; height: 100%;" src="${BACK_END_URL}${data["data"][i]["image"]}" alt="${data["data"][i]["id"]}"></a>
               <a class="aa-add-to-cart-btn" onclick="cart()">장바구니 담기</a>
-              <a class="aa-add-to-cart-btn"onclick="like()">좋아요</a>
+              <a class="aa-add-to-cart-btn" onclick="like()">좋아요</a>
                 <figcaption>
                     <h4 class="aa-product-title">${data["data"][i]["product_name"]}</h4>
                     <span class="aa-product-price">${data["data"][i]["price"]}원</span>
@@ -45,7 +44,8 @@ async function show_product_list() {
     })
 }
 async function cart() {
-    
+    console.log(product_id)
+    console.log(id)
     const response = await fetch(`${BACK_END_URL}/product/${product_id}/cart/`, {
         headers: {
             "content-type": "application/json",
