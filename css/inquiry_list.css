@@ -1,5 +1,3 @@
-/* 총 합이 100이 되게 맞추기 */
-
 input,
 button,
 .basket-module,
@@ -14,9 +12,6 @@ button,
 	float: left;
 }
 
-.subtotal {
-	width: 15%;
-}
 .item {
 	width: 55%;
 }
@@ -24,6 +19,11 @@ button,
 .price {
 	width: 15%;
 }
+
 .quantity {
+	width: 15%;
+}
+
+.subtotal {
 	width: 15%;
 }
