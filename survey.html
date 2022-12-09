@@ -1,29 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>STONE COFFEE</title>
-    <link rel="stylesheet" type="text/css" href="css/survey.css"> 
+    <link rel="stylesheet" type="text/css" href="./css/survey.css">
 
     <!-- 구글 폰트 불러오기 -->
-    <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Jua&display=swap" rel="stylesheet">
-
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Jua&display=swap" rel="stylesheet">
 </head>
+
 <body>
-    <img class="logo-image"src="img/logo.png" alt="Coffee logo">
-    
+    <img class="logo-image" src="img/logo.png" alt="Coffee logo">
     <div class="icon" id="icon">
         <div class="cup">
             <div class="coffee"></div>
         </div>
         <div class="smoke"></div>
     </div>
-    
     <div class="survey">
         <div class="maintext">
-            <span>나</span><span>에</span><span>게</span><span> </span><span>맞</span><span>는</span><span> </span><span>커</span><span>피</span><span>는</span><span>?</span>
+            <span>나</span><span>에</span><span>게</span><span> </span><span>맞</span><span>는</span><span>
+            </span><span>커</span><span>피</span><span>는</span><span>?</span>
         </div>
         <br>
         <a id="removeText1" class="gradient-btn" onclick="startSurvey()">설문조사 시작하기</a>
@@ -34,94 +36,109 @@
     <div class="notView scrollBar" id="showSurvey">
         <table class="survey-table">
             <tbody>
-              <tr>
-                <td>
-                    <p>선호하는 커피 당도</p>
-                    <div class="star-grade" name="sweet" id="sweet" method="post" action="./save">
-                        <fieldset>
-                            <input type="radio" name="sweet" value="5" id="sweet1"><label for="sweet1">☕</label>
-                            <input type="radio" name="sweet" value="4" id="sweet2"><label for="sweet2">☕</label>
-                            <input type="radio" name="sweet" value="3" id="sweet3"><label for="sweet3">☕</label>
-                            <input type="radio" name="sweet" value="2" id="sweet4"><label for="sweet4">☕</label>
-                            <input type="radio" name="sweet" value="1" id="sweet5"><label for="sweet5">☕</label>
-                        </fieldset>
-                    </div>
-                    <hr size="2px" color="#3E240C">
-                </td>
-              </tr>
-              <tr>
-                <td class="aromaform">
-                    <p>선호하는 커피의 향 정도</p>
-                    <div class="star-grade" name="aroma" id="aroma" method="post" action="./save">
-                        <fieldset>
-                            <input type="radio" name="aroma" value="5" id="aroma1"><label for="aroma1">☕</label>
-                            <input type="radio" name="aroma" value="4" id="aroma2"><label for="aroma2">☕</label>
-                            <input type="radio" name="aroma" value="3" id="aroma3"><label for="aroma3">☕</label>
-                            <input type="radio" name="aroma" value="2" id="aroma4"><label for="aroma4">☕</label>
-                            <input type="radio" name="aroma" value="1" id="aroma5"><label for="aroma5">☕</label>
-                        </fieldset>
-                    </div>
-                    <hr size="2px" color="#3E240C">
-                </td>
-              </tr>
-              <tr>
-                <td class="acidityform">
-                    <p>선호하는 커피의 신맛</p>
-                    <div class="star-grade" name="acidity" id="acidity" method="post" action="./save">
-                        <fieldset>
-                            <input type="radio" name="acidity" value="5" id="acidity1"><label for="acidity1">☕</label>
-                            <input type="radio" name="acidity" value="4" id="acidity2"><label for="acidity2">☕</label>
-                            <input type="radio" name="acidity" value="3" id="acidity3"><label for="acidity3">☕</label>
-                            <input type="radio" name="acidity" value="2" id="acidity4"><label for="acidity4">☕</label>
-                            <input type="radio" name="acidity" value="1" id="acidity5"><label for="acidity5">☕</label>
-                        </fieldset>
-                    </div>
-                    <hr size="2px" color="#3E240C">
-                </td>
-              </tr>
-              <tr>
-                <td class="balanceform">
-                    <p>선호하는 커피의 균형</p>
-                    <div class="star-grade" name="balance" id="balance" method="post" action="./save">
-                        <fieldset>
-                            <input type="radio" name="balance" value="5" id="balance1"><label for="balance1">☕</label>
-                            <input type="radio" name="balance" value="4" id="balance2"><label for="balance2">☕</label>
-                            <input type="radio" name="balance" value="3" id="balance3"><label for="balance3">☕</label>
-                            <input type="radio" name="balance" value="2" id="balance4"><label for="balance4">☕</label>
-                            <input type="radio" name="balance" value="1" id="balance5"><label for="balance5">☕</label>
-                        </fieldset>
-                    </div>
-                    <hr size="2px" color="#3E240C">
-                </td>
-              </tr>
+                <tr>
+                    <td>
+                        <p>선호하는 커피 당도</p>
+                        <div class="star-grade" name="sweet" id="sweet" method="post" action="./save">
+                            <fieldset>
+                                <input type="radio" name="sweet" value="5" id="sweet1"><label for="sweet1">☕</label>
+                                <input type="radio" name="sweet" value="4" id="sweet2"><label for="sweet2">☕</label>
+                                <input type="radio" name="sweet" value="3" id="sweet3"><label for="sweet3">☕</label>
+                                <input type="radio" name="sweet" value="2" id="sweet4"><label for="sweet4">☕</label>
+                                <input type="radio" name="sweet" value="1" id="sweet5"><label for="sweet5">☕</label>
+                            </fieldset>
+                        </div>
+                        <hr size="2px" color="#3E240C">
+                    </td>
+                </tr>
+                <tr>
+                    <td class="aromaform">
+                        <p>선호하는 커피의 향 정도</p>
+                        <div class="star-grade" name="aroma" id="aroma" method="post" action="./save">
+                            <fieldset>
+                                <input type="radio" name="aroma" value="5" id="aroma1"><label for="aroma1">☕</label>
+                                <input type="radio" name="aroma" value="4" id="aroma2"><label for="aroma2">☕</label>
+                                <input type="radio" name="aroma" value="3" id="aroma3"><label for="aroma3">☕</label>
+                                <input type="radio" name="aroma" value="2" id="aroma4"><label for="aroma4">☕</label>
+                                <input type="radio" name="aroma" value="1" id="aroma5"><label for="aroma5">☕</label>
+                            </fieldset>
+                        </div>
+                        <hr size="2px" color="#3E240C">
+                    </td>
+                </tr>
+                <tr>
+                    <td class="acidityform">
+                        <p>선호하는 커피의 신맛</p>
+                        <div class="star-grade" name="acidity" id="acidity" method="post" action="./save">
+                            <fieldset>
+                                <input type="radio" name="acidity" value="5" id="acidity1"><label
+                                    for="acidity1">☕</label>
+                                <input type="radio" name="acidity" value="4" id="acidity2"><label
+                                    for="acidity2">☕</label>
+                                <input type="radio" name="acidity" value="3" id="acidity3"><label
+                                    for="acidity3">☕</label>
+                                <input type="radio" name="acidity" value="2" id="acidity4"><label
+                                    for="acidity4">☕</label>
+                                <input type="radio" name="acidity" value="1" id="acidity5"><label
+                                    for="acidity5">☕</label>
+                            </fieldset>
+                        </div>
+                        <hr size="2px" color="#3E240C">
+                    </td>
+                </tr>
+                <tr>
+                    <td class="balanceform">
+                        <p>선호하는 커피의 균형</p>
+                        <div class="star-grade" name="balance" id="balance" method="post" action="./save">
+                            <fieldset>
+                                <input type="radio" name="balance" value="5" id="balance1"><label
+                                    for="balance1">☕</label>
+                                <input type="radio" name="balance" value="4" id="balance2"><label
+                                    for="balance2">☕</label>
+                                <input type="radio" name="balance" value="3" id="balance3"><label
+                                    for="balance3">☕</label>
+                                <input type="radio" name="balance" value="2" id="balance4"><label
+                                    for="balance4">☕</label>
+                                <input type="radio" name="balance" value="1" id="balance5"><label
+                                    for="balance5">☕</label>
+                            </fieldset>
+                        </div>
+                        <hr size="2px" color="#3E240C">
+                    </td>
+                </tr>
             </tbody>
-          </table>
+        </table>
     </div>
 
-        <button class="sendSurvey" onclick="sendSurvey()">제출하기</button>
+    <button class="sendSurvey" onclick="sendSurvey()">제출하기</button>
     <div class="show-screen" id="coffeeShow">
         <table>
             <thead>
-              <tr>
-                <th>브라질 산토스</th>
-              </tr>
+                <tr>
+                    <th>브라질 산토스</th>
+                </tr>
             </thead>
             <tbody>
-              <tr>
-                <td>
-                    <image class="show-image" src="https://media.istockphoto.com/id/1177900338/ko/%EC%82%AC%EC%A7%84/%EC%BB%A4%ED%94%BC-%EC%BD%A9%EC%9D%84-%EA%B3%81%EB%93%A4%EC%9D%B8-%EC%97%90%EC%8A%A4%ED%94%84%EB%A0%88%EC%86%8C-%ED%95%9C-%EC%9E%94.jpg?s=612x612&w=0&k=20&c=iH6mFbBAd6Wv2OWQLYb_ZJQSCIFwsBAIiIrgDsOAdjc="></image>
-                </td>
-                <td style="padding: 20px;">
-                    <p class="show-txt">브라질 산토스는 세계 커피생산량의 30%를 차지하며, 산토스 지방의 3,4년 정도 된 어린 커피나무에서 수확한 커피로, NO.2등급이 최고 등급입니다. 부드러운 맛과 신맛이 균일하게 조화를 이루고, 부드러운 풍미와 적당히 쓴맛이 어우러진 중성적인 커피로 향이 깊고 깔끔한 마일드 커피입니다.</p>
-                    <a href="index.html"><button class="signup-btn" onclick="saveCookie('guestCheck', 'True')">회원 가입 후 구매하러 가기</button></a>
-                </td>
-              </tr>
-              
+                <tr>
+                    <td>
+                        <image class="show-image"
+                            src="https://media.istockphoto.com/id/1177900338/ko/%EC%82%AC%EC%A7%84/%EC%BB%A4%ED%94%BC-%EC%BD%A9%EC%9D%84-%EA%B3%81%EB%93%A4%EC%9D%B8-%EC%97%90%EC%8A%A4%ED%94%84%EB%A0%88%EC%86%8C-%ED%95%9C-%EC%9E%94.jpg?s=612x612&w=0&k=20&c=iH6mFbBAd6Wv2OWQLYb_ZJQSCIFwsBAIiIrgDsOAdjc=">
+                        </image>
+                    </td>
+                    <td style="padding: 20px;">
+                        <p class="show-txt">브라질 산토스는 세계 커피생산량의 30%를 차지하며, 산토스 지방의 3,4년 정도 된 어린 커피나무에서 수확한 커피로, NO.2등급이
+                            최고 등급입니다. 부드러운 맛과 신맛이 균일하게 조화를 이루고, 부드러운 풍미와 적당히 쓴맛이 어우러진 중성적인 커피로 향이 깊고 깔끔한 마일드 커피입니다.</p>
+                        <a href="index.html"><button class="signup-btn" onclick="saveCookie('guestCheck', 'True')">회원 가입
+                                후 구매하러 가기</button></a>
+                    </td>
+                </tr>
+
             </tbody>
         </table>
-        <p class="login-text">이미 회원이신가요? <a href="index.html" onclick="saveCookie('guestCheck', 'True')">로그인하러 가기</a></p>
+        <p class="login-text">이미 회원이신가요? <a href="index.html" onclick="saveCookie('guestCheck', 'True')">로그인하러 가기</a>
+        </p>
     </div>
 
-    <script src="static/js/survey.js"></script>
+    <script src="./js/survey.js"></script>
 </body>
 </html>

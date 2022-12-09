@@ -41,7 +41,7 @@ fetch(` `)
               <div class="aa-logo" padding="30px">
                 <a href="main.html">
                  <p>STONE<strong>COFFEE</strong> <span>Your Shopping Partner</span></p>
-                <!-- <img src="../img/logo.png"  height="250px" width="250px"  >--!>
+                <!-- <img src="./img/logo.png"  height="250px" width="250px"  >--!>
                 </a>               
               </div>
               <!-- / cart box -->
