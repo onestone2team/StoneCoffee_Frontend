@@ -10,100 +10,141 @@
     align-items: center;
     justify-content: center;
 
-    background: rgba(163, 21, 21, 0.25);
+    background: rgba(94, 41, 41, 0.25);
     box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
     backdrop-filter: blur(1.5px);
     -webkit-backdrop-filter: blur(1.5px);
     border-radius: 10px;
     border: 1px solid rgba(255, 255, 255, 0.18);
 }
-#modal .modal-window {
 
-    background: rgba(37, 137, 10, 0.7);
+#modal .modal-window {
+    display: flex;
+    background: rgba(71, 39, 3, 0.7);
     box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
     backdrop-filter: blur(13.5px);
     -webkit-backdrop-filter: blur(13.5px);
     border-radius: 10px;
     border: 1px solid rgba(255, 255, 255, 0.18);
 
-    width: 400px;
+    width: 33.3%;
     height: 500px;
-    position: relative;
-    left:0;
-    top: 0;
-    padding: 10px;
+    position: fixed;
+    left: 33.3%;
+    top: 143px;
+    padding: 15px;
 
     overflow: hidden;
-    overflow-y: scroll !important;
 }
+
 #modal .close-area {
-    /* display: inline; */
     position: fixed;
-    /* left:380px; */
-    right:2px;
-    top:7px;
+    right: 2px;
+    top: 7px;
     padding-right: 10px;
     cursor: pointer;
     color: white;
 }
-
 .title {
-    /* display: inline; */
     text-align: center;
-    margin-top:50px;
-    background-color: blueviolet;
+    margin-top: 50px;
+    margin-bottom: 50px;
     color: rgb(0, 0, 0);
 }
 .title h3 {
     display: inline;
-    
     /* position:fixed; top:30px; left:40px; */
 }
-.content form{
+.content {
+    background-color: rgba(84, 4, 4, 0.264);
+    border-radius: 20px;
+    padding-bottom: 80px;
+    margin:auto;
+    width:80%;
+}
+.content form {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
 }
+
 /* 사진 */
-.profile-image{
+.profile-image {
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-top:50px;
+    margin-top: 50px;
     margin-bottom: 10px;
 }
-.profile-image p{
-    margin-top:10px;
+.profile-image p {
+    margin-top: 10px;
     font-size: 20px;
 }
-.profile-image p i{
-    position:absolute;
-    top:150px;
-    font-size:20px
+.profile-image p i {
+    position: absolute;
+    top: 200px;
+    font-size: 20px
 }
-.profile-image button{
-    border:none;
+.profile-image button {
+    border: none;
 }
+/* 파일 선택 버튼 인라인 스타일 적용함/ 따로 뺄 수가 없음 */
+/* .file-button .input-group{
+    font-size:11px; position:relative; left:110px; top:-80px;
+} */
 .avatar {
     vertical-align: middle;
     width: 150px;
     height: 150px;
     border-radius: 50%;
-  }
+}
 
 /* 입력란 */
-.input-boxes{
-    display:flex;
+.input-boxes {
+    display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    width:50%;
+    width: 33.3%;
 }
-.input-boxes .input-group-text{
+.input-boxes .input-group-text {
     text-shadow: none;
 }
-.content form button{
-    /* float:right;  */
-    font-size:10px;
+
+/* 비밀번호변경 페이지 진입 버튼 */
+.content form button {
+    font-size: 10px;
+    background: transparent;
+}
+.content .button-profile-edit{
+    margin-top:40px;
+}
+.content form .btn{
+    background-color: brown;
+    border: none;
+}
+.content-modal {
+    margin: auto;
+}
+.content-modal p {
+    text-align: center;
+    font-weight: bold;
+}
+.content-modal .input-group {
+    width: 100%;
+}
+.content-modal .button-modal {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+.content-modal .button-modal button {
+    background-color: brown;
+    border: none;
+    font-size: 11px;
+}
+.content-modal .button-modal .button1 {
+    margin: 5px;
 }
