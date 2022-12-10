@@ -12,7 +12,7 @@
 <body>
   <div class="cont">
     <div class="form sign-in">
-      <h2>안녕하세요!</h2>
+      <h2 style="color: rgb(66, 53, 37);">안녕하세요</h2>
       <form action="">
         <label>
           <span>Email</span>
@@ -24,7 +24,7 @@
         </label>
         <p class="forgot-pass">비밀번호를 잊으셨나요?</p>
         <button type="button" class="submit" onclick="loginButton()">Sign In</button>
-        <button type="button" class="fb-btn">Connect with <span>facebook</span></button>
+        <button type="button" class="fb-btn" onclick="kakaologin()">Connect with <span>kakao</span></button>
       </form>
     </div>
     <div class="sub-cont">
@@ -45,7 +45,7 @@
         </div>
       </div>
       <div class="form sign-up" style="margin-top:10px;">
-        <h2>어서오세요!</h2>
+        <h2 style="color: rgb(66, 53, 37);">어서오세요</h2>
         <form>
           <label>
             <span>Username</span>
@@ -64,7 +64,7 @@
             <input type="password" id="signup_password2" />
           </label>
           <button type="button" class="submit" onclick="signupButton()">Sign Up</button>
-          <button type="button" class="fb-btn">Join with <span>facebook</span></button>
+          <button type="button" class="fb-btn" onclick="kakaologin()">Join with <span>kakao</span></button>
         </form>
       </div>
     </div>

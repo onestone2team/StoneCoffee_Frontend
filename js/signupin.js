@@ -2,6 +2,64 @@ document.querySelector('.img__btn').addEventListener('click', function() {
     document.querySelector('.cont').classList.toggle('s--signup');
   });
 
+
+  window.onload = async function (){
+
+    let urlParameter = window.location.search;
+    var code_name = urlParameter.split('=')[0]
+    var code_id = urlParameter.split('=')[1]
+
+    if (code_name=="?code"){
+        const response = await fetch(`${BACKEND_URL}/user/kakao/callback/?code=${code_id}`, {
+        headers: {
+            'content-type': 'application/json'
+        },
+        method: 'GET',
+    })
+
+    if (response.status == 200){
+      alert("카카오 로그인 완료")
+      const response_json = await response.json()
+      localStorage.setItem("access", response_json.access);
+      localStorage.setItem("refresh", response_json.refresh);
+      localStorage.setItem("kakao", response_json.kakao_access);
+      const base64Url = response_json.access.split('.')[1];
+      const base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
+      const jsonPayload = decodeURIComponent(atob(base64).split('').map(function(c){
+          return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
+      }).join(''));
+  
+      localStorage.setItem("payload", jsonPayload);
+      window.location.replace(`../../main.html`);
+    }
+    else{
+      alert("아이디와 비밀번호를 확인해주세요")
+    }
+
+
+    }
+
+}
+
+async function kakaologin() {
+
+  KAKAO_CONFIG = {
+      "KAKAO_REST_API_KEY": "5508ff8ddc147381284f4cad3a77cf87",
+      "KAKAO_REDIRECT_URI": "http://localhost:5500/signupin.html"
+  };
+
+  kakao_login_uri = "https://kauth.kakao.com/oauth/authorize"
+  kakao_token_uri = "https://kauth.kakao.com/oauth/token"
+
+  client_key = KAKAO_CONFIG["KAKAO_REST_API_KEY"]
+  redirect_uri = KAKAO_CONFIG["KAKAO_REDIRECT_URI"]
+
+  uri = `${kakao_login_uri}?client_id=${client_key}&redirect_uri=${redirect_uri}&response_type=code`
+
+  location.replace(uri)
+
+}
+
 //-----------------------------회원가입------------------------------
 async function signupButton() {
     console.log('회원가입 실행')
