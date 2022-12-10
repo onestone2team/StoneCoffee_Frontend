@@ -130,6 +130,15 @@
     margin-left:30px;
     margin-top:10px 0;
 }
+/* 원두 이미지 이모티콘 실험*/
+.commentBox button{
+    background: transparent;
+    border:none;
+}
+.commentBox p img{
+    width:30px;
+}
+/* 원두 이미지 이모티콘 실험 여기까지 */
 /* .commentBox .form-group:first-child, .nestedcommentBox .form-group:first-child {
     width:80%;
 }

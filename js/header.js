@@ -3,8 +3,7 @@ fetch(` `)
     return response.text()
   })
   .then(data => {
-    document.querySelector("header").innerHTML = 
-    `
+    document.querySelector("header").innerHTML = `
     <div class="aa-header-top">
       <div class="container">
         <div class="row">
@@ -56,12 +55,9 @@ fetch(` `)
           </div>
         </div>
       </div>
-    </div>
- 
-
-`;
+    </div>`;
   });
-  fetch(`../index.html`)
+  fetch(`./index.html`)
   .then(response => {
     return response.text()
   })
