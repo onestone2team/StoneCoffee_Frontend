@@ -5,32 +5,83 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">    
     <title>Stone Coffee| 상세페이지</title>
+    <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
     <link href="../css/bootstrap.css" rel="stylesheet">   
     <link id="switcher" href="../css/default-theme.css" rel="stylesheet">
     <link href="../css/sequence-theme.modern-slide-in.css" rel="stylesheet" media="all">
     <link href="../css/style.css" rel="stylesheet">
     <link href="../css/recommend.css" rel="stylesheet">
+    <link href="../css/detail.css" rel="stylesheet">
   </head>
   <body>
     <header id="aa-header">
     </header>
     <section id="menu">
     </section>
+    <section Class="product_info">
+        <div class="container" id="condetail">
+            <div class="row" id="rowdetail">
+                <div class ="product_img col-md-5" style="padding-top: 220px; padding-left: 80px;">
+                    <!-- padding-top: 220px; padding-left: 80px; -->
+                    
+                    <img id="productimage">
 
-    <img id="productimage">
+                </div>
+                <div class="product_specs col-md-7">
+                    <h2>상품 정보</h2>
+                    <div id="name"></div>
+                <hr/>
+                    <ul>
+                        <li id="description">여기에는 상품내용이 들어갈 예정입니다여기에는 상품내용이 들어갈 예정입니다여기에는 상품내용이 들어갈 예정입니다여기에는 상품내용이 들어갈 예정입니다</li>
+                        <li id="aroma"></li>
+                        <li id="acidity"></li>
+                        <li id="body"></li>
+                        <li id="sweet"></li>
+                    </ul>
+                <p></p>
+                <form action="">
+                    <hr/>
+                    <div class="option">
+                        <div class="size">
+                            <h4>용량 선택</h4>
+                            <select size="1">
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                            </select>
+                        </div>
+                    <div class="quantity" id="quantity" >
+                        <!-- data-unitprice -->
+                        <h4>갯수</h4>
+                        <span class="plus">+</span>
+                        <input type="text" readonly value="1">
+                        <span class="minus">-</span>
 
-    </div>
-    <div id="productinformation">
-
-    </div>
-    <div id="description">
-
-    </div>
-    <div class="aa-prod-view-bottom">
-      <a class="aa-add-to-cart-btn" onclick="cart()">장바구니</a>
-      <a class="aa-add-to-cart-btn" onclick="like()">좋아요</a>
-    </div>
-
+                    </div> 
+                    </div>
+                    <hr/>
+                    <div class="order_summary">
+                        <div class="total_price">
+                            <h4>price</h4>
+                            <span class="price"></span>
+                            <div id="price"></div>
+                        </div>
+                    </div>
+                    <div class="orede-now">
+                        <button type="submit" onclick="cart()">장바구니 </button>
+                        <button type="submit" onclick="orderButton()">주문 하기</button>
+                        <button type="submit" onclick="like()">좋아요</button>
+                    </div>
+                </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    <hr/>
+        <div style="text-align: center;"><h2>위 의 상품과 유사한 상품들 입니다.</h2></div>
+    <hr/>
     <div id="recommend">
 
     </div>
@@ -41,4 +92,6 @@
     <script src="/js/footer.js"></script>
     <script src="/js/all_data.js"></script>
     <script src="/js/productdetail.js"></script>
+    <script src="/js/productquantitiy.js"></script>
+
 </html>
