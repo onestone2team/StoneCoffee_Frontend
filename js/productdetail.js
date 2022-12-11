@@ -30,8 +30,12 @@ window.onload = async function ProductDetail() {
     product_image.setAttribute("src", `${BACK_END_URL}${product_json.products["image"]}`)
     product_image.setAttribute("style", `width:80%; height:80%;`)
 //제품 가격 넣어주는 코드(수량x가격 에필요함)
+    
     const totalprice=document.getElementById("quantity")
     totalprice.setAttribute("data-unitprice",`${product_json.products["price"]}`)
+
+
+    
 //이름,가격불러오는 코드
     name2=document.getElementById('name')
     const name1 = document.createElement('p')
@@ -69,6 +73,29 @@ window.onload = async function ProductDetail() {
     const productinformations2 = document.createElement('p')
     productinformation2.innerHTML=`<h3>${product_json.products["content"]}</h3>`
     productinformation2.appendChild(productinformations2)
+    //용량?없는 제품들
+    w_option=document.getElementById('option')
+    const w_option2 =document.createElement('p')
+    console.log("Asd")
+    w_option2.innerHTML=`<div class="size">
+    <h4>용량 선택</h4>
+    <select size="1">
+        <option value="1">300g</option>
+        <option value="2">500g</option>
+            </select>
+        </div>`
+    w_option.appendChild(w_option2)
+    console.log("Asdasd")
+    //                      <div class="size">
+    //                         <h4>용량 선택</h4>
+    //                         <select size="1">
+    //                             <option value="1">용</option>
+    //                             <option value="2">량</option>
+    //                             <option value="3">단</option>
+    //                             <option value="4">위</option>
+    //                             <option value="5">?</option>
+    //                         </select>
+    //                     </div>
     
     
     
@@ -120,7 +147,7 @@ async function like() {
     const response = await fetch(`${BACK_END_URL}/product/${product_id}/like/`, {
         headers: {
             "content-type": "application/json",
-            // "Authorization": "Bearer " + localStorage.getItem("access")
+            "Authorization": "Bearer " + localStorage.getItem("access")
         },
         method: "POST",
     })
@@ -128,11 +155,11 @@ async function like() {
 
     if (response.status==200 || response.status==202){
         alert("좋아요에 등록되었습니다.")
-        location.reload();
+        location.reload(false);
     }
     else if(response.status==401){
         alert("로그인을 해주세요")
-        location.reload();
+        location.reload(false);
     }
     
    
@@ -164,11 +191,11 @@ async function orderButton() {
             else {
                 alert(response.status)
 
-                location.reload();
+                location.reload(true);
             }
     } else{
         alert("주문 옵션을 다시 확인해 주세요")
-        location.reload();
+        location.reload(true);
     }
     
      

@@ -41,25 +41,13 @@
                 <p></p>
                 <form action="">
                     <hr/>
-                    <div class="option">
-                        <div class="size">
-                            <h4>용량 선택</h4>
-                            <select size="1">
-                                <option value="1">1</option>
-                                <option value="2">2</option>
-                                <option value="3">3</option>
-                                <option value="4">4</option>
-                                <option value="5">5</option>
-                            </select>
-                        </div>
-                    <div class="quantity" id="quantity" >
-                        <!-- data-unitprice -->
-                        <h4>갯수</h4>
-                        <span class="plus">+</span>
-                        <input type="text" readonly value="1">
-                        <span class="minus">-</span>
-
-                    </div> 
+                    <div class="option" id="option">
+                        <div class="quantity" id="quantity" data-unitprice="6002"><!-- data-unitprice -->
+                            <h4>갯수</h4>
+                            <span class="plus">+</span>
+                            <input type="text" readonly value="1">
+                            <span class="minus">-</span>
+                        </div> 
                     </div>
                     <hr/>
                     <div class="order_summary">
@@ -84,6 +72,11 @@
     <hr/>
     <div id="recommend">
 
+    </div>
+    <div style="text-align: center; padding-top: 50px;"><h2><hr/>리뷰 보기.</h2></div>
+    <hr/>
+    <div id="review">
+        sad
     </div>
     <footer id="aa-footer">
     </footer>
