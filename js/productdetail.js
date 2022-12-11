@@ -73,10 +73,9 @@ window.onload = async function ProductDetail() {
     const productinformations2 = document.createElement('p')
     productinformation2.innerHTML=`<h3>${product_json.products["content"]}</h3>`
     productinformation2.appendChild(productinformations2)
-    //용량?없는 제품들
+    //용량
     w_option=document.getElementById('option')
     const w_option2 =document.createElement('p')
-    console.log("Asd")
     w_option2.innerHTML=`<div class="size">
     <h4>용량 선택</h4>
     <select size="1">
@@ -85,22 +84,7 @@ window.onload = async function ProductDetail() {
             </select>
         </div>`
     w_option.appendChild(w_option2)
-    console.log("Asdasd")
-    //                      <div class="size">
-    //                         <h4>용량 선택</h4>
-    //                         <select size="1">
-    //                             <option value="1">용</option>
-    //                             <option value="2">량</option>
-    //                             <option value="3">단</option>
-    //                             <option value="4">위</option>
-    //                             <option value="5">?</option>
-    //                         </select>
-    //                     </div>
-    
-    
-    
-    
-    
+
     // 추천 상품
     for (i = 0; i < 6; i++) {
         recommend=document.getElementById('recommend')
@@ -144,7 +128,7 @@ async function cart() {
 }
 async function like() {
     
-    const response = await fetch(`${BACK_END_URL}/product/${product_id}/like/`, {
+    const response = await fetch(`${BACK_END_URL}/product/like/`, {
         headers: {
             "content-type": "application/json",
             "Authorization": "Bearer " + localStorage.getItem("access")
@@ -163,75 +147,5 @@ async function like() {
     }
     
    
-}
-
-async function orderButton() {
-    
-    if (num!=0 && size!=0 && amount_money !=0){
-
-        const url = `${BACK_END_URL}/order/list/${product_id}/`
-        console.log(url)
-        const response = await fetch(url, {
-            headers: {
-                'content-type': 'application/json',
-                "Authorization": "Bearer " + localStorage.getItem("access")
-            },
-            method: 'POST',
-            body: JSON.stringify({
-                "price":String(amount_money),
-                "size":size,
-                "count":String(num)
-            })
-            })
-
-            if (response.status == 201) {
-                alert("주문 완료")
-                location.replace("../profile.html")
-            }
-            else {
-                alert(response.status)
-
-                location.reload(true);
-            }
-    } else{
-        alert("주문 옵션을 다시 확인해 주세요")
-        location.reload(true);
-    }
-    
-     
-}    
-//==================================================================    
-function selectButton() {
-    const select_form = document.getElementById("select_form")
-    if (select_form.style.display == 'none') {
-        select_form.style.display = 'block';
-    } else {
-        select_form.style.display = 'none';
-    }
-}
-
-function changeValue() {
-    var value_str = document.getElementById('select_value');
-    size = value_str.options[value_str.selectedIndex].text
-    // size 값 전달
-    var size_text = document.getElementById('size_select');
-    size_text.innerText = size;
-}
-
-function upButton() {
-    num += 1;
-    inputnum.innerText = num;
-    amount_money = money * num;
-    moneynum.innerText = amount_money;
-}
-
-function downButton() {
-    if (num > 0) {
-        num -= 1;
-        inputnum.innerText = num;
-        amount_money = money * num;
-        moneynum.innerText = amount_money;
-    }
-
 }
 
