@@ -62,6 +62,17 @@ window.onload = async function ProductDetail() {
         const sweet1 = document.createElement('p')
         sweet1.innerHTML=`<h3>당도 ${product_json.products["sweet_grade"]}</h3>`
         sweet2.appendChild(sweet1)
+        //용량 선택하는 select
+        w_option=document.getElementById('option')
+        const w_option2 =document.createElement('p')
+        w_option2.innerHTML=`<div class="size">
+        <h4>용량 선택</h4>
+        <select size="1">
+            <option value="1">300g</option>
+            <option value="2">500g</option>
+                </select>
+            </div>`
+        w_option.appendChild(w_option2)
     }
     // 가격
         price2=document.getElementById('price')
@@ -74,16 +85,7 @@ window.onload = async function ProductDetail() {
     productinformation2.innerHTML=`<h3>${product_json.products["content"]}</h3>`
     productinformation2.appendChild(productinformations2)
     //용량
-    w_option=document.getElementById('option')
-    const w_option2 =document.createElement('p')
-    w_option2.innerHTML=`<div class="size">
-    <h4>용량 선택</h4>
-    <select size="1">
-        <option value="1">300g</option>
-        <option value="2">500g</option>
-            </select>
-        </div>`
-    w_option.appendChild(w_option2)
+    
 
     // 추천 상품
     for (i = 0; i < 6; i++) {
@@ -98,7 +100,16 @@ window.onload = async function ProductDetail() {
         
         recommend.appendChild(recommends)
     }
-
+    // review
+    review=document.getElementById('review')
+    const reviews = document.createElement('div')
+    // console.log(product_json.products.comment_set[0]["comment"])
+    reviews.innerHTML=`<li>${product_json.products.comment_set[0]["comment"]}</li>
+    <li>${product_json.products.comment_set[0]["created_at"]}</li>
+    <li>${product_json.products.comment_set[0]["comment"]}</li>
+    <li>${product_json.products.comment_set[0]["comment"]}</li>
+    <li>${product_json.products.comment_set[0]["comment"]}</li>`
+    review.appendChild(reviews)
 }
 
 
