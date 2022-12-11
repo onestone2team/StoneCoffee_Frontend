@@ -1,0 +1,34 @@
+input,
+button,
+.basket-module,
+.basket-labels,
+.item,
+.price,
+.quantity,
+.order_status,
+.subtotal,
+.basket-product,
+.product-image,
+.product-details {
+	float: left;
+}
+
+.item {
+	width: 35%;
+}
+
+.price {
+	width: 15%;
+}
+
+.quantity {
+	width: 15%;
+}
+
+.order_status{
+	width: 20%;
+}
+
+.subtotal {
+	width: 15%;
+}
