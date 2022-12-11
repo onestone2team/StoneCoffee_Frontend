@@ -227,7 +227,7 @@ a {
 }
 /* 상품 배열 */
 .aa-product-catg {
-  margin-left: -54px;
+  margin-left: -50px;
 }
 /* 상품배열 */
 .aa-product-catg li {
@@ -302,4 +302,30 @@ a {
 #aa-footer .aa-footer-top .aa-footer-top-area .aa-footer-widget address p {
   margin-bottom: 5px;
   color: #888;
+}
+/*  */
+.pagination{
+	justify-content: center;
+	display:-ms-flexbox;
+	float: left;
+	display:flex;
+	list-style:none;
+	border-radius:.25rem;
+	padding-left: 600px;
+	padding-bottom: 100px;
+}
+.page-link{
+	position:relative;
+	display:block;padding:.5rem .75rem;
+	margin-left:-1px;
+	line-height:1.25;color:#090909;
+	background-color:rgb(251, 251, 251);
+	border:1px solid #dee2e6;
+}
+.page-link:hover{
+	z-index:2;color:#000000;
+	text-decoration:none;
+	background-color:#993939;
+	border-color:#471111;
+  cursor: pointer;
 }

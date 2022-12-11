@@ -26,7 +26,6 @@ setTimeout(slideShow, 3000);   //함수를 4초마다 호출
 
 }
 function rolling() {
-  console.log("aaa")
 $(".rolling_wrap a").each(function() {
   $(this).css("left", banner_left);
   banner_left += $(this).width()+5;
@@ -42,7 +41,6 @@ $(".content").hover(
 };
 
 function startAction() {
-  console.log("aa")
 interval = setInterval(function() {
   $(".rolling_wrap a").each(function() {
     $(this).css("left", $(this).position().left-1);
