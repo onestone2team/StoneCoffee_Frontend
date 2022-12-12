@@ -1,5 +1,3 @@
-/* 총 합이 100이 되게 맞추기 */
-
 input,
 button,
 .basket-module,
@@ -7,30 +5,36 @@ button,
 .item,
 .price,
 .quantity,
-.count,
+.order_status,
 .subtotal,
 .basket-product,
 .product-image,
 .product-details {
 	float: left;
 }
-/* .subtotal{
-	float: right;
-} */
 
-.subtotal {
-	width: 15%;
+.item {
+	width: 45%;
 }
-.item{
-	width: 55%;
-}
-.product-image {
-	max-width: 177px;
-	max-height: 177px;
-}
+
 .price {
 	width: 15%;
 }
+
 .quantity {
+	width: 10%;
+}
+
+.order_status{
 	width: 15%;
+}
+
+.subtotal {
+	width: 10%;
+	margin-right: 30px;
+}
+.basket{
+	width: 90%;
+	margin: 50px;
+	min-height: 400px;
 }
