@@ -18,19 +18,21 @@
 </head>
 
 <body>
-
+    <header id="aa-header">
+    </header>
+    <section id="menu">
+    </section>
     <!-- 본문시작 -->
     <!-- <div id="lorem-ipsum"></div> -->
     <div class="title">
         <h3>Change Your Profile Here!</h3>
     </div>
-    <div class="content">
+    <div class="profile-content">
         <form>
             <div class="profile-image">
                 <p id="email"><img id="preview"
                         src="https://as2.ftcdn.net/v2/jpg/03/49/49/79/1000_F_349497933_Ly4im8BDmHLaLzgyKg2f2yZOvJjBtlw5.jpg"
-                        alt="Avatar" class="avatar"><button id="btn-modal"><i class="bi bi-gear"></i></button>&nbsp;
-                    djererdj@djdj.com</p>
+                        alt="Avatar" class="avatar"><button id="btn-modal"><i class="bi bi-gear"></i></button><p id="profile_name">djererdj@djdj.com</p></p>
             </div>
             <div class-"file-button">
                 <div class="input-group mb-3" style="font-size:11px; position:relative; left:110px; top:-80px;">
@@ -41,21 +43,21 @@
                 <div class="input-group input-group-sm mb-3">
                     <span class="input-group-text" id="inputGroup-sizing-sm">프로필 이름</span>
                     <input type="text" class="form-control" aria-label="Sizing example input" id="profilename"
-                        name="profilename" aria-describedby="inputGroup-sizing-sm">
+                        name="profilename" aria-describedby="inputGroup-sizing-sm" value="">
                 </div>
                 <div class="input-group input-group-sm mb-3">
                     <span class="input-group-text" id="inputGroup-sizing-sm">주소</span>
                     <input type="text" class="form-control" aria-label="Sizing example input" id="address"
-                        name="address" aria-describedby="inputGroup-sizing-sm">
+                        name="address" aria-describedby="inputGroup-sizing-sm" value="">
                 </div>
                 <div class="input-group input-group-sm mb-3">
                     <span class="input-group-text" id="inputGroup-sizing-sm">핸드폰번호</span>
                     <input type="text" class="form-control" aria-label="Sizing example input" id="phone" name="phone"
-                        aria-describedby="inputGroup-sizing-sm">
+                        aria-describedby="inputGroup-sizing-sm" value="">
                 </div>
             </div>
             <div class="button-profile-edit">
-                <button type="button" class="btn btn-dark" onclick="updateuser()">수정하기</button>
+                <button type="button" class="btn btn-dark" onclick="update_profile()">수정하기</button>
                 <button type="button" class="btn btn-dark" onclick="cancel()">돌아가기</button>
             </div>
         </form>
@@ -72,38 +74,39 @@
                     <div class="input-group input-group-sm mb-3">
                         <span class="input-group-text" id="inputGroup-sizing-sm">현재 비밀번호</span>
                         <input type="text" class="form-control" aria-label="Sizing example input" id="password"
-                            name="password" aria-describedby="inputGroup-sizing-sm">
+                            name="password" aria-describedby="inputGroup-sizing-sm" value="">
                     </div>
                     <div class="input-group input-group-sm mb-3">
                         <span class="input-group-text" id="inputGroup-sizing-sm">변경할 비밀번호</span>
                         <input type="text" class="form-control" aria-label="Sizing example input" id="new_password"
-                            name="new_password" aria-describedby="inputGroup-sizing-sm">
+                            name="new_password" aria-describedby="inputGroup-sizing-sm" value="">
                     </div>
                     <div class="input-group input-group-sm mb-3">
                         <span class="input-group-text" id="inputGroup-sizing-sm">비밀번호 확인</span>
                         <input type="text" class="form-control" aria-label="Sizing example input" id="password_check"
-                            name="password_check" aria-describedby="inputGroup-sizing-sm">
+                            name="password_check" aria-describedby="inputGroup-sizing-sm" value="">
                     </div>
                     <div class="button-modal">
-                        <button type="button" class="btn btn-dark button1" onclick="">변경하기</button>
+                        <button type="button" class="btn btn-dark button1" onclick="edit_password()">변경하기</button>
                         <button type="button" class="btn btn-dark" onclick="">돌아가기</button>
                     </div>
                 </form>
             </div>
-
-
-
         </div>
 
 
     </div>
     <!-- 모달끝 -->
     <!-- 본문끝 -->
-
+    <section1 id="aa-client-brand">
+    </section1>
+    <footer id="aa-footer">
+    </footer>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="./js/header.js"></script>
     <script src="./js/footer.js"></script>
+    <script src="./js/all_data.js"></script>
     <script src='./js/base_url.js'> </script>
     <script src='./js/profile_edit.js'> </script>
 </body>
