@@ -1,5 +1,5 @@
 var fadeTime = 300;
-window.onload = function() {
+window.onload = function () {
     cartlist()
 }
 
@@ -29,7 +29,7 @@ async function cartlist() {
         order.setAttribute("class", "basket-product")
         order.innerHTML = `<div class="item">
                             <div class="product-image">
-                                <a href="product-detail.html?product_id=${element.product}"><img src="${BACK_END_URL}${element.product_image}"></a>
+                                <a href="product-detail.html?product_id=${element.product}"><img src="${BACK_END_URL}${element.product_image}"/></a>
                             </div>
                             <div class="product-details">
                                 <h2><strong><span class="item-quantity">${element.product_name}</span></strong></h2>

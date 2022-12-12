@@ -52,12 +52,6 @@ img,
 	width: 100%;
 }
 
-.subtotal-value::after,
-.total-value::after,
-.promo-value::after {
-	content: '원';
-}
-
 .hide {
 	display: none;
 }
