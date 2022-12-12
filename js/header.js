@@ -58,7 +58,7 @@ fetch(` `)
         </div>`;
     });
 
-fetch(`../index.html`)
+fetch(`../main.html`)
     .then(response => {
         return response.text()
     })
@@ -108,7 +108,6 @@ async function logoutUser(){
 
     const response_json = await response_logout.json()
 
-    console.log(response_json)
   }
   
   localStorage.removeItem("access")

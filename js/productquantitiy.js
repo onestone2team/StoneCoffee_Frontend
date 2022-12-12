@@ -8,14 +8,9 @@ var $quantity=$('.quantity'),
         var currentCount = $qytInput.val();
         if($(this).hasClass('plus')){
             $qytInput.val(++currentCount);
-            console.log($qytInput)
         }else{
             if(currentCount > 1){
                 $qytInput.val(--currentCount);
             }
         }
-        console.log(currentCount)
-        console.log($unitprice)
-        var total = (currentCount * $unitprice).toLocaleString('en');
-        $targetTotal.text(total+'$'); 
     });
