@@ -1,30 +1,50 @@
-var promoCode;
+window.onload = function() {
+    cartlist()
+
+}
+
 var promoPrice;
 var fadeTime = 300;
 
-function cartlist() {
-    const response = fetch(`${BACK_END_URL}/product/cart/`, {
+async function cartlist() {
+    const response = await fetch(`${BACK_END_URL}/product/cart/`, {
         headers: {
             "content-type": "applycation/son",
-            "Authorization": "Bearer " + localStorage.getItem("access"),
+            // "Authorization": "Bearer " + localStorage.getItem("access"),
+            "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjcwODU1OTI4LCJpYXQiOjE2NzA4MTI3MjgsImp0aSI6IjIxZTAyYThjMmM3YzQ5ZTg5MGFkYzU2MTZhYjNlNDZjIiwidXNlcl9pZCI6MiwicHJvZmlsZW5hbWUiOiJhZG1pbiJ9.nKz_eNokXLnEQLMfNPdKY6xiAw4Q6DgWh0zys7wTajk",
         },
         method: "GET"
     })
-    cart_data = response.json()
-    cart_frame = document.getElementById('cart')
-    cart_data.foreach(element => {
+    var response_json = await response.json()
+    var cart_frame = document.getElementById('append-product')
+    console.log(response_json)
+    response_json.forEach(element => {
         const cart = document.createElement('div')
-        cart.setAttribute("class", product)
-
-        // const weight = element.weight
-        // const price = element.price *
+        var total_price = element.price * element.count
+        cart.setAttribute("class", "basket-product")
+        cart.innerHTML = `<div class="item">
+                            <div class="product-image">
+                                <a href="${BACK_END_URL}/product/detail/?product_id=${element.product.id}"><img src="${BACK_END_URL}${element.product.image}" alt="Placholder Image 2" class="product-frame"></a>
+                            </div>
+                            <div class="product-details">
+                                <h2><strong><span class="item-quantity"></span>${element.product.product_name}</strong>
+                                </h2>
+                                <p><strong>${element.weight}g</strong></p>
+                            </div>
+                        </div>
+                        <div class="content">
+                            <div class="price" id="price">${element.price}원</div>
+                            <div class="quantity" id="count">${element.count}</div>
+                            <div class="subtotal" id="subtotal">${total_price} 원</div>
+                        </div>
+                        <div class="remove">
+                            <button>지우기</button>
+                        </div>`
+        cart_frame.appendChild(cart)
     })
 }
 
 /* Assign actions */
-$('.quantity input').change(function () {
-    updateQuantity(this);
-});
 
 $('.remove button').click(function () {
     removeItem(this);
@@ -34,58 +54,23 @@ $(document).ready(function () {
     updateSumItems();
 });
 
-$('.promo-code-cta').click(function () {
-
-    promoCode = $('#promo-code').val();
-
-    if (promoCode == '10off' || promoCode == '10OFF') {
-        //If promoPrice has no value, set it as 10 for the 10OFF promocode
-        if (!promoPrice) {
-            promoPrice = 10;
-        } else if (promoCode) {
-            promoPrice = promoPrice * 1;
-        }
-    } else if (promoCode != '') {
-        alert("Invalid Promo Code");
-        promoPrice = 0;
-    }
-    //If there is a promoPrice that has been set (it means there is a valid promoCode input) show promo
-    if (promoPrice) {
-        $('.summary-promo').removeClass('hide');
-        $('.promo-value').text(promoPrice.toFixed(2));
-        recalculateCart(true);
-    }
-});
-
-/* Recalculate cart */
-function recalculateCart(onlyTotal) {
+function recalculateCart() {
     var subtotal = 0;
 
     /* Sum up row totals */
     $('.basket-product').each(function () {
-        subtotal += parseFloat($(this).children('.subtotal').text());
+        subtotal += parseFloat($(this).children('#subtotal').text());
     });
 
     /* Calculate totals */
     var total = subtotal;
 
-    //If there is a valid promoCode, and subtotal < 10 subtract from total
-    var promoPrice = parseFloat($('.promo-value').text());
-    if (promoPrice) {
-        if (subtotal >= 10) {
-            total -= promoPrice;
-        } else {
-            alert('Order must be more than £10 for Promo code to apply.');
-            $('.summary-promo').addClass('hide');
-        }
-    }
-
     /*If switch for update only total, update only total display*/
-    if (onlyTotal) {
+    if (123) {
         /* Update total display */
-        $('.total-value').fadeOut(fadeTime, function () {
+        $('#total-value').fadeOut(fadeTime, function () {
             $('#basket-total').html(total.toFixed(2));
-            $('.total-value').fadeIn(fadeTime);
+            $('#total-value').fadeIn(fadeTime);
         });
     } else {
         /* Update summary display. */
@@ -102,26 +87,26 @@ function recalculateCart(onlyTotal) {
     }
 }
 
-/* Update quantity */
-function updateQuantity(quantityInput) {
-    /* Calculate line price */
-    var productRow = $(quantityInput).parent().parent();
-    var price = parseFloat(productRow.children('.price').text());
-    var quantity = $(quantityInput).val();
-    var linePrice = price * quantity;
+// /* Update quantity */
+// function updateQuantity() {
+//     /* Calculate line price */
+//     var productRow = document;
+//     var price = parseFloat(productRow.children('.price').text());
+//     var quantity = $(quantityInput).val();
+//     var linePrice = price * quantity;
 
-    /* Update line price display and recalc cart totals */
-    productRow.children('.subtotal').each(function () {
-        $(this).fadeOut(fadeTime, function () {
-            $(this).text(linePrice.toFixed(2));
-            recalculateCart();
-            $(this).fadeIn(fadeTime);
-        });
-    });
+//     /* Update line price display and recalc cart totals */
+//     productRow.children('.subtotal').each(function () {
+//         $(this).fadeOut(fadeTime, function () {
+//             $(this).text(linePrice.toFixed(2));
+//             recalculateCart();
+//             $(this).fadeIn(fadeTime);
+//         });
+//     });
 
-    productRow.find('.item-quantity').text(quantity);
-    updateSumItems();
-}
+//     productRow.find('.item-quantity').text(quantity);
+//     updateSumItems();
+// }
 
 function updateSumItems() {
     var sumItems = 0;
@@ -131,9 +116,7 @@ function updateSumItems() {
     $('.total-items').text(sumItems);
 }
 
-/* Remove item from cart */
 function removeItem(removeButton) {
-    /* Remove row from DOM and recalc cart total */
     var productRow = $(removeButton).parent().parent();
     productRow.slideUp(fadeTime, function () {
         productRow.remove();

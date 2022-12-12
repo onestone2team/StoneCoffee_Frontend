@@ -27,7 +27,7 @@ window.onload =
                     slidesToScroll: 2,
                 }
             }, {
-                breakpoint: 520,
+                breakpoint: 570,
                 settings: {
                     slidesToShow: 1,
                     slidesToScroll: 1
@@ -76,7 +76,7 @@ async function product_list() {
         headers: {
             "content-type": "applycation/son",
             // "Authorization": "Bearer " + localStorage.getItem("access"),
-            "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjcwODAzMzc3LCJpYXQiOjE2NzA3NjAxNzcsImp0aSI6ImQ4MmZhZjcwNjcxNjRkNzE5MjdmZGFhYzY4ZGQ1NjNlIiwidXNlcl9pZCI6MiwicHJvZmlsZW5hbWUiOiJhZG1pbiJ9.FkHIk_jzYxX-hPLHry7LDjq5g2WuPq3pSdyetmtb_sY",
+            "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjcwODU1OTI4LCJpYXQiOjE2NzA4MTI3MjgsImp0aSI6IjIxZTAyYThjMmM3YzQ5ZTg5MGFkYzU2MTZhYjNlNDZjIiwidXNlcl9pZCI6MiwicHJvZmlsZW5hbWUiOiJhZG1pbiJ9.nKz_eNokXLnEQLMfNPdKY6xiAw4Q6DgWh0zys7wTajk",
         },
         method: "GET"
     })
