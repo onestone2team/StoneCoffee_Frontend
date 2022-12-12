@@ -2,10 +2,6 @@ window.onload = function() {
     cartlist()
 
 }
-
-
-var promoCode;
-var promoPrice;
 var fadeTime = 300;
 
 function cartlist() {
@@ -13,7 +9,7 @@ function cartlist() {
         headers: {
             "content-type": "applycation/son",
             // "Authorization": "Bearer " + localStorage.getItem("access"),
-            "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjcwODU1OTI4LCJpYXQiOjE2NzA4MTI3MjgsImp0aSI6IjIxZTAyYThjMmM3YzQ5ZTg5MGFkYzU2MTZhYjNlNDZjIiwidXNlcl9pZCI6MiwicHJvZmlsZW5hbWUiOiJhZG1pbiJ9.nKz_eNokXLnEQLMfNPdKY6xiAw4Q6DgWh0zys7wTajk",
+            "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjcwODAzMzc3LCJpYXQiOjE2NzA3NjAxNzcsImp0aSI6ImQ4MmZhZjcwNjcxNjRkNzE5MjdmZGFhYzY4ZGQ1NjNlIiwidXNlcl9pZCI6MiwicHJvZmlsZW5hbWUiOiJhZG1pbiJ9.FkHIk_jzYxX-hPLHry7LDjq5g2WuPq3pSdyetmtb_sY",
         },
         method: "GET"
     })
@@ -25,12 +21,12 @@ function cartlist() {
         cart.setAttribute("class", "basket-product")
         cart.innerHTML = `<div class="item">
                             <div class="product-image">
-                                <a href=${BACK_END_URL}/product/detail/?product_id=${element.product.id}><img src="${BACK_END_URL}${element.product.image}" class="product-frame"></a>
+                                <a href="${BACK_END_URL}/product/detail/?product_id=${id}"><img src="img/logo.png" alt="Placholder Image 2" class="product-frame"></a>
                             </div>
                             <div class="product-details">
                                 <h2><strong><span class="item-quantity"></span> 케냐 AA</strong>
                                 </h2>
-                                <p><strong>${element.weight}g</strong></p>
+                                <p><strong>300g</strong></p>
                                 <p>2022-12-08</p>
                             </div>
                         </div>
@@ -42,16 +38,8 @@ function cartlist() {
                         <div class="remove">
                             <button>지우기</button>
                         </div>`
-
-        // const weight = element.weight
-        // const price = element.price *
     })
 }
-
-/* Assign actions */
-$('.quantity input').change(function () {
-    updateQuantity(this);
-});
 
 $('.remove button').click(function () {
     removeItem(this);
@@ -61,6 +49,70 @@ $(document).ready(function () {
     updateSumItems();
 });
 
+function recalculateCart(onlyTotal) {
+    var subtotal = 0;
+
+    $('.basket-product').each(function () {
+        subtotal += parseFloat($(this).children('.subtotal').text());
+    });
+
+    /* Calculate totals */
+    var total = subtotal;
+
+    //If there is a valid promoCode, and subtotal < 10 subtract from total
+    var promoPrice = parseFloat($('.promo-value').text());
+    if (promoPrice) {
+        if (subtotal >= 10) {
+            total -= promoPrice;
+        } else {
+            alert('Order must be more than £10 for Promo code to apply.');
+            $('.summary-promo').addClass('hide');
+        }
+    }
+
+    /*If switch for update only total, update only total display*/
+    if (onlyTotal) {
+        /* Update total display */
+        $('.total-value').fadeOut(fadeTime, function () {
+            $('#basket-total').html(total.toFixed(2));
+            $('.total-value').fadeIn(fadeTime);
+        });
+    } else {
+        /* Update summary display. */
+        $('.final-value').fadeOut(fadeTime, function () {
+            $('#basket-subtotal').html(subtotal.toFixed(2));
+            $('#basket-total').html(total.toFixed(2));
+            if (total == 0) {
+                $('.checkout-cta').fadeOut(fadeTime);
+            } else {
+                $('.checkout-cta').fadeIn(fadeTime);
+            }
+            $('.final-value').fadeIn(fadeTime);
+        });
+    }
+}
+
+/* Update quantity */
+function updateQuantity(quantityInput) {
+    /* Calculate line price */
+    var productRow = $(quantityInput).parent();
+    var price = parseFloat(productRow.children('.price').text());
+    var quantity = $(quantityInput).val();
+    var linePrice = price * quantity;
+
+    /* Update line price display and recalc cart totals */
+    productRow.children('.subtotal').each(function () {
+        $(this).fadeOut(fadeTime, function () {
+            $(this).text(linePrice.toFixed(2));
+            recalculateCart();
+            $(this).fadeIn(fadeTime);
+        });
+    });
+
+    productRow.find('.item-quantity').text(quantity);
+    updateSumItems();
+}
+
 /* Remove item from cart */
 function removeItem(removeButton) {
     /* Remove row from DOM and recalc cart total */
@@ -68,6 +120,5 @@ function removeItem(removeButton) {
     productRow.slideUp(fadeTime, function () {
         productRow.remove();
         recalculateCart();
-        updateSumItems();
     });
 }
