@@ -6,17 +6,16 @@ var product_id = product_id1.split('/')[0]
 window.onload = async function ProductDetail() {
     const payload = localStorage.getItem("payload")
     const parsed_payload = JSON.parse(payload)
-    console.log(product_id+"접속")
-    // if(!parsed_payload){
-    //     alert("권한이 없습니다. 로그인 해주세요")
-    //     location.replace("../index.html")
-    // }
-    // data["data"]["coffee"]["0"]["product_name"]
+    if(!parsed_payload){
+        alert("권한이 없습니다. 로그인 해주세요")
+        location.replace("../main.html")
+    }
+
 
     const product = await fetch(`${BACK_END_URL}/product/detail/?product_id=${product_id} `, {
         headers: {
             'content-type': 'application/json',
-            // "Authorization": "Bearer " + localStorage.getItem("access")
+            "Authorization": "Bearer " + localStorage.getItem("access")
         },
         method: 'GET',
     })
@@ -24,8 +23,6 @@ window.onload = async function ProductDetail() {
 
 //========제품 이미지 불러오기========
     product_json = await product.json()
-    console.log(product_json.products["id"])
-    console.log(product_json)
     const product_image = document.getElementById("productimage")
     product_image.setAttribute("src", `${BACK_END_URL}${product_json.products["image"]}`)
     product_image.setAttribute("style", `width:80%; height:80%;`)
@@ -100,16 +97,33 @@ window.onload = async function ProductDetail() {
         
         recommend.appendChild(recommends)
     }
+    // reviews_counts
+    review_count=document.getElementById('comment-count')
+    const review_counts = document.createElement('span')
+    review_counts.innerHTML=`<span id="count">${product_json.products.comment_set.length} 개</span>`
+    review_count.appendChild(review_counts)
     // review
-    review=document.getElementById('review')
-    const reviews = document.createElement('div')
-    // console.log(product_json.products.comment_set[0]["comment"])
-    reviews.innerHTML=`<li>${product_json.products.comment_set[0]["comment"]}</li>
-    <li>${product_json.products.comment_set[0]["created_at"]}</li>
-    <li>${product_json.products.comment_set[0]["comment"]}</li>
-    <li>${product_json.products.comment_set[0]["comment"]}</li>
-    <li>${product_json.products.comment_set[0]["comment"]}</li>`
-    review.appendChild(reviews)
+    for (i=0; i <product_json.products.comment_set.length; i++) {
+        review=document.getElementById('review')
+        const reviews = document.createElement('div')
+        reviews.innerHTML=`
+                <div class="user-block" id="reviewbox">      
+                    <img style="width: 60px;height: 60px;"src=${BACK_END_URL}${product_json.products.comment_set[i].user.profile}>
+                    <div class="username"><a>작성자 ${product_json.products.comment_set[i].user.profilename}</a></div>
+                    <div class="content"><a> ${product_json.products.comment_set[i]["comment"]}</a></div>
+                    <div class="like"><a>좋아요! ${product_json.products.comment_set[i]["like"]} 개 </a></div>
+                    <div class="point"><a>점수 ${product_json.products.comment_set[i]["point"]}</a></div>
+                    <div class="time"><a>작성시간${product_json.products.comment_set[i]["created_at"]}</a></div>
+                    <a onclick="this.nextSibling.style.display=(this.nextSibling.style.display=='none')?'block':'none';" href="javascript:void(0)" class="img">
+                    이미지 보기
+                    </a><div style="DISPLAY: none">
+                    <div class="image"><a><img src="${BACK_END_URL}${product_json.products.comment_set[i]["image"]}"></a></div>
+                </div>
+                <br/>`
+                // <img  src="${BACK_END_URL}${product_json.recommend[i]["image"]}" >
+        review.appendChild(reviews)
+}
+
 }
 
 
@@ -120,7 +134,7 @@ async function cart() {
     const response = await fetch(`${BACK_END_URL}/product/cart/`, {
         headers: {
             "content-type": "application/json",
-            // "Authorization": "Bearer " + localStorage.getItem("access")
+            "Authorization": "Bearer " + localStorage.getItem("access")
         },
         method: "POST",
     })  
@@ -128,14 +142,24 @@ async function cart() {
 
     if (response.status==200 || response.status==202){
         alert("장바구니에 담겼습니다.")
-        location.reload();
+        location.reload(false);
     }
     else if(response.status==401){
         alert("로그인을 해주세요")
-        location.reload();
+        location.reload(false);
     }
     
    
+}
+async function orderButton(){
+    const response = await fetch(`${BACK_END_URL}/product/like/`, {
+        headers: {
+            "content-type": "application/json",
+            "Authorization": "Bearer " + localStorage.getItem("access")
+        },
+        method: "POST",
+    })
+    location.reload();
 }
 async function like() {
     
@@ -158,5 +182,62 @@ async function like() {
     }
     
    
+}
+// 댓글 이미지 출력 js
+$('#comment_img').on('change', function() {
+    ext = $(this).val().split('.').pop().toLowerCase(); //확장자
+    //배열에 추출한 확장자가 존재하는지 체크
+    if($.inArray(ext, ['gif', 'png', 'jpg', 'jpeg']) == -1) {
+        resetFormElement($(this)); //폼 초기화
+        window.alert('이미지 파일이 아닙니다! (gif, png, jpg, jpeg 만 업로드 가능)');
+    } else {
+        file = $('#comment_img').prop("files")[0];
+        blobURL = window.URL.createObjectURL(file);
+        $('#image_preview img').attr('src', blobURL);
+        $('#image_preview').slideDown(); //업로드한 이미지 미리보기 
+        $(this).slideUp(); //파일 양식 감춤
+    }
+    });
+    // 댓글 등록하는 js
+async function commentrg(){
+        const comment_form= document.querySelector("comment_form")
+        const comment_content=document.querySelectorAll("input")[2];
+        const comment_img=document.querySelector("input[type='file']");
+        const comment_point=document.querySelectorAll("select")[1];
+
+        if (comment_content.value == false){
+            alert("리뷰를 작성해 주세요")
+        } else if (comment_point.value ==  0){
+            alert("리뷰를 작성해 주세요")
+        } else if (comment_point.value ==  0){
+            alert("평점을 선택해 주세요")
+        }   else {
+        let formdata = new FormData 
+        formdata.append('comment', comment_content.value)
+        formdata.append('point', comment_point.value)
+        formdata.append('image', comment_img.files[0])
+
+        const response =await fetch(`${BACK_END_URL}/comment/?product_id=${product_id}`, {
+            headers:{
+                "Authorization": "Bearer " + localStorage.getItem("access"),
+            },
+            method: 'POST',
+            body: formdata
+        })
+            response_json=await response.json()
+            console.log(response_json)
+            if (response.status == 200 || response.status == 202 || response.status == 201) {
+                alert("정상적으로 리뷰 작성을 하였습니다.")
+                // location.reload();
+            }
+            else if (response.status == 400) {
+                alert("게시글당 한번의 리뷰만 작성이 가능합니다.")
+                }
+                // location.reload();
+            return response.json()
+            
+            
+        
+    }
 }
 

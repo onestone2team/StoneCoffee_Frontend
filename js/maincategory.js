@@ -3,17 +3,11 @@ window.addEventListener('load', function() {
 });
 const urlparams = new URLSearchParams(window.location.search);
 const category_id= urlparams.get('id')
-// console.log(category_id)
 
 current_page=1
 async function show_product_list() {
-    
-    console.log(current_page)
     const response = await fetch(`${BACK_END_URL}/product/category/?category_id=${category_id}&page=${current_page}`, {
         headers: {
-            // "Access-Control-Allow-Origin": "*",
-            // "Access-Control-Allow-Credentials": true,
-            // "Access-Control-Allow-Methods": "GET,POST,OPTIONS,DELETE,PUT,PATCH",
             'content-type': 'application/json'
         },
         method: 'GET',
@@ -58,12 +52,10 @@ function pagePreview1() {
     }
 }
 async function cart() {
-    console.log(product_id)
-    console.log(id)
     const response = await fetch(`${BACK_END_URL}/product/${product_id}/cart/`, {
         headers: {
             "content-type": "application/json",
-            // "Authorization": "Bearer " + localStorage.getItem("access")
+            "Authorization": "Bearer " + localStorage.getItem("access")
         },
         method: "POST",
     })  
@@ -84,7 +76,7 @@ async function like() {
     const response = await fetch(`${BACK_END_URL}/product/${product_id}/like/`, {
         headers: {
             "content-type": "application/json",
-            // "Authorization": "Bearer " + localStorage.getItem("access")
+            "Authorization": "Bearer " + localStorage.getItem("access")
         },
         method: "POST",
     })

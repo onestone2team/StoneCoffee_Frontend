@@ -25,7 +25,7 @@
                     <!-- padding-top: 220px; padding-left: 80px; -->
 
                     <img id="productimage">
-
+                
                 </div>
                 <div class="product_specs col-md-7">
                     <h2>상품 정보</h2>
@@ -42,8 +42,7 @@
                 <form action="">
                     <hr/>
                     <div class="option" id="option">
-                        <div class="quantity" id="quantity" data-unitprice="6002"><!-- data-unitprice -->
-                            <h4>갯수</h4>
+                        <div class="quantity" id="quantity" ><!-- data-unitprice -->
                             <span class="plus">+</span>
                             <input type="text" readonly value="1">
                             <span class="minus">-</span>
@@ -52,7 +51,6 @@
                     <hr/>
                     <div class="order_summary">
                         <div class="total_price">
-                            <h4>price</h4>
                             <span class="price"></span>
                             <div id="price"></div>
                         </div>
@@ -75,7 +73,36 @@
     </div>
     <div style="text-align: center; padding-top: 50px;"><h2><hr/>리뷰 보기.</h2></div>
     <hr/>
-    <div id="review">
+    <div id="form-commentInfo" style="text-align: center;">
+        <form id="comment_form">
+            <div id="comment-count">리뷰 </div>
+            <input id="comment-input" placeholder="리뷰을 입력해 주세요.">
+            <button type="button" id="submit" onclick="commentrg()">등록</button>
+
+                <div id="image_preview">
+                    <img src="../img/icon.png" alt="사진영역"  style="width:126px; height:165px;">
+                    <div class="f_box">
+                        <label for="img">사진첨부</label>
+                        <input type="file" id="comment_img"  name="product_id">
+                    </div>
+                </div>
+
+                <div class="grade">
+                    <h4>평점 선택</h4>
+                    <select size="1" id="grade">
+                        <option value="0">평점</option>
+                        <option value="1">1 점</option>
+                        <option value="2">2 점</option>
+                        <option value="3">3 점</option>
+                        <option value="4">4 점</option>
+                        <option value="5">5 점</option>
+                    </select>
+                </div>
+        </form>
+
+    </div>
+    <div id="review" style="padding-left: 330px; padding-bottom:50px">
+
     </div>
     <footer id="aa-footer">
     </footer>
