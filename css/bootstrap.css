@@ -1,8 +1,8 @@
 /* 검색버튼 크기 */
 * {
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
+     -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+             box-sizing: border-box;
 }
 
 /*메인 썸네일 이미지 크기  */
@@ -12,9 +12,10 @@ figure {
 
 /* 메인 썸네일 텍스트 공간 */
 h4,
+
 .h4 {
-    margin-top: 10px;
-    margin-bottom: 10px;
+    margin-top: 5px;
+    margin-bottom: 5px;
 }
 
 /* 메인 썸네일 텍스트 크기 */
@@ -171,5 +172,14 @@ h4,
 }
 
 .hearder_top_row:after {
+    clear: both;
+}
+
+.row:after,
+.navbar-collapse:after {
+    display: table;  
+    content: " ";
+}
+.row:after,.navbar-collapse:after {  
     clear: both;
 }
