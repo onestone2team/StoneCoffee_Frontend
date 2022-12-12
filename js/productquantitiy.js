@@ -2,7 +2,7 @@ var $quantity=$('.quantity'),
     $unitprice = $quantity.attr('data-unitprice'),
     $qtyBtn = $quantity.find('span'),
     $qytInput =$quantity.find('input'),
-    $targetTotal=$('.total_price .price');   
+    $targetTotal=$('.total_price .price');
 
     $qtyBtn.click(function(){
         var currentCount = $qytInput.val();
@@ -17,5 +17,5 @@ var $quantity=$('.quantity'),
         console.log(currentCount)
         console.log($unitprice)
         var total = (currentCount * $unitprice).toLocaleString('en');
-        $targetTotal.text(total+'$'); 
+        $targetTotal.text(total+'$');
     });

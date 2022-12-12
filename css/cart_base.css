@@ -1,19 +1,14 @@
-@charset "utf-8";
-
-@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,700,600);
-
-html,
-html a {
-	-webkit-font-smoothing: antialiased;
-	text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.004);
-}
-
 .basket {
 	background-color: rgba(143, 143, 143, 0.11);
 	color: #666;
-	font-family: 'Open Sans', sans-serif;
-	font-size: 62.5%;
-	margin: 0 auto;
+	margin: 20px 0 10px ;
+	top: 0;
+}
+.price,
+.count,
+.subtotal {
+	align-items: center;
+
 }
 
 .basket>a {
@@ -46,12 +41,9 @@ button {
 button {
 	background-color: #666;
 	color: #fff;
+	cursor: pointer;
 }
 
-button:hover,
-button:focus {
-	background-color: #555;
-}
 
 img,
 .basket-module,
@@ -59,10 +51,6 @@ img,
 .basket-product {
 	width: 100%;
 }
-
-
-
-
 
 .subtotal-value::after,
 .total-value::after,
@@ -74,16 +62,7 @@ img,
 	display: none;
 }
 
-main {
-	display: flex;
-    flex-direction: column;
-	clear: both;
-	font-size: 0.75rem;
-	margin: 0 auto;
-	overflow: hidden;
-	padding: 1rem 0;
-	width: 960px;
-}
+
 
 .basket,
 aside {
@@ -169,7 +148,8 @@ li.subtotal:before {
 	position: absolute;
 	right: 0;
 	text-align: right;
-	width: 45%;
+	bottom: 0;
+
 }
 
 .remove button {
@@ -195,10 +175,12 @@ li.subtotal:before {
 
 .product-image {
 	width: 35%;
+	min-width: 177px;
+	min-height: 177px;
 }
 
 .product-details {
-	width: 65%;
+	width: 50%;
 }
 
 .product-frame {
@@ -230,10 +212,11 @@ aside {
 .summary {
 	background-color: #eee;
 	border: 1px solid #aaa;
-	padding: 1rem;
-	position: absolute;
+	position: relative;
 	box-sizing: border-box;
-	right: 100px;
+	width: 30%;
+	padding: 10px 30px 30px 30px;
+	float: right;
 }
 
 .summary-total-items {
@@ -247,7 +230,7 @@ aside {
 	border-top: 1px solid #ccc;
 	border-bottom: 1px solid #ccc;
 	clear: both;
-	margin: 1rem 0;
+	margin: 0.5rem 0;
 	overflow: hidden;
 	padding: 0.5rem 0;
 }
@@ -329,13 +312,12 @@ aside {
 	aside,
 	.basket,
 	.summary,
-	.item,
-	.remove {
+	.item {
 		width: 100%;
 	}
 
 	.basket-labels {
-		display: none;
+		margin-top: 0.7rem;
 	}
 
 	.basket-module {
@@ -370,9 +352,9 @@ aside {
 
 	.remove {
 		bottom: 0;
-		text-align: left;
+		text-align: right;
 		margin-top: 0.75rem;
-		position: relative;
+		position: absolute;
 	}
 
 	.remove button {
@@ -383,29 +365,158 @@ aside {
 		margin-top: 1.25rem;
 		position: relative;
 	}
+	main{
+		display: flex;
+		flex-direction: column;
+	}
 }
 
 @media screen and (min-width: 641px) and (max-width: 960px) {
 	aside {
 		padding: 0 1rem 0 0;
+		width: 70%;
+		margin-bottom: 2rem;
+	}
+	.basket-labels {
+		margin-top: 0.7rem;
+	}
+	.summary {
+		width: 70%;
+	}
+
+	.basket,
+	.item {
+		width: 100%;
+	}
+
+
+	.product-image {
+		width: 40%;
+	}
+
+	.product-details {
+		width: 60%;
+	}
+
+	.price,
+	.subtotal {
+		width: 33%;
+	}
+
+	.quantity {
+		text-align: center;
+		width: 34%;
+	}
+
+	.quantity-field {
+		float: none;
+	}
+
+	.remove {
+		bottom: 0;
+		text-align: right;
+		position: absolute;
+	}
+
+	.remove button {
+		padding: 0;
 	}
 
 	.summary {
-		width: 28%;
+		margin-top: 1.25rem;
+		position: relative;
+		width: 70%;
+	}
+	main{
+		display: flex;
+		flex-direction: column;
+		align-items: center;
 	}
 }
-
-@media screen {
-	main {
+@media screen and (max-width: 823px) {
+	.item{
 		width: 100%;
+		left: 50%;
+	}
+}
+@media screen and (max-width: 1300px) {
+	aside {
+		padding: 0 1rem 0 0;
+		width: 50%;
+		margin-bottom: 2rem;
+	}
+	.basket-labels {
+		margin-top: 0.7rem;
+	}
+	.summary {
+		width: 70%;
+	}
+
+	.basket,
+	.item {
+		width: 80%;
+	}
+
+
+	.product-image {
+		width: 40%;
+	}
+
+	.product-details {
+		width: 150px;
+	}
+
+	.price,
+	.subtotal {
+		width: 33%;
+	}
+
+	.quantity {
+		text-align: center;
+		width: 34%;
+	}
+
+	.quantity-field {
+		float: none;
+	}
+
+	.remove {
+		bottom: 0;
+		text-align: right;
+		position: absolute;
+	}
+
+	.remove button {
+		padding: 0;
+	}
+
+	.summary {
+		margin-top: 1.25rem;
+		position: relative;
+		width: 70%;
+	}
+	main{
+		display: flex;
+		flex-direction: column;
+		align-items: center;
 	}
 }
 
-@media screen and (max-width: 960px) {
-	.product-details {
-		padding: 0 1rem;
+@media screen and (min-width: 1300px) {
+	main{
+		display: flex;
+		flex-direction: row;
+		margin: 5rem 4rem 5rem 10rem;
+	}
+	aside{
+		max-width: 300px;
+		margin-left: 30px;
+		float: right;
 	}
 }
+
+
+
 .basket::-webkit-scrollbar{
 	-webkit-box-shadow: inset 0 0 6px rgba(255, 255, 255, 0.3);
 	border: none;
@@ -413,6 +524,10 @@ aside {
 }
 
 .basket::-webkit-scrollbar-thumb{
-	background-color: #111;
+	background-color: rgb(179, 179, 179);
 	height: 1px;
+}
+
+.summary {
+	width: 100%;
 }
