@@ -217,25 +217,27 @@ async function commentrg(){
         formdata.append('point', comment_point.value)
         formdata.append('image', comment_img.files[0])
 
-        const response = fetch(`${BACK_END_URL}/comment/?product_id=${product_id}`, {
+        const response =await fetch(`${BACK_END_URL}/comment/?product_id=${product_id}`, {
             headers:{
                 "Authorization": "Bearer " + localStorage.getItem("access"),
             },
             method: 'POST',
             body: formdata
-        }).then(response =>{
-            if (response.status == 200 || response.status == 202) {
+        })
+            response_json=await response.json()
+            console.log(response_json)
+            if (response.status == 200 || response.status == 202 || response.status == 201) {
                 alert("정상적으로 리뷰 작성을 하였습니다.")
-                location.reload();
+                // location.reload();
             }
             else if (response.status == 400) {
                 alert("게시글당 한번의 리뷰만 작성이 가능합니다.")
                 }
-                location.reload();
+                // location.reload();
             return response.json()
             
             
-        })
+        
     }
 }
 
