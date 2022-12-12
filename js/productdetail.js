@@ -26,13 +26,10 @@ window.onload = async function ProductDetail() {
     const product_image = document.getElementById("productimage")
     product_image.setAttribute("src", `${BACK_END_URL}${product_json.products["image"]}`)
     product_image.setAttribute("style", `width:80%; height:80%;`)
-//제품 가격 넣어주는 코드(수량x가격 에필요함)
-    
-    const totalprice=document.getElementById("quantity")
-    totalprice.setAttribute("data-unitprice",`${product_json.products["price"]}`)
 
 
-    
+
+
 //이름,가격불러오는 코드
     name2=document.getElementById('name')
     const name1 = document.createElement('p')
@@ -64,17 +61,18 @@ window.onload = async function ProductDetail() {
         const w_option2 =document.createElement('p')
         w_option2.innerHTML=`<div class="size">
         <h4>용량 선택</h4>
-        <select size="1">
-            <option value="1">300g</option>
-            <option value="2">500g</option>
+        <select size="1" id=weight>
+            <option value="0">중량</option>
+            <option value="300">300g</option>
+            <option value="500">500g</option>
                 </select>
             </div>`
         w_option.appendChild(w_option2)
     }
     // 가격
         price2=document.getElementById('price')
-        const price1 = document.createElement('p')
-        price1.innerHTML=`<h3>가격 : ${product_json.products["price"]} 원</h3>`
+        const price1 = document.createElement('div')
+        price1.innerHTML=`<h3 class="price">가격 : ${product_json.products["price"]} 원</h3>`
         price2.appendChild(price1)
     //상품 내용 description 
     productinformation2=document.getElementById('description')
@@ -130,40 +128,47 @@ window.onload = async function ProductDetail() {
 
         
 async function cart() {
-    
-    const response = await fetch(`${BACK_END_URL}/product/cart/`, {
-        headers: {
-            "content-type": "application/json",
-            "Authorization": "Bearer " + localStorage.getItem("access")
+        const count=document.querySelector(".readonly");
+        const weight=document.querySelectorAll("select")[0];
+
+
+        if (weight.value == 0){
+            alert("중량을 선택해주세요")
+        }else {
+        let formdata = new FormData 
+        formdata.append('count', count.value)
+        formdata.append('price', String(product_json.products["price"]))
+        formdata.append('weight', weight.value)
+
+
+
+        console.log(count.value,String(product_json.products["price"]),weight.value)
+
+    const response = await fetch(`${BACK_END_URL}/product/cart/?product_id=${product_id}`, {
+        headers:{
+            "Authorization": "Bearer " + localStorage.getItem("access"),
         },
         method: "POST",
-    })  
+        body: formdata
+    }) 
+    response_json=await response.json()
 
-
-    if (response.status==200 || response.status==202){
+    if (response.status==200 || response.status==202 || response.status == 201){
         alert("장바구니에 담겼습니다.")
-        location.reload(false);
+        location.reload();
+        return response.json()
     }
-    else if(response.status==401){
+    else if(response.status==401 || response.status == 400){
         alert("로그인을 해주세요")
-        location.reload(false);
+        location.reload();
+        return response.json()
     }
-    
+ 
+}
    
 }
-async function orderButton(){
-    const response = await fetch(`${BACK_END_URL}/product/like/`, {
-        headers: {
-            "content-type": "application/json",
-            "Authorization": "Bearer " + localStorage.getItem("access")
-        },
-        method: "POST",
-    })
-    location.reload();
-}
 async function like() {
-    
-    const response = await fetch(`${BACK_END_URL}/product/like/`, {
+    const response = await fetch(`${BACK_END_URL}/product/like/?product_id=${product_id}`, {
         headers: {
             "content-type": "application/json",
             "Authorization": "Bearer " + localStorage.getItem("access")
@@ -174,11 +179,11 @@ async function like() {
 
     if (response.status==200 || response.status==202){
         alert("좋아요에 등록되었습니다.")
-        location.reload(false);
+        location.reload();
     }
     else if(response.status==401){
         alert("로그인을 해주세요")
-        location.reload(false);
+        location.reload();
     }
     
    
@@ -205,9 +210,9 @@ async function commentrg(){
         const comment_img=document.querySelector("input[type='file']");
         const comment_point=document.querySelectorAll("select")[1];
 
-        if (comment_content.value == false){
+        if (comment_content.value == ""){
             alert("리뷰를 작성해 주세요")
-        } else if (comment_point.value ==  0){
+        } else if (comment_content.value == " "){
             alert("리뷰를 작성해 주세요")
         } else if (comment_point.value ==  0){
             alert("평점을 선택해 주세요")
@@ -215,8 +220,9 @@ async function commentrg(){
         let formdata = new FormData 
         formdata.append('comment', comment_content.value)
         formdata.append('point', comment_point.value)
-        formdata.append('image', comment_img.files[0])
-
+        if (comment_img.files[0] != undefined){
+            formdata.append('image', comment_img.files[0])
+        }else {
         const response =await fetch(`${BACK_END_URL}/comment/?product_id=${product_id}`, {
             headers:{
                 "Authorization": "Bearer " + localStorage.getItem("access"),
@@ -228,15 +234,16 @@ async function commentrg(){
             console.log(response_json)
             if (response.status == 200 || response.status == 202 || response.status == 201) {
                 alert("정상적으로 리뷰 작성을 하였습니다.")
-                // location.reload();
+                location.reload();
+                return response.json()
             }
             else if (response.status == 400) {
                 alert("게시글당 한번의 리뷰만 작성이 가능합니다.")
                 }
-                // location.reload();
-            return response.json()
+                location.reload();
+                return response.json()
             
-            
+        }
         
     }
 }
