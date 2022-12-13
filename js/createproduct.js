@@ -60,12 +60,12 @@ $('#comment_img').on('change', function() {
             console.log(response_json)
             if (response.status == 200 || response.status == 202 || response.status == 201) {
                 alert("정상적으로 상품 등록이 되었습니다.")
-                // location.reload();
+                location.reload();
             }
             else if (response.status == 400) {
                 alert("오류가 발생했습니다..")
                 }
-                // location.reload();
+                location.reload();
             }
 
     }

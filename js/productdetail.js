@@ -150,11 +150,11 @@ async function cart() {
         
             if (response.status==200 || response.status==202 || response.status == 201){
                 alert("장바구니에 담겼습니다.")
-                // location.reload();
+                location.reload();
             }
             else if(response.status==401 || response.status == 400){
                 alert("로그인을 해주세요")
-                // location.reload();
+                location.reload();
             }}
             else if(product_json.products.aroma_grade >= 1) {
                 const count=document.querySelector(".readonly");
@@ -179,12 +179,12 @@ async function cart() {
 
         if (response.status==200 || response.status==202 || response.status == 201){
             alert("장바구니에 담겼습니다.")
-            // location.reload();
+            location.reload();
             
         }
         else if(response.status==401 || response.status == 400){
             alert("로그인을 해주세요")
-            // location.reload();
+            location.reload();
         }
     }
     }
