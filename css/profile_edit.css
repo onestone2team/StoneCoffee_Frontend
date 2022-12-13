@@ -45,6 +45,7 @@
     cursor: pointer;
     color: white;
 }
+/* 본문 */
 .title {
     text-align: center;
     margin-top: 50px;
@@ -55,14 +56,14 @@
     display: inline;
     /* position:fixed; top:30px; left:40px; */
 }
-.content {
-    background-color: rgba(84, 4, 4, 0.264);
+.profile-content {
+    background-color: rgba(5, 57, 134, 0.264);
     border-radius: 20px;
     padding-bottom: 80px;
     margin:auto;
     width:80%;
 }
-.content form {
+.profile-content form {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -113,14 +114,14 @@
 }
 
 /* 비밀번호변경 페이지 진입 버튼 */
-.content form button {
+.profile-content form button {
     font-size: 10px;
     background: transparent;
 }
-.content .button-profile-edit{
+.profile-content .button-profile-edit{
     margin-top:40px;
 }
-.content form .btn{
+.profile-content form .btn{
     background-color: brown;
     border: none;
 }
