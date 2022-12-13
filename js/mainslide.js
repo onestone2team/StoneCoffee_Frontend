@@ -61,6 +61,5 @@ interval = setInterval(function() {
 
 function stopAction() {
 clearInterval(interval);
-  console.log("a")
 }
 

@@ -62,7 +62,6 @@ async function kakaologin() {
 
 //-----------------------------회원가입------------------------------
 async function signupButton() {
-    console.log('회원가입 실행')
     const profilename = document.getElementById("signup_profilename").value;
     const password = document.getElementById("signup_password").value;
     const password_check = document.getElementById("signup_password2").value;
@@ -105,7 +104,6 @@ async function signupButton() {
 
 //------------------------------로그인---------------------------------
 async function loginButton() {
-console.log('로그인 실행')
 const email = document.getElementById("login_email").value
 const password = document.getElementById("login_password").value
 

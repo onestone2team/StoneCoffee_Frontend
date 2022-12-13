@@ -49,12 +49,11 @@ window.onload=async function ProductDetail() {
 
     const payload = localStorage.getItem("payload")
     const parsed_payload = JSON.parse(payload)
-    console.log(parsed_payload)
 
-    // if(!parsed_payload){
-    //     alert("권한이 없습니다. 로그인 해주세요")
-    //     location.replace("../templates/main.html")
-    // }
+    if(!parsed_payload){
+        alert("권한이 없습니다. 로그인 해주세요")
+        location.replace("../templates/main.html")
+    }
 
     // $("#headers").load("../templates/navigation.html");
 
@@ -67,6 +66,5 @@ window.onload=async function ProductDetail() {
     })
 
     product_detail_json = await product_detail.json()
-    console.log(product_detail_json)
     comments = product_detail_json.comments_set
 }//Product detail

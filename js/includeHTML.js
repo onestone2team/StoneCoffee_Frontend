@@ -1,4 +1,4 @@
-fetch(`/index.html`)
+fetch(`/main.html`)
     .then(response => {
         return response.text()
     })
@@ -98,7 +98,7 @@ fetch(`/index.html`)
 
 `;
     });
-fetch(`../index.html`)
+fetch(`../main.html`)
     .then(response => {
         return response.text()
     })
@@ -119,7 +119,7 @@ fetch(`../index.html`)
           <div class="navbar-collapse collapse">
             <!-- Left nav -->
             <ul class="nav navbar-nav">
-              <li><a href="index.html">Home</a></li>
+              <li><a href="main.html">Home</a></li>
               <li><a href="#">Men아하하 <span class="caret"></span></a>
                 <ul class="dropdown-menu">                
                   <li><a href="#">Casual</a></li>
@@ -234,7 +234,7 @@ fetch(`../index.html`)
     `;
     });
 
-fetch(`../index.html`)
+fetch(`../main.html`)
     .then(response => {
         return response.text()
     })
@@ -262,7 +262,7 @@ fetch(`../index.html`)
                                                       </div>`;
     });
 
-fetch(`../index.html`)
+fetch(`../main.html`)
     .then(response => {
         return response.text()
     })
