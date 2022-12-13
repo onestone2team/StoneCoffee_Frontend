@@ -2,7 +2,7 @@ function saveCookie(name, value, unixTime){
     var date = new Date();
     date.setTime(date.getTime() + unixTime*1000*60*60*24);
     document.cookie = encodeURIComponent(name) + '=' + encodeURIComponent(value) + ';expires=' + date.toUTCString() + ';path=/';
-    location.replace('index.html')
+    location.replace('main.html')
 }
 
 function startSurvey(){
@@ -28,7 +28,6 @@ function sendSurvey(){
     const showSurvey = document.getElementById('showSurvey')
 
 
-    console.log(aroma_grade, sweet_grade, acidity_grade, balance_grade)
 
     const coffeeshow = document.getElementById('coffeeShow')
     showSurvey.style.display = "none"

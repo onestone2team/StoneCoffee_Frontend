@@ -1,0 +1,87 @@
+input,
+button,
+.basket-module,
+.basket-labels,
+.item,
+.price,
+.quantity,
+.basket-product,
+.product-image,
+.product-details,
+.inquiry_title,
+.inquiry_content {
+	float: left;
+}
+
+.item {
+	width: 30% !important;
+	margin-left: 50px;
+}
+
+.price {
+	width: 20% !important;
+}
+
+.quantity {
+	width: 20% !important;
+}
+
+.subtotal-value::after,
+.total-value::after,
+.promo-value::after {
+	content: '원';
+}
+
+.basket{
+	margin: 5rem;
+	min-height: 500px;
+	width: 80% !important;
+}
+
+
+@media screen and (max-width: 1300px) {
+	.basket {
+		width: 70%;
+		margin: 5rem;
+	}
+}
+
+@media screen and (min-width: 1300px) {
+	main{
+		display: flex;
+		flex-direction: column !important;
+		margin: 5rem 4rem 5rem 10rem;
+		align-items: center;
+		margin: 5rem !important;
+	}
+}
+
+hr.style-six {
+    border: 0;
+    height: 0;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+}
+.inquiry-item{
+	width: 100%;
+}
+.inquiry-details{
+	width: 100%;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+}
+.basket-product{
+	display: flex;
+	align-items: center;
+}
+#inquiry{
+	width: 100%;
+	margin-left: 50px;
+}
+.basket-labels{
+	align-items: center;
+}
+.subtotal{
+	right: 0;
+}
