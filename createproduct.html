@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Stone Coffee| 글 작성 페이지</title>
+    <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+    <link href="../css/bootstrap.css" rel="stylesheet">
+    <link id="switcher" href="../css/default-theme.css" rel="stylesheet">
+    <link href="../css/sequence-theme.modern-slide-in.css" rel="stylesheet" media="all">
+    <link href="../css/style.css" rel="stylesheet">
+    <link href="../css/recommend.css" rel="stylesheet">
+    <link href="../css/createproduct.css" rel="stylesheet">
+</head>
+
+<body>
+    <header id="aa-header">
+    </header>
+    <section id="menu">
+    </section>
+    <form class="bigbox">
+    <div class="mainbox">
+        <div>
+            <span>카테고리</span>
+            <select size="1" id=category>
+                <option value="0">선 택</option>
+                <option value="1">원두</option>
+                <option value="2">굿즈</option>
+                <option value="3">커피용품</option>
+            </select>
+        </div>
+        <div>
+            <span>상품 이름</span>
+            <input type="text" id="product_name" />
+        </div>
+        <div>
+            <span>상품 이미지</span>
+            <div id="image_preview">
+                <img src="../img/icon.png" alt="사진영역"  style="width:126px; height:165px;">
+                <div class="f_box">
+                    <label for="img">사진첨부</label>
+                    <input type="file" id="comment_img"  name="product_img">
+                </div>
+            </div>
+        </div>
+        <div>
+            <span>상품 가격</span>
+            <input type="number" id="product_price" />
+        </div>
+        <div>
+            <span>상품 설명</span>
+            <p><textarea cols="50" rows="10" id="textarea"></textarea></p>
+        </div>
+    </div>
+        <div class="beanplz">
+        <p>카테고리가 원두일때만 선택해주세요!</p>
+            <div>
+                <span>향 </span>
+                <select size="1" id=aroma_grade>
+                    <option value="0">선 택</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                </select>
+            </div>
+            <div>
+                <span>당도</span>
+                <select size="1" id=sweet_grade>
+                    <option value="0">선 택</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                </select>
+            </div>
+            <div>
+                <span>산도</span>
+                <select size="1" id=acidity_grade>
+                    <option value="0">선 택</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                </select>
+            </div>
+            <div>
+                <span>바디</span>
+                <select size="1" id=body_grade>
+                    <option value="0">선 택</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                </select>
+            </div>
+        </div>
+
+        <button type="button" class="btn" onclick="createproduct()">상품 등록하기</button>
+    </form>
+
+    
+
+    <footer id="aa-footer">
+    </footer>
+</body>
+<script src="/js/header.js"></script>
+<script src="/js/footer.js"></script>
+<script src="/js/all_data.js"></script>
+<script src="/js/createproduct.js"></script>
+</html>
