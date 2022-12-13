@@ -29,9 +29,9 @@
 
     width: 33.3%;
     height: 500px;
-    position: fixed;
+    position: relative;
     left: 33.3%;
-    top: 143px;
+    bottom: 550px;
     padding: 15px;
 
     overflow: hidden;
@@ -83,9 +83,9 @@
     font-size: 20px;
 }
 .profile-image p i {
-    position: absolute;
-    top: 200px;
-    font-size: 20px
+    position: relative;
+    bottom: 70px;
+    font-size: 20px;
 }
 .profile-image button {
     border: none;

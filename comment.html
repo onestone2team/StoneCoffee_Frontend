@@ -41,43 +41,43 @@
                             <img id="comment_image" src="./img/comment/1212.jpg">
                         </div>
                         <div>
-                            <p id="comment_text" class="comment-content">Lorem Ipsum is simply dummy text of the printing and typesetting
+                            <p id="comment_text" class="comment-content">Lorem Ipsum is simply dummy text of the
+                                printing and typesetting
                                 industry.<br>
                                 <button><img src="././img/comment/coffeebean.png"></button>
                                 <button><img src="././img/comment/coffeebean-outline.png"></button>
                             </p>
                         </div>
                     </div>
-                    <div class="commentlikeBox" >
+                    <div class="commentlikeBox">
                         <p id="date"></p>
                         <div style="float:right;">
                             <button class="like-button" onclick="comment_like()"><i id="like_icon"
-                                class="bi bi-heart"></i></button><span><p id="like_count"></p></span>
+                                    class="bi bi-heart"></i></button><span>
+                                <p id="like_count"></p>
+                            </span>
                         </div>
-                        
+
                     </div>
                 </div>
                 <!-- 대댓글 -->
                 <div>
                     <div class="nestedcommentBox">
                         <ul class="nestedcommentList" id="nestedcommentList">
-                           <li class="nestedcomment">
-                            
-                                <p class="commenterImage">
-                                    <img src="http://placekitten.com/50/50" />
-                                    <p class=""> Hello this is a test comment.<p id="onlyme${element.id}" style="float:right"><span>삭제</span><span>/</span><span>수정</span></p></p>
-                                    <p class="date sub-text" style="float:right;">on March 5th, 2014</p>
-                                </p>
-                                <!-- <p class="commentText">
-                                    <p class=""> Hello this is a test comment.<p id="onlyme${element.id}" style="float:right"><span>삭제</span><span>/</span><span>수정</span></p></p>
-                                    <p class="date sub-text" style="float:right;">on March 5th, 2014</p>
-                                </p> -->
-                            
-                                
-                            </li>
-                             <!-- 
                             <li class="nestedcomment">
-                                <div class="commenterImage">
+                                <p>
+                                <p class="commenterImage"></p><img src="http://placekitten.com/50/50" /><span>
+                                    <p style="text-align:left"> Hello this is a test comment.</p>
+                                    </sapn>
+                                    </p>
+
+                                    <p id="onlyme" style="float:right"><span>삭제</span><span>/</span><span>수정</span></p>
+                                    <p class="date sub-text" style="text-align:right;">on March 5th, 2014</p>
+                                    </p>
+                            </li>
+                            <!-- 원본
+                            <li class="nestedcomment">
+                                <div class="commenterImage">+
                                     <img src="http://placekitten.com/40/40" />
                                 </div>
                                 <div class="commentText">
@@ -91,7 +91,7 @@
                     <div id="write-nestedcomment" class="write-nestedcomment">
                         <form class="form-inline" role="form">
                             <div class="form-group">
-                                <input id = 'nested_text' class="form-control" type="text" placeholder="댓글을 등록해주세요" />
+                                <input id='nested_text' class="form-control" type="text" placeholder="댓글을 등록해주세요" />
                             </div>
                             <div class="form-group">
                                 <button type="button" class="btn btn-dark" onclick="create_nested()">등록</button>

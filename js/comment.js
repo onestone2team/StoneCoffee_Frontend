@@ -57,7 +57,7 @@ window.onload =
 
         if (!parsed_payload) {
             alert("권한이 없습니다. 로그인 해주세요")
-            location.replace("../templates/main.html")
+            location.replace("../main.html")
         }
 
         // let urlParameter = window.location.search;
@@ -247,3 +247,4 @@ async function del_nested(comment_id) {
     const target = document.querySelector(".nestedcomment");
     target.remove();
 }
+

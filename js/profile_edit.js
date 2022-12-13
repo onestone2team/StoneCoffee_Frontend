@@ -18,6 +18,11 @@ const closeBtn = modal.querySelector(".close-area")
 closeBtn.addEventListener("click", e => {
     modalOff()
 })
+
+const gobackBtn = modal.querySelector(".gobackbtn")
+gobackBtn.addEventListener("click", e => {
+    modalOff()
+})
 // ==============프로필 이미지 변경=================
 function readURL(input) {
     if (input.files && input.files[0]) {
@@ -53,23 +58,26 @@ async function ProfileView(){
     })
 
     const profile_json = await profile.json()
-    const user_profile = profile_json.data
-    console.log(user_profile)
-    console.log(user_profile.profilename)
-    console.log(user_profile.profile)
-    console.log(user_profile.address)
-    console.log(user_profile.phone)
+    // const user_profile = profile_json.data
+    console.log(profile_json)
+    // console.log(profile_json['data'])
+    // console.log(user_profile)
+    console.log(profile_json['profilename'])
+    console.log(profile_json.email)
+    console.log(profile_json.profile)
+    console.log(profile_json.address)
+    console.log(profile_json.phone)
 
-    const profile_imageo = document.getElementById("preview")
-    profile_imageo.setAttribute("src",`${BACKEND_URL}${user_profile.profile}`)
-    // const profile_name = document.getElementsById('profile_email') 이메일 받아와야함
-    // profile_name.innerText() = 
-    const profile_nameo = document.getElementById("profilename")
-    profile_nameo.setAttribute("value", user_profile.profilename)
-    const profile_addresso = document.getElementById("address")
-    profile_addresso.setAttribute("value", user_profile.address)
-    const profile_phoneo = document.getElementById("phone")
-    profile_phoneo.setAttribute("value", user_profile.phone)
+    const profile_image = document.getElementById("preview")
+    profile_image.setAttribute("src",`${BACKEND_URL}${profile_json.profile}`)
+    const profile_email = document.getElementById("profile_email") //이메일 받아와야함
+    profile_email.innerText = profile_json.email
+    const profile_name = document.getElementById("profilename")
+    profile_name.setAttribute("value", profile_json.profilename)
+    const profile_address = document.getElementById("address")
+    profile_address.setAttribute("value", profile_json.address)
+    const profile_phone = document.getElementById("phone")
+    profile_phone.setAttribute("value", profile_json.phone)
 
 
 }//window.onload 종료
@@ -127,4 +135,9 @@ async function edit_password(){
     alert("비밀번호 수정 버튼 클릭");
     location.reload();
    
+}
+function cancel(){
+
+    location.replace("../main.html")
+
 }
