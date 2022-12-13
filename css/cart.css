@@ -7,23 +7,36 @@ button,
 .item,
 .price,
 .quantity,
+.count,
 .subtotal,
 .basket-product,
 .product-image,
 .product-details {
 	float: left;
 }
+/* .subtotal{
+	float: right;
+} */
 
 .subtotal {
 	width: 15%;
 }
-.item {
+.item{
 	width: 55%;
 }
-
+.product-image {
+	max-width: 177px;
+	max-height: 177px;
+}
 .price {
 	width: 15%;
 }
 .quantity {
 	width: 15%;
+}
+
+.subtotal-value::after,
+.total-value::after,
+.promo-value::after {
+	content: '원';
 }

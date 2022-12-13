@@ -2,7 +2,7 @@ var $quantity=$('.quantity'),
     $unitprice = $quantity.attr('data-unitprice'),
     $qtyBtn = $quantity.find('span'),
     $qytInput =$quantity.find('input'),
-    $targetTotal=$('.total_price .price');   
+    $targetTotal=$('.total_price .price');
 
     $qtyBtn.click(function(){
         var currentCount = $qytInput.val();
