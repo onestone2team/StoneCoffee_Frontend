@@ -223,6 +223,8 @@ async function commentrg(){
         if (comment_img.files[0] != undefined){
             formdata.append('image', comment_img.files[0])
         }else {
+
+        }
         const response =await fetch(`${BACK_END_URL}/comment/?product_id=${product_id}`, {
             headers:{
                 "Authorization": "Bearer " + localStorage.getItem("access"),
@@ -243,7 +245,7 @@ async function commentrg(){
                 location.reload();
                 return response.json()
             
-        }
+        
         
     }
 }
