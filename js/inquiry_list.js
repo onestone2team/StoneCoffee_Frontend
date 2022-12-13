@@ -3,8 +3,13 @@ window.onload = function () {
     inquirylist()
 }
 
-$(document).on('click', '.remove button', function () {
-    removeItem(this)
+$(document).on('click','.remove button',function(){
+    if (confirm("문의내역을 삭제 하시겠습니까?") == true){
+        alert("문의내역을 삭제하였습니다");
+        removeItem(this)
+    } else {
+        alert("취소되었습니다");
+    }
 });
 
 function removeItem(removeButton) {
@@ -28,28 +33,27 @@ async function inquirylist() {
     console.log(response_json)
     const inquiry = document.createElement('div')
     response_json.forEach(element => {
-        if (element.status == true) {
-            $(`see${element.id}`).style.display ="none"
-        } else if (element.status == false) {
-            $(`not${element.id}`).style.display = "none"
-        }
-    inquiry.innerHTML = `<div>
-                                <div class="basket-product">
-                                    <div class="item">
-                                        <div class="product-details">
-                                            <h3 class="item-quantity" id="inquiry"><strong><span ></span>${element.title}</strong></h3>
-                                        </div>
-                                    </div>
-                                    <div class="price">${element.content}</div>
-                                    <div class="quantity"></div>
-                                    <div class="subtotal" id="inquiry-subtotal">${element.created_at}</div>
-                                    <div class="remove">
-                                        <button>삭제</button>
+        inquiry.innerHTML = `<div class="basket-product">
+                                <div class="item">
+                                    <div class="product-details">
+                                        <h3 class="item-quantity" id="inquiry"><strong><span>${element.title}</span></strong></h3>
                                     </div>
                                 </div>
-                                <hr><span id="not${element.id}">미확인</span></hr>
-                                <hr><span id="see${element.id}">답변완료</span></hr>
-                            </div>`
-    inquiry_frame.appendChild(inquiry)
+                                <div class="price">${element.content}</div>
+                                <div class="quantity"></div>
+                                <div class="subtotal" id="inquiry-subtotal">${element.created_at}</div>
+                                <div class="remove">
+                                    <button>삭제</button>
+                                </div>
+                            </div>
+                            <hr><span id="not${element.id}">미확인</span></hr>
+                            <hr><span id="see${element.id}">답변: ${element.anser}</span></hr>`
+        inquiry_frame.appendChild(inquiry)
+
+        if (element.status == true) {
+            document.getElementById(`not${element.id}`).style.display = "none"
+        } else if (element.status == false) {
+            document.getElementById(`see${element.id}`).style.display = "none"
+        }
     })
 }

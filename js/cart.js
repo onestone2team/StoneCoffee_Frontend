@@ -28,7 +28,7 @@ async function recalculateCart() {
     });
 };
 
-$(document).on('click','.remove button',function(){
+$(document).on('click', '.remove button', function () {
     removeItem(this)
 });
 
@@ -44,6 +44,7 @@ async function cartlist() {
     })
     var response_json = await response.json()
     var cart_frame = document.getElementById('append-product')
+    console.log(response_json)
     response_json.forEach(element => {
         const cart = document.createElement('div')
         var total_price = element.price * element.count
@@ -61,7 +62,7 @@ async function cartlist() {
                         <div class="price" id="price">${element.price}원</div>
                         <div class="quantity" id="count">${element.count}</div>
                         <div class="subtotal" id="subtotal">${total_price}원</div>
-                        <div class="remove">
+                        <div class="remove" id="${element.id}">
                             <button>지우기</button>
                         </div>`
         cart_frame.appendChild(cart)
@@ -70,6 +71,15 @@ async function cartlist() {
 }
 
 function removeItem(removeButton) {
+    var cart_id = removeButton.closest("div").id
+    const response = fetch(`${BACK_END_URL}/product/cart/?cart_id=${cart_id}`, {
+        headers: {
+            "content-type": "applycation/son",
+            "Authorization": "Bearer " + localStorage.getItem("access"),
+        },
+        method: "DELETE",
+    })
+
     var productRow = $(removeButton).parent().parent();
     productRow.slideUp(fadeTime, function () {
         productRow.remove();
