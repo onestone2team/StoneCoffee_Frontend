@@ -46,9 +46,9 @@ async function adminorderlist() {
                             <ul class="ul1">
                                 <li class="li1">${admin_status}&dtrif;
                                     <ul class="dropdown1">
-                                        <li class="li2" id="${element.product}" value="0">확인 대기중</li>
-                                        <li class="li2" id="${element.product}" value="1">주문 확인</li>
-                                        <li class="li2" id="${element.product}" value="2">배송중</li>
+                                        <li class="li2" id="${element.id}" value="0">확인 대기중</li>
+                                        <li class="li2" id="${element.id}" value="1">주문 확인</li>
+                                        <li class="li2" id="${element.id}" value="2">배송중</li>
                                     </ul>
                                 </li>
                             </ul>

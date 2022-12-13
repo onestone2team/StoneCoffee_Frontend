@@ -14,7 +14,6 @@ async function cartlist() {
     })
     const response_json = await response.json()
     var order_frame = document.getElementById('append_order')
-    console.log(response_json)
     response_json.forEach(element => {
         if (element.status == 0) {
             var order_status = "확인 대기중";
@@ -23,7 +22,6 @@ async function cartlist() {
         } else if (element.status == 2) {
             var order_status = "배송중";
         }
-        console.log()
         var order_price = element.count * element.order_price
         const order = document.createElement('div')
         order.setAttribute("class", "basket-product")

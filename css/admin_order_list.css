@@ -122,6 +122,7 @@ button,
 }
 .basket{
 	margin: 5rem;
+	min-height: 500px;
 }
 #order_status_dropdown21{
 	margin: 0 0 0 30px ;
