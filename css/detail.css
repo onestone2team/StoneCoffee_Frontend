@@ -1,0 +1,135 @@
+#form-commentInfo{
+    width: 100%;
+}
+
+#comment-count{
+    margin-bottom: 10px; 
+}
+
+#comment-input{
+    width: 50%;
+    height: 3.3em;
+}
+
+#submit{
+    background-color: rgb(0, 128,255);
+    width: 5.5em;
+    height: 3.3em;;
+    font-size: 15px;
+    font-weight: bold;
+    color: aliceblue;
+}
+
+#voteUp, #voteDown{
+    width: 3.5em;
+    height: 1.9em;
+    background-color: aqua;    
+}
+
+#comments{
+    margin-top: 10px;
+}
+
+.eachComment{   
+    width :50%; 
+    margin: 10px;  
+    padding: 0.5em; 
+    border-bottom: 1px solid #c1bcba;
+}
+
+.eachComment .name{
+    font-size: 1.5em;
+    font-weight: bold;
+    margin-bottom: 0.3em;
+    display: flex;
+    justify-content: space-between;
+}
+
+.eachComment .inputValue{
+    font-size: 1.2em;
+    font-style: italic;    
+}
+
+.eachComment .time{
+    font-size: 0.7em;
+    color: #c1bcba;
+    font-style: oblique;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+    
+}
+
+.eachComment .voteDiv{
+    display: flex;
+    justify-content: flex-end;
+}
+
+.eachComment .deleteComment{
+    background-color: red;
+    color: aliceblue;
+}
+
+#reviewbox{
+    border: 3px solid rgb(212, 22, 22);
+    width: 850px;
+    height: auto;
+    margin-bottom: 35px;
+
+}
+.user-block .username{
+    position: relative;
+    
+    width: 300px;
+    height: 30px;
+    top: -60px;
+    left: 60px;
+}
+.user-block .content{
+    position: relative;
+    
+    width: 750px;
+    height: auto;
+    left: 60px;
+    bottom: 55px;
+}
+.user-block .like{
+    position: relative;
+    
+    left: 730px;
+    bottom:113px;
+    width: 100px;
+}
+.user-block .time{
+    position: relative;
+    bottom: 160px;
+    left:375px;
+    
+    width: 350px;
+}
+.user-block .point{
+    position: relative;
+    
+    width: 60px;
+    bottom: 80px;
+}
+#image_preview{
+    position: relative;
+    
+    width: 550px;
+    left: 330px;
+}
+.grade{
+    position: relative;
+    
+    width: 200px;
+    left: 880px;
+    bottom: 180px;
+}
+.image img{
+    width: 50%;
+    height: 50%;
+}
+#comment_form{
+    
+    width: auto;
+}

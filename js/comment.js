@@ -187,12 +187,14 @@ async function comment_like() {
         method: "POST",
     })
 
+
     if (response.status == 201) {
         alert('좋아요')
     } else { alert('좋아요 취소') }
     location.reload()
 
 }
+
 
 async function create_nested() {
 
@@ -247,3 +249,4 @@ async function del_nested(comment_id) {
     const target = document.querySelector(".nestedcomment");
     target.remove();
 }
+

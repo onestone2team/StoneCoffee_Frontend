@@ -1,0 +1,42 @@
+/* 총 합이 100이 되게 맞추기 */
+
+input,
+button,
+.basket-module,
+.basket-labels,
+.item,
+.price,
+.quantity,
+.count,
+.subtotal,
+.basket-product,
+.product-image,
+.product-details {
+	float: left;
+}
+/* .subtotal{
+	float: right;
+} */
+
+.subtotal {
+	width: 15%;
+}
+.item{
+	width: 55%;
+}
+.product-image {
+	max-width: 177px;
+	max-height: 177px;
+}
+.price {
+	width: 15%;
+}
+.quantity {
+	width: 15%;
+}
+
+.subtotal-value::after,
+.total-value::after,
+.promo-value::after {
+	content: '원';
+}
