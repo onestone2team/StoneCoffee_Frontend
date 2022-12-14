@@ -16,7 +16,7 @@ async function show_product_list() {
         return response.json();
     })
     .then(data => {
-        
+        console.log(data)
         var products = document.getElementById("products");
         // $("#products").empty();
         for (i = 0; i < 8; i++) {
@@ -37,48 +37,15 @@ async function show_product_list() {
 
         })
 }
-async function cart() {
-    
-    const response = await fetch(`${BACK_END_URL}/product/cart/`, {
-
+// checkout
+async function checkout() {
+    const response = await fetch(`${BACK_END_URL}/product/cart`, {
         headers: {
-            "content-type": "application/json",
-            // "Authorization": "Bearer " + localStorage.getItem("access")
+            'content-type': 'application/json'
         },
-        method: "POST",
+        method: 'GET',
     })
-
-
-    if (response.status == 200 || response.status == 202) {
-        alert("장바구니에 담겼습니다.")
-        location.reload();
-    }
-    else if (response.status == 401) {
-        alert("로그인을 해주세요")
-    }
-
-
-}
-async function like() {
-    // console.log(product_id)
-    const response = await fetch(`${BACK_END_URL}/product/like/`, {
-
-        headers: {
-            "content-type": "application/json",
-            // "Authorization": "Bearer " + localStorage.getItem("access")
-        },
-        method: "POST",
+    .then(response => {
+        return response.json();
     })
-
-
-    if (response.status == 200 || response.status == 202) {
-        alert("좋아요에 등록되었습니다.")
-        location.reload();
-    }
-    else if (response.status == 401) {
-        alert("로그인을 해주세요")
-        }
-    
-   
 }
-
