@@ -67,6 +67,7 @@ async function fillin(){
         }),
 })
     
+
 if (response.status == 200) {
     alert("주문이 완료되었습니다.")
 } else{

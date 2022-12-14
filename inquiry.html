@@ -8,12 +8,13 @@
     <link rel="stylesheet" type="text/css" href="/css/inquiry.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Stone Coffee| 1:1문의관리</title>
+    <title>Stone Coffee | 문의</title>
     <link href="/css/bootstrap.css" rel="stylesheet">
     <link id="switcher" href="/css/default-theme.css" rel="stylesheet">
     <link href="/css/sequence-theme.modern-slide-in.css" rel="stylesheet" media="all">
     <link href="/css/style.css" rel="stylesheet">
 </head>
+
 <body>
     <header id="aa-header">
     </header>
@@ -21,75 +22,52 @@
     </section>
     <div class="cart_page">
         <main>
-            <div class="basket" id="style-4">
-                <div class="basket-labels">
-                    <ul>
-                        <li class="item item-heading">문의목록</li>
-                    </ul>
+            <div class="sectionInner container">
+                <div class="content">
+                    <div class="content-box">
+                        <table class="tableWrap">
+                            <tbody class="personalInfo">
+                                <tr>
+                                    <th class="tableNumber">문의 제목</th>
+                                    <td class="tableTitle">
+                                        <label><input type="text" id="checkId" class="inputBox" /></label>
+                                        <div role="navigation" class="order_status_dropdown2">
+                                            <ul class="ul1">
+                                                <li class="li1" id="kind">문의 유형&dtrif;
+                                                    <ul class="dropdown1">
+                                                        <li class="li2" value="0">상품</li>
+                                                        <li class="li2" value="1">배송</li>
+                                                        <li class="li2" value="2">기타</li>
+                                                    </ul>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th class="tableNumber">문의 내용</th>
+                                    <td class="tableTitle">
+                                        <label><input id="checkPw" class="inputBox" /></label>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <div class="btnwrap">
+                            <a class="btn2">등록</a>
+                        </div>
+                    </div>
                 </div>
-                <div class="basket-product">
-                    <div class="item">
-                        <div class="product-image">
-                            <img src="/img/slide/11.jpg" alt="Placholder Image 2" class="product-frame">
-                        </div>
-                        <div class="product-details">
-                            <h1><strong><span class="item-quantity"></span>제품이름:</strong>
-                            </h1>
-                            <br>
-                            <p>문의 내용 </p>
-                            <br>
-                            <p>이름:</p>
-                            <h6 class="date">문의일자:</h6>                         
-                        </div>
-                    </div>
-                    <div class="answer">
-                      <select>
-                        <option>------</option>
-                        <option value="">답변대기</option>
-                        <option value="">답변완료</option>
-                      </select>
-                    </div>
-                  <div>
-                    <textarea class="usertext" placeholder="내용을 입력해 주세요."></textarea>
-                    <button type="button" class="btn">답변작성</button>
-                  </div> 
-                  <div class="basket-product">
-                    <div class="item">
-                        <div class="product-image">
-                            <img src="/img/slide/11.jpg" alt="Placholder Image 2" class="product-frame">
-                        </div>
-                        <div class="product-details">
-                            <h1><strong><span class="item-quantity"></span>제품이름:</strong>
-                            </h1>
-                            <br>
-                            <p>문의 내용 </p>
-                            <br>
-                            <p>이름:</p>
-                            <h6 class="date">문의일자:</h6> 
-                          </div>
-                    </div>
-                    <div class="answer">
-                      <select>
-                        <option>------</option>
-                        <option value="">답변대기</option>
-                        <option value="">답변완료</option>
-                      </select>
-                    </div>
-                  <div>
-                    <textarea class="usertext" placeholder="내용을 입력해 주세요."></textarea>
-                    <button type="button" class="btn">답변작성</button>
-                  </div> 
-                     
+            </div>
         </main>
         <div class="fix">
             <footer id="aa-footer">
             </footer>
-        </div>     
+        </div>
     </div>
 </body>
 <script src="/js/header.js"></script>
 <script src="/js/footer.js"></script>
 <script src="/js/all_data.js"></script>
-<script src="/js/cart.js"></script>
+<script src="/js/inquiry.js"></script>
 
 </html>

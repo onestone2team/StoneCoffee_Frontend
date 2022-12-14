@@ -1,4 +1,4 @@
-fetch(`/index.html`)
+fetch(`/main.html`)
 	.then(response => {
 		return response.text()
 	})
@@ -21,6 +21,7 @@ fetch(`/index.html`)
                     <li class="hidden-xs"><a href="cart.html">장바구니</a></li>
                     <li class="hidden-xs"><a href="checkout.html">결제하기</a></li>
                     <li class="hidden-xs"><a href="servicecenter.html">고객 센터</a></li>
+                    <li class="hidden-xs"><a href="createproduct.html">상품 등록</a></li>
                     <li><a href="" data-toggle="modal" data-target="#login-modal">로그인</a></li>
                     </ul>
                 </div>
@@ -40,12 +41,12 @@ fetch(`/index.html`)
                 <!-- logo  -->
                 <div class="aa-logo">
                     <!-- Text based logo -->
-                    <a href="index.html">
+                    <a href="main.html">
                     <!-- <span class="fa fa-shopping-cart"></span> -->
                     <p>STONE<strong>COFFEE</strong> <span>Your Shopping Partner</span></p>
                     </a>
                     <!-- img based logo -->
-                    <!-- <a href="index.html"><img src="img/logo.jpg" alt="logo img"></a> -->
+                    <!-- <a href="main.html"><img src="img/logo.jpg" alt="logo img"></a> -->
                 </div>
                 <!-- / logo  -->
                 <!-- cart box -->
@@ -98,7 +99,7 @@ fetch(`/index.html`)
 
 `;
 	});
-fetch(`/index.html`)
+fetch(`/main.html`)
 	.then(response => {
 		return response.text()
 	})
@@ -119,7 +120,7 @@ fetch(`/index.html`)
             <div class="navbar-collapse collapse">
                 <!-- Left nav -->
                 <ul class="nav navbar-nav">
-                <li><a href="index.html">Home</a></li>
+                <li><a href="main.html">Home</a></li>
                 <li><a href="#">Men아하하 <span class="caret"></span></a>
                     <ul class="dropdown-menu">
                     <li><a href="#">Casual</a></li>
@@ -234,7 +235,7 @@ fetch(`/index.html`)
         `;
 	});
 
-fetch(`/index.html`)
+fetch(`/main.html`)
 	.then(response => {
 		return response.text()
 	})
@@ -262,7 +263,7 @@ fetch(`/index.html`)
                                                         </div>`;
 	});
 
-fetch(`/index.html`)
+fetch(`/main.html`)
     .then(response => {
         return response.text()
     })

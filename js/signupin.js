@@ -10,7 +10,7 @@ document.querySelector('.img__btn').addEventListener('click', function() {
     var code_id = urlParameter.split('=')[1]
 
     if (code_name=="?code"){
-        const response = await fetch(`${BACKEND_URL}/user/kakao/callback/?code=${code_id}`, {
+        const response = await fetch(`${BACK_END_URL}/user/kakao/callback/?code=${code_id}`, {
         headers: {
             'content-type': 'application/json'
         },
@@ -62,13 +62,12 @@ async function kakaologin() {
 
 //-----------------------------회원가입------------------------------
 async function signupButton() {
-    console.log('회원가입 실행')
     const profilename = document.getElementById("signup_profilename").value;
     const password = document.getElementById("signup_password").value;
     const password_check = document.getElementById("signup_password2").value;
     const email = document.getElementById("signup_email").value;
   
-    const response = await fetch(`${BACKEND_URL}/user/signup/`, {
+    const response = await fetch(`${BACK_END_URL}/user/signup/`, {
         headers:{
         "content-type": "application/json",
         },
@@ -105,11 +104,10 @@ async function signupButton() {
 
 //------------------------------로그인---------------------------------
 async function loginButton() {
-console.log('로그인 실행')
 const email = document.getElementById("login_email").value
 const password = document.getElementById("login_password").value
 
-const response = await fetch(`${BACKEND_URL}/user/login/`, {
+const response = await fetch(`${BACK_END_URL}/user/login/`, {
     headers:{
     "content-type": "application/json",
     },
@@ -137,7 +135,4 @@ if (response.status == 200){
   else{
     alert("아이디와 비밀번호를 확인해주세요")
   }
-    
-  console.log(response)
-
 }

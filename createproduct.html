@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Stone Coffee| 글 작성 페이지</title>
+    <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+    <link href="../css/bootstrap.css" rel="stylesheet">
+    <link id="switcher" href="/css/default-theme.css" rel="stylesheet">
+    <link href="/css/sequence-theme.modern-slide-in.css" rel="stylesheet" media="all">
+    <link href="/css/style.css" rel="stylesheet">
+    <link href="/css/recommend.css" rel="stylesheet">
+    <link href="/css/createproduct.css" rel="stylesheet">
+</head>
+
+<body>
+    <header id="aa-header">
+    </header>
+    <section id="menu">
+    </section>
+    <div class="whole-box">
+        <form class="form-box">
+            <div class="first-box" style=" ">
+                <div style="margin-right:10px;">
+                    <label>카테고리</label>
+                    <select size="1" id=category>
+                        <option value="0">선택</option>
+                        <option value="1">원두</option>
+                        <option value="2">굿즈</option>
+                        <option value="3">커피용품</option>
+                    </select>
+                </div>
+                <div style="margin-right:10px;">
+                    <label>상품명</label>
+                    <input type="text" id="product_name" />
+                </div>
+                <div>
+                    <label>상품가격</label>
+                    <input type="number" id="product_price" />
+                </div>
+            </div>
+            <div class="second-box">
+                <div>
+                    <p>카테고리가 원두일때만 선택해주세요!</p>
+                </div>
+
+                <div class="taste-box">
+                    <div>
+                        <label>향</label>
+                        <select size="1" id=aroma_grade>
+                            <option value="0">선 택</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label>당도</label>
+                        <select size="1" id=sweet_grade>
+                            <option value="0">선 택</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label>산도</label>
+                        <select size="1" id=acidity_grade>
+                            <option value="0">선 택</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label>바디</label>
+                        <select size="1" id=body_grade>
+                            <option value="0">선 택</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="third-box">
+                <div class="img-box" id="image_preview">
+                    <img src="../img/icon.png" alt="사진영역" style=" margin:auto;">
+                    <div class="f_box">
+                        <input type="file" id="comment_img" name="product_img"
+                            style="position:relative; top:-40px; left:170px;">
+                    </div>
+                </div>
+                <div class="text-box">
+                    <textarea id="textarea"></textarea>
+                </div>
+            </div>
+            <div class="button-box">
+                <button type="button" class="btn" onclick="createproduct()">상품등록하기</button>
+            </div>
+        </form>
+
+    </div>
+
+
+    <footer id="aa-footer">
+    </footer>
+</body>
+<script src="/js/header.js"></script>
+<script src="/js/footer.js"></script>
+<script src="/js/all_data.js"></script>
+<script src="/js/createproduct.js"></script>
+
+</html>

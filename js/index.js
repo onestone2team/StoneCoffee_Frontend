@@ -1,7 +1,6 @@
 
 window.onload = async function (){
     checkCookie = getCookie('guestCheck')
-    console.log(checkCookie)
     if (checkCookie!='True'){
         location.replace('survey.html')
     }

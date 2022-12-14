@@ -2,24 +2,12 @@ window.addEventListener('load', function() {
     show_product_list()
 });
 const urlparams = new URLSearchParams(window.location.search);
-const category_id= urlparams.get('id')
+const searchtag= urlparams.get('search')
 const titlename = document.getElementById("titlename")
+titlename.innerText= `'${searchtag}' 검색 결과입니다.`
 current_page = 1
-
-if (category_id==1){
-    titlename.innerText= "모든 원두 커피"
-} else if (category_id==2){
-    titlename.innerText= "스톤커피 굿즈"
-} else if (category_id==3){
-    titlename.innerText= "커피용품"
-} else if (category_id==4){
-    titlename.innerText= "바디감"
-} else if (category_id==5){
-    titlename.innerText= "산미"
-}
-
 async function show_product_list() {
-    const response = await fetch(`${BACK_END_URL}/product/category/?category_id=${category_id}&page=${current_page}`, {
+    const response = await fetch(`${BACK_END_URL}/product/search/?search=${searchtag}&page=${current_page}`, {
         headers: {
             'content-type': 'application/json'
         },
@@ -31,6 +19,7 @@ async function show_product_list() {
     .then(data => {
         var products = document.getElementById("products");
         $("#products").empty();
+        console.log(data)
         for (i = 0; i < data["data"].length; i++) {
             const product = document.createElement('div')
             product.className = "product-layout"
@@ -54,8 +43,6 @@ function pageNext1() {
     if (current_page > 0 && current_page < total_page) {
         ++current_page
         show_product_list()
-        
-        
     }
 }
 
@@ -64,45 +51,4 @@ function pagePreview1() {
         --current_page
         show_product_list()
     }
-}
-async function cart() {
-    const response = await fetch(`${BACK_END_URL}/product/${product_id}/cart/`, {
-        headers: {
-            "content-type": "application/json",
-            "Authorization": "Bearer " + localStorage.getItem("access")
-        },
-        method: "POST",
-    })  
-
-
-    if (response.status==200 || response.status==202){
-        alert("장바구니에 담겼습니다.")
-        location.reload();
-    }
-    else if(response.status==401){
-        alert("로그인을 해주세요")
-        }
-    
-   
-}
-async function like() {
-    
-    const response = await fetch(`${BACK_END_URL}/product/${product_id}/like/`, {
-        headers: {
-            "content-type": "application/json",
-            "Authorization": "Bearer " + localStorage.getItem("access")
-        },
-        method: "POST",
-    })
-
-
-    if (response.status==200 || response.status==202){
-        alert("좋아요에 등록되었습니다.")
-        location.reload();
-    }
-    else if(response.status==401){
-        alert("로그인을 해주세요")
-        }
-    
-   
 }
