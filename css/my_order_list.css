@@ -38,3 +38,8 @@ button,
 	margin: 50px;
 	min-height: 400px;
 }
+.subtotal-value::after,
+.total-value::after,
+.promo-value::after {
+	content: '원';
+}
