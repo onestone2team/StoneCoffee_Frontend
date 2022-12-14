@@ -1,3 +1,17 @@
+payload = localStorage.getItem("payload")
+parsed_payload = JSON.parse(payload)
+const loginoutUl = document.getElementById("loginout")
+
+adminCheck = false
+
+if(parsed_payload){
+    adminCheck = parsed_payload["is_admin"]
+}
+else{
+    loginoutUl.innerText="login"
+    loginoutUl.setAttribute("href", "login.html")
+}
+
 window.addEventListener('load', function () {
     show_product_list()
 });
@@ -5,9 +19,6 @@ window.addEventListener('load', function () {
 async function show_product_list() {
     const response = await fetch(`${BACK_END_URL}/product/`, {
         headers: {
-            // "Access-Control-Allow-Origin": "*",
-            // "Access-Control-Allow-Credentials": true,
-            // "Access-Control-Allow-Methods": "GET,POST,OPTIONS,DELETE,PUT,PATCH",
             'content-type': 'application/json'
         },
         method: 'GET',
@@ -18,7 +29,6 @@ async function show_product_list() {
     .then(data => {
         console.log(data)
         var products = document.getElementById("products");
-        // $("#products").empty();
         for (i = 0; i < 8; i++) {
             const product = document.createElement('p')
             product.setAttribute("class", "aa-product-catg","style","max-width: 150; height: 150;")
@@ -34,7 +44,6 @@ async function show_product_list() {
           </li>`
                 products.appendChild(product)
             }
-
         })
 }
 // checkout
@@ -48,4 +57,5 @@ async function checkout() {
     .then(response => {
         return response.json();
     })
+
 }

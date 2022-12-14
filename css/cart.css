@@ -34,3 +34,9 @@ button,
 .quantity {
 	width: 15%;
 }
+
+.subtotal-value::after,
+.total-value::after,
+.promo-value::after {
+	content: '원';
+}

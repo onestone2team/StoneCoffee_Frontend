@@ -1,4 +1,4 @@
-fetch(`../index.html`)
+fetch(`../main.html`)
     .then(response => {
         return response.text()
     })
@@ -29,7 +29,7 @@ fetch(`../index.html`)
                                         <div class="aa-footer-widget">
                                             <h3>Knowledge Base</h3>
                                             <ul class="aa-footer-nav">
-                                            <li><a href="#">D123elivery</a></li>
+                                            <li><a href="#">Delivery</a></li>
                                             <li><a href="#">Returns</a></li>
                                             <li><a href="#">Services</a></li>
                                             <li><a href="#">Discount</a></li>
@@ -87,4 +87,5 @@ fetch(`../index.html`)
                 </div>
             </div>
         </div>`
+    
     });

@@ -1,10 +1,8 @@
-#modal.modal-overlay {
+.modal-overlay {
     width: 100%;
     height: 100%;
     position: absolute;
-    left: 0;
-    top: 0;
-    display: flex;
+    display: none;
     flex-direction: column;
     align-items: center;
     justify-content: center;
@@ -15,7 +13,7 @@
     border-radius: 10px;
     border: 1px solid rgba(255, 255, 255, 0.18);
 }
-#modal .modal-window {
+#detail_modal .modal-window {
     background: rgb(92, 103, 32);
     box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
     backdrop-filter: blur( 13.5px );
@@ -32,13 +30,12 @@
     padding-left: 10px;
     display: inline;
     text-shadow: 1px 1px 2px gray;
-    color: white;
-    
+    color: white;   
 } */
 /* #modal .title h2 {
     display: inline;
 } */
-#modal .close-area {
+#detail_modal .close-area {
     display: inline;
     float: right;
     padding-right: 10px;
@@ -46,8 +43,7 @@
     text-shadow: 1px 1px 2px gray;
     color: white;
 }
-
-#modal .content {
+#detail_modal .content {
     margin-top: 20px;
     padding: 0px 10px;
     /* text-shadow: 1px 1px 2px rgb(0, 0, 0); */
@@ -62,6 +58,7 @@
 .detailBox {
     width:100%;
     margin:auto;
+    border-bottom: 1px solid rgb(255, 242, 242);
 }
 .titleBox {
     padding:10px;
@@ -72,7 +69,7 @@
   color:rgb(0, 0, 0);
   margin-top:10px;
   margin-left:10px;
-  margin-right:30px;
+  /* margin-right:30px; */
   display:inline-block;
 }
 .titleBox img{
@@ -80,18 +77,24 @@
     width:50px;
     height:50px;
 }
-/* 평점 */
 .titleBox .star-grade{
-    letter-spacing: -30px;
+    /* 커피콩 평점 */
+    letter-spacing: -50px;
     float:right;
-    width: 200px;
-    position: absolute;
-    right:50px
+    width: 500px;
+    display:flex;
+    flex-direction:row;
+    justify-content: right;
+}
+.titleBox .star-grade img{
+    width:30px;
+    height:30px;
+    margin-right: -50px;
 }
 .titleBox fieldset{
     display: inline-block;
-    direction: rtl;
     border: 0;
+    
 }
 #myform input[type=radio]{
     display: none; 
@@ -121,6 +124,7 @@
 .commentBox {
     padding:20px;
     border-top:1px solid rgb(255, 242, 242);
+    
     display:flex;
 }
 .commentBox img{
@@ -138,15 +142,11 @@
 .commentBox p img{
     width:30px;
 }
-/* 원두 이미지 이모티콘 실험 여기까지 */
-/* .commentBox .form-group:first-child, .nestedcommentBox .form-group:first-child {
-    width:80%;
-}
-.commentBox .form-group:nth-child(2), .nestedcommentBox .form-group:nth-child(2) {
-    width:18%;
-} */
+
 .commentlikeBox{
     margin-bottom:10px;
+    display:block;
+    
 }
 .commentlikeBox p{
     float:left;
@@ -156,46 +156,46 @@
 .like-button{
     border:none;
     background:none;
-    float:right;
+}
+.commentlikeBox i{
+    width:155px;
+    height:10px;
 }
 /* 대댓글 */
 .nestedcommentBox {
-    border-top:1px solid rgb(255, 255, 255);
-    padding:10px;
-    /* background-color: pink; */
+    padding:20px 10px;
     display:flex;
     flex-direction: column;
-    margin-left:30px;
-    /* margin:auto; */
     height:450px;
 }   
-
 .nestedcommentList {
     padding:0;
     list-style:none;
     max-height:100%;
     overflow:auto;
 }
-/* 얘가 nestedcomment */
 .nestedcommentList li {
     margin:0;
-    /* margin-top:10px; */
 }
 /* 이미지랑 대댓글 */
 .nestedcommentList li > div {
     display:table-cell;
 }
+.commenterImage {
+    margin:auto;
+    float:left;
+}
 .commenterImage img {
     width:100%;
     border-radius:50%;
     width:30px;
-    margin-right:10px;
-    float:left;
+    margin-right:10px;    
 }
 .commentText {
     /* background-color: black; */
     width:100%;
     margin-right:10px;
+    padding-top:-50px;
 }
 .commentText p {
     margin:0;
@@ -203,6 +203,7 @@
 .commentText span {
     float:right;
     position:relative;
+    font-size: 11px;
 }
 .sub-text {
     color:rgb(255, 253, 253);
@@ -231,4 +232,19 @@
     position:fixed;
     bottom:20px;
 }
-
+.nested-edit{
+    display: none;
+    width:100%;
+}
+#edit_nested:hover{
+    cursor: pointer;
+}
+#del_nested:hover{
+    cursor: pointer;
+}
+#coffeebean_img{
+    margin-right:-1px;
+}
+#coffeebean_img_{
+    margin-right:-1px;
+}
