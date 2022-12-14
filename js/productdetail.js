@@ -29,9 +29,6 @@ window.onload = async function ProductDetail() {
     product_image.setAttribute("src", `${BACK_END_URL}${product_json.products["image"]}`)
     product_image.setAttribute("style", `width:80%; height:80%;`)
 
-
-    console.log(product_json["products"]['like'])
-    console.log(parsed_payload['user_id'])
     //========좋아요 아이콘 변경=======
     const likeIcon = document.getElementById("like_icon")
     if (product_json["products"]['like'].includes(parsed_payload['user_id'])){
@@ -156,7 +153,6 @@ window.onload = async function ProductDetail() {
     const commentPut = document.getElementById('comment-list')
     const commentform = document.createElement('div')
     commentform.className = "comment-form"
-    console.log(product_list.comment_set.length)
     for (i=0; i <product_list.comment_set.length; i++) {
         const commentSet = product_list.comment_set[i]
         const commentform = document.createElement('div')
@@ -202,7 +198,8 @@ window.onload = async function ProductDetail() {
                             <span class="table-lefttext">${createTime[0]}</span>
                         </td>
                     <tr>
-                        <td colspan = "3" span style="color:black">댓글 더보기 
+                        <td colspan = "3" span style="color:black">
+                        <span style="cursor: pointer;" onclick="CommentDetail(${commentSet.id})">댓글 더보기</span> 
                             <span style="float: right; margin-right: 10px;" id="editView${commentSet.id}"> 
                             <span onclick="editCommentBtn(${commentSet.id})" style="cursor: pointer;">수정</span> / 
                             <span onclick="deleteComment(${commentSet.id})" style="cursor: pointer;">삭제</span> </span>
@@ -224,7 +221,6 @@ window.onload = async function ProductDetail() {
         }
         starInput.appendChild(starForm)
         // 하트 모양 변경하기
-        console.log(commentSet)
         const heart = document.getElementById(`profile-icon${commentSet.id}`)
         if (commentSet['like'].includes(parsed_payload['user_id'])){
             heart.className = "bi bi-heart-fill"
@@ -239,20 +235,21 @@ window.onload = async function ProductDetail() {
 }
 
 async function comment_like(id) {
+    console.log(id)
     const response = await fetch(`${BACK_END_URL}/comment/like/?comment_id=${id}`, {
         headers:{
             "Authorization": "Bearer " + localStorage.getItem("access"),
         },
         method: "POST",
     }) 
+    var heart =document.getElementById(`profile-icon${id}`)
     response_json=await response.json()
     if (response.status == 201){
         alert(response_json["message"])
-        window.location.reload()
-
+        heart.className = "bi bi-heart-fill"
     } else if(response.status == 200) {
         alert(response_json["message"])
-        window.location.reload()
+        heart.className = "bi bi-heart"
     } else {
         alert(response_json["message"])
     }
@@ -261,44 +258,76 @@ async function comment_like(id) {
 
         
 async function cart() {
-        const count=document.querySelector(".readonly");
-        const weight=document.querySelectorAll("select")[0];
+    const count=document.querySelector(".readonly");
+    const weight=document.querySelectorAll("select")[0];
 
 
-        if (weight.value == 0){
-            alert("중량을 선택해주세요")
-        }else {
+    if (weight.value == 0){
+        alert("중량을 선택해주세요")
+    } else {
         let formdata = new FormData 
         formdata.append('count', count.value)
         formdata.append('price', String(product_json.products["price"]))
         formdata.append('weight', weight.value)
 
+        const response = await fetch(`${BACK_END_URL}/product/cart/?product_id=${product_id}`, {
+            headers:{
+                "Authorization": "Bearer " + localStorage.getItem("access"),
+            },
+            method: "POST",
+            body: formdata
+        }) 
+        response_json=await response.json()
 
-
-        console.log(count.value,String(product_json.products["price"]),weight.value)
-
-    const response = await fetch(`${BACK_END_URL}/product/cart/?product_id=${product_id}`, {
-        headers:{
-            "Authorization": "Bearer " + localStorage.getItem("access"),
-        },
-        method: "POST",
-        body: formdata
-    }) 
-    response_json=await response.json()
-
-    if (response.status==200 || response.status==202 || response.status == 201){
-        alert("장바구니에 담겼습니다.")
-        location.reload();
-        return response.json()
-    }
-    else if(response.status==401 || response.status == 400){
-        alert("로그인을 해주세요")
-        location.reload();
-        return response.json()
-    }
+        if (response.status==200 || response.status==202 || response.status == 201){
+            alert("장바구니에 담겼습니다.")
+            location.reload();
+            return response.json()
+        }
+        else if(response.status==401 || response.status == 400){
+            alert("로그인을 해주세요")
+            location.reload();
+            return response.json()
+        }
  
+    }
 }
-   
+
+async function orderButton() {
+
+    const count=document.querySelector(".readonly");
+    const weight=document.querySelectorAll("select")[0];
+
+
+    if (weight.value == 0){
+        alert("중량을 선택해주세요")
+    } else {
+        let formdata = new FormData 
+        formdata.append('count', count.value)
+        formdata.append('price', String(product_json.products["price"]))
+        formdata.append('weight', weight.value)
+
+        const response = await fetch(`${BACK_END_URL}/product/cart/?product_id=${product_id}`, {
+            headers:{
+                "Authorization": "Bearer " + localStorage.getItem("access"),
+            },
+            method: "POST",
+            body: formdata
+        }) 
+        response_json=await response.json()
+
+        if (response.status==200 || response.status==202 || response.status == 201){
+            alert("주문되었습니다")
+            location.replace("cart.html");
+            return response.json()
+        }
+        else if(response.status==401 || response.status == 400){
+            alert("로그인을 해주세요")
+            location.reload();
+            return response.json()
+        }
+ 
+    }
 }
 async function like() {
     const response = await fetch(`${BACK_END_URL}/product/like/?product_id=${product_id}`, {
@@ -308,7 +337,6 @@ async function like() {
         },
         method: "POST",
     })
-
 
     if (response.status==200 || response.status==202){
         alert("좋아요에 등록되었습니다.")
@@ -366,7 +394,6 @@ async function commentrg(){
             body: formdata
         })
             response_json=await response.json()
-            console.log(response_json)
             if (response.status == 200 || response.status == 202 || response.status == 201) {
                 alert("정상적으로 리뷰 작성을 하였습니다.")
                 location.reload();
@@ -417,7 +444,6 @@ async function editCommentBtn(num) {
         method: "GET",
     })
     var response_json = await response.json()
-    console.log(response_json)
     const editmodalImage = document.getElementById("output_image");
     editmodalImage.src = BACK_END_URL+response_json["image"]
     const editmodalComment = document.getElementById("edit-text");
