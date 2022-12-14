@@ -21,7 +21,6 @@
     margin:5px 90px 5px 550px;
     font-size: 13px;
     padding-right: 5%;
-
 }
 
 
@@ -54,7 +53,6 @@
 .addresstext{
   width:74%;
   margin:5px 150px 15px 95px;
-
 }
 
 .Request{
@@ -66,9 +64,8 @@ margin:10px 60px 5px 95px;
 
 .Request-text{
 width:74%;
-margin:0px 0px 15px 120px;
+margin:0px 0px 15px 94px;
 float: left;
-
 }
 
 .consent{
@@ -83,4 +80,15 @@ float: left;
   float: right;
   margin:1px 35px 5px 95px;
   background-color: white;
+}
+
+.callnumber{
+  float: left;
+  font-size: 14px;
+  margin:5px 0px 5px 95px;
+}
+
+.phonetext{
+  width:74%;
+  margin:5px 110px 15px 95px;
 }

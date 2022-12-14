@@ -21,6 +21,7 @@ fetch(`/main.html`)
                     <li class="hidden-xs"><a href="cart.html">장바구니</a></li>
                     <li class="hidden-xs"><a href="checkout.html">결제하기</a></li>
                     <li class="hidden-xs"><a href="servicecenter.html">고객 센터</a></li>
+                    <li class="hidden-xs"><a href="createproduct.html">상품 등록</a></li>
                     <li><a href="" data-toggle="modal" data-target="#login-modal">로그인</a></li>
                     </ul>
                 </div>

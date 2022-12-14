@@ -14,10 +14,10 @@ a {color:#555; text-decoration:none;}
 .ta-c { text-align:center;}
 .ta-l { text-align:left;}
 .ta-r { text-align:right;}
-.img-box { width: 100%; margin: 0; padding: 0; position: relative; float: left;}
-.img-box img { width: 100%; height: 100%; float: left; }
-.img-box > [class*="col-"]{ padding-left: 0; padding-right: 0; position: relative; float: left;}
-.img-box > [class*="col-"] img { width: 100%; height: auto; float: left; }
+.img-box { width: 130; margin: auto; padding: 0; position: relative; text-align : center}
+.img-box img { width: 100%; height: 100%;}
+.img-box > [class*="col-"]{ padding-left: 0; padding-right: 0; position: relative;}
+.img-box > [class*="col-"] img { width: 100%; height: auto;}
 
 
 .nmt10 { margin-top:-10px;}
