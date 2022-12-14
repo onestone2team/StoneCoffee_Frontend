@@ -1,40 +1,30 @@
-.beanplz{
-    position: relative;
-    border: 10px solid black;
-    width: 350px;
-    height: 200px;
-    left: 550px;
-    bottom: 445px;
-    left: 850px;
-    font-weight: 900;
-    font-size: 16px;
-    font-family: Consolas, sans-serif;
+.whole-box{
+    display:flex; flex-direction:column; justify-content: center;
 }
-.mainbox{
-    position: relative;
-    border: 10px solid black;
-    text-align: left;
-    width: 550px;
-    left: 250px;
-    top: 70px;
-    font-weight: 900;
-    font-size: 16px;
-    font-family: Consolas, sans-serif;
+.form-box{
+    margin-top:30px; margin-bottom:50px; display:flex; flex-direction: column; justify-content: center; align-items: center;
 }
-.bigbox{
-    position: relative;
-    font-weight: 900;
-    font-size: 16px;
-    font-family: Consolas, sans-serif;
+.first-box{
+    border: solid 5px black; border-radius: 120px; width:80%; height:100px; display:flex; flex-direction:row; justify-content: center; padding-top:5px;
 }
-
-.btn{
-    position: relative;
-    left:850px;
-    bottom: 400px;
-    width: 350px;
-    height: 100px;
-    font-weight: 900;
-    font-size: 16px;
-    font-family: Consolas, sans-serif;
+.first-box div{
+    margin-right:10px; margin-left:10px; display:flex; flex-direction: column; justify-content:center; text-align: center;
+}
+.second-box{
+    margin-top:20px; border: solid 5px; width:80%; black; border-radius: 120px; height:100px; display:flex; flex-direction:column; justify-content: center; align-items: center;
+}
+.taste-box{
+    display:flex; flex-direction:row; justify-content: center; padding-bottom:15px;
+}
+.taste-box div{
+    width: 150px; display:inline-block; text-align: center;
+}
+.third-box{
+    padding-top:30px; padding-bottom:30px; margin-top:20px; width:80%; border: solid 5px black; border-radius: 120px; display:flex; flex-direction:column; justify-content: center; align-items: center;
+}
+textarea {
+    width:500px; height:100px;
+}
+.btn {
+    height:30px; margin-top:10px; margin-bottom:10px; display:flex; justify-content: center; position:absolute; left: 47%;
 }
