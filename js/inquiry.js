@@ -47,14 +47,16 @@ async function inquiry() {
             "category":category,
         })
     })
+    $(location).attr('href', `${FRONT_END_URL}/inquiry_list.html`);
 }
 
 $(document).on('click', '.btn2', function () {
-    if (kind in [0,1,2] & title != "" & content !="" ){
+    title = document.getElementById("checkId").value
+    content = document.getElementById("checkPw").value
+    if (kind in [0,1,2] && title != "" && content !="" ){
         if (confirm("문의를 등록 하시겠습니까?") == true){
             alert("문의등록 완료");
             inquiry()
-            window.location.reload()
         } else {
             alert("취소되었습니다");
         }
