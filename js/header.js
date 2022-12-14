@@ -8,9 +8,8 @@ fetch(` `)
                 <div class="header_top_row">
                     <div class="col-md-12">
                         <div class="aa-header-top-area">
-                        <!-- start header top left -->
-                            <div class="aa-header-top-left"></div>
-                            <!-- / header top left -->
+                            <div class="aa-header-top-left">
+                            </div>
                             <div class="aa-header-top-right">
                                 <ul class="aa-head-top-nav-right">
                                 <li><a href="account.html">내 계정</a></li>

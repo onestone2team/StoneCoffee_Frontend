@@ -12,13 +12,15 @@ async function recalculateCart() {
     $("#basket-subtotal").html(total)
     if (total >= 50000) {
         $('#delivery_price').fadeOut(fadeTime) && $('#delivery_price2').fadeIn(fadeTime);
+        delivery_price = 0
     } else {
         $('#delivery_price2').fadeOut(fadeTime) && $('#delivery_price').fadeIn(fadeTime);
+        delivery_price = 3000
     }
-    delivery_price = $("#delivery_price").innerHTML * 1;
     final_total = total + delivery_price
+    console.log(final_total, total, delivery_price)
     $('.final-value').fadeIn(fadeTime, function () {
-        $('#basket-total').html(total);
+        $('#basket-total').html(final_total);
         if (total == 0) {
             $('.checkout-cta').fadeOut(fadeTime);
         } else {
@@ -36,7 +38,7 @@ $(document).on('click', '.remove button', function () {
 async function cartlist() {
     const response = await fetch(`${BACK_END_URL}/product/cart/`, {
         headers: {
-            "content-type": "applycation/son",
+            "content-type": "application/json",
             "Authorization": "Bearer " + localStorage.getItem("access"),
             // "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjcwODYxMDQ3LCJpYXQiOjE2NzA4MTc4NDcsImp0aSI6ImQxZjdmNmUyMjg5ZjQ0YjE5YTEyNGM0MzBhYjhmNzMzIiwidXNlcl9pZCI6MiwicHJvZmlsZW5hbWUiOiJhZG1pbiJ9.lZhyYuOKCXhkO9CeFfXDiLc6tOQuX_ftjHjU_AFm8fs",
         },
@@ -74,7 +76,7 @@ function removeItem(removeButton) {
     var cart_id = removeButton.closest("div").id
     const response = fetch(`${BACK_END_URL}/product/cart/?cart_id=${cart_id}`, {
         headers: {
-            "content-type": "applycation/son",
+            "content-type": "application/json",
             "Authorization": "Bearer " + localStorage.getItem("access"),
         },
         method: "DELETE",
