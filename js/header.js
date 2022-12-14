@@ -4,7 +4,7 @@ fetch(` `)
     })
     .then(data => {
         document.querySelector("header").innerHTML =
-        `<div class="aa-header-top">
+            `<div class="aa-header-top">
             <div class="container">
                 <div class="header_top_row">
                     <div class="col-md-12">
@@ -91,28 +91,28 @@ fetch(`../main.html`)
       </div>       
     </div>
     `;
-  });
+    });
 
-async function logoutUser(){
-  access_token = localStorage.getItem("kakao")
-  if (access_token){
-    const response_logout = await fetch(`https://kapi.kakao.com/v1/user/unlink`, {
-      headers: { //https://kapi.kakao.com/v1/user/unlink
-          'content-type': 'application/json',
-          "Authorization": "Bearer " + localStorage.getItem("kakao")
-      },
-        method: 'GET',
-      })
+async function logoutUser() {
+    access_token = localStorage.getItem("kakao")
+    if (access_token) {
+        const response_logout = await fetch(`https://kapi.kakao.com/v1/user/unlink`, {
+            headers: { //https://kapi.kakao.com/v1/user/unlink
+                'content-type': 'application/json',
+                "Authorization": "Bearer " + localStorage.getItem("kakao")
+            },
+            method: 'GET',
+        })
 
-    const response_json = await response_logout.json()
+        const response_json = await response_logout.json()
 
-  }
-  
-  localStorage.removeItem("access")
-  localStorage.removeItem("refresh")
-  localStorage.removeItem("payload")
-  localStorage.removeItem("kakao")
+    }
 
-  window.location.replace(`../../signupin.html`);
+    localStorage.removeItem("access")
+    localStorage.removeItem("refresh")
+    localStorage.removeItem("payload")
+    localStorage.removeItem("kakao")
+
+    window.location.replace(`../../signupin.html`);
 }
 
