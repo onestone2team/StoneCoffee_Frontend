@@ -27,7 +27,7 @@ async function show_product_list() {
         return response.json();
     })
     .then(data => {
-        
+        console.log(data)
         var products = document.getElementById("products");
         for (i = 0; i < 8; i++) {
             const product = document.createElement('p')
@@ -46,29 +46,16 @@ async function show_product_list() {
             }
         })
 }
-async function like() {
-    const response = await fetch(`${BACK_END_URL}/product/like/`, {
-
+// checkout
+async function checkout() {
+    const response = await fetch(`${BACK_END_URL}/product/cart`, {
         headers: {
-            "content-type": "application/json",
-            "Authorization": "Bearer " + localStorage.getItem("access")
+            'content-type': 'application/json'
         },
-        method: "POST",
+        method: 'GET',
+    })
+    .then(response => {
+        return response.json();
     })
 
-
-    if (response.status == 200 || response.status == 202) {
-        alert("좋아요에 등록되었습니다.")
-        location.reload();
-    }
-    else if (response.status == 401) {
-        alert("로그인을 해주세요")
-        }
-    
-   
-}
-
-if(adminCheck == false){
-    const adminpage = document.getElementById("createproduct")
-    adminpage.style.display="none"
 }

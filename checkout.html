@@ -20,33 +20,41 @@
     </section>
     <main>
         <div class="basket" id="style-4">
+          <div>
             <table>
-                <tr class="inner3">
-                    <td class="imgbox"><img src="/img/짱구회사원.jpg" class="tdimg"></td>
-                    <td class="text1">상품</td>
-                    <td class="text2">수량</td>
-                    <td class="text3">가격</td>
-                </tr>
-            </table>
-            <div class="box">
-                <h6 class="address">주소</h6>
-                <input type="text" class="addresstext" placeholder="내용을 입력해 주세요.">
-            </div>
-            <div>
-                <h6 class="Request">배달시 요청사항</h6>
-                <input type="text" class="Request-text" placeholder="내용을 입력해 주세요.">
-            </div>
-            <div class="consent"><input type="checkbox">주문동의</div>
-            <button type="button" class="checkout">주문하기</button>
+           <tr class="inner3" > 
+            <td class="imgbox"><img src="/img/짱구회사원.jpg" class="tdimg"></td>
+            <td class="product" id="product">상품</td>
+            <td class="count" id="count" >수량</td>
+            <td class="price" id="price">가격</td>  
+           </tr>
+         </table> 
         </div>
+        <div id="append-product">
+        </div>       
+          <div class="box">
+            <h6 class="address">주소</h6>
+            <input type="text"  class="addresstext" id="user_address" placeholder="내용을 입력해 주세요.">     
+          </div> 
+          <div>
+           <h6 class="callnumber">전화번호</h6>
+           <input type='tel' class='phonetext' id="user_phone" maxLength='13'  placeholder='입력' >
+          </div>
+          <div>
+            <h6 class="Request">배달시 요청사항</h6>
+            <input type="text"  class="Request-text" id="receiver" placeholder="내용을 입력해 주세요.">     
+          </div>  
+         <div class="consent"><input type="checkbox">주문동의</div> 
+         <button type="button" onclick="fillin()" class="checkout">주문하기</button>       
+       </div>     
     </main>
     <section id="aa-client-brand">
     </section>
     <footer id="aa-footer">
     </footer>
-</body>
+  </body>
 <script src="/js/header.js"></script>
 <script src="/js/footer.js"></script>
 <script src="/js/all_data.js"></script>
-
+<script src="/js/checkout.js"></script>
 </html>
