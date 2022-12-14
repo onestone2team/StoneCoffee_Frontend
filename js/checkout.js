@@ -92,11 +92,11 @@ async function fillin(){
         }),
 })
     
-if (kind in [0,1,2] & title != "" & content !="" ){
-   if (confirm("상품주문을 하시겠습니까?") == true){
-   } else {
-   }
-}
+// if (kind in [0,1,2] & title != "" & content !="" ){
+//    if (confirm("상품주문을 하시겠습니까?") == true){
+//    } else {
+//    }
+// }
 
 }
 
