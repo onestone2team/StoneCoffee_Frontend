@@ -17,8 +17,8 @@ $('#comment_img').on('change', function() {
     async function createproduct(){
         const category=document.querySelectorAll("select")[0];
         const product_img=document.querySelector("input[type='file']");
-        const product_name=document.querySelectorAll("input")[1];
-        const product_price=document.querySelectorAll("input")[3];
+        const product_name=document.getElementById("product_name");
+        const product_price=document.getElementById("product_price");
         const product_content=$('#textarea').val();
         const aroma_grade=document.querySelectorAll("select")[1];
         const sweet_grade=document.querySelectorAll("select")[2];
