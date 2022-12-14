@@ -145,11 +145,8 @@ async function edit_password() {
     alert(new_pw_json.message)
     location.reload();
 
-    //aA123!!!
-    // if (response.status == 200) {
-    //     alert(new_pw_json.message); //비밀번호가 변경되었습니다
-    // } else if (new_password != new_password_check){ alert(new_pw_json.message) } //기존 비밀번호가 다릅니다
 }
+
 function cancel() {
 
     location.replace("../main.html")

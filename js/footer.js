@@ -29,7 +29,7 @@ fetch(`../main.html`)
                                         <div class="aa-footer-widget">
                                             <h3>Knowledge Base</h3>
                                             <ul class="aa-footer-nav">
-                                            <li><a href="#">D123elivery</a></li>
+                                            <li><a href="#">Delivery</a></li>
                                             <li><a href="#">Returns</a></li>
                                             <li><a href="#">Services</a></li>
                                             <li><a href="#">Discount</a></li>
@@ -87,4 +87,5 @@ fetch(`../main.html`)
                 </div>
             </div>
         </div>`
+    
     });
