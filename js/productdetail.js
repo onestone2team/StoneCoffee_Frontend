@@ -120,13 +120,12 @@ window.onload = async function ProductDetail() {
         const price1 = document.createElement('div')
         price1.innerHTML=`<h3 class="price">가격 : ${product_json.products["price"]} 원</h3>`
         price2.appendChild(price1)
-    //상품 내용 description 
+    //상품 내용 description
     productinformation2=document.getElementById('description')
     const productinformations2 = document.createElement('p')
     productinformation2.innerHTML=`<h3>${product_json.products["content"]}</h3>`
     productinformation2.appendChild(productinformations2)
     //용량
-    
 
     // 추천 상품
 
@@ -171,23 +170,19 @@ window.onload = async function ProductDetail() {
                         <td rowspan="4" align = "left">
                             <span class="table-content">${commentSet.comment}</span>
                         </td>
-                        
                         <td class="table-font" width="200" id ="table-star${commentSet.id}">
                             <span class="table-righttext">평점</span>
                             <span class="table-lefttext">
-                                
                             </span>
                         </td>
                     </tr>
                     <tr>
-                        
                         <td class="table-font">
                             <span class="table-righttext">좋아요</span>
                             <span class="table-lefttext">${commentSet.like.length}개</span>
                         </td>
                     </tr>
                     <tr>
-                        
                     </tr>
                         <td class="table-font" width="200">
                             <span class="table-righttext">작성일</span>
@@ -237,7 +232,7 @@ async function comment_like(id) {
             "Authorization": "Bearer " + localStorage.getItem("access"),
         },
         method: "POST",
-    }) 
+    })
     var heart =document.getElementById(`profile-icon${id}`)
     response_json=await response.json()
     if (response.status == 201){
@@ -253,7 +248,7 @@ async function comment_like(id) {
 
 }
 
-async function cart() {    
+async function cart() {
     const count=document.querySelector(".readonly");
     if(product_json.products.aroma_grade == null){
         const weight=1;

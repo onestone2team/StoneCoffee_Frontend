@@ -97,29 +97,34 @@
     <hr />
     <div id="form-commentInfo" style="text-align: center;">
         <form id="comment_form">
-            <div id="comment-count">리뷰 </div>
-            <input id="comment-input" placeholder="리뷰을 입력해 주세요.">
-            <button type="button" id="submit" onclick="commentrg()">등록</button>
-
-            <div id="image_preview">
-                <img src="../img/icon.png" alt="사진영역" style="width:126px; height:165px;">
-                <div class="f_box">
-                    <label for="img">사진첨부</label>
-                    <input type="file" id="comment_img" name="product_id">
-                </div>
-            </div>
-
-            <div class="grade">
-                <h4>평점 선택</h4>
-                <select size="1" id="grade">
-                    <option value="0">평점</option>
-                    <option value="1">1 점</option>
-                    <option value="2">2 점</option>
-                    <option value="3">3 점</option>
-                    <option value="4">4 점</option>
-                    <option value="5">5 점</option>
-                </select>
-            </div>
+            <table class="review-Edit">
+                <td width="300">
+                    <div id="image_preview">
+                        <img src="../img/icon.png" alt="사진영역" style="width:126px; height:165px;">
+                        <div class="f_box">
+                            <label for="img">사진첨부</label>
+                            <input type="file" id="comment_img" name="product_id">
+                        </div>
+                    </div>
+                </td> 
+                <td>
+                    <input id="comment-input" placeholder="리뷰을 입력해 주세요.">
+                    <button type="button" id="submit" onclick="commentrg()">등록</button>
+                </td>                   
+                <td width="100">
+                    <div class="grade">
+                        <h4>평점 선택</h4>
+                        <select size="1" id="grade">
+                            <option value="0">평점</option>
+                            <option value="1">1 점</option>
+                            <option value="2">2 점</option>
+                            <option value="3">3 점</option>
+                            <option value="4">4 점</option>
+                            <option value="5">5 점</option>
+                        </select>
+                    </div>
+                </td>
+            </table>
         </form>
 
     </div>

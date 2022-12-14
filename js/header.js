@@ -16,7 +16,7 @@ fetch(` `)
                                 <li class="hidden-xs"><a href="wishlist.html">좋아요</a></li>
                                 <li class="hidden-xs"><a href="cart.html">장바구니</a></li>
                                 <li class="hidden-xs"><a href="checkout.html" onclick="checkout()">결제하기</a></li>
-                                <li class="hidden-xs"><a href="servicecenter.html">고객 센터</a></li>
+                                <li class="hidden-xs"><a href="inquiry.html">고객 센터</a></li>
                                 <li class="hidden-xs"><a href="createproduct.html">상품 등록</a></li>
                                 <li><a style="cursor: pointer;" id="loginout" onclick="logoutUser()" data-toggle="modal" data-target="#login-modal">로그인</a></li>
                                 </ul>
@@ -73,6 +73,7 @@ fetch(`../main.html`)
               <li><a href="mainAll.html?id=3" vlaue=4,category_id=4 >커피 용품</a></li>
               <li><a href="mainAll.html?id=2" vlaue=4,category_id=4 >스톤커피 굿즈</a></li>
               <li><a href="inquiry_list.html">1:1문의</a></li>   
+              <li><a href="my_order_list.html">주문 목록</a></li>  
             </ul>  
             </div>
         </div>
