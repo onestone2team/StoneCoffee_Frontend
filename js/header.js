@@ -84,29 +84,16 @@ fetch(`../main.html`)
     `;
     });
 
-<<<<<<< HEAD
 async function logoutUser() {
     access_token = localStorage.getItem("kakao")
     if (access_token) {
         const response_logout = await fetch(`https://kapi.kakao.com/v1/user/unlink`, {
-            headers: { //https://kapi.kakao.com/v1/user/unlink
+            headers: {
                 'content-type': 'application/json',
                 "Authorization": "Bearer " + localStorage.getItem("kakao")
             },
             method: 'GET',
         })
-=======
-async function logoutUser(){
-  access_token = localStorage.getItem("kakao")
-  if (access_token){
-    const response_logout = await fetch(`https://kapi.kakao.com/v1/user/unlink`, {
-      headers: { 
-          'content-type': 'application/json',
-          "Authorization": "Bearer " + localStorage.getItem("kakao")
-      },
-        method: 'GET',
-      })
->>>>>>> aedf7fb6e5ef220ebd189fac87558d4c48e1de3d
 
         const response_json = await response_logout.json()
 
