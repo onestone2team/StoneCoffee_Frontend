@@ -12,6 +12,7 @@ async function inquirylist() {
         method: "GET"
     })
     const response_json = await response.json()
+    console.log(response_json)
     var inquiry_frame = document.getElementById('append-inquiry')
     response_json.forEach(element => {
         const inquiry = document.createElement('div')

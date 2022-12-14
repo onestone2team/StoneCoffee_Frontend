@@ -1,18 +1,29 @@
 payload = localStorage.getItem("payload")
 parsed_payload = JSON.parse(payload)
-const loginoutUl = document.getElementById("loginout")
 
 adminCheck = false
 
-if(parsed_payload){
-    adminCheck = parsed_payload["is_admin"]
-}
-else{
-    loginoutUl.innerText="login"
-    loginoutUl.setAttribute("href", "login.html")
+function getCookie(key) {
+    var result = null;
+    var cookie = document.cookie.split(';');
+    for (i=0;i<cookie.length;i++){
+        cookie[i] = cookie[i].replace(' ','')
+        var dic = cookie[i].split('=');
+        if (key == dic[0]){
+            result = dic[1];
+            return dic[1]
+        }
+    }
+    return false
 }
 
 window.addEventListener('load', function () {
+    checkCookie = getCookie('guestCheck')
+    console.log(checkCookie)
+    if (checkCookie!='True'){
+        location.replace('survey.html')
+    }
+
     show_product_list()
 });
 
@@ -34,8 +45,7 @@ async function show_product_list() {
             product.setAttribute("class", "aa-product-catg","style","max-width: 150; height: 150;")
             product.innerHTML = `<li>
             <figure>
-                  <a  id="img" class="aa-product-img" href="product-detail.html?product_id=${data["data"]["coffee"][i]["id"]}"><img style="max-width: 100%; height: 100%;" src="${BACK_END_URL}${data["data"]["coffee"][i]["image"]}" alt="${data["data"]["coffee"][i]["id"]}"></a>
-              <a class="aa-add-to-cart-btn" onclick="like()">좋아요</a>
+                  <a id="img" class="aa-product-img" href="product-detail.html?product_id=${data["data"]["coffee"][i]["id"]}"><img style="max-width: 100%; height: 100%;" src="${BACK_END_URL}${data["data"]["coffee"][i]["image"]}" alt="${data["data"]["coffee"][i]["id"]}"></a>
                 <figcaption>
                     <h4 class="aa-product-title">${data["data"]["coffee"][i]["product_name"]}</h4>
                     <span class="aa-product-price">${data["data"]["coffee"][i]["price"]}원</span><span class="aa-product-price"></span>
@@ -57,5 +67,5 @@ async function checkout() {
     .then(response => {
         return response.json();
     })
-
 }
+

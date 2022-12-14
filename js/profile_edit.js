@@ -118,7 +118,7 @@ async function update_profile() {
         alert(new_profile_json.message);
     } else { alert("수정이 정상적으로 되지 않았습니다. 다시 시도해주세요.") }
 
-    location.reload();
+    // location.reload();
 
 }
 

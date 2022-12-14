@@ -27,7 +27,7 @@ window.onload = async function ProductDetail() {
     product_json = await product.json()
     const product_image = document.getElementById("productimage")
     product_image.setAttribute("src", `${BACK_END_URL}${product_json.products["image"]}`)
-    product_image.setAttribute("style", `width:80%; height:80%;`)
+    product_image.setAttribute("style", `width:100%; height:100%;`)
 
     //========좋아요 아이콘 변경=======
     const likeIcon = document.getElementById("like_icon")
@@ -138,17 +138,19 @@ window.onload = async function ProductDetail() {
 
     // 추천 상품
 
-    for (i = 0; i < 6; i++) {
-        recommend=document.getElementById('recommend')
-        const recommends = document.createElement('div')
-        recommends.setAttribute("class", `divrecommend`)
-        const recommend_image = document.getElementById("recommendimage")
-        recommends.innerHTML=`<ui id="header_navi"><li text-align : center;>
-        <a href="product-detail.html?product_id=${product_json.recommend[i]["id"]}/"><img  src="${BACK_END_URL}${product_json.recommend[i]["image"]}" ></a>
-        <span >${product_json.recommend[i]["product_name"]}</span></li></ui>`
-        
-        recommend.appendChild(recommends)
+    if (product_json.products["aroma_grade"] >=1){
+        for (i = 0; i < 6; i++) {
+            recommend=document.getElementById('recommend')
+            const recommends = document.createElement('div')
+            recommends.setAttribute("class", `divrecommend`)
+            recommends.setAttribute("style", `width: 250px;`)
+            const recommend_image = document.getElementById("recommendimage")
+            recommends.innerHTML=`<ui id="header_navi"><li text-align : center;>
+            <a href="product-detail.html?product_id=${product_json.recommend[i]["id"]}/"><img src="${BACK_END_URL}${product_json.recommend[i]["image"]}" ></a>
+            <span >${product_json.recommend[i]["product_name"]}</span></li></ui>`
 
+            recommend.appendChild(recommends)
+        }
     }
     
     const product_list = product_json.products
@@ -259,83 +261,129 @@ async function comment_like(id) {
 
 }
 
-        
-async function cart() {
+async function cart() {    
     const count=document.querySelector(".readonly");
-    const weight=document.querySelectorAll("select")[0];
+    if(product_json.products.aroma_grade == null){
+        const weight=1;
 
-
-    if (weight.value == 0){
-        alert("중량을 선택해주세요")
-    } else {
         let formdata = new FormData 
         formdata.append('count', count.value)
         formdata.append('price', String(product_json.products["price"]))
-        formdata.append('weight', weight.value)
-
+        formdata.append('weight', weight)
         const response = await fetch(`${BACK_END_URL}/product/cart/?product_id=${product_id}`, {
             headers:{
                 "Authorization": "Bearer " + localStorage.getItem("access"),
             },
             method: "POST",
             body: formdata
-        }) 
+        })
         response_json=await response.json()
 
         if (response.status==200 || response.status==202 || response.status == 201){
-            alert("장바구니에 담겼습니다.")
-            location.reload();
-            return response.json()
-        }
+                alert("장바구니에 담겼습니다.")
+                location.reload();
+            }
         else if(response.status==401 || response.status == 400){
-            alert("로그인을 해주세요")
-            location.reload();
-            return response.json()
+                alert("로그인을 해주세요")
+                location.reload();
+        }}
+        else if(product_json.products.aroma_grade >= 1) {
+            const count=document.querySelector(".readonly");
+            const weight=document.querySelectorAll("select")[0];
+            if (weight.value ==0){
+                alert("용량을 선택해주세요")
+            }
+            if (weight.value > 1){
+                let formdata = new FormData 
+                formdata.append('count', count.value)
+                formdata.append('price', String(product_json.products["price"]))
+                formdata.append('weight', weight.value)
+
+            const response = await fetch(`${BACK_END_URL}/product/cart/?product_id=${product_id}`, {
+                headers:{
+                    "Authorization": "Bearer " + localStorage.getItem("access"),
+                },
+                method: "POST",
+                body: formdata
+            })
+            response_json=await response.json()
+
+            if (response.status==200 || response.status==202 || response.status == 201){
+                alert("장바구니에 담겼습니다.")
+                location.reload();
+
+            }
+            else if(response.status==401 || response.status == 400){
+                alert("로그인을 해주세요")
+                location.reload();
+            }
         }
- 
     }
 }
 
 async function orderButton() {
 
     const count=document.querySelector(".readonly");
-    const weight=document.querySelectorAll("select")[0];
+    if(product_json.products.aroma_grade == null){
+        const weight=1;
 
-
-    if (weight.value == 0){
-        alert("중량을 선택해주세요")
-    } else {
         let formdata = new FormData 
         formdata.append('count', count.value)
         formdata.append('price', String(product_json.products["price"]))
-        formdata.append('weight', weight.value)
-
+        formdata.append('weight', weight)
         const response = await fetch(`${BACK_END_URL}/product/cart/?product_id=${product_id}`, {
             headers:{
                 "Authorization": "Bearer " + localStorage.getItem("access"),
             },
             method: "POST",
             body: formdata
-        }) 
+        })
         response_json=await response.json()
 
         if (response.status==200 || response.status==202 || response.status == 201){
-            alert("주문되었습니다")
-            location.replace("cart.html");
-            return response.json()
-
-        }
+                alert("주문하기")
+                location.replace("cart.html");
+            }
         else if(response.status==401 || response.status == 400){
-            alert("로그인을 해주세요")
-            location.reload();
-            return response.json()
+                alert("로그인을 해주세요")
+                location.reload();
+        }}
+        else if(product_json.products.aroma_grade >= 1) {
+            const count=document.querySelector(".readonly");
+            const weight=document.querySelectorAll("select")[0];
+            if (weight.value ==0){
+                alert("용량을 선택해주세요")
+            }
+            if (weight.value > 1){
+                let formdata = new FormData 
+                formdata.append('count', count.value)
+                formdata.append('price', String(product_json.products["price"]))
+                formdata.append('weight', weight.value)
+
+            const response = await fetch(`${BACK_END_URL}/product/cart/?product_id=${product_id}`, {
+                headers:{
+                    "Authorization": "Bearer " + localStorage.getItem("access"),
+                },
+                method: "POST",
+                body: formdata
+            })
+            response_json=await response.json()
+
+            if (response.status==200 || response.status==202 || response.status == 201){
+                alert("주문하기")
+                location.replace("cart.html");
+
+            }
+            else if(response.status==401 || response.status == 400){
+                alert("로그인을 해주세요")
+                location.reload();
+            }
         }
- 
     }
 }
 
 async function like() {
-    const response = await fetch(`${BACK_END_URL}/product/like/?product_id=${product_id}`, {
+    const responproduct_jsonse = await fetch(`${BACK_END_URL}/product/like/?product_id=${product_id}`, {
         headers: {
             "content-type": "application/json",
             "Authorization": "Bearer " + localStorage.getItem("access")
@@ -343,11 +391,11 @@ async function like() {
         method: "POST",
     })
 
-    if (response.status==200 || response.status==202){
+    if (responproduct_jsonse.status==200 || responproduct_jsonse.status==202){
         alert("좋아요에 등록되었습니다.")
         location.reload();
     }
-    else if(response.status==401){
+    else if(responproduct_jsonse.status==401){
         alert("로그인을 해주세요")
         location.reload();
     }

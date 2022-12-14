@@ -10,6 +10,7 @@ a {
   text-decoration: none;
   color: #333333;
 }
+
 /* 미리보기 버튼 */
 .aa-add-to-cart-btn {
   border: 1px solid #ccc;
@@ -313,6 +314,7 @@ a {
 	padding-left: 600px;
 	padding-bottom: 100px;
 }
+
 .page-link{
 	position:relative;
 	display:block;padding:.5rem .75rem;

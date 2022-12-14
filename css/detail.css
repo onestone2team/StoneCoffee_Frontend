@@ -345,3 +345,18 @@
     cursor: pointer;
 }
 
+.recommend-form {
+    width: 70%;
+    height: auto;
+    background-color: #ccc;
+    margin: 0px auto;
+}
+
+.divrecommend{
+    height: 260px;
+}
+
+.product_img{
+    padding: 30px;
+    
+}
