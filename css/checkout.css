@@ -11,9 +11,8 @@
 }
 
 .tdimg{
-  width: 15%;
-  margin: 10px px 0px 1140px;
-
+  width: 35%;
+  margin: 20px px 0px 1140px;
 }
 
 .inner3 {
@@ -27,17 +26,17 @@
     padding-right: 5%;
 }
 
-
-.text1{
-  border-spacing: 10px;
+.product{
+  border-spacing: 20px;
+  padding-right:10%;
 }
 
-.text2{
-  border-spacing: 10px;
+.count{
+  border-spacing: 20px;
 }
 
-.text3{
-  border-spacing: 10px;
+.price{
+  border-spacing: 20px;
 }
 
 .total{
@@ -46,7 +45,6 @@
   font-size: 13px;
   margin:0px 0px 5px 0px;
 }
-
 
 .address{
   float: left;
