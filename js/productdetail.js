@@ -6,13 +6,6 @@ var product_id = product_id1.split('/')[0]
 window.onload = async function ProductDetail() {
     const payload = localStorage.getItem("payload")
     const parsed_payload = JSON.parse(payload)
-    // if(!parsed_payload){
-    //     alert("권한이 없습니다. 로그인 해주세요")
-    //     location.replace("../index.html")
-    // }
-    // data["data"]["coffee"]["0"]["product_name"]
-
-
 
     const product = await fetch(`${BACK_END_URL}/product/detail/?product_id=${product_id} `, {
         headers: {
@@ -21,7 +14,6 @@ window.onload = async function ProductDetail() {
         },
         method: 'GET',
     })
-
 
 //========제품 이미지 불러오기========
     product_json = await product.json()
@@ -42,7 +34,7 @@ window.onload = async function ProductDetail() {
     const name1 = document.createElement('p')
     name1.innerHTML=`<h3>${product_json.products["product_name"]}</h3>`
     name2.appendChild(name1)
-    //상품 평가 점수 
+    //상품 평가 점수
     if (product_json.products["aroma_grade"] >=1){
         aroma2=document.getElementById('aroma')
         const aroma1 = document.createElement('span')
@@ -58,7 +50,7 @@ window.onload = async function ProductDetail() {
             }
             aroma2.appendChild(aromaBean)
         }
-        
+
         acidity2=document.getElementById('acidity')
         const acidity1 = document.createElement('span')
         acidity1.innerHTML=`<span class="coffeebean-text">산미</span>`
