@@ -3,10 +3,10 @@ fetch(` `)
         return response.text()
     }).then(data => {
         document.querySelector("header").innerHTML =
-        `<div class="aa-header-top">
+            `<div class="aa-header-top">
             <div class="container">
                 <div class="header_top_row">
-                    <div class="col-md-12">
+                    <div id="navi_bar" class="col-md-12">
                         <div class="aa-header-top-area">
                             <div class="aa-header-top-left">
                             </div>
@@ -27,18 +27,16 @@ fetch(` `)
             </div>
         </div>
         <!-- / header top  -->
-
         <!-- start header bottom  -->
         <div class="aa-header-bottom">
             <div class="container">
                 <div class="hearder_bottom_row">
-                    <div class="col-md-12">
+                    <div id="status_bar" class="col-md-12">
                         <div class="aa-header-bottom-area">
                             <!-- logo  -->
-                            <div class="aa-logo" padding="30px">
+                            <div class="aa-logo">
                                 <a href="main.html">
                                 <p>STONE<strong>COFFEE</strong><span>Your Shopping Partner</span></p>
-                                
                                 </a>
                             </div>
                             <!-- / cart box -->
@@ -81,32 +79,30 @@ fetch(`../main.html`)
         </div>
       </div>  
     `;
-  });
+    });
 
-async function logoutUser(){
-  access_token = localStorage.getItem("kakao")
-  if (access_token){
-    const response_logout = await fetch(`https://kapi.kakao.com/v1/user/unlink`, {
-      headers: { 
-          'content-type': 'application/json',
-          "Authorization": "Bearer " + localStorage.getItem("kakao")
-      },
-        method: 'GET',
-      })
+async function logoutUser() {
+    access_token = localStorage.getItem("kakao")
+    if (access_token) {
+        const response_logout = await fetch(`https://kapi.kakao.com/v1/user/unlink`, {
+            headers: {
+                'content-type': 'application/json',
+                "Authorization": "Bearer " + localStorage.getItem("kakao")
+            },
+            method: 'GET',
+        })
+        const response_json = await response_logout.json()
+    }
 
-    const response_json = await response_logout.json()
+    localStorage.removeItem("access")
+    localStorage.removeItem("refresh")
+    localStorage.removeItem("payload")
+    localStorage.removeItem("kakao")
 
-  }
-  
-  localStorage.removeItem("access")
-  localStorage.removeItem("refresh")
-  localStorage.removeItem("payload")
-  localStorage.removeItem("kakao")
-
-  window.location.replace(`../../signupin.html`);
+    window.location.replace(`../../signupin.html`);
 }
 
-function searchButton(){
+function searchButton() {
     console.log("버튼 눌림")
     const searchtage = document.getElementById("searchtage").value
     location.replace(`${FRONT_END_URL}/search.html?search=${searchtage}`)
