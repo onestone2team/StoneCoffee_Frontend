@@ -15,7 +15,7 @@ fetch(` `)
                                 <li><a href="profile_edit.html">내 계정</a></li>
                                 <li class="hidden-xs"><a href="wishlist.html">좋아요</a></li>
                                 <li class="hidden-xs"><a href="cart.html">장바구니</a></li>
-                                <li class="hidden-xs"><a href="checkout.html">결제하기</a></li>
+                                <li class="hidden-xs"><a href="checkout.html" onclick="checkout()">결제하기</a></li>
                                 <li class="hidden-xs"><a href="servicecenter.html">고객 센터</a></li>
                                 <li class="hidden-xs"><a href="createproduct.html">상품 등록</a></li>
                                 <li><a style="cursor: pointer;" id="loginout" onclick="logoutUser()" data-toggle="modal" data-target="#login-modal">로그인</a></li>
