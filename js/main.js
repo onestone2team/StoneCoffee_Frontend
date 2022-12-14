@@ -1,3 +1,17 @@
+payload = localStorage.getItem("payload")
+parsed_payload = JSON.parse(payload)
+const loginoutUl = document.getElementById("loginout")
+
+adminCheck = false
+
+if(parsed_payload){
+    adminCheck = parsed_payload["is_admin"]
+}
+else{
+    loginoutUl.innerText="login"
+    loginoutUl.setAttribute("href", "login.html")
+}
+
 window.addEventListener('load', function () {
     show_product_list()
 });
@@ -54,3 +68,7 @@ async function like() {
    
 }
 
+if(adminCheck == false){
+    const adminpage = document.getElementById("createproduct")
+    adminpage.style.display="none"
+}

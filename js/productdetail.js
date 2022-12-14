@@ -140,6 +140,7 @@ window.onload = async function ProductDetail() {
     
 
     // 추천 상품
+
     for (i = 0; i < 6; i++) {
         recommend=document.getElementById('recommend')
         const recommends = document.createElement('div')
@@ -150,6 +151,7 @@ window.onload = async function ProductDetail() {
         <span >${product_json.recommend[i]["product_name"]}</span></li></ui>`
         
         recommend.appendChild(recommends)
+
     }
     
     const product_list = product_json.products
@@ -250,6 +252,7 @@ async function comment_like(id) {
         alert(response_json["message"])
         window.location.reload()
 
+
     } else if(response.status == 200) {
         alert(response_json["message"])
         window.location.reload()
@@ -261,45 +264,67 @@ async function comment_like(id) {
 
         
 async function cart() {
-        const count=document.querySelector(".readonly");
-        const weight=document.querySelectorAll("select")[0];
+    const count=document.querySelector(".readonly");
+    
+    if(product_json.products.aroma_grade == 0){
+        const weight=1;
 
-
-        if (weight.value == 0){
-            alert("중량을 선택해주세요")
-        }else {
         let formdata = new FormData 
-        formdata.append('count', count.value)
-        formdata.append('price', String(product_json.products["price"]))
-        formdata.append('weight', weight.value)
+            formdata.append('count', count.value)
+            formdata.append('price', String(product_json.products["price"]))
+            formdata.append('weight', weight)
+            const response = await fetch(`${BACK_END_URL}/product/cart/?product_id=${product_id}`, {
+                headers:{
+                    "Authorization": "Bearer " + localStorage.getItem("access"),
+                },
+                method: "POST",
+                body: formdata
+            })
+            response_json=await response.json()
+        
+            if (response.status==200 || response.status==202 || response.status == 201){
+                alert("장바구니에 담겼습니다.")
+                location.reload();
+            }
+            else if(response.status==401 || response.status == 400){
+                alert("로그인을 해주세요")
+                location.reload();
+            }}
+            else if(product_json.products.aroma_grade >= 1) {
+                const count=document.querySelector(".readonly");
+                const weight=document.querySelectorAll("select")[0];
+                if (weight.value ==0){
+                    alert("용량을 선택해주세요")
+                }
+                    if (weight.value > 1){
+                        let formdata = new FormData 
+                        formdata.append('count', count.value)
+                        formdata.append('price', String(product_json.products["price"]))
+                        formdata.append('weight', weight.value)
 
+        const response = await fetch(`${BACK_END_URL}/product/cart/?product_id=${product_id}`, {
+            headers:{
+                "Authorization": "Bearer " + localStorage.getItem("access"),
+            },
+            method: "POST",
+            body: formdata
+        })
+        response_json=await response.json()
 
-
-        console.log(count.value,String(product_json.products["price"]),weight.value)
-
-    const response = await fetch(`${BACK_END_URL}/product/cart/?product_id=${product_id}`, {
-        headers:{
-            "Authorization": "Bearer " + localStorage.getItem("access"),
-        },
-        method: "POST",
-        body: formdata
-    }) 
-    response_json=await response.json()
-
-    if (response.status==200 || response.status==202 || response.status == 201){
-        alert("장바구니에 담겼습니다.")
-        location.reload();
-        return response.json()
+        if (response.status==200 || response.status==202 || response.status == 201){
+            alert("장바구니에 담겼습니다.")
+            location.reload();
+            
+        }
+        else if(response.status==401 || response.status == 400){
+            alert("로그인을 해주세요")
+            location.reload();
+        }
     }
-    else if(response.status==401 || response.status == 400){
-        alert("로그인을 해주세요")
-        location.reload();
-        return response.json()
     }
- 
-}
-   
-}
+    }
+
+
 async function like() {
     const response = await fetch(`${BACK_END_URL}/product/like/?product_id=${product_id}`, {
         headers: {
@@ -341,13 +366,13 @@ async function commentrg(){
         const comment_form= document.querySelector("comment_form")
         const comment_content=document.querySelectorAll("input")[2];
         const comment_img=document.querySelector("input[type='file']");
-        const comment_point=document.querySelectorAll("select")[1];
+        const comment_point=document.querySelectorAll("#grade")[0];
 
         if (comment_content.value == ""){
             alert("리뷰를 작성해 주세요")
         } else if (comment_content.value == " "){
             alert("리뷰를 작성해 주세요")
-        } else if (comment_point.value ==  0){
+        } else if (comment_point.value ==0){
             alert("평점을 선택해 주세요")
         }   else {
         let formdata = new FormData 
