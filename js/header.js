@@ -1,8 +1,7 @@
 fetch(` `)
     .then(response => {
         return response.text()
-    })
-    .then(data => {
+    }).then(data => {
         document.querySelector("header").innerHTML =
         `<div class="aa-header-top">
             <div class="container">
@@ -37,8 +36,8 @@ fetch(` `)
                             <!-- logo  -->
                             <div class="aa-logo" padding="30px">
                                 <a href="main.html">
-                                <p>STONE<strong>COFFEE</strong> <span>Your Shopping Partner</span></p>
-                                <!-- <img src="../img/logo.png"  height="200px" width="200px"  >--!>
+                                <p>STONE<strong>COFFEE</strong><span>Your Shopping Partner</span></p>
+                                <img src="../img/logo.png"  style="height:200px; width=200px" >
                                 </a>
                             </div>
                             <!-- / cart box -->
@@ -46,7 +45,7 @@ fetch(` `)
                             <div class="aa-search-box">
                                 <form action="">
                                 <input type="text" name="" id="" placeholder="검색할 상품명을 입력해주세요.">
-                                <button type="submit"><span class="fa fa-search">검색 </span></button>
+                                <button type="submit"><span class="fa fa-search">검색</span></button>
                                 </form>
                             </div>
                         </div>
@@ -65,31 +64,23 @@ fetch(`../main.html`)
     <div class="container">
       <div class="menu-area">
         <!-- Navbar -->
-        <div class="navbar navbar-default" role="navigation">
-          <div class="navbar-header">
-          
-          </div>
-          <div class="navbar-collapse collapse">
+         <div class="navbar navbar-default" role="navigation">
+          <div class="navbar-header"></div>
+           <div class="navbar-collapse collapse">
             <!-- Left nav -->
             <ul class="nav navbar-nav">
               <li><a href="main.html">Home</a></li>
-              <li><a href="mainAll.html?id=1" >원두 전체보기</a> 
-              </li>
-              <li><a href="mainbody.html?id=4" vlaue=4,category_id=4>바디감</a>
-              </li>
-              <li><a href="mainacidy.html?id=5" vlaue=4,category_id=4>산미 </a>
-              </li>
+              <li><a href="mainAll.html?id=1" >원두 전체보기</a></li>
+              <li><a href="mainbody.html?id=4" vlaue=4,category_id=4>바디감</a></li>
+              <li><a href="mainacidy.html?id=5" vlaue=4,category_id=4>산미 </a></li>
               <li><a href="mainproduct.html?id=3" vlaue=4,category_id=4 >커피 용품</a></li>
-             <li><a href="maingoods.html?id=2" vlaue=4,category_id=4 >스톤커피 굿즈</a>
-              </li>
-              <li><a href="servicecenter.html">1:1문의</a></li>            
-
-
+              <li><a href="maingoods.html?id=2" vlaue=4,category_id=4 >스톤커피 굿즈</a></li>
+              <li><a href="servicecenter.html">1:1문의</a></li>   
+            </ul>  
             </div>
         </div>
         </div>
-      </div>       
-    </div>
+      </div>  
     `;
   });
 
@@ -97,7 +88,7 @@ async function logoutUser(){
   access_token = localStorage.getItem("kakao")
   if (access_token){
     const response_logout = await fetch(`https://kapi.kakao.com/v1/user/unlink`, {
-      headers: { //https://kapi.kakao.com/v1/user/unlink
+      headers: { 
           'content-type': 'application/json',
           "Authorization": "Bearer " + localStorage.getItem("kakao")
       },

@@ -142,13 +142,7 @@
 .commentBox p img{
     width:30px;
 }
-/* 원두 이미지 이모티콘 실험 여기까지 */
-/* .commentBox .form-group:first-child, .nestedcommentBox .form-group:first-child {
-    width:80%;
-}
-.commentBox .form-group:nth-child(2), .nestedcommentBox .form-group:nth-child(2) {
-    width:18%;
-} */
+
 .commentlikeBox{
     margin-bottom:10px;
     display:block;
@@ -162,12 +156,10 @@
 .like-button{
     border:none;
     background:none;
-    /* float:right; */
 }
 .commentlikeBox i{
     width:155px;
     height:10px;
-    /* 왜안돼? */
 }
 /* 대댓글 */
 .nestedcommentBox {
@@ -182,10 +174,8 @@
     max-height:100%;
     overflow:auto;
 }
-/*nestedcomment */
 .nestedcommentList li {
     margin:0;
-    /* margin-top:10px; */
 }
 /* 이미지랑 대댓글 */
 .nestedcommentList li > div {
@@ -199,8 +189,7 @@
     width:100%;
     border-radius:50%;
     width:30px;
-    margin-right:10px;
-    
+    margin-right:10px;    
 }
 .commentText {
     /* background-color: black; */

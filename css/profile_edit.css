@@ -1,16 +1,16 @@
 /* 모달 */
 #modal .modal-overlay {
     width: 100%;
-    height: 100%;
+    height: 50%;
     position: absolute;
-    left: 0;
-    top: 0;
-    display: flex;
+    left: 500px;
+    top: 800px;
+    display: none;
     flex-direction: column;
     align-items: center;
     justify-content: center;
 
-    background: rgba(94, 41, 41, 0.25);
+    background: rgba(155, 19, 19, 0.597);
     box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
     backdrop-filter: blur(1.5px);
     -webkit-backdrop-filter: blur(1.5px);
@@ -20,18 +20,18 @@
 
 #modal .modal-window {
     display: flex;
-    background: rgba(71, 39, 3, 0.7);
+    background: rgb(31, 18, 2);
     box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
     backdrop-filter: blur(13.5px);
     -webkit-backdrop-filter: blur(13.5px);
     border-radius: 10px;
     border: 1px solid rgba(255, 255, 255, 0.18);
 
-    width: 33.3%;
-    height: 500px;
-    position: fixed;
+    width: 33.3vw;
+    height: 300px;
+    position: relative;
     left: 33.3%;
-    top: 143px;
+    bottom: 500px;
     padding: 15px;
 
     overflow: hidden;
@@ -57,10 +57,11 @@
     /* position:fixed; top:30px; left:40px; */
 }
 .profile-content {
-    background-color: rgba(5, 57, 134, 0.264);
+    background-color: rgba(136, 87, 4, 0.749);
     border-radius: 20px;
     padding-bottom: 80px;
     margin:auto;
+    margin-bottom:70px;
     width:80%;
 }
 .profile-content form {
@@ -69,7 +70,6 @@
     align-items: center;
     justify-content: center;
 }
-
 /* 사진 */
 .profile-image {
     display: flex;
@@ -83,36 +83,40 @@
     font-size: 20px;
 }
 .profile-image p i {
-    position: absolute;
-    top: 200px;
-    font-size: 20px
+    position: relative;
+    bottom: 55px;
+    font-size: 20px;
 }
 .profile-image button {
     border: none;
 }
-/* 파일 선택 버튼 인라인 스타일 적용함/ 따로 뺄 수가 없음 */
-/* .file-button .input-group{
-    font-size:11px; position:relative; left:110px; top:-80px;
-} */
 .avatar {
     vertical-align: middle;
     width: 150px;
     height: 150px;
     border-radius: 50%;
 }
-
 /* 입력란 */
 .input-boxes {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    width: 33.3%;
+    width: 50%;
 }
 .input-boxes .input-group-text {
     text-shadow: none;
 }
-
+.input-boxes input{
+    border:0;
+}
+.profile-content span{
+    display:inline-block;
+   width:120px;
+   color:rgb(30, 14, 14);
+   font-weight:bold;
+   font-size: 13px;
+}
 /* 비밀번호변경 페이지 진입 버튼 */
 .profile-content form button {
     font-size: 10px;
@@ -120,21 +124,40 @@
 }
 .profile-content .button-profile-edit{
     margin-top:40px;
+    
 }
 .profile-content form .btn{
-    background-color: brown;
+    background-color: rgb(30, 14, 14);
     border: none;
+    border-radius: 5rem;
+    width: 80px;
+    height: 30px;
+    color:beige
 }
 .content-modal {
     margin: auto;
 }
-.content-modal p {
+.content-modal h5 {
     text-align: center;
     font-weight: bold;
+    color: rgb(255, 255, 253);
+    margin-top:15px;
 }
+.pw-input-form{
+    margin-top: 30px;
+}
+.pw-input-form span{
+    display:inline-block;
+   width:120px;
+   color:rgb(255, 255, 255);
+   font-size: 13px;
+}
+
 .content-modal .input-group {
     width: 100%;
 }
+
+/* 버튼 */
 .content-modal .button-modal {
     display: flex;
     flex-direction: row;
@@ -142,10 +165,17 @@
     align-items: center;
 }
 .content-modal .button-modal button {
-    background-color: brown;
+    background-color: rgb(19, 4, 4);
     border: none;
     font-size: 11px;
+    border-radius: 5rem;
+    width: 80px;
+    height: 30px;
+    margin-top:20px;
+    color:beige
 }
 .content-modal .button-modal .button1 {
-    margin: 5px;
+    margin-right: 5px;
+    margin-top:20px;
 }
+
