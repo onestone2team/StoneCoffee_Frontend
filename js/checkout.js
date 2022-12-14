@@ -38,31 +38,6 @@ window.onload=async function checkoutlist(){
         )
 } 
 
-//===주문금액====//
-total = 0
-async function recalculateCart() {
-
-    let num = document.getElementById("subtotal").innerHTML.slice(0, -1) * 1;
-    total = total + num
-    $("#basket-subtotal").html(total)
-    if (total >= 50000) {
-        $('#delivery_price').fadeOut(fadeTime) && $('#delivery_price2').fadeIn(fadeTime);
-    } else {
-        $('#delivery_price2').fadeOut(fadeTime) && $('#delivery_price').fadeIn(fadeTime);
-    }
-    delivery_price = $("#delivery_price").innerHTML * 1;
-    final_total = total + delivery_price
-    $('.final-value').fadeIn(fadeTime, function () {
-        $('#basket-total').html(total);
-        if (total == 0) {
-            $('.checkout-cta').fadeOut(fadeTime);
-        } else {
-            $('.checkout-cta').fadeIn(fadeTime);
-        }
-        $('.final-value').fadeIn(fadeTime);
-    });
-};
-
 
 
 // =====개인정보 작성====== //
@@ -92,11 +67,12 @@ async function fillin(){
         }),
 })
     
-// if (kind in [0,1,2] & title != "" & content !="" ){
-//    if (confirm("상품주문을 하시겠습니까?") == true){
-//    } else {
-//    }
-// }
+
+if (response.status == 200) {
+    alert("주문이 완료되었습니다.")
+} else{
+    alert(response.status)
+}
 
 }
 
