@@ -137,6 +137,7 @@ window.onload = async function ProductDetail() {
     
 
     // 추천 상품
+
     for (i = 0; i < 6; i++) {
         recommend=document.getElementById('recommend')
         const recommends = document.createElement('div')
@@ -147,6 +148,7 @@ window.onload = async function ProductDetail() {
         <span >${product_json.recommend[i]["product_name"]}</span></li></ui>`
         
         recommend.appendChild(recommends)
+
     }
     
     const product_list = product_json.products
@@ -247,6 +249,7 @@ async function comment_like(id) {
     if (response.status == 201){
         alert(response_json["message"])
         heart.className = "bi bi-heart-fill"
+
     } else if(response.status == 200) {
         alert(response_json["message"])
         heart.className = "bi bi-heart"
@@ -320,6 +323,7 @@ async function orderButton() {
             alert("주문되었습니다")
             location.replace("cart.html");
             return response.json()
+
         }
         else if(response.status==401 || response.status == 400){
             alert("로그인을 해주세요")
@@ -329,6 +333,7 @@ async function orderButton() {
  
     }
 }
+
 async function like() {
     const response = await fetch(`${BACK_END_URL}/product/like/?product_id=${product_id}`, {
         headers: {
@@ -369,13 +374,13 @@ async function commentrg(){
         const comment_form= document.querySelector("comment_form")
         const comment_content=document.querySelectorAll("input")[2];
         const comment_img=document.querySelector("input[type='file']");
-        const comment_point=document.querySelectorAll("select")[1];
+        const comment_point=document.querySelectorAll("#grade")[0];
 
         if (comment_content.value == ""){
             alert("리뷰를 작성해 주세요")
         } else if (comment_content.value == " "){
             alert("리뷰를 작성해 주세요")
-        } else if (comment_point.value ==  0){
+        } else if (comment_point.value ==0){
             alert("평점을 선택해 주세요")
         }   else {
         let formdata = new FormData 

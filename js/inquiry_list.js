@@ -22,7 +22,7 @@ function removeItem(removeButton) {
 async function inquirylist() {
     const response = await fetch(`${BACK_END_URL}/mypage/inquiry/`, {
         headers: {
-            "content-type": "applycation/son",
+            "content-type": "application/json",
             "Authorization": "Bearer " + localStorage.getItem("access"),
             // "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjcwODYxMDQ3LCJpYXQiOjE2NzA4MTc4NDcsImp0aSI6ImQxZjdmNmUyMjg5ZjQ0YjE5YTEyNGM0MzBhYjhmNzMzIiwidXNlcl9pZCI6MiwicHJvZmlsZW5hbWUiOiJhZG1pbiJ9.lZhyYuOKCXhkO9CeFfXDiLc6tOQuX_ftjHjU_AFm8fs",
         },
@@ -30,9 +30,8 @@ async function inquirylist() {
     })
     const response_json = await response.json()
     var inquiry_frame = document.getElementById('append_inquiry')
-    console.log(response_json)
-    const inquiry = document.createElement('div')
     response_json.forEach(element => {
+        const inquiry = document.createElement('div')
         inquiry.innerHTML = `<div class="basket-product">
                                 <div class="item">
                                     <div class="product-details">
