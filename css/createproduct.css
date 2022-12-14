@@ -1,0 +1,40 @@
+.beanplz{
+    position: relative;
+    border: 10px solid black;
+    width: 350px;
+    height: 200px;
+    left: 550px;
+    bottom: 445px;
+    left: 850px;
+    font-weight: 900;
+    font-size: 16px;
+    font-family: Consolas, sans-serif;
+}
+.mainbox{
+    position: relative;
+    border: 10px solid black;
+    text-align: left;
+    width: 550px;
+    left: 250px;
+    top: 70px;
+    font-weight: 900;
+    font-size: 16px;
+    font-family: Consolas, sans-serif;
+}
+.bigbox{
+    position: relative;
+    font-weight: 900;
+    font-size: 16px;
+    font-family: Consolas, sans-serif;
+}
+
+.btn{
+    position: relative;
+    left:850px;
+    bottom: 400px;
+    width: 350px;
+    height: 100px;
+    font-weight: 900;
+    font-size: 16px;
+    font-family: Consolas, sans-serif;
+}
