@@ -12,13 +12,15 @@ async function recalculateCart() {
     $("#basket-subtotal").html(total)
     if (total >= 50000) {
         $('#delivery_price').fadeOut(fadeTime) && $('#delivery_price2').fadeIn(fadeTime);
+        delivery_price = 0
     } else {
         $('#delivery_price2').fadeOut(fadeTime) && $('#delivery_price').fadeIn(fadeTime);
+        delivery_price = 3000
     }
-    delivery_price = $("#delivery_price").innerHTML * 1;
     final_total = total + delivery_price
+    console.log(final_total, total, delivery_price)
     $('.final-value').fadeIn(fadeTime, function () {
-        $('#basket-total').html(total);
+        $('#basket-total').html(final_total);
         if (total == 0) {
             $('.checkout-cta').fadeOut(fadeTime);
         } else {

@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Stone Coffee| 상세페이지</title>
     <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css">
     <link href="../css/bootstrap.css" rel="stylesheet">
     <link id="switcher" href="../css/default-theme.css" rel="stylesheet">
     <link href="/css/sequence-theme.modern-slide-in.css" rel="stylesheet" media="all">
@@ -33,10 +34,10 @@
                 <hr/>
                     <ul>
                         <li id="description">여기에는 상품내용이 들어갈 예정입니다여기에는 상품내용이 들어갈 예정입니다여기에는 상품내용이 들어갈 예정입니다여기에는 상품내용이 들어갈 예정입니다</li>
-                        <li id="aroma"></li>
-                        <li id="acidity"></li>
-                        <li id="body"></li>
-                        <li id="sweet"></li>
+                        <li><p id="aroma"></p></li>
+                        <li><p id="acidity"></p></li>
+                        <li><p id="body"></p></li>
+                        <li><p id="sweet"></p></li>
                     </ul>
                 <p></p>
                 <form action="">
@@ -56,8 +57,10 @@
                         </div>
                     </div>
                     <div class="orede-now">
-                        <button type="button" onclick="cart()">장바구니 </button>
-                        <button type="button" onclick="like()">좋아요</button>
+                        <button type="button" onclick="orderButton()" class="order-button">주문 하기</button>
+                        <button type="button" onclick="cart()" class="cart-button"><i class="bi bi-bag-fill"></i> </button>
+                        <a class="like-button", onclick="like()"><i id="like_icon"
+                            class="bi bi-heart"></i></a>
                     </div>
                 </form>
                 </div>
@@ -67,7 +70,7 @@
     <hr/>
         <div style="text-align: center;"><h2>위 의 상품과 유사한 상품들 입니다.</h2></div>
     <hr/>
-    <div id="recommend">
+    <div id="recommend" class="recommend">
 
     </div>
     <div style="text-align: center; padding-top: 50px;"><h2><hr/>리뷰 보기.</h2></div>
@@ -100,9 +103,76 @@
         </form>
 
     </div>
-    <div id="review" style="padding-left: 330px; padding-bottom:50px">
 
+    <div class="comment-list" id="comment-list">
     </div>
+
+    <div class="modal">
+        <div class="modal_body">
+            <div class="modal_title">
+                <div class="modal_title_side"></div>
+                <div> 댓글 수정 </div>
+                <div class="modal_title_side">
+                    <span id="close_modal" class="material-icons-outlined">
+                        X
+                    </span>
+                </div>
+            </div>
+            <div class="media-body" id = "four">
+                    <div id="info_container">
+        
+                        <div class="profile_img">
+                            
+                        
+                                <span class="username" id="user_image"></span>
+                            </div>
+                            <div class="filebox">
+                                <label for="input_image">업로드</label>
+                                <input type='file' name="image" id="input_image">
+                            </div>
+                        </div>
+                        
+                    </div>
+                                       
+                    <table class="edit-commentform">
+                        <tr>
+                            <tr>
+                                <th rowspan="2" width="250">
+                                    <img src="" alt="프로필사진" id="output_image">
+                                </th>
+                                <th rowspan="2">
+                                    <form>
+                                        <p>
+                                            <textarea class="edit-text" id="edit-text" placeholder="Read Only"></textarea>
+                                        </p>
+                                    </form>
+                                </th>
+                            </tr>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="editgrade">
+                                    <h4>평점 선택</h4>
+                                    <select size="1" id="editcomment_point">
+                                        <option value="0">평점</option>
+                                        <option value="1">1 점</option>
+                                        <option value="2">2 점</option>
+                                        <option value="3">3 점</option>
+                                        <option value="4">4 점</option>
+                                        <option value="5">5 점</option>
+                                    </select>
+                                </div>
+                                
+                            </td>
+                        </tr>
+                    </table>
+                    <button class="edit-commentbtn" id="edit-commentbtn" onclick="saveeditCommentBtn()"> 수정하기 </button>
+            </div>
+
+        </div>
+            
+    </div>
+    
     <footer id="aa-footer">
     </footer>
   </body>
