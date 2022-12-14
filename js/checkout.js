@@ -1,11 +1,6 @@
 console.log("연결")
 
-window.onload=function () {
-    checkoutlist()
-}
-
-
-
+cartlist = []
 
 // =====장바구니 리스트 불러오기=========
 
@@ -22,14 +17,14 @@ window.onload=async function checkoutlist(){
         response_json.forEach(element => {
             const order = document.createElement('div')
             console.log(element.id)
-            card_id=element.id
-            console.log(card_id)
+            cartlist.push(element.id)
+            console.log(cartlist)
             order.setAttribute("class", "basket-product")
             order.innerHTML=`<div >
-                            <input id="cart_id" placeholder="${element.id}" readonly>
+                            <div id="cart_id" placeholder="${element.id}"></div>
                             <table>
                             <tr class="inner3">
-                            <td class="imgbox"><img src="${BACK_END_URL}${element.product["image"]}"></td>
+                            <td><img src="${BACK_END_URL}${element.product["image"]}" class="tdimg"></td>
                             <td class="product" id="product">${element.product.product_name}</td>
                             <td class="count" id="count" >${element.count}</td>
                             <td class="price" id="price">${element.price}원</td>  
@@ -47,14 +42,14 @@ window.onload=async function checkoutlist(){
 async function fillin(){
     let A=document.getElementById("cart_id")["placeholder"];    
     console.log(A)
-    console.log(Number(A))
+    let cart_id = cartlist.join(",")
     
     const user_address = document.getElementById("user_address").value
     const user_phone = document.getElementById("user_phone").value
     const receiver = document.getElementById("receiver").value
-    console.log(Number(A),user_address, user_phone , receiver)
+    console.log(cartlist,user_address, user_phone , receiver)
 
-    const response = await fetch(`${BACK_END_URL}/order/product/order/?cart_id=${Number(A)}`
+    const response = await fetch(`${BACK_END_URL}/order/product/order/?cart_id=${cart_id}`
     , {
         headers:{
             "Content-Type": "application/json",
