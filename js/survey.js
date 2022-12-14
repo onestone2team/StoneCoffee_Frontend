@@ -2,7 +2,7 @@ function saveCookie(name, value, unixTime){
     var date = new Date();
     date.setTime(date.getTime() + unixTime*1000*60*60*24);
     document.cookie = encodeURIComponent(name) + '=' + encodeURIComponent(value) + ';expires=' + date.toUTCString() + ';path=/';
-    location.replace('main.html')
+    location.replace('signupin.html')
 }
 
 function startSurvey(){
@@ -19,7 +19,7 @@ function startSurvey(){
 
 
 
-function sendSurvey(){
+async function sendSurvey(){
     const aroma_grade = document.querySelector('input[name="aroma"]:checked').value;
     const sweet_grade = document.querySelector('input[name="sweet"]:checked').value;
     const acidity_grade = document.querySelector('input[name="acidity"]:checked').value;
@@ -27,13 +27,33 @@ function sendSurvey(){
     const sendSurvey = document.getElementsByClassName('sendSurvey')[0].style
     const showSurvey = document.getElementById('showSurvey')
 
+    console.log(aroma_grade, sweet_grade, acidity_grade, balance_grade)
+    const response_survey = await fetch(`${BACK_END_URL}/survey/`, {
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        method: 'POST',
+        body: JSON.stringify({
+            "aroma_grade": aroma_grade,
+            "sweet_grade": sweet_grade,
+            "acidity_grade": acidity_grade,
+            "body_grade": balance_grade,
+        })
+    })
+    const response_json = await response_survey.json()
+    const coffeedata = response_json["data"]["1"]
 
+    const recommend_content = document.getElementById("recommend_content")
+    recommend_content.innerText = coffeedata.content
+    const recommend_img = document.getElementById("recommend_img")
+    recommend_img.src = `${BACK_END_URL}${coffeedata.image}`
+    const recommend_name = document.getElementById("recommend_name")
+    recommend_name.innerText = coffeedata.product_name
 
     const coffeeshow = document.getElementById('coffeeShow')
     showSurvey.style.display = "none"
     sendSurvey.display= "none"
     coffeeshow.style.display = "block";
-
 }
 
 const sweetChecks = document.querySelectorAll('input[name="sweet"]');
