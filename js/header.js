@@ -94,9 +94,7 @@ async function logoutUser() {
             },
             method: 'GET',
         })
-
         const response_json = await response_logout.json()
-
     }
 
     localStorage.removeItem("access")
