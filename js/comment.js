@@ -112,14 +112,7 @@ window.onload =
         date.innerText = comment_detail_json.created_at.substr(0, 10)
         const like_count = document.getElementById("like_count")
         like_count.innerText = '좋아요 ' + comment_detail_json.like.length + '개'
-        
-        // function comment_point(paragraph_id, how_many_times){
-        //     var paragraph = document.getElementById(paragraph_id);
-        //                 for (var i = 0; i < how_many_times; i++) {
-        //                     paragraph.innerHTML += "<img src='location_of_your_photo_file/file_name.jpg'";
-        //                 }
-
-        // }
+      
         
         var point = document.getElementById('coffeebean');
         for (var i = 0; i < comment_detail_json.point; i++) {
@@ -128,11 +121,6 @@ window.onload =
         for (var i = 0; i < 5-comment_detail_json.point; i++) {
             point.innerHTML += "<img id='coffeebean_img_' src='../img/comment/coffeebean-outline.png'>";
         }
-
-        
-            
-        // 좋아요 색깔 들어가는거 해야함
-        // 대댓글에 유저 프로필이미지 필요함
         // 대댓글 blank=False 해야함
 
         nested_comment_frame = document.getElementById('nestedcommentList')

@@ -1,5 +1,6 @@
 //=======================모달맨============================
 const modal = document.getElementById("modal")
+// const modal = document.getElementsByClassName("modal-window")
 
 function modalOn() {
     modal.style.display = "flex"
@@ -23,6 +24,7 @@ const gobackBtn = modal.querySelector(".gobackbtn")
 gobackBtn.addEventListener("click", e => {
     modalOff()
 })
+
 // ==============프로필 이미지 변경=================
 function readURL(input) {
     if (input.files && input.files[0]) {
@@ -35,8 +37,8 @@ function readURL(input) {
         document.getElementById('preview').src = "";
     }
 }
-// ============프로필 수정 페이지 js===================
 
+// ============프로필 수정 페이지 js===================
 window.onload =
     async function ProfileView() {
 
@@ -60,14 +62,14 @@ window.onload =
 
         const profile_json = await profile.json()
         // const user_profile = profile_json.data
-        console.log(profile_json)
+        // console.log(profile_json)
         // console.log(profile_json['data'])
         // console.log(user_profile)
-        console.log(profile_json['profilename'])
-        console.log(profile_json.email)
-        console.log(profile_json.profile)
-        console.log(profile_json.address)
-        console.log(profile_json.phone)
+        // console.log(profile_json['profilename'])
+        // console.log(profile_json.email)
+        // console.log(profile_json.profile)
+        // console.log(profile_json.address)
+        // console.log(profile_json.phone)
 
         const profile_image = document.getElementById("preview")
         profile_image.setAttribute("src", `${BACKEND_URL}${profile_json.profile}`)
@@ -119,7 +121,6 @@ async function update_profile() {
     location.reload();
 
 }
-
 
 async function edit_password() {
 

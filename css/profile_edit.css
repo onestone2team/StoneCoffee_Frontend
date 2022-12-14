@@ -1,10 +1,10 @@
 /* 모달 */
 #modal .modal-overlay {
     width: 100%;
-    height: 100%;
+    height: 50%;
     position: absolute;
-    left: 0;
-    top: 0;
+    left: 500px;
+    top: 800px;
     display: none;
     flex-direction: column;
     align-items: center;
@@ -27,11 +27,11 @@
     border-radius: 10px;
     border: 1px solid rgba(255, 255, 255, 0.18);
 
-    width: 400px;
+    width: 33.3vw;
     height: 300px;
     position: relative;
     left: 33.3%;
-    bottom: 550px;
+    bottom: 500px;
     padding: 15px;
 
     overflow: hidden;
@@ -90,10 +90,6 @@
 .profile-image button {
     border: none;
 }
-/* 파일 선택 버튼 인라인 스타일 적용함/ 따로 뺄 수가 없음 */
-/* .file-button .input-group{
-    font-size:11px; position:relative; left:110px; top:-80px;
-} */
 .avatar {
     vertical-align: middle;
     width: 150px;
