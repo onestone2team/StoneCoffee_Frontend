@@ -6,7 +6,7 @@ fetch(` `)
             `<div class="aa-header-top">
             <div class="container">
                 <div class="header_top_row">
-                    <div class="col-md-12">
+                    <div id="navi_bar" class="col-md-12">
                         <div class="aa-header-top-area">
                             <div class="aa-header-top-left">
                             </div>
@@ -26,18 +26,16 @@ fetch(` `)
             </div>
         </div>
         <!-- / header top  -->
-
         <!-- start header bottom  -->
         <div class="aa-header-bottom">
             <div class="container">
                 <div class="hearder_bottom_row">
-                    <div class="col-md-12">
+                    <div id="status_bar" class="col-md-12">
                         <div class="aa-header-bottom-area">
                             <!-- logo  -->
-                            <div class="aa-logo" padding="30px">
+                            <div class="aa-logo">
                                 <a href="main.html">
                                 <p>STONE<strong>COFFEE</strong><span>Your Shopping Partner</span></p>
-                                <img src="../img/logo.png"  style="height:200px; width=200px" >
                                 </a>
                             </div>
                             <!-- / cart box -->

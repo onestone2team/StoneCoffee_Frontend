@@ -84,12 +84,12 @@ $(document).on('click','.li2',function(){
         var status = "2"
     }
     $(this).parent().parent().closest("ul")[0].innerHTML = `<li class="li1">${admin_status}&dtrif;
-                                                    <ul class="dropdown1">
-                                                        <li class="li2" id="${order_id}" value="0">확인 대기중</li>
-                                                        <li class="li2" id="${order_id}" value="1">주문 확인</li>
-                                                        <li class="li2" id="${order_id}" value="2">배송중</li>
-                                                    </ul>
-                                                </li>`
+                                                                <ul class="dropdown1">
+                                                                    <li class="li2" id="${order_id}" value="0">확인 대기중</li>
+                                                                    <li class="li2" id="${order_id}" value="1">주문 확인</li>
+                                                                    <li class="li2" id="${order_id}" value="2">배송중</li>
+                                                                </ul>
+                                                            </li>`
 
     const requset = fetch(`${BACK_END_URL}/director/order/?order_id=${order_id}`,{
         headers:{
