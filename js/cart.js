@@ -5,10 +5,10 @@ window.onload = function () {
 }
 
 total = 0
-async function recalculateCart() {
+async function recalculateCart(price, count) {
 
     let num = document.getElementById("subtotal").innerHTML.slice(0, -1) * 1;
-    total = total + num
+    total = total + price*count
     $("#basket-subtotal").html(total)
     if (total >= 50000) {
         $('#delivery_price').fadeOut(fadeTime) && $('#delivery_price2').fadeIn(fadeTime);
@@ -18,7 +18,6 @@ async function recalculateCart() {
         delivery_price = 3000
     }
     final_total = total + delivery_price
-    console.log(final_total, total, delivery_price)
     $('.final-value').fadeIn(fadeTime, function () {
         $('#basket-total').html(final_total);
         if (total == 0) {
@@ -61,19 +60,22 @@ async function cartlist() {
                                 <p><strong>${element.weight}g</strong></p>
                             </div>
                         </div>
-                        <div class="price" id="price">${element.price}원</div>
-                        <div class="quantity" id="count">${element.count}</div>
+                        <div class="price" id="price${element.id}">${element.price}원</div>
+                        <div class="quantity" id="count${element.id}">${element.count}</div>
                         <div class="subtotal" id="subtotal">${total_price}원</div>
                         <div class="remove" id="${element.id}">
                             <button>지우기</button>
                         </div>`
         cart_frame.appendChild(cart)
-        recalculateCart()
+        recalculateCart(element.price, element.count)
     })
 }
 
 function removeItem(removeButton) {
     var cart_id = removeButton.closest("div").id
+    var price = document.getElementById(`price${cart_id}`).innerText
+    var count = document.getElementById(`count${cart_id}`).innerText
+    price_num=price.replace("원","")
     const response = fetch(`${BACK_END_URL}/product/cart/?cart_id=${cart_id}`, {
         headers: {
             "content-type": "application/json",
@@ -84,16 +86,38 @@ function removeItem(removeButton) {
 
     var productRow = $(removeButton).parent().parent();
     productRow.slideUp(fadeTime, function () {
-        productRow.remove();
-        total = 0
-        product = $(".basket-product").length
-        if (product > 0) {
-            recalculateCart();
-        } else {
-            $("#basket-subtotal").html(total)
-            $('#basket-total').html(total);
-            $('#delivery_price').fadeOut(fadeTime) && $('#delivery_price2').fadeIn(fadeTime)
-        }
+    productRow.remove();
+    product = $(".basket-product").length
+    if (product > 0) {
+        recalculateMinusCart(parseInt(price), parseInt(count));
+    } else {
+        $("#basket-subtotal").html(total)
+        $('#basket-total').html(total);
+        $('#delivery_price').fadeOut(fadeTime) && $('#delivery_price2').fadeIn(fadeTime)
+    }
     });
 }
 
+
+async function recalculateMinusCart(price, count) {
+    console.log(price* count, total)
+    total = total - price*count
+    $("#basket-subtotal").html(total)
+    if (total >= 50000) {
+        $('#delivery_price').fadeOut(fadeTime) && $('#delivery_price2').fadeIn(fadeTime);
+        delivery_price = 0
+    } else {
+        $('#delivery_price2').fadeOut(fadeTime) && $('#delivery_price').fadeIn(fadeTime);
+        delivery_price = 3000
+    }
+    final_total = total + delivery_price
+    $('.final-value').fadeIn(fadeTime, function () {
+        $('#basket-total').html(final_total);
+        if (total == 0) {
+            $('.checkout-cta').fadeOut(fadeTime);
+        } else {
+            $('.checkout-cta').fadeIn(fadeTime);
+        }
+        $('.final-value').fadeIn(fadeTime);
+    });
+};
