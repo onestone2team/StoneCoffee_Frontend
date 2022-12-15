@@ -83,7 +83,7 @@ async function signupButton() {
   
     if (response.status == 201){
       alert(response_json["message"])
-      window.location.replace(`${FRONTEND_URL}/signupin.html`);
+      window.location.replace(`${FRONT_END_URL}/signupin.html`);
     }
       else{
       if(response_json["email"]){
@@ -130,7 +130,7 @@ if (response.status == 200){
     }).join(''));
 
     localStorage.setItem("payload", jsonPayload);
-    window.location.replace(`${FRONTEND_URL}/main.html`);
+    window.location.replace(`${FRONT_END_URL}/main.html`);
   }
   else{
     alert("아이디와 비밀번호를 확인해주세요")

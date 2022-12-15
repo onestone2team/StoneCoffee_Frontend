@@ -216,11 +216,12 @@
 }
 
 .comment-form{
-    display: inline-block;
+    display: block;
     max-width: 800px;
     width: 100%;
     border-top: 0.5px solid #3E240C;
     height: 200px;
+    margin: 0px auto;
 }
 
 .comment-table {

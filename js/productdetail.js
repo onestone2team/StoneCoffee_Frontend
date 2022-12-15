@@ -2,6 +2,7 @@ let urlParameter = window.location.search;
 var product_id1 = urlParameter.split('=')[1]
 var product_id = product_id1.split('/')[0]
 
+one_price = 0
 //=======게시글 불러오기========
 window.onload = async function ProductDetail() {
     const payload = localStorage.getItem("payload")
@@ -36,7 +37,7 @@ window.onload = async function ProductDetail() {
     } else{
         likeIcon.setAttribute('class','bi bi-heart')
     }
-
+    one_price = product_json.products["price"]
 //이름,가격불러오는 코드
     name2=document.getElementById('name')
     const name1 = document.createElement('p')
@@ -115,7 +116,7 @@ window.onload = async function ProductDetail() {
         const w_option2 =document.createElement('p')
         w_option2.innerHTML=`<div class="size">
         <h4>용량 선택</h4>
-        <select size="1" id=weight>
+        <select size="1" id="weight" onchange="valeChange(this)">
             <option value="0">중량</option>
             <option value="300">300g</option>
             <option value="500">500g</option>
@@ -124,10 +125,10 @@ window.onload = async function ProductDetail() {
         w_option.appendChild(w_option2)
     }
     // 가격
-        price2=document.getElementById('price')
-        const price1 = document.createElement('div')
-        price1.innerHTML=`<h3 class="price">가격 : ${product_json.products["price"]} 원</h3>`
-        price2.appendChild(price1)
+    price2=document.getElementById('price')
+    const price1 = document.createElement('div')
+    price1.innerHTML=`<h3 class="price">가격 : <span id="priceText">${product_json.products["price"]}</span> 원</h3>`
+    price2.appendChild(price1)
     //상품 내용 description 
     productinformation2=document.getElementById('description')
     const productinformations2 = document.createElement('p')
@@ -239,7 +240,6 @@ window.onload = async function ProductDetail() {
 }
 
 async function comment_like(id) {
-    console.log(id)
     const response = await fetch(`${BACK_END_URL}/comment/like/?comment_id=${id}`, {
         headers:{
             "Authorization": "Bearer " + localStorage.getItem("access"),
@@ -262,13 +262,14 @@ async function comment_like(id) {
 }
 
 async function cart() {    
+    var priceText = document.getElementById("priceText")
     const count=document.querySelector(".readonly");
     if(product_json.products.aroma_grade == null){
         const weight=1;
 
         let formdata = new FormData 
         formdata.append('count', count.value)
-        formdata.append('price', String(product_json.products["price"]))
+        formdata.append('price', priceText.innerText)
         formdata.append('weight', weight)
         const response = await fetch(`${BACK_END_URL}/product/cart/?product_id=${product_id}`, {
             headers:{
@@ -294,9 +295,10 @@ async function cart() {
                 alert("용량을 선택해주세요")
             }
             if (weight.value > 1){
+                console.log(priceText.innerText)
                 let formdata = new FormData 
                 formdata.append('count', count.value)
-                formdata.append('price', String(product_json.products["price"]))
+                formdata.append('price', priceText.innerText)
                 formdata.append('weight', weight.value)
 
             const response = await fetch(`${BACK_END_URL}/product/cart/?product_id=${product_id}`, {
@@ -322,14 +324,14 @@ async function cart() {
 }
 
 async function orderButton() {
-
+    var priceText = document.getElementById("priceText")
     const count=document.querySelector(".readonly");
     if(product_json.products.aroma_grade == null){
         const weight=1;
 
         let formdata = new FormData 
         formdata.append('count', count.value)
-        formdata.append('price', String(product_json.products["price"]))
+        formdata.append('price', priceText.innerText)
         formdata.append('weight', weight)
         const response = await fetch(`${BACK_END_URL}/product/cart/?product_id=${product_id}`, {
             headers:{
@@ -357,7 +359,7 @@ async function orderButton() {
             if (weight.value > 1){
                 let formdata = new FormData 
                 formdata.append('count', count.value)
-                formdata.append('price', String(product_json.products["price"]))
+                formdata.append('price', priceText.innerText)
                 formdata.append('weight', weight.value)
 
             const response = await fetch(`${BACK_END_URL}/product/cart/?product_id=${product_id}`, {
@@ -420,7 +422,7 @@ $('#comment_img').on('change', function() {
     // 댓글 등록하는 js
 async function commentrg(){
         const comment_form= document.querySelector("comment_form")
-        const comment_content=document.querySelectorAll("input")[2];
+        const comment_content=document.getElementById("comment-input").value
         const comment_img=document.querySelector("input[type='file']");
         const comment_point=document.querySelectorAll("#grade")[0];
 
@@ -432,6 +434,7 @@ async function commentrg(){
             alert("평점을 선택해 주세요")
         }   else {
         let formdata = new FormData 
+        console.log(comment_content)
         formdata.append('comment', comment_content.value)
         formdata.append('point', comment_point.value)
         if (comment_img.files[0] != undefined){
@@ -561,4 +564,10 @@ async function saveeditCommentBtn() {
         window.location.reload()
     }
 
+}
+function valeChange(obj){
+    weight = obj.value / 100
+    total_price = weight * one_price
+    var priceText = document.getElementById("priceText")
+    priceText.innerText = total_price
 }
