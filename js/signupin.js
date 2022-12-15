@@ -30,7 +30,7 @@ document.querySelector('.img__btn').addEventListener('click', function() {
       }).join(''));
   
       localStorage.setItem("payload", jsonPayload);
-      window.location.replace(`../../main.html`);
+      window.location.replace(`../index.html`);
     }
     else{
       alert("아이디와 비밀번호를 확인해주세요")
@@ -130,7 +130,7 @@ if (response.status == 200){
     }).join(''));
 
     localStorage.setItem("payload", jsonPayload);
-    window.location.replace(`${FRONT_END_URL}/main.html`);
+    window.location.replace(`${FRONT_END_URL}/index.html`);
   }
   else{
     alert("아이디와 비밀번호를 확인해주세요")
