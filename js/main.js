@@ -8,8 +8,8 @@ if(parsed_payload){
     adminCheck = parsed_payload["is_admin"]
 }
 else{
-    loginoutUl.innerText="login"
-    loginoutUl.setAttribute("href", "login.html")
+    // loginoutUl.innerText="login"
+    // loginoutUl.setAttribute("href", "login.html")
 }
 
 window.addEventListener('load', function () {

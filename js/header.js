@@ -37,7 +37,6 @@ fetch(` `)
                             <div class="aa-logo" padding="30px">
                                 <a href="main.html">
                                 <p>STONE<strong>COFFEE</strong><span>Your Shopping Partner</span></p>
-                                <img src="../img/logo.png"  style="height:200px; width=200px" >
                                 </a>
                             </div>
                             <!-- / cart box -->
@@ -55,7 +54,7 @@ fetch(` `)
         </div>`;
     });
 
-fetch(`../main.html`)
+fetch(` `)
     .then(response => {
         return response.text()
     })

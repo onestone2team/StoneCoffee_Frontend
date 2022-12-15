@@ -1,4 +1,4 @@
-fetch(`../main.html`)
+fetch(` `)
     .then(response => {
         return response.text()
     })

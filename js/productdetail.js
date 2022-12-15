@@ -6,10 +6,10 @@ var product_id = product_id1.split('/')[0]
 window.onload = async function ProductDetail() {
     const payload = localStorage.getItem("payload")
     const parsed_payload = JSON.parse(payload)
-    // if(!parsed_payload){
-    //     alert("권한이 없습니다. 로그인 해주세요")
-    //     location.replace("../index.html")
-    // }
+    if(!parsed_payload){
+        alert("권한이 없습니다. 로그인 해주세요")
+        location.replace("../index.html")
+    }
     // data["data"]["coffee"]["0"]["product_name"]
 
 
@@ -262,38 +262,61 @@ async function comment_like(id) {
         
 async function cart() {
     const count=document.querySelector(".readonly");
-    const weight=document.querySelectorAll("select")[0];
 
-
-    if (weight.value == 0){
-        alert("중량을 선택해주세요")
-    } else {
-        let formdata = new FormData 
+    if(product_json.products.aroma_grade == 0){
+        const weight=1;
         formdata.append('count', count.value)
         formdata.append('price', String(product_json.products["price"]))
-        formdata.append('weight', weight.value)
-
+        formdata.append('weight', weight)
         const response = await fetch(`${BACK_END_URL}/product/cart/?product_id=${product_id}`, {
             headers:{
                 "Authorization": "Bearer " + localStorage.getItem("access"),
             },
             method: "POST",
             body: formdata
-        }) 
+        })
         response_json=await response.json()
 
         if (response.status==200 || response.status==202 || response.status == 201){
             alert("장바구니에 담겼습니다.")
-            location.reload();
-            return response.json()
+            // location.reload();
         }
         else if(response.status==401 || response.status == 400){
             alert("로그인을 해주세요")
-            location.reload();
-            return response.json()
+            // location.reload();
+        }}
+        else if(product_json.products.aroma_grade >= 1) {
+            const count=document.querySelector(".readonly");
+            const weight=document.querySelectorAll("select")[0];
+            if (weight.value ==0){
+                alert("용량을 선택해주세요")
+            }
+                if (weight.value > 1){
+                    let formdata = new FormData 
+                    formdata.append('count', count.value)
+                    formdata.append('price', String(product_json.products["price"]))
+                    formdata.append('weight', weight.value)
+                    const response = await fetch(`${BACK_END_URL}/product/cart/?product_id=${product_id}`, {
+                        headers:{
+                            "Authorization": "Bearer " + localStorage.getItem("access"),
+                        },
+                        method: "POST",
+                        body: formdata
+                    })
+                    response_json=await response.json()
+                    if (response.status==200 || response.status==202 || response.status == 201){
+                        alert("장바구니에 담겼습니다.")
+                        // location.reload();
+            
+                    }
+                    else if(response.status==401 || response.status == 400){
+                        alert("로그인을 해주세요")
+                        // location.reload();
+                    }
+}   
         }
- 
-    }
+
+
 }
 
 async function orderButton() {
