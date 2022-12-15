@@ -35,30 +35,6 @@ window.onload = async function checkoutlist() {
     )
 }
 
-//===주문금액====//
-total = 0
-async function recalculateCart() {
-
-    let num = document.getElementById("subtotal").innerHTML.slice(0, -1) * 1;
-    total = total + num
-    $("#basket-subtotal").html(total)
-    if (total >= 50000) {
-        $('#delivery_price').fadeOut(fadeTime) && $('#delivery_price2').fadeIn(fadeTime);
-    } else {
-        $('#delivery_price2').fadeOut(fadeTime) && $('#delivery_price').fadeIn(fadeTime);
-    }
-    delivery_price = $("#delivery_price").innerHTML * 1;
-    final_total = total + delivery_price
-    $('.final-value').fadeIn(fadeTime, function () {
-        $('#basket-total').html(total);
-        if (total == 0) {
-            $('.checkout-cta').fadeOut(fadeTime);
-        } else {
-            $('.checkout-cta').fadeIn(fadeTime);
-        }
-        $('.final-value').fadeIn(fadeTime);
-    });
-};
 
 // =====개인정보 작성====== //
 async function fillin() {
@@ -83,6 +59,7 @@ async function fillin() {
                 "user_phone": user_phone,
                 "receiver": receiver
 
+
             }),
         })
 
@@ -91,6 +68,7 @@ async function fillin() {
         } else {
         }
     }
+
 
 }
 

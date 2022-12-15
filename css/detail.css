@@ -2,22 +2,33 @@
     width: 100%;
 }
 
+.review-Edit{
+    margin: 0px auto;
+    max-width:1200px;
+    width: 100%;
+}
+
 #comment-count{
     margin-bottom: 10px; 
 }
 
 #comment-input{
-    width: 50%;
+    width: 80%;
     height: 3.3em;
 }
 
 #submit{
-    background-color: rgb(0, 128,255);
+    background-color: #3E240C;
     width: 5.5em;
     height: 3.3em;;
     font-size: 15px;
     font-weight: bold;
     color: aliceblue;
+    cursor: pointer;
+}
+#submit:hover {
+    background-color: #8b7158;
+    color: rgb(0, 0, 0);
 }
 
 #voteUp, #voteDown{
@@ -113,6 +124,7 @@
     bottom: 80px;
 }
 #image_preview{
+<<<<<<< HEAD
     /* position: relative; */
     
     width: 550px;
@@ -124,6 +136,14 @@
     width: 200px;
     /* left: 880px;
     bottom: 180px; */
+=======
+    position: relative;
+    width: auto;
+}
+.grade{
+    position: relative;
+    width: 200px;
+>>>>>>> main
 }
 .image img{
     width: 50%;
@@ -281,11 +301,8 @@
     left: 50%;
     width: 800px;
     height: 350px;
-  
     padding: 40px;
-  
     text-align: center;
-  
     background-color: rgb(255, 255, 255);
     border-radius: 10px;
     box-shadow: 0 2px 3px 0 rgba(34, 36, 38, 0.15);
