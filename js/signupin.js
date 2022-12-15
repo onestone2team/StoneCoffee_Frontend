@@ -87,15 +87,15 @@ async function signupButton() {
     }
       else{
       if(response_json["email"]){
-        alert("email :"+response_json["email"])
+        alert(response_json["email"])
       } else if(response_json["password"]){
         alert("password :"+response_json["password"])
       } else if(response_json["password_check"]){
         alert("password_check :"+response_json["password_check"])
       } else if(response_json["profilename"]){
-        alert("profilename :"+response_json["profilename"])
+        alert(response_json["profilename"])
       } else {
-        alert("회원 가입 정보 이상")
+        alert("입력된 정보를 다시 한 번 확인해주세요.")
       }
       }
       

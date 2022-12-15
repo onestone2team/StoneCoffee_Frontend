@@ -13,7 +13,6 @@ main{
     width: 80%;
     height: 100%;
     writing-mode: horizontal-tb;
-    /* background-color: rgb(222, 219, 42); */
     font-size: 14px;
     padding-right: 5%;
     padding-left: 5%;
@@ -22,7 +21,6 @@ main{
 .img-box{
   padding-left:20px;
   width:40%;
-  /* background-color: azure; */
 }
 .img-box img{
   width: 35%;
@@ -31,20 +29,17 @@ main{
   border-spacing: 20px;
   width:15%;
   text-align: center;
-  /* background-color: aquamarine; */
 }
 .count{
   border-spacing: 20px;
   width:5%;
   text-align: right;
-  /* background-color: rgb(127, 131, 255); */
 }
 .price{
   border-spacing: 100px;
   width:10%;
   text-align: right;
   padding-right:20px;
-  /* background-color: rgb(255, 127, 232); */
 }
 .input-boxes{
   width:80%; 
@@ -63,7 +58,6 @@ main{
 }
 .order-box{
   width:80%;
-  /* height: 100px; */
   margin:30px auto;
   display:flex;
   flex-direction: row;

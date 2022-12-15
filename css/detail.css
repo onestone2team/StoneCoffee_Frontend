@@ -113,17 +113,17 @@
     bottom: 80px;
 }
 #image_preview{
-    position: relative;
+    /* position: relative; */
     
     width: 550px;
-    left: 330px;
+    /* left: 330px; */
 }
 .grade{
-    position: relative;
+    /* position: relative; */
     
     width: 200px;
-    left: 880px;
-    bottom: 180px;
+    /* left: 880px;
+    bottom: 180px; */
 }
 .image img{
     width: 50%;
