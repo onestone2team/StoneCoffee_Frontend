@@ -1,4 +1,4 @@
-fetch(`/main.html`)
+fetch(`/index.html`)
     .then(response => {
         return response.text()
     })
@@ -40,12 +40,12 @@ fetch(`/main.html`)
               <!-- logo  -->
               <div class="aa-logo">
                 <!-- Text based logo -->
-                <a href="main.html">
+                <a href="index.html">
                   <!-- <span class="fa fa-shopping-cart"></span> -->
                   <p>STONE<strong>COFFEE</strong> <span>Your Shopping Partner</span></p>
                 </a>
                 <!-- img based logo -->
-                <!-- <a href="main.html"><img src="img/logo.jpg" alt="logo img"></a> -->
+                <!-- <a href="index.html"><img src="img/logo.jpg" alt="logo img"></a> -->
               </div>
               <!-- / logo  -->
                <!-- cart box -->
@@ -98,7 +98,7 @@ fetch(`/main.html`)
 
 `;
     });
-fetch(`../main.html`)
+fetch(`../index.html`)
     .then(response => {
         return response.text()
     })
@@ -119,7 +119,7 @@ fetch(`../main.html`)
           <div class="navbar-collapse collapse">
             <!-- Left nav -->
             <ul class="nav navbar-nav">
-              <li><a href="main.html">Home</a></li>
+              <li><a href="index.html">Home</a></li>
               <li><a href="#">Men아하하 <span class="caret"></span></a>
                 <ul class="dropdown-menu">                
                   <li><a href="#">Casual</a></li>
@@ -234,7 +234,7 @@ fetch(`../main.html`)
     `;
     });
 
-fetch(`../main.html`)
+fetch(`../index.html`)
     .then(response => {
         return response.text()
     })
@@ -262,7 +262,7 @@ fetch(`../main.html`)
                                                       </div>`;
     });
 
-fetch(`../main.html`)
+fetch(`../index.html`)
     .then(response => {
         return response.text()
     })

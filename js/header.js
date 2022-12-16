@@ -35,7 +35,7 @@ fetch(` `)
                         <div class="aa-header-bottom-area">
                             <!-- logo  -->
                             <div class="aa-logo">
-                                <a href="main.html">
+                                <a href="index.html">
                                 <p>STONE<strong>COFFEE</strong><span>Your Shopping Partner</span></p>
                                 </a>
                             </div>
@@ -52,7 +52,7 @@ fetch(` `)
         </div>`;
     });
 
-fetch(`../main.html`)
+fetch(`../index.html`)
     .then(response => {
         return response.text()
     })
@@ -66,7 +66,7 @@ fetch(`../main.html`)
            <div class="navbar-collapse collapse">
             <!-- Left nav -->
             <ul class="nav navbar-nav">
-              <li><a href="main.html">Home</a></li>
+              <li><a href="index.html">Home</a></li>
               <li><a href="mainAll.html?id=1" >원두 전체보기</a></li>
               <li><a href="mainAll.html?id=4" vlaue=4,category_id=4>바디감</a></li>
               <li><a href="mainAll.html?id=5" vlaue=4,category_id=4>산미 </a></li>
@@ -100,7 +100,7 @@ async function logoutUser() {
     localStorage.removeItem("payload")
     localStorage.removeItem("kakao")
 
-    window.location.replace(`../../signupin.html`);
+    window.location.replace(`../signupin.html`);
 }
 
 function searchButton() {

@@ -7,13 +7,6 @@ one_price = 0
 window.onload = async function ProductDetail() {
     const payload = localStorage.getItem("payload")
     const parsed_payload = JSON.parse(payload)
-    // if(!parsed_payload){
-    //     alert("권한이 없습니다. 로그인 해주세요")
-    //     location.replace("../index.html")
-    // }
-    // data["data"]["coffee"]["0"]["product_name"]
-
-
 
     const product = await fetch(`${BACK_END_URL}/product/detail/?product_id=${product_id} `, {
         headers: {
@@ -22,7 +15,6 @@ window.onload = async function ProductDetail() {
         },
         method: 'GET',
     })
-
 
 //========제품 이미지 불러오기========
     product_json = await product.json()
@@ -43,7 +35,7 @@ window.onload = async function ProductDetail() {
     const name1 = document.createElement('p')
     name1.innerHTML=`<h3>${product_json.products["product_name"]}</h3>`
     name2.appendChild(name1)
-    //상품 평가 점수 
+    //상품 평가 점수
     if (product_json.products["aroma_grade"] >=1){
         aroma2=document.getElementById('aroma')
         const aroma1 = document.createElement('span')
@@ -59,7 +51,7 @@ window.onload = async function ProductDetail() {
             }
             aroma2.appendChild(aromaBean)
         }
-        
+
         acidity2=document.getElementById('acidity')
         const acidity1 = document.createElement('span')
         acidity1.innerHTML=`<span class="coffeebean-text">산미</span>`
@@ -135,7 +127,6 @@ window.onload = async function ProductDetail() {
     productinformation2.innerHTML=`<h3>${product_json.products["content"]}</h3>`
     productinformation2.appendChild(productinformations2)
     //용량
-    
 
     // 추천 상품
 
@@ -180,23 +171,19 @@ window.onload = async function ProductDetail() {
                         <td rowspan="4" align = "left">
                             <span class="table-content">${commentSet.comment}</span>
                         </td>
-                        
                         <td class="table-font" width="200" id ="table-star${commentSet.id}">
                             <span class="table-righttext">평점</span>
                             <span class="table-lefttext">
-                                
                             </span>
                         </td>
                     </tr>
                     <tr>
-                        
                         <td class="table-font">
                             <span class="table-righttext">좋아요</span>
                             <span class="table-lefttext">${commentSet.like.length}개</span>
                         </td>
                     </tr>
                     <tr>
-                        
                     </tr>
                         <td class="table-font" width="200">
                             <span class="table-righttext">작성일</span>
@@ -245,7 +232,7 @@ async function comment_like(id) {
             "Authorization": "Bearer " + localStorage.getItem("access"),
         },
         method: "POST",
-    }) 
+    })
     var heart =document.getElementById(`profile-icon${id}`)
     response_json=await response.json()
     if (response.status == 201){
