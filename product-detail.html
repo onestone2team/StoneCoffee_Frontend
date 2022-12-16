@@ -27,9 +27,7 @@
             <div class="row" id="rowdetail">
                 <div class="product_img col-md-5">
                     <!-- padding-top: 220px; padding-left: 80px; -->
-
                     <img id="productimage">
-
                 </div>
                 <div class="product_specs col-md-7">
                     <h2>상품 정보</h2>
@@ -86,7 +84,6 @@
     <hr />
     <div class="recommend">
         <div id="recommend" class="recommend-form">
-
         </div>
     </div>
     <div style="text-align: center; padding-top: 50px;">
@@ -100,17 +97,17 @@
             <table class="review-Edit">
                 <td width="300">
                     <div id="image_preview">
-                        <img src="../img/icon.png" alt="사진영역" style="width:126px; height:165px;">
+                        <img src="/img/icon.png" alt="사진영역" style="width:126px; height:165px;">
                         <div class="f_box">
                             <label for="img">사진첨부</label>
                             <input type="file" id="comment_img" name="product_id">
                         </div>
                     </div>
-                </td> 
+                </td>
                 <td>
                     <input id="comment-input" placeholder="리뷰을 입력해 주세요.">
                     <button type="button" id="submit" onclick="commentrg()">등록</button>
-                </td>                   
+                </td>
                 <td width="100">
                     <div class="grade">
                         <h4>평점 선택</h4>
@@ -145,10 +142,7 @@
             </div>
             <div class="media-body" id="four">
                 <div id="info_container">
-
                     <div class="profile_img">
-
-
                         <span class="username" id="user_image"></span>
                     </div>
                     <div class="filebox">
@@ -156,9 +150,7 @@
                         <input type='file' name="image" id="input_image">
                     </div>
                 </div>
-
             </div>
-
             <table class="edit-commentform">
                 <tr>
                 <tr>
@@ -187,15 +179,12 @@
                                 <option value="5">5 점</option>
                             </select>
                         </div>
-
                     </td>
                 </tr>
             </table>
             <button class="edit-commentbtn" id="edit-commentbtn" onclick="saveeditCommentBtn()"> 수정하기 </button>
         </div>
-
     </div>
-
     <div id="detail_modal" class="modal-overlay">
         <div class="modal-window">
             <div class="close-area"><i class="bi bi-x-circle"></i></div>
@@ -203,79 +192,43 @@
                 <!-- 커맨트박스 코드펜 -->
                 <div class="detailBox">
                     <div class="titleBox">
-                        <img id="comment_profileimage" src="./img/comment/1212.jpg">
-                        <label id="comment_profilename">profilename</label>
-                        <div class="star-grade" name="myform" id="point" method="post" action="./save">
-                            <fieldset>
-                                <label>
-                                    <p id="coffeebean"></p>
-                                </label>
-                            </fieldset>
+                        <div class="commentBox">
                         </div>
                     </div>
-                    <div class="commentBox">
-                        <div>
-
-                            <img id="comment_image" src="./img/comment/1212.jpg">
-
+                    <!-- 대댓글 -->
+                    <div>
+                        <div class="nestedcommentBox">
+                            <ul class="nestedcommentList" id="nestedcommentList">
+                                <li class="nestedcomment">
+                                    <p class="commenterImage">
+                                        <img src="http://placekitten.com/50/50" />
+                                    <p class=""> Hello this is a test comment.
+                                    <p id="onlyme${element.id}" style="float:right">
+                                        <span>삭제</span><span>/</span><span>수정</span>
+                                    </p>
+                                    </p>
+                                    <p class="date sub-text" style="float:right;">on March 5th, 2014</p>
+                                    </p>
+                                </li>
+                            </ul>
                         </div>
-                        <div>
-                            <p id="comment_text" class="comment-content">Lorem Ipsum is simply dummy text of the
-                                printing and typesetting
-                                industry.<br>
-
-                                <button><img src="././img/comment/coffeebean.png"></button>
-                                <button><img src="././img/comment/coffeebean-outline.png"></button>
-
-                            </p>
+                        <!-- 대댓글 작성란 -->
+                        <div id="write-nestedcomment" class="write-nestedcomment">
+                            <form class="form-inline" role="form">
+                                <div class="form-group">
+                                    <input id='nested_text' class="form-control" type="text" placeholder="댓글을 등록해주세요" />
+                                </div>
+                                <div class="form-group">
+                                    <button type="button" class="btn btn-dark" onclick="create_nested()">등록</button>
+                                </div>
+                            </form>
                         </div>
-                    </div>
-                    <div class="commentlikeBox">
-                        <p id="date"></p>
-                        <div style="float:right;">
-                            <button class="like-button" onclick="detailcomment_like()"><i id="detaillike_icon"
-                                    class="bi bi-heart"></i></button><span>
-                                <p id="like_count"></p>
-                            </span>
-                        </div>
-
-                    </div>
-                </div>
-                <!-- 대댓글 -->
-                <div>
-                    <div class="nestedcommentBox">
-                        <ul class="nestedcommentList" id="nestedcommentList">
-                            <li class="nestedcomment">
-
-                                <p class="commenterImage">
-                                    <img src="http://placekitten.com/50/50" />
-                                <p class=""> Hello this is a test comment.
-                                <p id="onlyme${element.id}" style="float:right">
-                                    <span>삭제</span><span>/</span><span>수정</span>
-                                </p>
-                                </p>
-                                <p class="date sub-text" style="float:right;">on March 5th, 2014</p>
-                                </p>
-                            </li>
-                        </ul>
-                    </div>
-                    <!-- 대댓글 작성란 -->
-                    <div id="write-nestedcomment" class="write-nestedcomment">
-                        <form class="form-inline" role="form">
-                            <div class="form-group">
-                                <input id='nested_text' class="form-control" type="text" placeholder="댓글을 등록해주세요" />
-                            </div>
-                            <div class="form-group">
-                                <button type="button" class="btn btn-dark" onclick="create_nested()">등록</button>
-                            </div>
-                        </form>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-    <footer id="aa-footer">
-    </footer>
+        <footer id="aa-footer">
+        </footer>
 </body>
 <script src="/js/header.js"></script>
 <script src="/js/footer.js"></script>

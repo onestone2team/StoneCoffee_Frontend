@@ -83,7 +83,6 @@ window.onload = async function ProductDetail() {
             body2.appendChild(bodyBean)
         }
 
-
         sweet2=document.getElementById('sweet')
         const sweet1 = document.createElement('span')
         sweet1.innerHTML=`<span class="coffeebean-text">당도</span>`
