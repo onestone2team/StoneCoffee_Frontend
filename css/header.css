@@ -1,0 +1,241 @@
+
+/* 미리보기 배열 */
+ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+/* 글자 색 */
+a {
+  text-decoration: none;
+  color: #333333;
+}
+
+/* 미리보기 버튼 */
+.aa-add-to-cart-btn {
+  border: 1px solid #ccc;
+  color: #555;
+  display: inline-block;
+  font-size: 14px;
+  font-weight: bold;
+  letter-spacing: 0.5px;
+  margin-top: 5px;
+  padding: 10px 15px;
+  text-transform: uppercase;
+  transition: all 0.5s ease 0s;
+}
+
+.fix{
+  position: relative;
+  bottom: 0;
+  width: 100%;
+  height: 100px;
+}
+
+
+/* 맨오른쪽 위 위치 고정 */
+#aa-header {
+    height: auto;
+}
+#aa-header .aa-header-top .aa-header-top-right {
+    width: 100%;
+}
+/* 맨오른쪽 위 가로배열  */
+#aa-header .aa-header-top .aa-header-top-right .aa-head-top-nav-right{
+    position: absolute;
+    width: auto;
+    right: 0;
+}
+#aa-header .aa-header-top .aa-header-top-right .aa-head-top-nav-right li {
+  display: inline-block;
+  text-align: right;
+}
+/* 맨 오른쪽위 구분 */
+#aa-header .aa-header-top .aa-header-top-right .aa-head-top-nav-right li a {
+  display: inline-block;
+  color: #333333;
+  border-right: 1px solid #ddd;
+  font-size: calc(0.5vw + 5px);
+  padding: 5px 8px;
+}
+/* 검색창 높이위치 */
+#aa-header .aa-header-bottom .aa-header-bottom-area{
+    display: flex;
+    flex-direction: row;
+}
+#aa-header .aa-header-bottom .aa-header-bottom-area .aa-logo {
+  margin-top: 0px;
+}
+/*로고 크기*/
+#aa-header .aa-header-bottom .aa-header-bottom-area .aa-logo a {
+  font-family: "Raleway", sans-serif;
+  font-size: xx-large;
+}
+/* 로고 뭉쳐있게 */
+#aa-header .aa-header-bottom .aa-header-bottom-area .aa-logo a p span {
+  display: block;
+  font-size: 12px;
+  font-weight: normal;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+}
+/* 검색버튼 검색창에 붙어있게 */
+#aa-header .aa-header-bottom .aa-header-bottom-area .aa-search-box {
+  margin-right: 300px;
+  margin: auto auto;
+  position: relative;
+  padding: 10px 50px 10px 10px;
+  max-width: 450px;
+  width: 40%;
+  display: flex;
+  flex-direction: row;
+}
+/* 검색창과검색버튼 나란히 */
+.aa-header-bottom{
+    height: 100px;
+}
+#aa-header .aa-header-bottom .aa-header-bottom-area .aa-search-box input[type="text"] {
+  border: 1px solid #ddd;
+  color: #555;
+  font-size: 14px;
+  font-family: "Raleway", sans-serif;
+  height: 40px;
+  max-width: 500px;
+  width: 100%;
+}
+/* 검색창 */
+#aa-header .aa-header-bottom .aa-header-bottom-area .aa-search-box button {
+  border: medium none;
+  color: #fff;
+  height: 40px;
+  width: 15%;
+  cursor: pointer;
+  -webkit-transition: all 0.5s;
+  -moz-transition: all 0.5s;
+  -ms-transition: all 0.5s;
+  -o-transition: all 0.5s;
+  transition: all 0.5s;
+}
+/* 헤더 배열 */
+#aa-header .aa-header-bottom .aa-cartbox .aa-cartbox-summary {
+  background-color: #fff;
+  border: 1px solid #E9E9E9;
+  display: none;
+  padding: 0;
+  position: absolute;
+  right: 0;
+  top: 100%;
+  width: 400px;
+  z-index: 9999;
+}
+/* 섹션바 배열 */
+#menu .menu-area .navbar-default {
+  background-color: transparent;
+  border: medium none;
+  border-radius: 0;
+  margin: auto 0px;
+  min-height: auto;
+}
+/* 섹션바 색 크기 배열 */
+#menu {
+    background-color: #3E240C; 
+    height: 40px;
+} 
+.menu-area .navbar-default .navbar-nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size:100%;
+}
+
+.menu-area .navbar-default .navbar-nav div a {
+  color: #fff;
+  width: 20%;
+  margin: 0 20px;
+  font-size: calc(0.6vw + 5px);
+  text-align: center;
+  -webkit-transition: all 0.5s;
+  -moz-transition: all 0.5s;
+  -ms-transition: all 0.5s;
+  -o-transition: all 0.5s;
+  transition: all 0.5s;
+}
+
+.menu-area .navbar-default .navbar-nav {
+  margin: 0px auto;
+  width: auto;
+  height: 40px;
+}
+@media ( max-width: 668px ) {
+  .aa-header-top{
+    height: 20px;
+  }
+  .aa-header-bottom{
+    padding: 0px 20px;
+    height: auto;
+  }
+  #aa-header .aa-header-bottom .aa-header-bottom-area {
+    display: block;
+  }
+  #aa-header .aa-header-bottom .aa-header-bottom-area .aa-search-box {
+    width: 100%
+  }
+  .menu-area .navbar-default .navbar-nav{
+    display: block; 
+  }
+  .menu-area .navbar-default .navbar-nav div{
+    text-align: center;
+    background-color: #3E240C; 
+  }
+  
+}
+
+/*섹션  */
+.navbar-collapse:after {
+    display: table;
+    content: " ";
+}
+
+
+/* 헤더 */
+.navbar-collapse:after {
+    clear: both;
+}
+
+.hearder_bottom_row:after {
+    display: table;
+    content: " ";
+}
+
+.hearder_bottom_row:after {
+    clear: both;
+}
+
+.hearder_top_row:after {
+    display: table;
+    content: " ";
+}
+
+.hearder_top_row:after {
+    clear: both;
+}
+
+.row:after,
+.navbar-collapse:after {
+    display: table;  
+    content: " ";
+}
+.row:after,.navbar-collapse:after {  
+    clear: both;
+}
+
+#aa-header .aa-header-bottom .aa-header-bottom-area .aa-search-box button {
+    background-color: #3E240C;  
+}
+
+
+
+#aa-promo .aa-promo-area .aa-promo-banner .aa-prom-content h4 a:hover {
+color: #3E240C !important;
+}
+  

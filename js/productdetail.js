@@ -435,7 +435,7 @@ async function commentrg(){
         }   else {
         let formdata = new FormData 
         console.log(comment_content)
-        formdata.append('comment', comment_content.value)
+        formdata.append('comment', comment_content)
         formdata.append('point', comment_point.value)
         if (comment_img.files[0] != undefined){
             formdata.append('image', comment_img.files[0])
