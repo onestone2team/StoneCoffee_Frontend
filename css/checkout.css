@@ -1,90 +1,75 @@
+main{
+  margin-top:50px;
+  margin-bottom:50px;
+}
 .basket {
 	overflow-y:scroll;
-	max-height: 530px;
+	max-height: 550px;
 	width: 75%;
-  margin: 15px 0px 0px 190px; 
+  margin:auto;
 	background-color: rgb(236, 236, 236);
 }
-
-.imgbox{
-  align: left;
-}
-
-.tdimg{
-  width: 15%;
-  margin: 10px px 0px 1140px;
-
-}
-
 .inner3 {
-    float: right;
     width: 80%;
-    height: 86px;
+    height: 100%;
     writing-mode: horizontal-tb;
-    background-color: white;
-    margin:5px 90px 5px 550px;
-    font-size: 13px;
+    /* background-color: rgb(222, 219, 42); */
+    font-size: 14px;
     padding-right: 5%;
-
+    padding-left: 5%;
+    align-items: center;
 }
-
-
-.text1{
-  border-spacing: 10px;
+.img-box{
+  padding-left:20px;
+  width:40%;
+  /* background-color: azure; */
 }
-
-.text2{
-  border-spacing: 10px;
+.img-box img{
+  width: 35%;
 }
-
-.text3{
-  border-spacing: 10px;
+.product{
+  border-spacing: 20px;
+  width:15%;
+  text-align: center;
+  /* background-color: aquamarine; */
 }
-
-.total{
-  float:right;
-  padding-right:10%;
-  font-size: 13px;
-  margin:0px 0px 5px 0px;
+.count{
+  border-spacing: 20px;
+  width:5%;
+  text-align: right;
+  /* background-color: rgb(127, 131, 255); */
 }
-
-
-.address{
-  float: left;
+.price{
+  border-spacing: 100px;
+  width:10%;
+  text-align: right;
+  padding-right:20px;
+  /* background-color: rgb(255, 127, 232); */
+}
+.input-boxes{
+  width:80%; 
+  margin:auto;
+}
+.input-boxes input{
+  width:100%;
+  height:30px;
+}
+.input-boxes h6{
   font-size: 14px;
-  margin:60px 0px 5px 95px;
+  margin-bottom:15px;
 }
-
-.addresstext{
-  width:74%;
-  margin:5px 150px 15px 95px;
-
+.input-boxes div{
+  width:100%;
 }
-
-.Request{
-float: left;
-font-size: 14px;
-margin:10px 60px 5px 95px;
+.order-box{
+  width:80%;
+  /* height: 100px; */
+  margin:30px auto;
+  display:flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
-
-
-.Request-text{
-width:74%;
-margin:0px 0px 15px 120px;
-float: left;
-
-}
-
-.consent{
-  float: left;
-  width: 20%;
-  /* padding-right: 50px;  */
-  padding-left: 8px;
-  margin:1px 40px 5px 99px;
-}
-
 .checkout{
-  float: right;
-  margin:1px 35px 5px 95px;
   background-color: white;
+  border:solid black 1px;
 }

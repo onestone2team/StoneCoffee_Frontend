@@ -3,7 +3,8 @@ const modal = document.getElementById("modal")
 // const modal = document.getElementsByClassName("modal-window")
 
 function modalOn() {
-    modal.style.display = "flex"
+    modal.style.display = "block"
+    modal.style.top = window.pageYOffset + 'px';
 }
 
 function modalOff() {
@@ -52,7 +53,7 @@ window.onload =
             location.replace("../templates/main.html")
         }
 
-        const profile = await fetch(`${BACKEND_URL}/mypage/profile/`, {
+        const profile = await fetch(`${BACK_END_URL}/mypage/profile/`, {
             headers: {
                 'Authorization': 'Bearer ' + localStorage.getItem("access"),
                 'content-type': 'application/json',
@@ -72,7 +73,7 @@ window.onload =
         // console.log(profile_json.phone)
 
         const profile_image = document.getElementById("preview")
-        profile_image.setAttribute("src", `${BACKEND_URL}${profile_json.profile}`)
+        profile_image.setAttribute("src", `${BACK_END_URL}${profile_json.profile}`)
         const profile_email = document.getElementById("profile_email") //이메일 받아와야함
         profile_email.innerText = profile_json.email
         const profile_name = document.getElementById("profilename")
@@ -103,7 +104,7 @@ async function update_profile() {
         formData.append('profile', profile_image.files[0]);
     }
 
-    const response = await fetch(`${BACKEND_URL}/mypage/profile/`, {
+    const response = await fetch(`${BACK_END_URL}/mypage/profile/`, {
         headers: {
             "Authorization": "Bearer " + localStorage.getItem("access")
         },
@@ -118,7 +119,7 @@ async function update_profile() {
         alert(new_profile_json.message);
     } else { alert("수정이 정상적으로 되지 않았습니다. 다시 시도해주세요.") }
 
-    location.reload();
+    // location.reload();
 
 }
 
@@ -133,7 +134,7 @@ async function edit_password() {
     formData.append("password", new_password);
     formData.append("password_check", new_password_check);
 
-    const response = await fetch(`${BACKEND_URL}/mypage/profile/password/`, {
+    const response = await fetch(`${BACK_END_URL}/mypage/profile/password/`, {
         headers: {
             'Authorization': 'Bearer ' + localStorage.getItem("access"),
         },

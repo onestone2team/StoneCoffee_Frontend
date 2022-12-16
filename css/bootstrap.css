@@ -1,8 +1,8 @@
 /* 검색버튼 크기 */
 * {
-     -webkit-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
         -moz-box-sizing: border-box;
-             box-sizing: border-box;
+            box-sizing: border-box;
 }
 
 /*메인 썸네일 이미지 크기  */
@@ -35,7 +35,7 @@ h4,
 /* 사이드 여백*/
 @media (min-width: 1200px) {
     .container {
-        width: 1170px;
+        width: 1300px;
     }
 }
 
@@ -63,13 +63,13 @@ h4,
     .col-md-8,
     .col-md-9,
     .col-md-10,
-    .col-md-11,
-    .col-md-12 {
+    .col-md-11 {
         float: left;
     }
 
     .col-md-12 {
         width: 100%;
+        float: right;
     }
 
     .col-md-7 {

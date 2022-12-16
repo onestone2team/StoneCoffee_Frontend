@@ -10,7 +10,7 @@ document.querySelector('.img__btn').addEventListener('click', function() {
     var code_id = urlParameter.split('=')[1]
 
     if (code_name=="?code"){
-        const response = await fetch(`${BACKEND_URL}/user/kakao/callback/?code=${code_id}`, {
+        const response = await fetch(`${BACK_END_URL}/user/kakao/callback/?code=${code_id}`, {
         headers: {
             'content-type': 'application/json'
         },
@@ -67,7 +67,7 @@ async function signupButton() {
     const password_check = document.getElementById("signup_password2").value;
     const email = document.getElementById("signup_email").value;
   
-    const response = await fetch(`${BACKEND_URL}/user/signup/`, {
+    const response = await fetch(`${BACK_END_URL}/user/signup/`, {
         headers:{
         "content-type": "application/json",
         },
@@ -83,7 +83,7 @@ async function signupButton() {
   
     if (response.status == 201){
       alert(response_json["message"])
-      window.location.replace(`${FRONTEND_URL}/signupin.html`);
+      window.location.replace(`${FRONT_END_URL}/signupin.html`);
     }
       else{
       if(response_json["email"]){
@@ -107,7 +107,7 @@ async function loginButton() {
 const email = document.getElementById("login_email").value
 const password = document.getElementById("login_password").value
 
-const response = await fetch(`${BACKEND_URL}/user/login/`, {
+const response = await fetch(`${BACK_END_URL}/user/login/`, {
     headers:{
     "content-type": "application/json",
     },
@@ -130,7 +130,7 @@ if (response.status == 200){
     }).join(''));
 
     localStorage.setItem("payload", jsonPayload);
-    window.location.replace(`${FRONTEND_URL}/main.html`);
+    window.location.replace(`${FRONT_END_URL}/main.html`);
   }
   else{
     alert("아이디와 비밀번호를 확인해주세요")
