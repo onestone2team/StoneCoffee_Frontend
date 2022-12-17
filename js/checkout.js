@@ -38,18 +38,34 @@ window.onload = async function checkoutlist() {
     )
     console.log(product_total_price)
     calculator(product_total_price)
-}
+
+    // 유저 주소랑 핸드폰번호 불러오기
+    const profile = await fetch(`${BACK_END_URL}/mypage/profile/`, {
+        headers: {
+            'Authorization': 'Bearer ' + localStorage.getItem("access"),
+            'content-type': 'application/json',
+        },
+        method: 'GET',
+    })
+
+    const profile_json = await profile.json()
+    const profile_address = document.getElementById("user_address")
+    profile_address.setAttribute("value", profile_json.address)
+    const profile_phone = document.getElementById("user_phone")
+    profile_phone.setAttribute("value", profile_json.phone)
+
+}//onload끝
 
 // 총 상품 금액 및 배송비 및 결제 금액 계산
-async function calculator(product_total_price){
+async function calculator(product_total_price) {
     let products_price = document.getElementById('products-price')
-    products_price.innerText = product_total_price+' 원'
+    products_price.innerText = product_total_price + ' 원'
     let delivery_price = document.getElementById('delivery-price')
     if (product_total_price >= 50000) {
-        delivery_price.innerText = 0+' 원'
-    } else { delivery_price.innerText = 3000+' 원' }
+        delivery_price.innerText = 0 + ' 원'
+    } else { delivery_price.innerText = 3000 + ' 원' }
     let final_total_price = document.getElementById('final-total-price')
-    final_total_price.innerText = String(parseInt(products_price.innerText) + parseInt(delivery_price.innerText))+' 원'
+    final_total_price.innerText = String(parseInt(products_price.innerText) + parseInt(delivery_price.innerText)) + ' 원'
 }
 
 // =====개인정보 작성====== //
