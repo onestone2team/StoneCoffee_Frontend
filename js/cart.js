@@ -45,7 +45,6 @@ async function cartlist() {
     })
     var response_json = await response.json()
     var cart_frame = document.getElementById('append-product')
-    console.log(response_json)
     response_json.forEach(element => {
         const cart = document.createElement('div')
         var total_price = element.price * element.count
@@ -100,7 +99,6 @@ function removeItem(removeButton) {
 
 
 async function recalculateMinusCart(price, count) {
-    console.log(price* count, total)
     total = total - price*count
     $("#basket-subtotal").html(total)
     if (total >= 50000) {

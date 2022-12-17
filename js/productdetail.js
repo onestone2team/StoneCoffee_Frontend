@@ -1,10 +1,11 @@
 let urlParameter = window.location.search;
 var product_id1 = urlParameter.split('=')[1]
 var product_id = product_id1.split('/')[0]
-
 one_price = 0
+
 //=======게시글 불러오기========
 window.onload = async function ProductDetail() {
+
     const payload = localStorage.getItem("payload")
     const parsed_payload = JSON.parse(payload)
 
@@ -99,20 +100,17 @@ window.onload = async function ProductDetail() {
             sweet2.appendChild(sweetBean)
         }
 
-
-
-
         //용량 선택하는 select
         w_option=document.getElementById('option')
         const w_option2 =document.createElement('p')
         w_option2.innerHTML=`<div class="size">
-        <h4>용량 선택</h4>
-        <select size="1" id="weight" onchange="valeChange(this)">
-            <option value="0">중량</option>
-            <option value="300">300g</option>
-            <option value="500">500g</option>
-                </select>
-            </div>`
+                                <h4>용량 선택</h4>
+                                <select size="1" id="weight" onchange="valeChange(this)">
+                                <option value="0">중량</option>
+                                <option value="300">300g</option>
+                                <option value="500">500g</option>
+                                </select>
+                            </div>`
         w_option.appendChild(w_option2)
     }
     // 가격
@@ -120,30 +118,28 @@ window.onload = async function ProductDetail() {
     const price1 = document.createElement('div')
     price1.innerHTML=`<h3 class="price">가격 : <span id="priceText">${product_json.products["price"]}</span> 원</h3>`
     price2.appendChild(price1)
-    //상품 내용 description 
+    //상품 내용 description
     productinformation2=document.getElementById('description')
     const productinformations2 = document.createElement('p')
     productinformation2.innerHTML=`<h3>${product_json.products["content"]}</h3>`
     productinformation2.appendChild(productinformations2)
     //용량
-
     // 추천 상품
-
+    var recommend_list = await product_json.recommend
     if (product_json.products["aroma_grade"] >=1){
         for (i = 0; i < 6; i++) {
-            recommend=document.getElementById('recommend')
-            const recommends = document.createElement('div')
-            recommends.setAttribute("class", `divrecommend`)
-            recommends.setAttribute("style", `width: 250px;`)
-            const recommend_image = document.getElementById("recommendimage")
-            recommends.innerHTML=`<ui id="header_navi"><li text-align : center;>
-            <a href="product-detail.html?product_id=${product_json.recommend[i]["id"]}/"><img src="${BACK_END_URL}${product_json.recommend[i]["image"]}" ></a>
-            <span >${product_json.recommend[i]["product_name"]}</span></li></ui>`
-
-            recommend.appendChild(recommends)
+            recommend_list.forEach(element => {
+                $('#recommend').slick('slickAdd',
+                                    `<div text-align : center;>
+                                    <a href="product-detail.html?product_id=${product_json.recommend[i]["id"]}">
+                                    <div class="image" style="background-image: url(${BACK_END_URL}${product_json.recommend[i]["image"]});"></div>
+                                    <span >${product_json.recommend[i]["product_name"]}</span>
+                                    </a></div>`
+                                    );
+            })
         }
     }
-    
+
     const product_list = product_json.products
     const commentPut = document.getElementById('comment-list')
     const commentform = document.createElement('div')
@@ -197,9 +193,8 @@ window.onload = async function ProductDetail() {
                         </td>
                     </tr>
                 </table>
+            </div>`
 
-            </div>
-        `
         commentPut.appendChild(commentform)
         // 별 추가하기
         const starInput = document.getElementById(`table-star${commentSet.id}`)
@@ -221,8 +216,42 @@ window.onload = async function ProductDetail() {
         if (commentSet.user.id != parsed_payload['user_id']){
             editComment.style.display = "none"
         }
-        
     }
+
+    $('.recommend').slick({
+        slidesToShow: 5,
+        slidesToScroll: 1,
+        autoplay: true,
+        autoplaySpeed: 1500,
+        arrows: false,
+        dots: false,
+        pauseOnHover: true,
+        responsive: [{
+            breakpoint: 5000,
+            settings: {
+                slidesToShow: 4,
+                slidesToScroll: 3,
+            }
+        }, {
+            breakpoint: 1500,
+            settings: {
+                slidesToShow: 3,
+                slidesToScroll: 2,
+            }
+        }, {
+            breakpoint: 1200,
+            settings: {
+                slidesToShow: 2,
+                slidesToScroll: 2,
+            }
+        }, {
+            breakpoint: 500,
+            settings: {
+                slidesToShow: 1,
+                slidesToScroll: 1
+            }
+        }]
+    });
 }
 
 async function comment_like(id) {
@@ -387,8 +416,6 @@ async function like() {
         alert("로그인을 해주세요")
         location.reload();
     }
-    
-   
 }
 // 댓글 이미지 출력 js
 $('#comment_img').on('change', function() {
@@ -401,10 +428,11 @@ $('#comment_img').on('change', function() {
         file = $('#comment_img').prop("files")[0];
         blobURL = window.URL.createObjectURL(file);
         $('#image_preview img').attr('src', blobURL);
-        $('#image_preview').slideDown(); //업로드한 이미지 미리보기 
+        $('#image_preview').slideDown(); //업로드한 이미지 미리보기
         $(this).slideUp(); //파일 양식 감춤
     }
     });
+
     // 댓글 등록하는 js
 async function commentrg(){
         const comment_form= document.querySelector("comment_form")
@@ -419,7 +447,7 @@ async function commentrg(){
         } else if (comment_point.value ==0){
             alert("평점을 선택해 주세요")
         }   else {
-        let formdata = new FormData 
+        let formdata = new FormData
         console.log(comment_content)
         formdata.append('comment', comment_content.value)
         formdata.append('point', comment_point.value)
@@ -446,9 +474,6 @@ async function commentrg(){
                 }
                 location.reload();
                 return response.json()
-            
-        
-        
     }
 }
 
