@@ -15,27 +15,30 @@
 </head>
 
 <body>
-    <img class="logo-image" src="img/logo.png" alt="Coffee logo">
-    <div class="icon" id="icon">
-        <div class="cup">
-            <div class="coffee"></div>
+    <!-- <img class="logo-image" src="img/logo.png" alt="Coffee logo"> -->
+    <div>
+        <div class="icon" id="icon">
+            <div class="cup">
+                <div class="coffee"></div>
+            </div>
+            <div class="smoke"></div>
         </div>
-        <div class="smoke"></div>
-    </div>
-    <div class="survey">
-        <div class="maintext">
-            <span>나</span><span>에</span><span>게</span><span> </span><span>맞</span><span>는</span><span>
-            </span><span>커</span><span>피</span><span>는</span><span>?</span>
-        </div>
-        <br>
-        <a id="removeText1" class="gradient-btn" onclick="startSurvey()">설문조사 시작하기</a>
+        <div class="survey">
+            <div class="maintext">
+                <span>나</span><span>에</span><span>게</span><span> </span><span>맞</span><span>는</span><span>
+                </span><span>커</span><span>피</span><span>는</span><span>?</span>
+            </div>
+            <br>
+            <a id="removeText1" class="gradient-btn" onclick="startSurvey()">설문조사 시작하기</a>
 
-        <p id="removeText2" onclick="saveCookie('guestCheck', 'True', 1)">⊗ 오늘 하루 그만보기</p>
+            <p id="removeText2" onclick="saveCookie('guestCheck', 'True', 1)">⊗ 오늘 하루 그만보기</p>
+        </div>
     </div>
+
 
     <div class="notView scrollBar" id="showSurvey">
-        <table class="survey-table">
-            <tbody>
+        <table class="survey-table" >
+            <tbody >
                 <tr>
                     <td>
                         <p>선호하는 커피 당도</p>
@@ -126,9 +129,11 @@
                         </image>
                     </td>
                     <td style="padding: 20px;">
-                        <p id="recommend_content" class="show-txt">브라질 산토스는 세계 커피생산량의 30%를 차지하며, 산토스 지방의 3,4년 정도 된 어린 커피나무에서 수확한 커피로, NO.2등급이
+                        <p id="recommend_content" class="show-txt">브라질 산토스는 세계 커피생산량의 30%를 차지하며, 산토스 지방의 3,4년 정도 된 어린
+                            커피나무에서 수확한 커피로, NO.2등급이
                             최고 등급입니다. 부드러운 맛과 신맛이 균일하게 조화를 이루고, 부드러운 풍미와 적당히 쓴맛이 어우러진 중성적인 커피로 향이 깊고 깔끔한 마일드 커피입니다.</p>
-                        <a href="signupin.html"><button class="signup-btn" onclick="saveCookie('guestCheck', 'True')">회원 가입
+                        <a href="signupin.html"><button class="signup-btn" onclick="saveCookie('guestCheck', 'True')">회원
+                                가입
                                 후 구매하러 가기</button></a>
                     </td>
                 </tr>
