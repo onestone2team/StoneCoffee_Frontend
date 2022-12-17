@@ -62,16 +62,6 @@ window.onload =
         })
 
         const profile_json = await profile.json()
-        // const user_profile = profile_json.data
-        // console.log(profile_json)
-        // console.log(profile_json['data'])
-        // console.log(user_profile)
-        // console.log(profile_json['profilename'])
-        // console.log(profile_json.email)
-        // console.log(profile_json.profile)
-        // console.log(profile_json.address)
-        // console.log(profile_json.phone)
-
         const profile_image = document.getElementById("preview")
         profile_image.setAttribute("src", `${BACK_END_URL}${profile_json.profile}`)
         const profile_email = document.getElementById("profile_email") //이메일 받아와야함
