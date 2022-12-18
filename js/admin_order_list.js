@@ -102,21 +102,3 @@ $(document).on('click','.li2',function(){
         })
     })
 });
-
-
-
-// $(document).on('click','.remove button',function(){
-//     if (confirm("주문내역을 삭제 하시겠습니까?") == true){
-//         alert("주문내역을 삭제하였습니다");
-
-//     } else {
-//         alert("취소되었습니다");
-//     }
-// });
-
-// function removeItem(removeButton) {
-//     var productRow = $(removeButton).parent().parent();
-//     productRow.slideUp(fadeTime, function () {
-//         productRow.remove();
-//     });
-// }

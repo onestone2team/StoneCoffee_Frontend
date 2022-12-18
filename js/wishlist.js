@@ -68,9 +68,9 @@ window.onload =
                 }
             }]
         });
+        product_list()
     };
-
-product_list()
+    
 async function product_list() {
     const response = await fetch(`${BACK_END_URL}/mypage/bookmark/`, {
         headers: {

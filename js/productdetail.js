@@ -5,7 +5,6 @@ one_price = 0
 
 //=======게시글 불러오기========
 window.onload = async function ProductDetail() {
-
     const payload = localStorage.getItem("payload")
     const parsed_payload = JSON.parse(payload)
 
@@ -124,21 +123,8 @@ window.onload = async function ProductDetail() {
     productinformation2.innerHTML=`<h3>${product_json.products["content"]}</h3>`
     productinformation2.appendChild(productinformations2)
     //용량
+
     // 추천 상품
-    var recommend_list = await product_json.recommend
-    if (product_json.products["aroma_grade"] >=1){
-        for (i = 0; i < 6; i++) {
-            recommend_list.forEach(element => {
-                $('#recommend').slick('slickAdd',
-                                    `<div text-align : center;>
-                                    <a href="product-detail.html?product_id=${product_json.recommend[i]["id"]}">
-                                    <div class="image" style="background-image: url(${BACK_END_URL}${product_json.recommend[i]["image"]});"></div>
-                                    <span >${product_json.recommend[i]["product_name"]}</span>
-                                    </a></div>`
-                                    );
-            })
-        }
-    }
 
     const product_list = product_json.products
     const commentPut = document.getElementById('comment-list')
@@ -186,9 +172,9 @@ window.onload = async function ProductDetail() {
                         </td>
                     <tr>
                         <td colspan = "3" span style="color:black">
-                        <span style="cursor: pointer;" onclick="CommentDetail(${commentSet.id})">댓글 더보기</span> 
-                            <span style="float: right; margin-right: 10px;" id="editView${commentSet.id}"> 
-                            <span onclick="editCommentBtn(${commentSet.id})" style="cursor: pointer;">수정</span> / 
+                        <span style="cursor: pointer;" onclick="CommentDetail(${commentSet.id})">댓글 더보기</span>
+                            <span style="float: right; margin-right: 10px;" id="editView${commentSet.id}">
+                            <span onclick="editCommentBtn(${commentSet.id})" style="cursor: pointer;">수정</span> /
                             <span onclick="deleteComment(${commentSet.id})" style="cursor: pointer;">삭제</span> </span>
                         </td>
                     </tr>
@@ -218,9 +204,9 @@ window.onload = async function ProductDetail() {
         }
     }
 
-    $('.recommend').slick({
+    $('.recommend-form').slick({
         slidesToShow: 5,
-        slidesToScroll: 1,
+        slidesToScroll: 2,
         autoplay: true,
         autoplaySpeed: 1500,
         arrows: false,
@@ -230,28 +216,42 @@ window.onload = async function ProductDetail() {
             breakpoint: 5000,
             settings: {
                 slidesToShow: 4,
-                slidesToScroll: 3,
+                slidesToScroll: 2,
             }
         }, {
             breakpoint: 1500,
             settings: {
                 slidesToShow: 3,
-                slidesToScroll: 2,
+                slidesToScroll: 1,
             }
         }, {
             breakpoint: 1200,
             settings: {
                 slidesToShow: 2,
-                slidesToScroll: 2,
+                slidesToScroll: 1,
             }
         }, {
-            breakpoint: 500,
+        }, {
+            breakpoint: 630,
             settings: {
                 slidesToShow: 1,
-                slidesToScroll: 1
+                slidesToScroll: 1,
             }
         }]
     });
+
+    var recommend_list = product_json.recommend
+    if (product_json.products["aroma_grade"] >=1){
+        for (i = 0; i < 6; i++) {
+            $('.recommend-form').slick('slickAdd',
+                            `<div>
+                            <a href="product-detail.html?product_id=${recommend_list[i]["id"]}">
+                            <div class="image" style="background-image: url(${BACK_END_URL}${recommend_list[i]["image"]});"></div>
+                            <span >${recommend_list[i]["product_name"]}</span>
+                            </a></div>`
+                            );
+        }
+    }
 }
 
 async function comment_like(id) {
@@ -273,16 +273,15 @@ async function comment_like(id) {
     } else {
         alert(response_json["message"])
     }
-
 }
 
-async function cart() {    
+async function cart() {
     var priceText = document.getElementById("priceText")
     const count=document.querySelector(".readonly");
     if(product_json.products.aroma_grade == null){
         const weight=1;
 
-        let formdata = new FormData 
+        let formdata = new FormData
         formdata.append('count', count.value)
         formdata.append('price', priceText.innerText)
         formdata.append('weight', weight)
@@ -344,7 +343,7 @@ async function orderButton() {
     if(product_json.products.aroma_grade == null){
         const weight=1;
 
-        let formdata = new FormData 
+        let formdata = new FormData
         formdata.append('count', count.value)
         formdata.append('price', priceText.innerText)
         formdata.append('weight', weight)
@@ -497,7 +496,6 @@ async function deleteComment(num) {
 }
 
 async function editCommentBtn(num) {
-
     const modal = document.querySelector('.modal');
     modal.style.display = 'block';
     modal.style.top = window.pageYOffset + 'px';
@@ -525,22 +523,19 @@ const modal = document.querySelector('.modal');
 
 const buttonCloseModal = document.getElementById("close_modal");
 buttonCloseModal.addEventListener("click", e => {
-    modal.style.display = "none";  
+    modal.style.display = "none";
     document.body.style.overflowY = "visible";
 });
 
 $("#input_image").change(function(){
     readFile(this);
-    
 });
 
 function readFile(input_image){
     var reader = new FileReader();
-  
     reader.onload = function(e){
         $('#output_image').attr('src', e.target.result);
     }
-
     reader.readAsDataURL(input_image.files[0]);
 }
 
@@ -552,7 +547,7 @@ async function saveeditCommentBtn() {
     const comment_content=document.getElementById("edit-text").value
     const comment_img=document.getElementById("input_image")
     const comment_point=document.getElementById("editcomment_point").value
-    let formdata = new FormData 
+    let formdata = new FormData
     formdata.append('comment', comment_content)
     formdata.append('point', comment_point)
     if (comment_img.files[0] != undefined){
@@ -574,7 +569,6 @@ async function saveeditCommentBtn() {
         document.body.style.overflowY = "visible";
         window.location.reload()
     }
-
 }
 function valeChange(obj){
     weight = obj.value / 100

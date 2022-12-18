@@ -13,7 +13,10 @@
     <link href="/css/style.css" rel="stylesheet">
     <link href="/css/detail.css" rel="stylesheet">
     <link href="/css/comment.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.js"></script>
+    <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+
 
 </head>
 
@@ -22,7 +25,7 @@
     </header>
     <section id="menu">
     </section>
-    <section Class="product_info">
+    <section Class="product_info" id="product_info">
         <div class="container" id="condetail">
             <div class="row" id="rowdetail">
                 <div class="product_img col-md-5">
@@ -49,13 +52,13 @@
                         </li>
                     </ul>
                     <p></p>
-                    <form action="">
+                    <form>
                         <hr />
                         <div class="option" id="option">
                             <div class="quantity" id="quantity"><!-- data-unitprice -->
-                                <span class="plus">+</span>
+                                <span class="minus">&dtrif;</span>
                                 <input type="text" class="readonly" readonly value="1">
-                                <span class="minus">-</span>
+                                <span class="plus">&utrif;</span>
                             </div>
                         </div>
                         <hr />
@@ -80,37 +83,33 @@
     <div style="text-align: center;">
         <h2>위 의 상품과 유사한 상품들 입니다.</h2>
     </div>
-    <hr/>
+    <hr />
     <div class="recommend">
         <section id="recommend" class="recommend-form">
 
         </section>
     </div>
-    <div style="text-align: center; padding-top: 50px;">
-        <h2><hr/>리뷰 보기.
+    <div style="text-align: center;">
+        <h2>
+            <hr />리뷰
         </h2>
     </div>
-    <hr/>
+    <hr />
     <div id="form-commentInfo" style="text-align: center;">
         <form id="comment_form">
             <table class="review-Edit">
-                <td width="300">
-                    <div id="image_preview">
-                        <img src="/img/icon.png" alt="사진영역" style="width:126px; height:165px;">
-                        <div class="f_box">
-                            <label for="img">사진첨부</label>
-                            <input type="file" id="comment_img" name="product_id">
-                        </div>
+                <div id="image_preview">
+                    <img src="/img/icon.png" alt="사진영역" style="width:126px; height:165px;"">
+                    <div class="f_box">
+                        <label for="img">사진첨부</label>
+                        <input type="file" id="comment_img" name="product_id">
                     </div>
-                </td>
+                </div>
                 <td>
-                    <input id="comment-input" placeholder="리뷰을 입력해 주세요.">
-                    <button type="button" id="submit" onclick="commentrg()">등록</button>
-                </td>
-                <td width="100">
                     <div class="grade">
+                        <input id="comment-input" placeholder="리뷰을 입력해 주세요.">
                         <h4>평점 선택</h4>
-                        <select size="1" id="grade">
+                        <select id="grade">
                             <option value="0">평점</option>
                             <option value="1">1 점</option>
                             <option value="2">2 점</option>
@@ -119,6 +118,7 @@
                             <option value="5">5 점</option>
                         </select>
                     </div>
+                    <button type="button" id="submit" onclick="commentrg()">등록</button>
                 </td>
             </table>
         </form>
