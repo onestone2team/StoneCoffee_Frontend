@@ -1,5 +1,6 @@
 var fadeTime = 300;
 window.onload = function () {
+    $("#headers").load("header.html");
     inquirylist()
 }
 
