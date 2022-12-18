@@ -22,9 +22,26 @@
     <div class="basket" id="style-4">
       <div id="append-product">
         <hr style="border:0;">
-
       </div>
-      <div class="input-boxes" >
+      <!-- 총계 박스 -->
+      <div class="total-box">
+        <table>
+          <tr class="cal-box">
+            <td class="title">총 상품 금액</td>
+            <td class="content" id="products-price"></td>
+          </tr>
+          <tr class="cal-box">
+            <td class="title">배송비</td>
+            <td class="content" id="delivery-price">0원</td>
+          </tr>
+          <tr class="cal-box">
+            <td class="title">최종 결제 금액</td>
+            <td class="content" id="final-total-price">40000원</td>
+          </tr>
+        </table>
+      </div>
+
+      <!-- <div class="input-boxes" >
         <div>
           <h6 class="address">주소</h6>
           <input type="text" class="addresstext" id="user_address" placeholder="내용을 입력해 주세요.">
@@ -41,6 +58,26 @@
       <div class="order-box">
         <div class="consent"><input type="checkbox" value=""/>주문 상품에 동의합니다.</div>
         <button class="checkout" type="button" onclick="fillin()" >주문하기</button>
+      </div> -->
+    </div>
+    <div>
+      <div class="input-boxes">
+        <div>
+          <h6 class="address">주소</h6>
+          <input type="text" class="addresstext" id="user_address" placeholder="내용을 입력해 주세요.">
+        </div>
+        <div>
+          <h6 class="callnumber">전화번호</h6>
+          <input type='tel' class='phonetext' id="user_phone" maxLength='13' placeholder='-없이 입력'>
+        </div>
+        <div>
+          <h6 class="Request">배달시 요청사항</h6>
+          <input type="text" class="Request-text" id="receiver" placeholder="내용을 입력해 주세요.">
+        </div>
+      </div>
+      <div class="order-box">
+        <div class="consent"><input type="checkbox" value="" />주문 상품에 동의합니다.</div>
+        <button class="checkout" type="button" onclick="fillin()">주문하기</button>
       </div>
     </div>
   </main>
