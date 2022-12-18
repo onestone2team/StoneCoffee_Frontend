@@ -21,7 +21,6 @@ window.onload = async function ProductDetail() {
     product_json = await product.json()
     const product_image = document.getElementById("productimage")
     product_image.setAttribute("src", `${BACK_END_URL}${product_json.products["image"]}`)
-    product_image.setAttribute("style", `width:100%; height:100%;`)
 
     //========좋아요 아이콘 변경=======
     const likeIcon = document.getElementById("like_icon")
