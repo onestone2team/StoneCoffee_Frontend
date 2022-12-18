@@ -239,10 +239,10 @@ window.onload = async function ProductDetail() {
             }
         }]
     });
-
     var recommend_list = product_json.recommend
     if (product_json.products["aroma_grade"] >=1){
         for (i = 0; i < 6; i++) {
+            console.log(recommend_list)
             $('.recommend-form').slick('slickAdd',
                             `<div>
                             <a href="product-detail.html?product_id=${recommend_list[i]["id"]}">

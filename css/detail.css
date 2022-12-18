@@ -361,6 +361,7 @@
 
 .product_img{
     align-items: center;
+    margin-top: 50px;
     object-fit: contain;
 }
 
@@ -499,16 +500,27 @@
 }
 .row {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
 }
 #productimage{
     width: 70%;
     height: 70%;
 }
-
 @media screen and (max-width: 500px) {
     #description > h3{
         font-size: 15px;
     }
+}
+
+.image{
+    width: 200px;
+    height: 300px;
+    object-fit: cover;
+    background-size: cover;
+}
+#rowdetail{
+    flex-direction: column !important;
+    width: 80% !important;
+    margin: 0 auto;
 }
