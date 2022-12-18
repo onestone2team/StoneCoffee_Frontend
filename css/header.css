@@ -139,19 +139,25 @@ a {
 /* 섹션바 색 크기 배열 */
 #menu {
     background-color: #3E240C; 
-    height: 40px;
+    height: auto;
 } 
 .menu-area .navbar-default .navbar-nav {
   display: flex;
   align-items: center;
   justify-content: center;
   font-size:100%;
+  margin: 0px auto;
+  width: auto;
+  height: auto;
+}
+.menu-area .navbar-default .navbar-nav div {
+  height: 40px;
 }
 
 .menu-area .navbar-default .navbar-nav div a {
   color: #fff;
   width: 20%;
-  margin: 0 20px;
+  margin: auto 20px;
   font-size: calc(0.6vw + 5px);
   text-align: center;
   -webkit-transition: all 0.5s;
@@ -161,11 +167,6 @@ a {
   transition: all 0.5s;
 }
 
-.menu-area .navbar-default .navbar-nav {
-  margin: 0px auto;
-  width: auto;
-  height: 40px;
-}
 @media ( max-width: 668px ) {
   .aa-header-top{
     height: 20px;
@@ -186,6 +187,7 @@ a {
   .menu-area .navbar-default .navbar-nav div{
     text-align: center;
     background-color: #3E240C; 
+    height: 25px;
   }
   
 }
