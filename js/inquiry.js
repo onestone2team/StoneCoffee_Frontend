@@ -1,6 +1,7 @@
 var fadeTime = 300;
 window.onload = function () {
     $("#headers").load("header.html");
+    $("#menu-bar").load("header_user.html");
 }
 
 $(document).on('click', '.li2', function () {

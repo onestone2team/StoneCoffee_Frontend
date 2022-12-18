@@ -5,13 +5,12 @@ access_token = localStorage.getItem("access")
 const loginText = document.getElementById("loginout")
 
 if(access_token) {
-    console.log(parsed_payload["profilename"])
     const username = document.getElementById("user")
-    console.log(username)
     username.innerText = `${parsed_payload["profilename"]}님`
     loginText.innerText = "로그아웃"
     if(parsed_payload["is_admin"]==true){
         username.href = "admin_order_list.html"
+        
     }
 } else {
     loginText.innerText = "로그인"
