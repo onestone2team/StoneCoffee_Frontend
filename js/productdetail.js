@@ -5,6 +5,7 @@ var product_id = product_id1.split('/')[0]
 one_price = 0
 //=======게시글 불러오기========
 window.onload = async function ProductDetail() {
+    $("#headers").load("header.html");
     const payload = localStorage.getItem("payload")
     const parsed_payload = JSON.parse(payload)
 
@@ -422,7 +423,7 @@ async function commentrg(){
         }   else {
         let formdata = new FormData 
         console.log(comment_content)
-        formdata.append('comment', comment_content.value)
+        formdata.append('comment', comment_content)
         formdata.append('point', comment_point.value)
         if (comment_img.files[0] != undefined){
             formdata.append('image', comment_img.files[0])

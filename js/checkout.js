@@ -3,6 +3,7 @@ cartlist = []
 // =====장바구니 리스트 불러오기========= //
 
 window.onload = async function checkoutlist() {
+    $("#headers").load("header.html");
     const response = await fetch(`${BACK_END_URL}/product/cart`, {
         headers: {
             "content-type": "application/json",
@@ -92,13 +93,7 @@ async function fillin() {
                 "receiver": receiver
             }),
         })
-
-    if (kind in [0, 1, 2] & title != "" & content != "") {
-        if (confirm("상품주문을 하시겠습니까?") == true) {
-        } else {
-        }
-    }
-
+    location.replace('../my_order_list.html')
 
 }
 
