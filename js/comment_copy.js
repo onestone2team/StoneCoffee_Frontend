@@ -1,44 +1,106 @@
-const detail_page = document.getElementById("detail_page")
+// const detail_page = document.getElementById("detail_page")
 
 // fetch("https://baconipsum.com/api/?type=all-meat&paras=200&format=html")
 //     .then(response => response.text())
 //     .then(result => detail_page.innerHTML = result)
 
 
-const detail_modal = document.getElementById("detail_modal")
+// const detail_modal = document.getElementById("detail_modal")
 
-function modalOn() {
-    detail_modal.style.display = "flex"
-    detail_modal.style.top = window.pageYOffset + 'px';
-}
+// function modalOn() {
+//     detail_modal.style.display = "flex"
+//     detail_modal.style.top = window.pageYOffset + 'px';
+// }
 
-function modalOff() {
-    detail_modal.style.display = "none"
-}
+// function modalOff() {
+//     detail_modal.style.display = "none"
+// }
 
-const closeBtn = detail_modal.querySelector(".close-area")
-closeBtn.addEventListener("click", e => {
-    modalOff()
-})
+// const closeBtn = detail_modal.querySelector(".close-area")
+// closeBtn.addEventListener("click", e => {
+//     modalOff()
+// })
 
-detail_modal.addEventListener("click", e => {
-    const evTarget = e.target
-    if (evTarget.classList.contains("modal-overlay")) {
-        modalOff()
+// detail_modal.addEventListener("click", e => {
+//     const evTarget = e.target
+//     if (evTarget.classList.contains("modal-overlay")) {
+//         modalOff()
+//     }
+// })
+
+// console.log('안녕')
+
+const urlParameter = window.location.search
+var params = new URLSearchParams(urlParameter)
+var comment_id = params.get('comment_id')
+
+async function nestedcommentlist() {
+
+    const payload = localStorage.getItem("payload")
+    const parsed_payload = JSON.parse(payload)
+
+    const comment_detail = await fetch(`${BACK_END_URL}/comment/edit/?comment_id=${comment_id}`, {
+        headers: {
+            'content-type': 'application/json',
+            "Authorization": "Bearer " + localStorage.getItem("access")
+        },
+        method: 'GET',
+    })
+
+    nested_comment_frame = document.getElementById('nestedcommentBox')
+    while (nested_comment_frame.hasChildNodes()) {
+        nested_comment_frame.removeChild(nested_comment_frame.firstChild);
     }
-})
+    const comment_detail_json = await comment_detail.json()
+    const nested_list = comment_detail_json.nested_comment_set
+    nested_list.forEach(element => {
+        const nested = document.createElement('div')
+        nested.innerHTML = `<table class="nestedcomment" id="nestedcomment${element.id}">
+                                    <tr>
+                                        <td class="first-column" rowspan="2"><img src="${BACK_END_URL}${element.user.profile}"/></td>
+                                        <td class="second-column profilename">${element.user.profilename}</td>
+                                        <td class="third-column">
+                                            <p class="date">${element.created_at.substr(0, 10)}</p>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="second-column comment">
+                                            <p>${element.nested_comment}</p>
+                                        </td>
+                                        <td class="third-column" id="onlyme${element.id}"><span id="edit_nested" onclick="edit_nested(${element.id})">수정</span>/<span
+                                                id="del_nested" onclick="del_nested(${element.id})">삭제</span>
+                                        </td>
+                                    </tr>
+                                </table>
+                                <!-- 대댓수정란 -->
+                                <table class="nested-edit" id="nested-edit${element.id}">
+                                    <tr id="nested-edit-text-tr${element.id}">
+                                        <td class="nested-edit-text" ><textarea placeholder="" required id="nested-edit-text${element.id}"></textarea></td>
+                                        <td class="nested-edit-btn">
+                                            <button type="button" onclick="save_nested(${element.id})">수정하기</button>
+                                        </td>
+                                    </tr>
+                                </table>`
 
+        nested_comment_frame.appendChild(nested)
+        if (element.user.id != parsed_payload.user_id) {
+            const check_author = document.getElementById(`onlyme${element.id}`)
+            check_author.style.display = "none"
+        }
 
-comment_id = 0
-async function CommentDetail(num) {
-    modalOn()
-    comment_id = num
+    })
+}
+window.onload=
+async function CommentDetailPage() {
+
+    // 임포트를 해보자!!
+    nestedcommentlist()
     const payload = localStorage.getItem("payload")
     const parsed_payload = JSON.parse(payload)
 
     if (!parsed_payload) {
         alert("권한이 없습니다. 로그인 해주세요")
-        location.replace("../templates/main.html")
+        location.replace("../main.html")
     }
 
     const comment_detail = await fetch(`${BACK_END_URL}/comment/edit/?comment_id=${comment_id}`, {
@@ -50,7 +112,6 @@ async function CommentDetail(num) {
     })
 
     const comment_detail_json = await comment_detail.json()
-
     //작성자 정보
     const comment_profileimage = document.getElementById("comment_profileimage")
     comment_profileimage.setAttribute("src", `${BACK_END_URL}${comment_detail_json.user.profile}`)
@@ -75,79 +136,59 @@ async function CommentDetail(num) {
         point.innerHTML += "<img id='coffeebean_img_' src='../img/comment/coffeebean-outline.png'>";
     }
 
-    nested_comment_frame = document.getElementById('nestedcommentBox')
-    while (nested_comment_frame.hasChildNodes()) {
-        nested_comment_frame.removeChild(nested_comment_frame.firstChild);
-    }
-    const nested_list = comment_detail_json.nested_comment_set
-    nested_list.forEach(element => {
-        const nested = document.createElement('div')
-        nested.innerHTML =
-            //  `<li class="nestedcomment">
-            //     <div class="commenterImage">
-            //         <img src="http://placekitten.com/50/50" />
-            //     </div>
-            //     <div class="commentText">
-            //         <p> ${element.nested_comment}<p id="onlyme${element.id}"><span id = "del_nested" onclick="del_nested(${element.id})">삭제</span><span>/</span><span id = "edit_nested" onclick="edit_nested(${element.id})">수정</span></p>
-            //         <p class="date sub-text">${element.created_at.substr(0, 10)}</p>
-            //     </div>
-            // </li>
-            // <!-- Comment Edit -->
-            //     <div class="nested-edit" id="edit_box${element.id}">
-            //         <textarea class="input" name="comment_edit" id="edit_box" ng-model="cmntCtrl.comment.text"
-            //         placeholder="Edit Review..." required></textarea>
-            //         <div class="edit_button">
-            //             <button type="button" onclick="save_nested(${element.id})">add Review</button>
-            //         </div> 
-            //     </div> `
+    // nested_comment_frame = document.getElementById('nestedcommentBox')
+    // while (nested_comment_frame.hasChildNodes()) {
+    //     nested_comment_frame.removeChild(nested_comment_frame.firstChild);
+    // }
+    // const nested_list = comment_detail_json.nested_comment_set
+    // nested_list.forEach(element => {
+    //     const nested = document.createElement('div')
+    //     nested.innerHTML = `<table class="nestedcomment">
+    //                             <tr>
+    //                                 <td class="first-column" rowspan="2"><img src="${BACK_END_URL}${element.user.profile}"/></td>
+    //                                 <td class="second-column profilename">${element.user.profilename}</td>
+    //                                 <td class="third-column">
+    //                                     <p class="date">${element.created_at.substr(0, 10)}</p>
+    //                                 </td>
+    //                             </tr>
+    //                             <tr>
+    //                                 <td class="second-column comment">
+    //                                     <p>${element.nested_comment}</p>
+    //                                 </td>
+    //                                 <td class="third-column" id="onlyme${element.id}"><span id="edit_nested" onclick="edit_nested(${element.id})">수정</span>/<span
+    //                                         id="del_nested" onclick="del_nested(${element.id})">삭제</span>
+    //                                 </td>
+    //                             </tr>
+    //                         </table>
+    //                         <!-- 대댓수정란 -->
+    //                         <table class="nested-edit" id="nested-edit${element.id}">
+    //                             <tr>
+    //                                 <td class="nested-edit-text"><textarea placeholder="" required id="nested-edit-text${element.id}"></textarea></td>
+    //                                 <td class="nested-edit-btn">
+    //                                     <button type="button" onclick="save_nested(${element.id})">수정하기</button>
+    //                                 </td>
+    //                             </tr>
+    //                         </table>`
 
-            `<table>
-                <tr>
-                    <td class="first-column" rowspan="2">여기도연동필요함<img src="http://placekitten.com/50/50"/></td>
-                    <td class="second-column">profil여기 연동필요함ename</td>
-                    <td class="third-column">
-                        <p class="date">${element.created_at.substr(0, 10)}</p>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="second-column">
-                        <p>${element.nested_comment}</p>
-                    </td>
-                    <td class="third-column" id="onlyme${element.id}"><span id="edit_nested" onclick="edit_nested(${element.id})">수정</span>/<span
-                            id="del_nested" onclick="del_nested(${element.id})">삭제</span>
-                    </td>
-                </tr>
-            </table>
-            <!-- 대댓수정란 -->
-            <table class="nested-edit" id="nested-edit${element.id}">
-                <tr>
-                    <td class="nested-edit-text"><textarea placeholder="" required></textarea></td>
-                    <td class="nested-edit-btn">
-                        <button type="button" onclick="save_nested(${element.id})">수정하기</button>
-                    </td>
-                </tr>
-            </table>`
+    //     nested_comment_frame.appendChild(nested)
+    //     if (element.user.id != parsed_payload.user_id) {
+    //         const check_author = document.getElementById(`onlyme${element.id}`)
+    //         check_author.style.display = "none"
+    //     }
 
-        nested_comment_frame.appendChild(nested)
-        if (element.user.id != parsed_payload.user_id) {
-            const check_author = document.getElementById(`onlyme${element.id}`)
-            check_author.style.display = "none"
-        }
+    // })
 
-    })
-    console.log(comment_detail_json["like"], parsed_payload["user_id"])
+    // console.log(comment_detail_json["like"], parsed_payload["user_id"]) 이건 지울라고
     like_list = comment_detail_json["like"]
     if (like_list.includes(parsed_payload["user_id"])) {
-        const like_icon = document.getElementById('detaillike_icon')
+        const like_icon = document.getElementById('like_icon')
         like_icon.className = "bi bi-heart-fill"
     }
 
 
+}//window.onload
 
-
-}//comment detail
-
-async function detailcomment_like() {
+async function comment_like() {
 
     const response = await fetch(`${BACK_END_URL}/comment/like/?comment_id=${comment_id}`, {
         headers: {
@@ -168,7 +209,7 @@ async function detailcomment_like() {
 
 async function create_nested() {
 
-    const nested_text = document.getElementById('nested_text').value;
+    const nested_text = document.getElementById('nested-create-text').value
     const response = await fetch(`${BACK_END_URL}/comment/nested/?comment_id=${comment_id}`, {
         headers: {
             'content-type': 'application/json',
@@ -180,14 +221,19 @@ async function create_nested() {
         })
     })
     nested_json = await response.json()
-    console.log(nested_json)
+
+    if (response.status == 201 || 200) {
+        alert(nested_json.message)
+    }
+    nestedcommentlist()
 }
 
 function edit_nested(id) {
 
     const editBox = document.getElementById(`nested-edit${id}`)
+    const editBoxtr = document.getElementById(`nested-edit-text-tr${id}`)
     if (editBox.style.display == 'none') {
-        editBox.style.display = 'block';
+        $(editBox).show()
     } else {
         editBox.style.display = 'none';
     }
@@ -195,7 +241,8 @@ function edit_nested(id) {
 
 async function save_nested(nestedcomment_id) {
 
-    const updated_nested = document.getElementById('edit_box').value
+    const updated_nested = document.getElementById(`nested-edit-text${nestedcomment_id}`).value
+    console.log(updated_nested)
     const response = await fetch(`${BACK_END_URL}/comment/nested/edit/?nestedcomment_id=${nestedcomment_id}`, {
         headers: {
             "content-type": "application/json",
@@ -203,22 +250,39 @@ async function save_nested(nestedcomment_id) {
         },
         method: 'PUT',
         body: JSON.stringify({
-            "comment": updated_nested
+            "nested_comment": updated_nested
         })
     })
 
+    nested_json = await response.json()
+    console.log(nested_json)
+    console.log(nested_json.status)
+    if (response.status == 201 || 200) {
+        alert(nested_json.message)
+    }
+
+    nestedcommentlist()
+    
+
 }
 
-async function del_nested(comment_id) {
-    const response = await fetch(`${BACK_END_URL}/comment/nested/edit/?nestedcomment_id=${comment_id}`, {
+async function del_nested(nestedcomment_id) {
+    const response = await fetch(`${BACK_END_URL}/comment/nested/edit/?nestedcomment_id=${nestedcomment_id}`, {
         headers: {
             "Authorization": "Bearer " + localStorage.getItem("access")
         },
         method: 'DELETE'
     })
-    const target = document.querySelector(".nestedcomment");
-    target.remove();
 
-    console.log(response)
+    const target = document.getElementById(`nestedcomment${nestedcomment_id}`);
+    
+    nested_json = await response.json()
+    console.log(nested_json)
+    if (response.status == 200) {
+        target.remove();
+        alert(nested_json.message)
+    }
+
+    nestedcommentlist()
 }
 

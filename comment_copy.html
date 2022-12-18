@@ -13,30 +13,32 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 </head>
 
-<body style="background-color:saddlebrown; display: flex;flex-direction: column;justify-content: center;">
-    <!-- <div class="modal-window"> -->
-    <!-- <div class="close-area"><i class="bi bi-x-circle"></i></div> -->
-    <!-- <div class="content"> -->
+<body>
+
     <div class="detailBox">
         <div class="titleBox">
-            <img id="comment_profileimage" src="./img/comment/1212.jpg">
-            <label id="comment_profilename">profilename</label>
-            <div class="taste-grade" name="myform" id="taste-grade" method="post" action="./save">
-                <fieldset>
-                    <label>
-                        <p id="coffeebean"></p>
-                    </label>
-                </fieldset>
-            </div>
+            <table>
+                <tr>
+                    <td class="comment-profileimage"><img id="comment_profileimage" src="./img/comment/1212.jpg"></td>
+                    <td class="comment-profilename"><label id="comment_profilename">profilename</label></td>
+                    <td class="taste-grade">
+                        <!-- <div class="taste-grade" name="myform" id="taste-grade" method="post" action="./save"> -->
+                                 <label id="taste-grade">
+                                    <p id="coffeebean"></p>
+                                </label>
+                        <!-- </div> -->
+                    </td>
+                </tr>
+            </table>
         </div>
         <div class="commentBox">
             <table>
                 <tr class="comment-content-Box">
                     <td rowspan="2" class="comment-image"><img id="comment_image" src="./img/comment/1212.jpg"></td>
                     <td colspan="3" class="comment-text">
-                        <p id="comment_text" >Lorem Ipsum is simply dummy text of the
+                        <p id="comment_text">Lorem Ipsum is simply dummy text of the
                             printing and typesetting
-                           </p>
+                        </p>
                     </td>
                 </tr>
                 <tr class="comment-info-Box">
@@ -44,8 +46,7 @@
                         <p id="date">2022.5.24</p>
                     </td>
                     <td class="like-button">
-                        <p><button  onclick="comment_like()"><i id="like_icon"
-                                    class="bi bi-heart"></i></button></p>
+                        <p><button onclick="comment_like()"><i id="like_icon" class="bi bi-heart"></i></button></p>
                     </td>
                     <td class="like-count">
                         <p id="like_count">2225</p>
@@ -57,16 +58,16 @@
     <!-- 대댓글 -->
     <div class="nested-all">
         <div class="nestedcommentBox" id="nestedcommentBox">
-            <table>
+            <table class="nestedcomment">
                 <tr>
-                    <td class="first-column" rowspan="2"><img src="http://placekitten.com/50/50"/></td>
-                    <td class="second-column">profilename</td>
+                    <td class="first-column" rowspan="2"><img src="http://placekitten.com/50/50" /></td>
+                    <td class="second-column profilename">profilename</td>
                     <td class="third-column">
                         <p class="date">on March 5th, 2014</p>
                     </td>
                 </tr>
                 <tr>
-                    <td class="second-column">
+                    <td class="second-column comment">
                         <p>Hello this is a test comment.</p>
                     </td>
                     <td class="third-column" id="onlyme"><span id="edit_nested" onclick="edit_nested()">수정</span>/<span
@@ -77,33 +78,20 @@
             <!-- 대댓수정란 -->
             <table class="nested-edit" id="nested-edit">
                 <tr>
-                    <td class="nested-edit-text"><textarea placeholder="" required></textarea></td>
+                    <td class="nested-edit-text"><textarea placeholder="" required id="nested-edit-text"></textarea></td>
                     <td class="nested-edit-btn">
                         <button type="button" onclick="save_nested()">수정하기</button>
                     </td>
                 </tr>
             </table>
-            <!-- <ul class="nestedcommentList" id="nestedcommentList">
-                        <li class="nestedcomment">
-                           
-                        </li>
-                        원본
-                            <li class="nestedcomment">
-                                <div class="commenterImage">+
-                                    <img src="http://placekitten.com/40/40" />
-                                </div>
-                                <div class="commentText">
-                                    <p class="">즐거운 저녁이에요~~~ </p> <span class="date sub-text">on March
-                                        5th, 2014</span>
-                                </div>
-                            </li>
-                    </ul> -->
+
         </div>
         <!-- 대댓글 작성란 -->
         <div class="new-nestedcommentBox">
             <table class="nested-create" id="nested-create">
                 <tr>
-                    <td class="nested-create-text"><textarea placeholder="" required></textarea></td>
+                    <td class="nested-create-text"><textarea placeholder="" required id="nested-create-text"></textarea>
+                    </td>
                     <td class="nested-create-btn">
                         <button type="button" onclick="create_nested()">등록</button>
                     </td>
@@ -111,8 +99,7 @@
             </table>
         </div>
     </div>
-    <!-- </div> -->
-    <!-- </div> -->
+
     <script src='/js/all_data.js'> </script>
     <script src='/js/comment_copy.js'> </script>
 </body>
