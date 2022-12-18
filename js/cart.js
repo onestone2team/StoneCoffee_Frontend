@@ -2,6 +2,7 @@ fadeTime = 300;
 
 window.onload = function () {
     $("#headers").load("header.html");
+    $("#menu-bar").load("header_user.html");
     cartlist()
 }
 

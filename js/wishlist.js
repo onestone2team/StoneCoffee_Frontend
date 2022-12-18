@@ -1,6 +1,7 @@
 window.onload =
     function () {
         $("#headers").load("header.html");
+        $("#menu-bar").load("header_user.html");
         $('#append-coffee').slick({
             slidesToShow: 4,
             slidesToScroll: 3,
@@ -90,7 +91,7 @@ async function product_list() {
     } else {
         coffee_data.forEach(element => {
             $('#append-coffee').slick('slickAdd',
-            `<a href=${BACK_END_URL}/product/detail/?product_id=${element.id}>
+            `<a href=product-detail.html?product_id=${element.id}>
             <div class="image" style="background-image: url(${BACK_END_URL}${element.image});"></div>
             </a>`
             );
@@ -101,7 +102,7 @@ async function product_list() {
     } else {
         etc_data.forEach(element => {
             $('#append-etc').slick('slickAdd',
-            `<a href=${BACK_END_URL}/product/detail/?product_id=${element.id}>
+            `<a href=product-detail.html?product_id=${element.id}>
             <div class="image" style="background-image: url(${BACK_END_URL}${element.image});"></div>
             </a>`
             );

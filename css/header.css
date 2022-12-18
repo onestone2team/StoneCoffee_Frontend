@@ -152,6 +152,7 @@ a {
 }
 .menu-area .navbar-default .navbar-nav div {
   height: 40px;
+  line-height: 40px;
 }
 
 .menu-area .navbar-default .navbar-nav div a {
@@ -165,6 +166,7 @@ a {
   -ms-transition: all 0.5s;
   -o-transition: all 0.5s;
   transition: all 0.5s;
+  
 }
 
 @media ( max-width: 668px ) {
@@ -188,6 +190,7 @@ a {
     text-align: center;
     background-color: #3E240C; 
     height: 25px;
+    line-height: 25px;
   }
   
 }

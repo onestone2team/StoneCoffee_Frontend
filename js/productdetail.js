@@ -148,11 +148,11 @@ window.onload = async function ProductDetail() {
                         </a>
                     </td>
                     <tr>
-                        <td class="table-image" width="200" rowspan="4" align = "center" style="background-image:url(${BACK_END_URL}${commentSet.image});"></td>
+                        <td class="table-image" width="150px" rowspan="4" align = "center" style="background-image:url(${BACK_END_URL}${commentSet.image});"></td>
                         <td rowspan="4" align = "left">
-                            <span class="table-content">${commentSet.comment}</span>
+                            <span class="table-content" style="text-overflow:ellipsis;">${commentSet.comment}</span>
                         </td>
-                        <td class="table-font" width="200" id ="table-star${commentSet.id}">
+                        <td class="table-font" width="150px" id ="table-star${commentSet.id}">
                             <span class="table-righttext">평점</span>
                             <span class="table-lefttext">
                             </span>
@@ -160,13 +160,13 @@ window.onload = async function ProductDetail() {
                     </tr>
                     <tr>
                         <td class="table-font">
-                            <span class="table-righttext">좋아요</span>
+                            <span class="table-righttext" width="150px>좋아요</span>
                             <span class="table-lefttext">${commentSet.like.length}개</span>
                         </td>
                     </tr>
                     <tr>
                     </tr>
-                        <td class="table-font" width="200">
+                        <td class="table-font" width="150px">
                             <span class="table-righttext">작성일</span>
                             <span class="table-lefttext">${createTime[0]}</span>
                         </td>
@@ -215,7 +215,7 @@ window.onload = async function ProductDetail() {
         responsive: [{
             breakpoint: 5000,
             settings: {
-                slidesToShow: 4,
+                slidesToShow: 5,
                 slidesToScroll: 2,
             }
         }, {
@@ -234,7 +234,7 @@ window.onload = async function ProductDetail() {
         }, {
             breakpoint: 630,
             settings: {
-                slidesToShow: 1,
+                slidesToShow: 2,
                 slidesToScroll: 1,
             }
         }]
