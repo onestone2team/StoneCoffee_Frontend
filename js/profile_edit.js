@@ -43,7 +43,7 @@ function readURL(input) {
 window.onload =
     async function ProfileView() {
         $("#headers").load("header.html");
-
+        $("#menu-bar").load("header_user.html");
         const payload = localStorage.getItem("payload")
         const parsed_payload = JSON.parse(payload)
         console.log(parsed_payload)

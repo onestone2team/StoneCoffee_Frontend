@@ -1,5 +1,6 @@
 window.onload = function () {
     $("#headers").load("header.html");
+    $("#menu-bar").load("header_admin.html");
 }
 
 
