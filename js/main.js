@@ -18,6 +18,7 @@ function getCookie(key) {
 }
 
 window.addEventListener('load', function () {
+    $("#headers").load("header.html");
     checkCookie = getCookie('guestCheck')
     console.log(checkCookie)
     if (checkCookie!='True'){
@@ -56,6 +57,7 @@ async function show_product_list() {
             }
         })
 }
+
 // checkout
 async function checkout() {
     const response = await fetch(`${BACK_END_URL}/product/cart`, {

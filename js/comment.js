@@ -38,7 +38,7 @@ async function CommentDetail(num) {
 
     if (!parsed_payload) {
         alert("권한이 없습니다. 로그인 해주세요")
-        location.replace("../templates/main.html")
+        location.replace("../templates/index.html")
     }
 
     const comment_detail = await fetch(`${BACK_END_URL}/comment/edit/?comment_id=${comment_id}`, {

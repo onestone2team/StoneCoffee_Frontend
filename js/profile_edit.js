@@ -42,7 +42,8 @@ function readURL(input) {
 // ============프로필 수정 페이지 js===================
 window.onload =
     async function ProfileView() {
-
+        $("#headers").load("header.html");
+        $("#menu-bar").load("header_user.html");
         const payload = localStorage.getItem("payload")
         const parsed_payload = JSON.parse(payload)
         console.log(parsed_payload)
@@ -50,7 +51,7 @@ window.onload =
 
         if (!parsed_payload) {
             alert("권한이 없습니다. 로그인 해주세요")
-            location.replace("../templates/main.html")
+            location.replace("../templates/index.html")
         }
 
         const profile = await fetch(`${BACK_END_URL}/mypage/profile/`, {
@@ -151,6 +152,6 @@ async function edit_password() {
 
 function cancel() {
 
-    location.replace("../main.html")
+    location.replace("../index.html")
 
 }
