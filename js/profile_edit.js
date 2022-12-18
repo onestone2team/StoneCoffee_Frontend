@@ -42,6 +42,7 @@ function readURL(input) {
 // ============프로필 수정 페이지 js===================
 window.onload =
     async function ProfileView() {
+        $("#headers").load("header.html");
 
         const payload = localStorage.getItem("payload")
         const parsed_payload = JSON.parse(payload)

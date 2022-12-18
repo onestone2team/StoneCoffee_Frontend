@@ -43,10 +43,10 @@ window.onload = async function () {
 
 async function kakaologin() {
 
-    KAKAO_CONFIG = {
-        "KAKAO_REST_API_KEY": "5508ff8ddc147381284f4cad3a77cf87",
-        "KAKAO_REDIRECT_URI": "https://www.stonecoffee.shop/signupin.html"
-    };
+  KAKAO_CONFIG = {
+      "KAKAO_REST_API_KEY": "5508ff8ddc147381284f4cad3a77cf87",
+      "KAKAO_REDIRECT_URI": `${FRONT_END_URL}/signupin.html`
+  };
 
     kakao_login_uri = "https://kauth.kakao.com/oauth/authorize"
     kakao_token_uri = "https://kauth.kakao.com/oauth/token"

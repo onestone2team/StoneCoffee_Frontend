@@ -18,6 +18,7 @@ function getCookie(key) {
 }
 
 window.addEventListener('load', function () {
+    $("#headers").load("header.html");
     checkCookie = getCookie('guestCheck')
     console.log(checkCookie)
     if (checkCookie!='True'){

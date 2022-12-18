@@ -1,5 +1,6 @@
 window.onload =
     function () {
+        $("#headers").load("header.html");
         $('#append-coffee').slick({
             slidesToShow: 4,
             slidesToScroll: 3,
