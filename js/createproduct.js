@@ -1,3 +1,9 @@
+window.onload = function () {
+    $("#headers").load("header.html");
+    $("#menu-bar").load("header_admin.html");
+}
+
+
 $('#comment_img').on('change', function() {
     ext = $(this).val().split('.').pop().toLowerCase(); //확장자
     //배열에 추출한 확장자가 존재하는지 체크

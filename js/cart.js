@@ -1,6 +1,8 @@
 fadeTime = 300;
 
 window.onload = function () {
+    $("#headers").load("header.html");
+    $("#menu-bar").load("header_user.html");
     cartlist()
 }
 
@@ -39,34 +41,36 @@ async function cartlist() {
         headers: {
             "content-type": "application/json",
             "Authorization": "Bearer " + localStorage.getItem("access"),
-            // "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjcwODYxMDQ3LCJpYXQiOjE2NzA4MTc4NDcsImp0aSI6ImQxZjdmNmUyMjg5ZjQ0YjE5YTEyNGM0MzBhYjhmNzMzIiwidXNlcl9pZCI6MiwicHJvZmlsZW5hbWUiOiJhZG1pbiJ9.lZhyYuOKCXhkO9CeFfXDiLc6tOQuX_ftjHjU_AFm8fs",
         },
         method: "GET"
     })
     var response_json = await response.json()
     var cart_frame = document.getElementById('append-product')
-    console.log(response_json)
     response_json.forEach(element => {
         const cart = document.createElement('div')
         var total_price = element.price * element.count
         cart.setAttribute("class", "basket-product")
-        cart.innerHTML = `<div class="item">
+        cart.innerHTML = `<div class="item" id="item_box">
                             <div class="product-image">
                                 <a href="/product-detail.html?product_id=${element.product.id}"><img src="${BACK_END_URL}${element.product.image}" class="product-frame"></a>
                             </div>
                             <div class="product-details">
-                                <h2><strong><span class="item-quantity"></span>${element.product.product_name}</strong>
-                                </h2>
-                                <p><strong>${element.weight}g</strong></p>
+                                <h4><span class="item-quantity"></span>${element.product.product_name}</h4>
+                                <p id="product_weight"><strong>${element.weight}g</strong></p>
                             </div>
                         </div>
-                        <div class="price" id="price${element.id}">${element.price}원</div>
-                        <div class="quantity" id="count${element.id}">${element.count}</div>
-                        <div class="subtotal" id="subtotal">${total_price}원</div>
+                        <div id="flex_row">
+                            <div class="price" id="price${element.id}">${element.price}원</div>
+                            <div class="quantity" id="count${element.id}">${element.count}개</div>
+                            <div class="subtotal" id="subtotal">${total_price}원</div>
+                        </div>
                         <div class="remove" id="${element.id}">
                             <button>지우기</button>
                         </div>`
         cart_frame.appendChild(cart)
+        if (element.weight == 1) {
+            document.getElementById("product_weight").style.display = "none"
+        }
         recalculateCart(element.price, element.count)
     })
 }
@@ -100,7 +104,6 @@ function removeItem(removeButton) {
 
 
 async function recalculateMinusCart(price, count) {
-    console.log(price* count, total)
     total = total - price*count
     $("#basket-subtotal").html(total)
     if (total >= 50000) {

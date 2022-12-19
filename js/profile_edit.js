@@ -42,11 +42,10 @@ function readURL(input) {
 // ============프로필 수정 페이지 js===================
 window.onload =
     async function ProfileView() {
-
+        $("#headers").load("header.html");
+        $("#menu-bar").load("header_user.html");
         const payload = localStorage.getItem("payload")
         const parsed_payload = JSON.parse(payload)
-        console.log(parsed_payload)
-        console.log(parsed_payload.user_id)
 
         if (!parsed_payload) {
             alert("권한이 없습니다. 로그인 해주세요")
@@ -62,19 +61,10 @@ window.onload =
         })
 
         const profile_json = await profile.json()
-        // const user_profile = profile_json.data
-        // console.log(profile_json)
-        // console.log(profile_json['data'])
-        // console.log(user_profile)
-        // console.log(profile_json['profilename'])
-        // console.log(profile_json.email)
-        // console.log(profile_json.profile)
-        // console.log(profile_json.address)
-        // console.log(profile_json.phone)
-
+    
         const profile_image = document.getElementById("preview")
         profile_image.setAttribute("src", `${BACK_END_URL}${profile_json.profile}`)
-        const profile_email = document.getElementById("profile_email") //이메일 받아와야함
+        const profile_email = document.getElementById("profile_email")
         profile_email.innerText = profile_json.email
         const profile_name = document.getElementById("profilename")
         profile_name.setAttribute("value", profile_json.profilename)
@@ -90,16 +80,20 @@ async function update_profile() {
 
     const profile_name = document.getElementById("profilename").value;
     const profile_phone = document.getElementById("phone").value;
-    const profile_address = document.getElementById("address").value;
+
+    const postcode = document.getElementById("postcode").value;
+    const address = document.getElementById("address").value;
+    const detailAddress = document.getElementById("detailAddress").value;
+    const extraAddress = document.getElementById("extraAddress").value;
+    const profile_address = '(' + postcode + ')' + ' ' + address + ' ' + detailAddress + ' ' + extraAddress
     const profile_image = document.querySelector("input[type='file']");
-    console.log(profile_image.files[0])
-
-
+   
     let formData = new FormData();
 
     formData.append("profilename", profile_name);
     formData.append("phone", profile_phone);
     formData.append("address", profile_address);
+
     if (profile_image.value != "") {
         formData.append('profile', profile_image.files[0]);
     }
@@ -111,15 +105,12 @@ async function update_profile() {
         method: "PUT",
         body: formData,
     })
-    
+
     new_profile_json = await response.json()
-    console.log(new_profile_json)
 
     if (response.status == 200) {
         alert(new_profile_json.message);
-    } else { alert("수정이 정상적으로 되지 않았습니다. 다시 시도해주세요.") }
-
-    // location.reload();
+    } else { alert(new_profile_json.message) }
 
 }
 
@@ -141,9 +132,8 @@ async function edit_password() {
         method: 'PUT',
         body: formData,
     })
-        
+
     new_pw_json = await response.json()
-    console.log(new_pw_json)
     alert(new_pw_json.message)
     location.reload();
 
@@ -153,4 +143,45 @@ function cancel() {
 
     location.replace("../index.html")
 
+}
+
+// ================주소 입력==================
+function execDaumPostcode() {
+    new daum.Postcode({
+        oncomplete: function (data) {
+
+            var addr = '';
+            var extraAddr = '';
+
+            if (data.userSelectedType === 'R') {
+                addr = data.roadAddress;
+            } else {
+                addr = data.jibunAddress;
+            }
+
+            if (data.userSelectedType === 'R') {
+
+                if (data.bname !== '' && /[동|로|가]$/g.test(data.bname)) {
+                    extraAddr += data.bname;
+                }
+
+                if (data.buildingName !== '' && data.apartment === 'Y') {
+                    extraAddr += (extraAddr !== '' ? ', ' + data.buildingName : data.buildingName);
+                }
+
+                if (extraAddr !== '') {
+                    extraAddr = ' (' + extraAddr + ')';
+                }
+
+                document.getElementById("extraAddress").value = extraAddr;
+
+            } else {
+                document.getElementById("extraAddress").value = '';
+            }
+
+            document.getElementById('postcode').value = data.zonecode;
+            document.getElementById("address").value = addr;
+            document.getElementById("detailAddress").focus();
+        }
+    }).open();
 }
