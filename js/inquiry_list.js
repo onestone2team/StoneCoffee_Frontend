@@ -22,7 +22,7 @@ async function inquirylist() {
                                 <tr>
                                     <td>${element.id}</td>
                                     <td><button1 onclick="answer(${element.id})" >${element.title}</button1 ></td>
-                                    <td>${element.category}</td>
+                                    <td id="category_${element.id}">${element.category}</td>
                                     <td>${element.created_at}</td>
                                     <td id="not${element.id}">미확인</td><td id="see${element.id}">확인</td>
                                 </tr>
@@ -32,6 +32,14 @@ async function inquirylist() {
             document.getElementById(`not${element.id}`).style.display = "none"
         } else if (element.status == false || element.answer == null) {
             document.getElementById(`see${element.id}`).style.display = "none"
+        }
+
+        if (`${element.category}` == 0) {
+            document.getElementById(`category_${element.id}`).innerText = "상품"
+        } else if (`${element.category}` == 1) {
+            document.getElementById(`category_${element.id}`).innerText = "배송"
+        } else if (`${element.category}` == 2) {
+            document.getElementById(`category_${element.id}`).innerText = "기타"
         }
     })
 }
