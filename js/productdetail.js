@@ -1,8 +1,8 @@
 let urlParameter = window.location.search;
 var product_id1 = urlParameter.split('=')[1]
 var product_id = product_id1.split('/')[0]
-
 one_price = 0
+
 //=======게시글 불러오기========
 window.onload = async function ProductDetail() {
     $("#headers").load("header.html");
@@ -21,7 +21,6 @@ window.onload = async function ProductDetail() {
     product_json = await product.json()
     const product_image = document.getElementById("productimage")
     product_image.setAttribute("src", `${BACK_END_URL}${product_json.products["image"]}`)
-    product_image.setAttribute("style", `width:100%; height:100%;`)
 
     //========좋아요 아이콘 변경=======
     const likeIcon = document.getElementById("like_icon")
@@ -84,7 +83,6 @@ window.onload = async function ProductDetail() {
             body2.appendChild(bodyBean)
         }
 
-
         sweet2=document.getElementById('sweet')
         const sweet1 = document.createElement('span')
         sweet1.innerHTML=`<span class="coffeebean-text">당도</span>`
@@ -101,20 +99,17 @@ window.onload = async function ProductDetail() {
             sweet2.appendChild(sweetBean)
         }
 
-
-
-
         //용량 선택하는 select
         w_option=document.getElementById('option')
         const w_option2 =document.createElement('p')
         w_option2.innerHTML=`<div class="size">
-        <h4>용량 선택</h4>
-        <select size="1" id="weight" onchange="valeChange(this)">
-            <option value="0">중량</option>
-            <option value="300">300g</option>
-            <option value="500">500g</option>
-                </select>
-            </div>`
+                                <h4>용량 선택</h4>
+                                <select size="1" id="weight" onchange="valeChange(this)">
+                                <option value="0">중량</option>
+                                <option value="300">300g</option>
+                                <option value="500">500g</option>
+                                </select>
+                            </div>`
         w_option.appendChild(w_option2)
     }
     // 가격
@@ -122,7 +117,7 @@ window.onload = async function ProductDetail() {
     const price1 = document.createElement('div')
     price1.innerHTML=`<h3 class="price">가격 : <span id="priceText">${product_json.products["price"]}</span> 원</h3>`
     price2.appendChild(price1)
-    //상품 내용 description 
+    //상품 내용 description
     productinformation2=document.getElementById('description')
     const productinformations2 = document.createElement('p')
     productinformation2.innerHTML=`<h3>${product_json.products["content"]}</h3>`
@@ -131,21 +126,6 @@ window.onload = async function ProductDetail() {
 
     // 추천 상품
 
-    if (product_json.products["aroma_grade"] >=1){
-        for (i = 0; i < 6; i++) {
-            recommend=document.getElementById('recommend')
-            const recommends = document.createElement('div')
-            recommends.setAttribute("class", `divrecommend`)
-            recommends.setAttribute("style", `width: 250px;`)
-            const recommend_image = document.getElementById("recommendimage")
-            recommends.innerHTML=`<ui id="header_navi"><li text-align : center;>
-            <a href="product-detail.html?product_id=${product_json.recommend[i]["id"]}/"><img src="${BACK_END_URL}${product_json.recommend[i]["image"]}" ></a>
-            <span >${product_json.recommend[i]["product_name"]}</span></li></ui>`
-
-            recommend.appendChild(recommends)
-        }
-    }
-    
     const product_list = product_json.products
     const commentPut = document.getElementById('comment-list')
     const commentform = document.createElement('div')
@@ -168,11 +148,11 @@ window.onload = async function ProductDetail() {
                         </a>
                     </td>
                     <tr>
-                        <td class="table-image" width="200" rowspan="4" align = "center" style="background-image:url(${BACK_END_URL}${commentSet.image});"></td>
+                        <td class="table-image" width="150px" rowspan="4" align = "center" style="background-image:url(${BACK_END_URL}${commentSet.image});"></td>
                         <td rowspan="4" align = "left">
-                            <span class="table-content">${commentSet.comment}</span>
+                            <span class="table-content" style="text-overflow:ellipsis;">${commentSet.comment}</span>
                         </td>
-                        <td class="table-font" width="200" id ="table-star${commentSet.id}">
+                        <td class="table-font" width="150px" id ="table-star${commentSet.id}">
                             <span class="table-righttext">평점</span>
                             <span class="table-lefttext">
                             </span>
@@ -180,28 +160,27 @@ window.onload = async function ProductDetail() {
                     </tr>
                     <tr>
                         <td class="table-font">
-                            <span class="table-righttext">좋아요</span>
+                            <span class="table-righttext" width="150px>좋아요</span>
                             <span class="table-lefttext">${commentSet.like.length}개</span>
                         </td>
                     </tr>
                     <tr>
                     </tr>
-                        <td class="table-font" width="200">
+                        <td class="table-font" width="150px">
                             <span class="table-righttext">작성일</span>
                             <span class="table-lefttext">${createTime[0]}</span>
                         </td>
                     <tr>
                         <td colspan = "3" span style="color:black">
-                        <span style="cursor: pointer;" onclick="CommentDetail(${commentSet.id})">댓글 더보기</span> 
-                            <span style="float: right; margin-right: 10px;" id="editView${commentSet.id}"> 
-                            <span onclick="editCommentBtn(${commentSet.id})" style="cursor: pointer;">수정</span> / 
+                        <span style="cursor: pointer;" onclick="CommentDetail(${commentSet.id})">댓글 더보기</span>
+                            <span style="float: right; margin-right: 10px;" id="editView${commentSet.id}">
+                            <span onclick="editCommentBtn(${commentSet.id})" style="cursor: pointer;">수정</span> /
                             <span onclick="deleteComment(${commentSet.id})" style="cursor: pointer;">삭제</span> </span>
                         </td>
                     </tr>
                 </table>
+            </div>`
 
-            </div>
-        `
         commentPut.appendChild(commentform)
         // 별 추가하기
         const starInput = document.getElementById(`table-star${commentSet.id}`)
@@ -223,7 +202,55 @@ window.onload = async function ProductDetail() {
         if (commentSet.user.id != parsed_payload['user_id']){
             editComment.style.display = "none"
         }
-        
+    }
+
+    $('.recommend-form').slick({
+        slidesToShow: 5,
+        slidesToScroll: 2,
+        autoplay: true,
+        autoplaySpeed: 1500,
+        arrows: false,
+        dots: false,
+        pauseOnHover: true,
+        responsive: [{
+            breakpoint: 5000,
+            settings: {
+                slidesToShow: 5,
+                slidesToScroll: 2,
+            }
+        }, {
+            breakpoint: 1500,
+            settings: {
+                slidesToShow: 3,
+                slidesToScroll: 1,
+            }
+        }, {
+            breakpoint: 1200,
+            settings: {
+                slidesToShow: 2,
+                slidesToScroll: 1,
+            }
+        }, {
+        }, {
+            breakpoint: 630,
+            settings: {
+                slidesToShow: 2,
+                slidesToScroll: 1,
+            }
+        }]
+    });
+    var recommend_list = product_json.recommend
+    if (product_json.products["aroma_grade"] >=1){
+        for (i = 0; i < 6; i++) {
+            console.log(recommend_list)
+            $('.recommend-form').slick('slickAdd',
+                            `<div>
+                            <a href="product-detail.html?product_id=${recommend_list[i]["id"]}">
+                            <div class="image" style="background-image: url(${BACK_END_URL}${recommend_list[i]["image"]});"></div>
+                            <span >${recommend_list[i]["product_name"]}</span>
+                            </a></div>`
+                            );
+        }
     }
 }
 
@@ -246,16 +273,15 @@ async function comment_like(id) {
     } else {
         alert(response_json["message"])
     }
-
 }
 
-async function cart() {    
+async function cart() {
     var priceText = document.getElementById("priceText")
     const count=document.querySelector(".readonly");
     if(product_json.products.aroma_grade == null){
         const weight=1;
 
-        let formdata = new FormData 
+        let formdata = new FormData
         formdata.append('count', count.value)
         formdata.append('price', priceText.innerText)
         formdata.append('weight', weight)
@@ -317,7 +343,7 @@ async function orderButton() {
     if(product_json.products.aroma_grade == null){
         const weight=1;
 
-        let formdata = new FormData 
+        let formdata = new FormData
         formdata.append('count', count.value)
         formdata.append('price', priceText.innerText)
         formdata.append('weight', weight)
@@ -389,8 +415,6 @@ async function like() {
         alert("로그인을 해주세요")
         location.reload();
     }
-    
-   
 }
 // 댓글 이미지 출력 js
 $('#comment_img').on('change', function() {
@@ -403,10 +427,11 @@ $('#comment_img').on('change', function() {
         file = $('#comment_img').prop("files")[0];
         blobURL = window.URL.createObjectURL(file);
         $('#image_preview img').attr('src', blobURL);
-        $('#image_preview').slideDown(); //업로드한 이미지 미리보기 
+        $('#image_preview').slideDown(); //업로드한 이미지 미리보기
         $(this).slideUp(); //파일 양식 감춤
     }
     });
+
     // 댓글 등록하는 js
 async function commentrg(){
         const comment_form= document.querySelector("comment_form")
@@ -421,7 +446,7 @@ async function commentrg(){
         } else if (comment_point.value ==0){
             alert("평점을 선택해 주세요")
         }   else {
-        let formdata = new FormData 
+        let formdata = new FormData
         console.log(comment_content)
         formdata.append('comment', comment_content)
         formdata.append('point', comment_point.value)
@@ -448,9 +473,6 @@ async function commentrg(){
                 }
                 location.reload();
                 return response.json()
-            
-        
-        
     }
 }
 
@@ -474,7 +496,6 @@ async function deleteComment(num) {
 }
 
 async function editCommentBtn(num) {
-
     const modal = document.querySelector('.modal');
     modal.style.display = 'block';
     modal.style.top = window.pageYOffset + 'px';
@@ -502,22 +523,19 @@ const modal = document.querySelector('.modal');
 
 const buttonCloseModal = document.getElementById("close_modal");
 buttonCloseModal.addEventListener("click", e => {
-    modal.style.display = "none";  
+    modal.style.display = "none";
     document.body.style.overflowY = "visible";
 });
 
 $("#input_image").change(function(){
     readFile(this);
-    
 });
 
 function readFile(input_image){
     var reader = new FileReader();
-  
     reader.onload = function(e){
         $('#output_image').attr('src', e.target.result);
     }
-
     reader.readAsDataURL(input_image.files[0]);
 }
 
@@ -529,7 +547,7 @@ async function saveeditCommentBtn() {
     const comment_content=document.getElementById("edit-text").value
     const comment_img=document.getElementById("input_image")
     const comment_point=document.getElementById("editcomment_point").value
-    let formdata = new FormData 
+    let formdata = new FormData
     formdata.append('comment', comment_content)
     formdata.append('point', comment_point)
     if (comment_img.files[0] != undefined){
@@ -553,6 +571,20 @@ async function saveeditCommentBtn() {
     }
 
 }
+//커멘트 디테일 페이지로 이동
+async function CommentDetail(num){
+    comment_id = num
+    console.log(comment_id)
+    const payload = localStorage.getItem("payload")
+    const parsed_payload = JSON.parse(payload)
+
+    if (!parsed_payload) {
+        alert("권한이 없습니다. 로그인 해주세요")
+        location.replace("../templates/main.html")
+    }
+    location.href=`${FRONT_END_URL}/comment_copy.html?comment_id=${comment_id}`
+}
+
 function valeChange(obj){
     weight = obj.value / 100
     total_price = weight * one_price
