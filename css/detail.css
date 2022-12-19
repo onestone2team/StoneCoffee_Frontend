@@ -114,12 +114,10 @@
     position: relative;
     bottom: 160px;
     left:375px;
-    
     width: 350px;
 }
 .user-block .point{
     position: relative;
-    
     width: 60px;
     bottom: 80px;
 }
@@ -128,14 +126,12 @@
 }
 .grade{
     position: relative;
-    width: 200px;
 }
 .image img{
     width: 50%;
     height: 50%;
 }
 #comment_form{
-    
     width: 100%;
 }
 

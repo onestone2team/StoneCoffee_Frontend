@@ -55,7 +55,7 @@
                         <div class="option" id="option">
                             <div class="quantity" id="quantity"><!-- data-unitprice -->
                                 <span class="minus">&dtrif;</span>
-                                <input type="text" class="readonly" readonly value="1">
+                                <input type="text" class="readonly" value="1">
                                 <span class="plus">&utrif;</span>
                             </div>
                         </div>
@@ -63,6 +63,7 @@
                         <div class="order_summary">
                             <div class="total_price">
                                 <span class="price"></span>
+                                <div id="total"></div>
                                 <div id="price"></div>
                             </div>
                         </div>
@@ -106,15 +107,20 @@
                 <td>
                     <div class="grade">
                         <input id="comment-input" placeholder="리뷰을 입력해 주세요.">
-                        <h4>평점 선택</h4>
-                        <select id="grade">
-                            <option value="0">평점</option>
-                            <option value="1">1 점</option>
-                            <option value="2">2 점</option>
-                            <option value="3">3 점</option>
-                            <option value="4">4 점</option>
-                            <option value="5">5 점</option>
-                        </select>
+                        <div style="display: flex; flex-direction: row; align-items: center; justify-content: center;">
+                            <h4>평점 선택</h4>
+                            <div>
+                                <select id="grade" style="margin-left: 10px;">
+                                    <option value="0">평점</option>
+                                    <option value="1">1 점</option>
+                                    <option value="2">2 점</option>
+                                    <option value="3">3 점</option>
+                                    <option value="4">4 점</option>
+                                    <option value="5">5 점</option>
+                                </select>
+                            </div>
+                        <div>
+                        </div>
                     </div>
                     <button type="button" id="submit" onclick="commentrg()">등록</button>
                 </td>

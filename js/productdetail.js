@@ -570,22 +570,7 @@ async function saveeditCommentBtn() {
         document.body.style.overflowY = "visible";
         window.location.reload()
     }
-
 }
-//커멘트 디테일 페이지로 이동
-async function CommentDetail(num){
-    comment_id = num
-    console.log(comment_id)
-    const payload = localStorage.getItem("payload")
-    const parsed_payload = JSON.parse(payload)
-
-    if (!parsed_payload) {
-        alert("권한이 없습니다. 로그인 해주세요")
-        location.replace("../templates/main.html")
-    }
-    location.href=`${FRONT_END_URL}/comment_copy.html?comment_id=${comment_id}`
-}
-
 function valeChange(obj){
     weight = obj.value / 100
     total_price = weight * one_price
