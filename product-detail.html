@@ -15,7 +15,7 @@
     <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
     <script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.js"></script>
-    
+
 </head>
 
 <body>
@@ -180,89 +180,15 @@
             <button class="edit-commentbtn" id="edit-commentbtn" onclick="saveeditCommentBtn()"> 수정하기 </button>
         </div>
     </div>
-    <div id="detail_modal" class="modal-overlay">
-        <div class="modal-window">
-            <div class="close-area"><i class="bi bi-x-circle"></i></div>
-            <div class="content">
-                <!-- 커맨트박스 코드펜 -->
-                <div class="detailBox">
-                    <div class="titleBox">
-                        <img id="comment_profileimage" src="/img/comment/1212.jpg">
-                        <label id="comment_profilename">profilename</label>
-                        <div class="star-grade" name="myform" id="point" method="post" action="./save">
-                            <fieldset>
-                                <label>
-                                    <p id="coffeebean"></p>
-                                </label>
-                            </fieldset>
-                        </div>
-                    </div>
-                    <div class="commentBox">
-                        <div>
-
-                            <img id="comment_image" src="/img/comment/1212.jpg">
-
-                        </div>
-                        <div>
-                            <p id="comment_text" class="comment-content">Lorem Ipsum is simply dummy text of the
-                                printing and typesetting
-                                industry.<br>
-                                <button><img src="/img/comment/coffeebean.png"></button>
-                                <button><img src="/img/comment/coffeebean-outline.png"></button>
-                            </p>
-                        </div>
-                    </div>
-                    <div class="commentlikeBox">
-                        <p id="date"></p>
-                        <div style="float:right;">
-                            <button class="like-button" onclick="detailcomment_like()"><i id="detaillike_icon"
-                                    class="bi bi-heart"></i></button><span>
-                                <p id="like_count"></p>
-                            </span>
-                        </div>
-
-                    </div>
-                </div>
-                <!-- 대댓글 -->
-                <div>
-                    <div class="nestedcommentBox">
-                        <ul class="nestedcommentList" id="nestedcommentList">
-                            <li class="nestedcomment">
-
-                                <p class="commenterImage">
-                                    <img src="http://placekitten.com/50/50" />
-                                <p class=""> Hello this is a test comment.
-                                <p id="onlyme${element.id}" style="float:right">
-                                    <span>삭제</span><span>/</span><span>수정</span>
-                                </p>
-                                </p>
-                                <p class="date sub-text" style="float:right;">on March 5th, 2014</p>
-                                </p>
-                            </li>
-                        </ul>
-                    </div>
-                    <!-- 대댓글 작성란 -->
-                    <div id="write-nestedcomment" class="write-nestedcomment">
-                        <form class="form-inline" role="form">
-                            <div class="form-group">
-                                <input id='nested_text' class="form-control" type="text" placeholder="댓글을 등록해주세요" />
-                            </div>
-                            <div class="form-group">
-                                <button type="button" class="btn btn-dark" onclick="create_nested()">등록</button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+    
     <footer id="aa-footer">
     </footer>
+    <script src="/js/header.js"></script>
+    <script src="/js/footer.js"></script>
+    <script src="/js/all_data.js"></script>
+    <script src="/js/productdetail.js"></script>
+    <script src="/js/productquantity.js"></script>
+
 </body>
-<script src="/js/footer.js"></script>
-<script src="/js/all_data.js"></script>
-<script src="/js/productdetail.js"></script>
-<script src="/js/productquantity.js"></script>
-<script src="/js/comment.js"></script>
 
 </html>

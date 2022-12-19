@@ -128,7 +128,7 @@
 }
 .grade{
     position: relative;
-    align-items: center;
+    width: 200px;
 }
 .image img{
     width: 50%;
