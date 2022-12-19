@@ -136,7 +136,7 @@ a {
   transition: all 0.5s;
 }
 /* 바로가기 배열 */
-#aa-promo .aa-promo-area .aa-promo-left {
+#aa-promo .aa-promo-area {
   display: inline;
   float: left;
   width: 100%;
@@ -151,7 +151,7 @@ a {
   height: 400px;
 }
 /* 바로가기 배열 */
-#aa-promo .aa-promo-area .aa-promo-right .aa-single-promo-right {
+#aa-promo .aa-promo-area .aa-promo-right . {
   width: 50%;
   height: 50%;
   float: left;
