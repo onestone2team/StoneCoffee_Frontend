@@ -1,6 +1,7 @@
-document.querySelector('.img__btn').addEventListener('click', function () {
-    document.querySelector('.cont').classList.toggle('s--signup');
-});
+const toggleForm = () => {
+    const container = document.querySelector('.container');
+    container.classList.toggle('active');
+};
 
 
 window.onload = async function () {
