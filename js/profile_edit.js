@@ -44,6 +44,9 @@ window.onload =
     async function ProfileView() {
         $("#headers").load("header.html");
         $("#menu-bar").load("header_user.html");
+        // $("#b1").hover(inputinfo)
+        // $("#b2").hover(inputinfo)
+        // $("#b3").hover(inputinfo)
         const payload = localStorage.getItem("payload")
         const parsed_payload = JSON.parse(payload)
 
@@ -189,3 +192,12 @@ function execDaumPostcode() {
         }
     }).open();
 }
+//====================입력해야하는 정보 제공------------------
+// function inputinfo(){
+//     const pfnameinfo = document.getElementById('b1')
+//     pfnameinfo.innerText="프로필 이름은 4글자 이상, 특수문자는 '_'만 허용됩니다"
+//     const addressinfo = document.getElementById('b2')
+//     addressinfo.innerText='우편번호를 먼저 찾아주세요'
+//     const phoneinfo = document.getElementById('b3')
+//     phoneinfo.innerText='-를 포함해서 입력해주세요'
+// }

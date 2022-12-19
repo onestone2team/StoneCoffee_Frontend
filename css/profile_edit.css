@@ -69,6 +69,23 @@
     margin-top: -5%
 }
 
+.input-boxes .input-group-text i{
+    cursor:help;
+    display:inline-block;
+}
+
+.bi .tooltip{
+    display:none;
+    position: absolute;
+    font-size:xx-small;
+    background-color: rgb(179, 248, 171);
+    border-radius: 5px;
+}
+
+.bi:hover .tooltip{
+    display: block;
+}
+
 .input-boxes input {
     border: 0;
 }
