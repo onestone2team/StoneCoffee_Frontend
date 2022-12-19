@@ -100,7 +100,7 @@
                     </div>
                 </div>
                 <div class="text-box">
-                    <textarea id="textarea"></textarea>
+                    <textarea id="textarea" placeholder="상품 설명을 작성해주세요"></textarea>
                 </div>
             </div>
             <div class="button-box">
@@ -117,15 +117,6 @@
 <script src="/js/footer.js"></script>
 <script src="/js/all_data.js"></script>
 <script src="/js/createproduct.js"></script>
-<script>
-    var w = Number(window.orientation == 0 ? screen.width : screen.height);
-    var dpr = window.devicePixelRatio; 
-    w = w * dpr; 
-    if(w>1000) is = parseInt(w /640 /4 *10) /10; 
-    else is = parseInt(w /640 /2 *10) /10;
-    var ms = parseInt(is *3 *10) /10;
-    $(document.getElementsByName('viewport')).attr('content',
-    'minimum-scale='+is+', initial-scale='+is+', maximum-scale='+is+', width=device-width, user-scalable=yes');
-</script>
+
 
 </html>

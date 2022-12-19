@@ -28,3 +28,34 @@ textarea {
 .btn {
     height:30px; margin-top:10px; margin-bottom:10px; display:flex; justify-content: center; position:absolute; left: 47%;
 }
+@media (max-width:670px){
+*{
+    width: auto;
+}
+ .first-box{
+    border: 0ch;
+    width: 100%;
+ }
+ .first-box div{
+    width: 100px;
+}
+.second-box div{
+    width: 70%;
+}
+.second-box{
+    border: 0ch;
+    width: 100%;
+}
+.third-box{
+    border: 0ch;
+}
+.third-box img {
+    width: 300px;
+    height: 300px;
+}
+#textarea{
+    width: 300px;
+
+}
+
+}
