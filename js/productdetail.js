@@ -8,6 +8,13 @@ window.onload = async function ProductDetail() {
     $("#headers").load("header.html");
     const payload = localStorage.getItem("payload")
     const parsed_payload = JSON.parse(payload)
+    if(!parsed_payload){
+        alert("권한이 없습니다. 로그인 해주세요")
+        location.replace("../index.html")
+    }
+    // data["data"]["coffee"]["0"]["product_name"]
+
+
 
     const product = await fetch(`${BACK_END_URL}/product/detail/?product_id=${product_id} `, {
         headers: {
@@ -279,7 +286,8 @@ async function comment_like(id) {
 async function cart() {
     var priceText = document.getElementById("priceText")
     const count=document.querySelector(".readonly");
-    if(product_json.products.aroma_grade == null){
+    // 왜 null?
+    if(product_json.products.aroma_grade == 0 || product_json.products.aroma_grade == null){
         const weight=1;
 
         let formdata = new FormData
@@ -296,6 +304,7 @@ async function cart() {
         response_json=await response.json()
 
         if (response.status==200 || response.status==202 || response.status == 201){
+
                 alert("장바구니에 담겼습니다.")
                 location.reload();
             }
@@ -341,7 +350,8 @@ async function cart() {
 async function orderButton() {
     var priceText = document.getElementById("priceText")
     const count=document.querySelector(".readonly");
-    if(product_json.products.aroma_grade == null){
+    // 
+    if(product_json.products.aroma_grade == 0 || product_json.products.aroma_grade == null){
         const weight=1;
 
         let formdata = new FormData

@@ -71,8 +71,7 @@ async function calculator(product_total_price) {
 
 // =====개인정보 작성====== //
 async function fillin() {
-    let A = document.getElementById("cart_id")["placeholder"];
-    console.log(A)
+
     let cart_id = cartlist.join(",")
 
     const user_address = document.getElementById("user_address").value
@@ -92,8 +91,19 @@ async function fillin() {
                 "user_phone": user_phone,
                 "receiver": receiver
             }),
+            
         })
-    location.replace('../my_order_list.html')
+        response_json=await response.json()
+    
+        if (response.status==200 || response.status==202 || response.status == 201){
+            alert("정상적으로 결제가 되었습니다.")
+            location.reload();
+
+        }
+        else if(response.status==401 || response.status == 400){
+            alert("오류가 발생했습니다. 관리자에게 문의해주세요")
+            location.reload();
+        }
 
 }
 
