@@ -27,7 +27,6 @@ async function sendSurvey(){
     const sendSurvey = document.getElementsByClassName('sendSurvey')[0].style
     const showSurvey = document.getElementById('showSurvey')
 
-    console.log(aroma_grade, sweet_grade, acidity_grade, balance_grade)
     const response_survey = await fetch(`${BACK_END_URL}/survey/`, {
         headers: {
             'Content-Type': 'application/json'

@@ -14,30 +14,44 @@ async function inquirylist() {
         method: "GET"
     })
     const response_json = await response.json()
-    console.log(response_json)
     var inquiry_frame = document.getElementById('append-inquiry')
     response_json.forEach(element => {
         const inquiry = document.createElement('div')
         inquiry.setAttribute("class", "basket-product")
-        inquiry.innerHTML = `<div class="item">
-                                <div class="product-details">
-                                <span class="item-quantity"><h2 style="display: inline;">문의제목: </h2></span><span class="element_class">${element.title}</span><br>
+        inquiry.innerHTML = `<details>
+                                <summary>
+                                    <div class="item">
+                                        <div class="product-details">
+                                            <span class="item-quantity"><h2 style="display: inline;">문의제목: </h2></span><span class="element_class">${element.title}</span><br>
+                                        </div>
+                                        <div class="status-date">
+                                            <h3 id="kind-${element.id}" style="display: inline;"></h3><br>
+                                            <h3 id="status-${element.id}" style="display: inline;"></h3><br>
+                                            <h4 class="date" style="display: inline;">${element.created_at}</h4><br>
+                                        </div>
+                                    </div>
+                                    <hr>
+                                </summary>
+                                <div style="margin-left: 0px">
                                     <h3 style="display: inline;">문의내용:</h3><span class="element_class">${element.content}</span><br>
                                     <h3 style="display: inline;">닉네임: </h3><span class="element_class">${element.user}</span><br>
-                                    </div>
-                                    <div class="status-date">
-                                        <h3 id="status-${element.id}" style="display: inline;"></h3><br>
-                                        <h4 class="date" style="display: inline;">${element.created_at}</h4><br>
-                                    </div>
-                                </div>
-                                <hr>
-                                <div>
-                                    <h3 class="answer-line" style="display: inline;">답변:</h3> <span id="answer-${element.id}" class="element_class">${element.answer}</span>
+                                <div style="dispaly:flex; flex-direction: row;">
+                                    <h3 class="answer-line" style="display: inline;">답변:</h3> <span id="answer-${element.id}" class="element_class">${element.answer}</span><br>
                                     <textarea id=text-${element.id} class="usertext" placeholder=""></textarea>
+                                </div>
+                                <div>
                                     <button type="button" id="btn1-${element.id}" class="btn">답변작성</button>
                                     <button type="button" id="btn2-${element.id}" class="btn">답변수정</button>
-                                </div>`
+                                </div>
+                            </detail>`
         inquiry_frame.appendChild(inquiry)
+        if (element.category == 0) {
+            document.getElementById(`kind-${element.id}`).innerText ="상품"
+        } else if (element.category == 1){
+            document.getElementById(`kind-${element.id}`).innerText ="배송"
+        } else if (element.category == 2){
+            document.getElementById(`kind-${element.id}`).innerText ="기타"
+        }
 
         if (element.status == false) {
             document.getElementById(`btn2-${element.id}`).style.display = "none"
@@ -91,7 +105,6 @@ async function answer(status) {
         document.getElementById(`btn2-${id}`).style.display = "none"
         document.getElementById(`btn1-${id}`).style.display = ""
     }
-    console.log(document.getElementById(`answer-${id}`).innerText)
     $(`#answer-${id}`).text(`${response_json.data.answer}`)
     $(`#text-${id}`).val("")
 }

@@ -20,7 +20,6 @@ async function show_product_list() {
     .then(data => {
         var products = document.getElementById("products");
         $("#products").empty();
-        console.log(data)
         for (i = 0; i < data["data"].length; i++) {
             const product = document.createElement('div')
             product.className = "product-layout"
