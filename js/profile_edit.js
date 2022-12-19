@@ -120,6 +120,10 @@ async function edit_password() {
     const new_password = document.getElementById("new_password").value;
     const new_password_check = document.getElementById("password_check").value;
 
+    if (new_password != new_password_check){
+        alert('변경할 비밀번호가 일치하지 않습니다')
+    }
+    
     let formData = new FormData();
     formData.append("old_password", password);
     formData.append("password", new_password);
