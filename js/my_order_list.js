@@ -47,7 +47,7 @@ async function cartlist() {
                             <td>
                                 <div class="price">금액 : ${element.order_price}</div><br>
                                 <div class="quantity">수량 : ${element.count}</div><br>
-                                <div class="quantity">용량 : ${element.weight}g</div>
+                                <div id="quantity${element.id}" class="quantity">용량 : ${element.weight}g</div>
                             </td>
                             <td>${order_status}</td>
                         </tr>
@@ -59,6 +59,11 @@ async function cartlist() {
                         </tr>
                     </table>`
         order_frame.appendChild(order)
+        if (element.weight==1){
+            const quantity = document.getElementById(`quantity${element.id}`)
+            quantity.remove()
+        }
+        
     })
 }
 
