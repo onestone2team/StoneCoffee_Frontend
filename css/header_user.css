@@ -40,5 +40,10 @@
 }
 
 
-
+@media ( max-width: 480px ) {
+  .usermenu-area .navbar-default .navbar-nav div a {
+    margin: auto 10px;
+  }
+  
+}
 
