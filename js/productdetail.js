@@ -219,20 +219,21 @@ window.onload = async function ProductDetail() {
                 slidesToScroll: 2,
             }
         }, {
-            breakpoint: 1500,
+            breakpoint: 1300,
+            settings: {
+                slidesToShow: 4,
+                slidesToScroll: 1,
+            }
+        }, {
+        }, {
+            breakpoint: 1150,
             settings: {
                 slidesToShow: 3,
                 slidesToScroll: 1,
             }
         }, {
-            breakpoint: 1200,
-            settings: {
-                slidesToShow: 2,
-                slidesToScroll: 1,
-            }
         }, {
-        }, {
-            breakpoint: 630,
+            breakpoint: 900,
             settings: {
                 slidesToShow: 2,
                 slidesToScroll: 1,
