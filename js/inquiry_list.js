@@ -26,7 +26,6 @@ async function inquirylist() {
                                     <td>${element.created_at}</td>
                                     <td id="not${element.id}">미확인</td><td id="see${element.id}">확인</td>
                                 </tr>
-                                
                             </tbody>`
         inquiry_frame.prepend(inquiry)
         if (element.status == true) {

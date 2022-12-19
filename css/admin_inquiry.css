@@ -47,7 +47,6 @@ main {
 	clear: both;
 	font-size: 0.75rem;
 	margin: auto;
-	overflow: hidden;
 	padding: 1rem 0;
 	width: 100%;
 	display: flex;
@@ -68,6 +67,7 @@ aside {
 	max-height: 530px;
 	width: 60%;
 	background-color: rgb(236, 236, 236);
+	min-height: 530px;
 }
 
 
@@ -121,7 +121,7 @@ aside {
 }
 
 .basket-product {
-	border-bottom: 1px solid #ccc;
+	border-bottom: 1px solid rgb(0, 0, 0);
 	padding: 1rem 0;
 	position: relative;
 }
@@ -275,11 +275,11 @@ aside {
 
 .usertext {
 	padding: 20px;
-	width: 81%;
+	width: 96%;
 	border: 10px;
 	font-size: 12px;
 	resize: none;
-	margin-left: 20px;
+	margin-left: 2%;
 }
 
 .answer {
@@ -301,18 +301,48 @@ aside {
 	font-size: 20px;
 	margin-top: 10px;
 }
-.answer-line{
-	margin-left: 70px; 
-}
 
 .status-date{
 	float: right;
 	box-sizing: content-box;
-	position: absolute;
-	right: 0;
-	bottom:1;
+	
 }
 .element_class{
 	margin-left: 6px;
 	font-size: 16px;
+	text-overflow: ellipsis;
+}
+
+details > summary {
+    outline: 0;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.5s;
+}
+
+details > summary::-webkit-details-marker {
+    background-size: contain;
+    color: transparent;
+    transform: rotate3d(0, 0, 1, 90deg);
+    transition: transform 0.25s;
+}
+
+details[open] > summary::-webkit-details-marker {
+    transform: rotate3d(0, 0, 1, 180deg);
+}
+
+details[open] > summary ~ * {
+    animation: reveal 0.5s;
+}
+
+@keyframes reveal {
+    from {
+        opacity: 0;
+        transform: translate3d(0, -10px, 0);
+    }
+
+    to {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+    }
 }

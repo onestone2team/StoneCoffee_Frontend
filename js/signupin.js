@@ -115,7 +115,7 @@ async function signupButton() {
         passwordError.innerText = "패스워드 형식을 확인해주세요 특수문자 포함 8글자 이상입니다"
         passwordError.style.display = "inline"
 
-    }else{ 
+    }else{
         const response = await fetch(`${BACK_END_URL}/user/signup/`, {
             headers: {
                 "content-type": "application/json",

@@ -65,7 +65,7 @@ async function cartlist() {
                             <div class="subtotal" id="subtotal">${total_price}원</div>
                         </div>
                         <div class="remove" id="${element.id}">
-                            <button>지우기</button>
+                            <button>삭제하기</button>
                         </div>`
         cart_frame.appendChild(cart)
         if (element.weight == 1) {

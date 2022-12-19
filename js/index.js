@@ -21,7 +21,6 @@ function getCookie(key) {
 window.addEventListener('load', function () {
     $("#headers").load("header.html");
     checkCookie = getCookie('guestCheck')
-    console.log(checkCookie)
     if (checkCookie!='True'){
         location.replace('survey.html')
     }
@@ -40,7 +39,6 @@ async function show_product_list() {
         return response.json();
     })
     .then(data => {
-        console.log(data)
         var products = document.getElementById("products");
         for (i = 0; i < 8; i++) {
             const product = document.createElement('p')

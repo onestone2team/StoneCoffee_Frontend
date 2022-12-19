@@ -12,15 +12,12 @@ window.onload = async function checkoutlist() {
         method: 'GET'
     })
     const response_json = await response.json()
-    console.log(response_json)
     let product_total_price = 0
     const order_frame = document.getElementById('append-product')
     response_json.forEach(element => {
         const order = document.createElement('div')
         var total_price = element.price * element.count
-        console.log(element.id)
         cartlist.push(element.id)
-        console.log(cartlist)
         order.setAttribute("class", "basket-product")
         order.innerHTML = `<div>
                                 <div id="cart_id" placeholder="${element.id}"></div>
@@ -37,7 +34,6 @@ window.onload = async function checkoutlist() {
         product_total_price = product_total_price + total_price
     }
     )
-    console.log(product_total_price)
     calculator(product_total_price)
 
     // 유저 주소랑 핸드폰번호 불러오기
@@ -77,7 +73,6 @@ async function fillin() {
     const user_address = document.getElementById("user_address").value
     const user_phone = document.getElementById("user_phone").value
     const receiver = document.getElementById("receiver").value
-    console.log(cartlist, user_address, user_phone, receiver)
 
     const response = await fetch(`${BACK_END_URL}/order/product/order/?cart_id=${cart_id}`
         , {

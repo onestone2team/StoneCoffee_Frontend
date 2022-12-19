@@ -49,10 +49,8 @@ async function show_product_list() {
             products.appendChild(product)
             total_page = data["page"]["total_page"]
         }
-        console.log(data)
         var pagenums =document.getElementById("pagenums");
         $("#pagenums").empty();
-        console.log(data["page"]["total_page"])
         for(i=1; i<data["data"].length; i++){
             const pagenum = document.createElement('span')
             pagenum.innerHTML=`<span>${data["data"].length}</span>`
@@ -65,7 +63,6 @@ async function show_product_list() {
 }
 
 function pageNext1() {
-    console.log(current_page)
     if (current_page > 0 && current_page < total_page) {
         ++current_page
         show_product_list()

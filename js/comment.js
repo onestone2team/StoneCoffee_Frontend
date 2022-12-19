@@ -107,7 +107,6 @@ async function CommentDetail(num) {
         }
 
     })
-    console.log(comment_detail_json["like"], parsed_payload["user_id"])
     like_list = comment_detail_json["like"]
     if (like_list.includes(parsed_payload["user_id"])) {
         const like_icon = document.getElementById('detaillike_icon')
@@ -152,7 +151,6 @@ async function create_nested() {
     })
     nested_json = await response.json()
 
-    console.log(nested_json)
     if (response.status == 201 ||response.status == 200) {
         alert('리뷰-댓글이 작성되었습니다.')
     } 
@@ -194,7 +192,5 @@ async function del_nested(comment_id) {
     })
     const target = document.querySelector(".nestedcomment");
     target.remove();
-    
-    console.log(response)
 }
 

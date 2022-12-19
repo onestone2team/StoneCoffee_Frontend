@@ -1,8 +1,8 @@
-const payload = localStorage.getItem("payload")
-const parsed_payload = JSON.parse(payload)
+var payload1 = localStorage.getItem("payload")
+var parsed_payload = JSON.parse(payload1)
 
 access_token = localStorage.getItem("access")
-const loginText = document.getElementById("loginout")
+var loginText = document.getElementById("loginout")
 
 if(access_token) {
     const username = document.getElementById("user")
@@ -10,12 +10,10 @@ if(access_token) {
     loginText.innerText = "로그아웃"
     if(parsed_payload["is_admin"]==true){
         username.href = "admin_order_list.html"
-        
     }
 } else {
     loginText.innerText = "로그인"
 }
-
 
 async function logoutUser() {
     kakao_token = localStorage.getItem("kakao")
