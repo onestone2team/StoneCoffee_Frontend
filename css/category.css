@@ -68,7 +68,13 @@ html, body {
     .pagenation a{
         margin:0 2px;
         padding:8px 8px;
-      }
+    }
+    .aa-product-price{
+        font-size: 10PX;
+    }
+    .aa-product-title{
+        height: 60px;
+    }
 
 }
 
