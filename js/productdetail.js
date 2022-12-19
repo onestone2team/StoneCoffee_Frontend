@@ -112,9 +112,9 @@ window.onload = async function ProductDetail() {
         w_option2.innerHTML=`<div class="size">
                                 <h4>용량 선택</h4>
                                 <select size="1" id="weight" onchange="valeChange(this)">
-                                <option value="0">중량</option>
-                                <option value="300">300g</option>
-                                <option value="500">500g</option>
+                                <option value="1">중량</option>
+                                <option value="3">300g</option>
+                                <option value="5">500g</option>
                                 </select>
                             </div>`
         w_option.appendChild(w_option2)
@@ -250,7 +250,6 @@ window.onload = async function ProductDetail() {
     var recommend_list = product_json.recommend
     if (product_json.products["aroma_grade"] >=1){
         for (i = 0; i < 6; i++) {
-            console.log(recommend_list)
             $('.recommend-form').slick('slickAdd',
                             `<div>
                             <a href="product-detail.html?product_id=${recommend_list[i]["id"]}">
@@ -319,7 +318,6 @@ async function cart() {
                 alert("용량을 선택해주세요")
             }
             if (weight.value > 1){
-                console.log(priceText.innerText)
                 let formdata = new FormData 
                 formdata.append('count', count.value)
                 formdata.append('price', priceText.innerText)
@@ -458,7 +456,6 @@ async function commentrg(){
             alert("평점을 선택해 주세요")
         }   else {
         let formdata = new FormData
-        console.log(comment_content)
         formdata.append('comment', comment_content)
         formdata.append('point', comment_point.value)
         if (comment_img.files[0] != undefined){
@@ -581,8 +578,9 @@ async function saveeditCommentBtn() {
         window.location.reload()
     }
 }
+
 function valeChange(obj){
-    weight = obj.value / 100
+    weight = obj.value
     total_price = weight * one_price
     var priceText = document.getElementById("priceText")
     priceText.innerText = total_price

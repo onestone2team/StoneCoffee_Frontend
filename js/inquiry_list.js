@@ -46,7 +46,6 @@ async function inquirylist() {
                             <span id="not${element.id}">미확인</span><span id="see${element.id}">답변: ${element.answer}</span>
                             <hr>`
         inquiry_frame.appendChild(inquiry)
-        console.log(element)
         if (element.status == true) {
             document.getElementById(`not${element.id}`).style.display = "none"
         } else if (element.status == false || element.answer == null) {

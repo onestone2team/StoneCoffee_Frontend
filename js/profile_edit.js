@@ -46,8 +46,6 @@ window.onload =
         $("#menu-bar").load("header_user.html");
         const payload = localStorage.getItem("payload")
         const parsed_payload = JSON.parse(payload)
-        console.log(parsed_payload)
-        console.log(parsed_payload.user_id)
 
         if (!parsed_payload) {
             alert("권한이 없습니다. 로그인 해주세요")
@@ -63,15 +61,6 @@ window.onload =
         })
 
         const profile_json = await profile.json()
-        // const user_profile = profile_json.data
-        // console.log(profile_json)
-        // console.log(profile_json['data'])
-        // console.log(user_profile)
-        // console.log(profile_json['profilename'])
-        // console.log(profile_json.email)
-        // console.log(profile_json.profile)
-        // console.log(profile_json.address)
-        // console.log(profile_json.phone)
 
         const profile_image = document.getElementById("preview")
         profile_image.setAttribute("src", `${BACK_END_URL}${profile_json.profile}`)
@@ -93,7 +82,6 @@ async function update_profile() {
     const profile_phone = document.getElementById("phone").value;
     const profile_address = document.getElementById("address").value;
     const profile_image = document.querySelector("input[type='file']");
-    console.log(profile_image.files[0])
 
 
     let formData = new FormData();
@@ -114,7 +102,6 @@ async function update_profile() {
     })
     
     new_profile_json = await response.json()
-    console.log(new_profile_json)
 
     if (response.status == 200) {
         alert(new_profile_json.message);
@@ -142,9 +129,7 @@ async function edit_password() {
         method: 'PUT',
         body: formData,
     })
-        
     new_pw_json = await response.json()
-    console.log(new_pw_json)
     alert(new_pw_json.message)
     location.reload();
 
