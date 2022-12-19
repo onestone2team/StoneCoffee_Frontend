@@ -79,32 +79,3 @@ async function answer(id){
         }
         }
 })}
-
-
-
-
-
-
-    // let answer ="";
-    // let content=""
-    // for (let i = 0; i < collection.length; i++) {
-    //     if (output === "") {
-    //       output = "Your order for the following items has been placed: ";
-    //     }
-    //     output += collection[i].label;
-    
-    //     if (i === (collection.length - 2) && (collection.length < 3)) {
-    //       output +=  " and ";
-    //     } else if (i < (collection.length - 2)) {
-    //       output += ", ";
-    //     } else if (i === (collection.length - 2)) {
-    //       output += ", and ";
-    //     }
-    //   }
-    
-    //   if (output === "") {
-    //     output = "${}";
-    //   }
-    
-    //   outputBox.innerHTML = output;
-    
