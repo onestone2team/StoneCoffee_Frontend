@@ -75,12 +75,6 @@ async function CommentDetail(num) {
         point.innerHTML += "<img id='coffeebean_img_' src='../img/comment/coffeebean-outline.png'>";
     }
 
-    
-        
-    // 좋아요 색깔 들어가는거 해야함
-    // 대댓글에 유저 프로필이미지 필요함
-    // 대댓글 blank=False 해야함
-
     nested_comment_frame = document.getElementById('nestedcommentList')
     while ( nested_comment_frame.hasChildNodes() ) {
         nested_comment_frame.removeChild( nested_comment_frame.firstChild );       
@@ -157,7 +151,12 @@ async function create_nested() {
         })
     })
     nested_json = await response.json()
+
     console.log(nested_json)
+    if (response.status == 201 ||response.status == 200) {
+        alert('리뷰-댓글이 작성되었습니다.')
+    } 
+        location.reload()
 }
 
 function edit_nested(id) {
@@ -195,5 +194,7 @@ async function del_nested(comment_id) {
     })
     const target = document.querySelector(".nestedcomment");
     target.remove();
+    
+    console.log(response)
 }
 

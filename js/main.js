@@ -3,6 +3,7 @@ parsed_payload = JSON.parse(payload)
 
 adminCheck = false
 
+
 function getCookie(key) {
     var result = null;
     var cookie = document.cookie.split(';');
@@ -57,6 +58,7 @@ async function show_product_list() {
             }
         })
 }
+
 // checkout
 async function checkout() {
     const response = await fetch(`${BACK_END_URL}/product/cart`, {
