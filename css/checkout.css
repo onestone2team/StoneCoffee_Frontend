@@ -1,0 +1,85 @@
+main{
+  margin-top:50px;
+  margin-bottom:50px;
+}
+.basket {
+	overflow-y:scroll;
+	max-height: 550px;
+	width: 75%;
+  margin:auto;
+	background-color: rgb(236, 236, 236);
+}
+.inner3 {
+  width: 80%;
+  height: 100%;
+  writing-mode: horizontal-tb;
+  font-size: 14px;
+  padding-right: 5%;
+  padding-left: 5%;
+  align-items: center;
+}
+.img-box{
+  padding-left:20px;
+  width:40%;
+}
+.img-box img{
+  width: 35%;
+}
+.product{
+  border-spacing: 20px;
+  width:15%;
+  text-align: center;
+}
+.count{
+  border-spacing: 20px;
+  width:5%;
+  text-align: right;
+}
+.price{
+  border-spacing: 100px;
+  width:10%;
+  text-align: right;
+  padding-right:20px;
+}
+.total-box{
+  margin-bottom:10px;
+}
+.total-box table{
+  width:100%
+}
+.total-box .title{
+  text-align:left;
+  padding-left:20px;
+  width:75%;
+}
+.total-box .content{
+  text-align: right;
+  width:25%;
+  padding-right:20px;
+}
+.input-boxes{
+  width:80%; 
+  margin:auto;
+}
+.input-boxes input{
+  width:100%;
+  height:30px;
+}
+.input-boxes h6{
+  font-size: 14px;
+  margin-bottom:15px;
+}
+.input-boxes div{
+  width:100%;
+}
+.order-box{
+  width:80%;
+  margin:30px auto;
+  display:flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.checkout{
+  background-color: white;
+  border:solid black 1px;
+}

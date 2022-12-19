@@ -1,0 +1,191 @@
+@import url(//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css);
+
+.detailBox {
+    width:100%;
+    border-bottom: 1px solid rgb(51, 4, 4);
+}
+.titleBox {
+    background-color: rgb(194, 194, 172);
+    padding:2%;
+}
+.titleBox table{
+    width:100%;
+}
+.comment-profileimage{
+    width:10%;
+    text-align: left;
+}
+.comment-profileimage img{
+    border-radius: 50%;
+    width:50px;
+    height:50px;
+}
+.comment-profilename{
+    width:30%;
+    text-align: left;
+}
+.comment-profilename label{
+  color:rgb(0, 0, 0);
+  margin-left:1%;
+  font-size: large;
+}
+.taste-grade{
+    width:60%;
+    text-align: right;
+}
+.taste-grade img{
+    width:30px;
+    height:30px;
+}
+/* 댓글 */
+.commentBox {
+    padding:1%;
+    border-top:1px solid rgb(51, 4, 4);
+    background-color: rgb(194, 194, 172);
+}
+.commentBox table{
+    width:100%;
+}
+.comment-image{
+    width:40%;
+    background-color: rgb(255, 255, 255);
+}
+.comment-image img{
+    width:100%;
+}
+.comment-text{
+    width:60%;
+    height:80%;
+}
+.comment-text p{
+    margin:2%;
+    /* overflow-y: scroll; */
+    
+}
+/* 커멘트 기타 */
+.comment-info-Box{
+    height:10px;
+}
+.comment-date{
+    width:40%;
+    padding-left:1.5%;
+    text-align: left;
+    vertical-align: bottom;
+}    
+.like-button{
+    width:5%; 
+    text-align: center;
+    vertical-align: bottom;
+}
+.like-button button{
+    border:none;
+    background:none;
+    width:100%;
+}
+.like-button button i{
+    font-size: 180%;
+}
+.like-count{
+    width:25%;
+    text-align: right; 
+    vertical-align: bottom;
+}
+/* 대댓글 보기*/
+.nestedcommentBox {
+    background-color: rgb(194, 194, 172);
+    padding:2% ;
+    display:flex;
+    flex-direction: column;
+    overflow-y: scroll;
+}
+.nestedcommentBox table{
+    width:100%;
+}
+.nestedcommentBox .first-column{
+    width:10%;
+}
+.first-column img{
+    border-radius:50%;
+    width:50px;
+    height: 50px;
+}
+.nestedcommentBox .second-column{
+    width:60%;
+    text-align:left;
+}
+.nestedcommentBox .profilename{
+    font-weight: bold;
+    font-size: medium;
+}
+.nestedcommentBox .comment{
+    font-size: medium;
+}
+.nestedcommentBox .third-column{
+    width:13%;
+    text-align:right
+}
+/* 대댓글 수정 */
+.nested-edit{
+    display: none;
+    width:100%;
+    margin-top:2%;
+}
+.nested-edit-text{
+    width:90%;
+}
+.nested-edit-text textarea{
+    width:100%; 
+    border:none; 
+    border-radius:12px; 
+    resize: none;
+}
+.nested-edit-btn{
+    width:10%; 
+    text-align: right;
+}
+.nested-edit-btn button{
+    border:none; 
+    border-radius:10%; 
+    height:12%px; 
+    font-size: 14px; 
+    background-color: rgb(62, 15, 15); 
+    color:beige;
+}
+/* 대댓글 작성 */
+.new-nestedcommentBox{
+    padding:1% 2% ;
+    /* position:fixed;
+    bottom:0; */
+    width:100%;
+    background-color:rgb(194, 194, 172)
+}
+.nested-create{
+    margin: auto;
+    width:100%;
+    margin-top:1%;
+}
+.nested-create-text{
+    width:90%;
+}
+.nested-create-text textarea{
+    width:100%; border:none; border-radius:12px; resize: none;
+}
+.nested-create-btn{
+    width:10%; text-align: center;
+}
+.nested-create-btn button{
+    border:none; border-radius:10%; height:12%; background-color: rgb(62, 15, 15); color:aliceblue
+}
+#edit_nested:hover{
+    cursor: pointer;
+}
+#del_nested:hover{
+    cursor: pointer;
+}
+/* js에 있음 */
+#coffeebean_img{
+    margin-right:-1px;
+}
+#coffeebean_img_{
+    margin-right:-1px;
+}

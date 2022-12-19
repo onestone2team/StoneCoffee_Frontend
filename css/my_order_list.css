@@ -1,0 +1,45 @@
+input,
+button,
+.basket-module,
+.basket-labels,
+.item,
+.price,
+.quantity,
+.order_status,
+.subtotal,
+.basket-product,
+.product-image,
+.product-details {
+	float: left;
+}
+
+.item {
+	width: 45%;
+}
+
+.price {
+	width: 15%;
+}
+
+.quantity {
+	width: 10%;
+}
+
+.order_status{
+	width: 15%;
+}
+
+.subtotal {
+	width: 10%;
+	margin-right: 30px;
+}
+.basket{
+	width: 90%;
+	margin: 50px;
+	min-height: 400px;
+}
+.subtotal-value::after,
+.total-value::after,
+.promo-value::after {
+	content: '원';
+}

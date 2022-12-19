@@ -1,0 +1,170 @@
+/* 모달 */
+.modal-overlay {
+    width: 100%;
+    height: 500px;
+    text-align: center;
+    display: none;
+    position: absolute;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+#modal .modal-window {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 500px;
+    height: 300px;
+    text-align: center;
+    
+    background: rgb(31, 18, 2);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    backdrop-filter: blur(13.5px);
+    -webkit-backdrop-filter: blur(13.5px);
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+
+    transform: translateX(-50%) translateY(0%);
+}
+
+#modal .close-area {
+    position: fixed;
+    right: 2px;
+    top: 7px;
+    padding-right: 10px;
+    cursor: pointer;
+    color: white;
+}
+/* 본문 */
+.title {
+    text-align: center;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    color: rgb(0, 0, 0);
+}
+.title h3 {
+    display: inline;
+    /* position:fixed; top:30px; left:40px; */
+}
+.profile-content {
+    background-color: rgba(136, 87, 4, 0.749);
+    border-radius: 20px;
+    padding-bottom: 80px;
+    margin:auto;
+    margin-bottom:70px;
+    width:80%;
+}
+.profile-content form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+/* 사진 */
+.profile-image {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 50px;
+    margin-bottom: 10px;
+}
+.profile-image p {
+    margin-top: 10px;
+    font-size: 20px;
+}
+.profile-image p i {
+    position: relative;
+    bottom: 55px;
+    font-size: 20px;
+}
+.profile-image button {
+    border: none;
+}
+.avatar {
+    vertical-align: middle;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+}
+/* 입력란 */
+.input-boxes {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 50%;
+}
+.input-boxes .input-group-text {
+    text-shadow: none;
+}
+.input-boxes input{
+    border:0;
+}
+.profile-content span{
+    display:inline-block;
+   width:120px;
+   color:rgb(30, 14, 14);
+   font-weight:bold;
+   font-size: 13px;
+}
+/* 비밀번호변경 페이지 진입 버튼 */
+.profile-content form button {
+    font-size: 10px;
+    background: transparent;
+}
+.profile-content .button-profile-edit{
+    margin-top:40px;
+    
+}
+.profile-content form .btn{
+    background-color: rgb(30, 14, 14);
+    border: none;
+    border-radius: 5rem;
+    width: 80px;
+    height: 30px;
+    color:beige
+}
+.content-modal {
+    margin: auto;
+}
+.content-modal h5 {
+    text-align: center;
+    font-weight: bold;
+    color: rgb(255, 255, 253);
+    margin-top:15px;
+}
+.pw-input-form{
+    margin-top: 30px;
+}
+.pw-input-form span{
+    display:inline-block;
+   width:120px;
+   color:rgb(255, 255, 255);
+   font-size: 13px;
+}
+
+.content-modal .input-group {
+    width: 100%;
+}
+
+/* 버튼 */
+.content-modal .button-modal {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+.content-modal .button-modal button {
+    background-color: rgb(19, 4, 4);
+    border: none;
+    font-size: 11px;
+    border-radius: 5rem;
+    width: 80px;
+    height: 30px;
+    margin-top:20px;
+    color:beige
+}
+.content-modal .button-modal .button1 {
+    margin-right: 5px;
+    margin-top:20px;
+}
+
