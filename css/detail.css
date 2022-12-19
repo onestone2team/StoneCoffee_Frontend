@@ -124,26 +124,12 @@
     bottom: 80px;
 }
 #image_preview{
-<<<<<<< HEAD
-    /* position: relative; */
-    
-    width: 550px;
-    /* left: 330px; */
-}
-.grade{
-    /* position: relative; */
-    
-    width: 200px;
-    /* left: 880px;
-    bottom: 180px; */
-=======
     position: relative;
     width: auto;
 }
 .grade{
     position: relative;
     width: 200px;
->>>>>>> main
 }
 .image img{
     width: 50%;
