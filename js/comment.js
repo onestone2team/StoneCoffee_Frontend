@@ -38,7 +38,7 @@ async function CommentDetail(num) {
 
     if (!parsed_payload) {
         alert("권한이 없습니다. 로그인 해주세요")
-        location.replace("../templates/main.html")
+        location.replace("../templates/index.html")
     }
 
     const comment_detail = await fetch(`${BACK_END_URL}/comment/edit/?comment_id=${comment_id}`, {
@@ -74,12 +74,6 @@ async function CommentDetail(num) {
     for (var i = 0; i < 5-comment_detail_json.point; i++) {
         point.innerHTML += "<img id='coffeebean_img_' src='../img/comment/coffeebean-outline.png'>";
     }
-
-    
-        
-    // 좋아요 색깔 들어가는거 해야함
-    // 대댓글에 유저 프로필이미지 필요함
-    // 대댓글 blank=False 해야함
 
     nested_comment_frame = document.getElementById('nestedcommentList')
     while ( nested_comment_frame.hasChildNodes() ) {
@@ -200,5 +194,7 @@ async function del_nested(comment_id) {
     })
     const target = document.querySelector(".nestedcomment");
     target.remove();
+    
+    console.log(response)
 }
 

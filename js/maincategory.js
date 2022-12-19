@@ -1,4 +1,5 @@
 window.addEventListener('load', function() {
+    $("#headers").load("header.html");
     show_product_list()
 });
 const urlparams = new URLSearchParams(window.location.search);

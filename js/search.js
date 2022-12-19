@@ -1,4 +1,5 @@
 window.addEventListener('load', function() {
+    $("#headers").load("header.html");
     show_product_list()
 });
 const urlparams = new URLSearchParams(window.location.search);
@@ -25,14 +26,14 @@ async function show_product_list() {
             product.className = "product-layout"
             product.className = "product-layout"
             product.innerHTML = `<li>
-            <figure>
-              <a id="img" class="aa-product-img" href="product-detail.html?product_id=${data["data"][i]["id"]}/"><img class="product-image" src="${BACK_END_URL}${data["data"][i]["image"]}" alt="${data["data"][i]["id"]}"></a>
-                <figcaption>
-                    <h4 class="aa-product-title">${data["data"][i]["product_name"]}</h4>
-                    <span class="aa-product-price">${data["data"][i]["price"]}원</span>
-                </figcaption>
-            </figure>                        
-          </li>`
+                                    <figure>
+                                    <a id="img" class="aa-product-img" href="product-detail.html?product_id=${data["data"][i]["id"]}/"><img class="product-image" src="${BACK_END_URL}${data["data"][i]["image"]}" alt="${data["data"][i]["id"]}"></a>
+                                        <figcaption>
+                                            <h4 class="aa-product-title">${data["data"][i]["product_name"]}</h4>
+                                            <span class="aa-product-price">${data["data"][i]["price"]}원</span>
+                                        </figcaption>
+                                    </figure>
+                                </li>`
             products.appendChild(product)
             total_page = data["page"]["total_page"]
         }

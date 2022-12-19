@@ -10,19 +10,17 @@ main{
 	background-color: rgb(236, 236, 236);
 }
 .inner3 {
-    width: 80%;
-    height: 100%;
-    writing-mode: horizontal-tb;
-    /* background-color: rgb(222, 219, 42); */
-    font-size: 14px;
-    padding-right: 5%;
-    padding-left: 5%;
-    align-items: center;
+  width: 80%;
+  height: 100%;
+  writing-mode: horizontal-tb;
+  font-size: 14px;
+  padding-right: 5%;
+  padding-left: 5%;
+  align-items: center;
 }
 .img-box{
   padding-left:20px;
   width:40%;
-  /* background-color: azure; */
 }
 .img-box img{
   width: 35%;
@@ -31,20 +29,33 @@ main{
   border-spacing: 20px;
   width:15%;
   text-align: center;
-  /* background-color: aquamarine; */
 }
 .count{
   border-spacing: 20px;
   width:5%;
   text-align: right;
-  /* background-color: rgb(127, 131, 255); */
 }
 .price{
   border-spacing: 100px;
   width:10%;
   text-align: right;
   padding-right:20px;
-  /* background-color: rgb(255, 127, 232); */
+}
+.total-box{
+  margin-bottom:10px;
+}
+.total-box table{
+  width:100%
+}
+.total-box .title{
+  text-align:left;
+  padding-left:20px;
+  width:75%;
+}
+.total-box .content{
+  text-align: right;
+  width:25%;
+  padding-right:20px;
 }
 .input-boxes{
   width:80%; 
@@ -63,7 +74,6 @@ main{
 }
 .order-box{
   width:80%;
-  /* height: 100px; */
   margin:30px auto;
   display:flex;
   flex-direction: row;

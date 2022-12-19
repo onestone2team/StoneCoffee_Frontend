@@ -1,4 +1,5 @@
 fetch(` `)
+fetch(`../index.html`)
     .then(response => {
         return response.text()
     })

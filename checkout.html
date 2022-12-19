@@ -6,60 +6,71 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Stone Coffee| 결제페이지</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <link href="/css/bootstrap.css" rel="stylesheet">
   <link id="switcher" href="/css/default-theme.css" rel="stylesheet">
   <link href="/css/sequence-theme.modern-slide-in.css" rel="stylesheet" media="all">
   <link href="/css/style.css" rel="stylesheet">
+  <link href="/css/header.css" rel="stylesheet">
   <link href="css/checkout.css" type="text/css" rel="stylesheet">
 </head>
 
 <body>
-  <header id="aa-header">
-  </header>
-  <section id="menu">
-  </section>
+  <header id="headers"></header>
   <main>
     <div class="basket" id="style-4">
       <div id="append-product">
         <hr style="border:0;">
-        <!-- <div>
-          <div id="cart_id" placeholder="${element.id}"></div>
-          <table>
-            <tr class="inner3">
-              <td class="img-box"><img src="../img/comment/1212.jpg"></td>
-              <td class="product" id="product">으아아아아커피</td>
-              <td class="count" id="count">4개</td>
-              <td class="price" id="price">100원</td>
-            </tr>
-          </table>
-        </div> -->
       </div>
-      <div class="input-boxes" >
+      <!-- 총계 박스 -->
+      <div class="total-box">
+        <table>
+          <tr class="cal-box">
+            <td class="title">총 상품 금액</td>
+            <td class="content" id="products-price"></td>
+          </tr>
+          <tr class="cal-box">
+            <td class="title">배송비</td>
+            <td class="content" id="delivery-price">0원</td>
+          </tr>
+          <tr class="cal-box">
+            <td class="title">최종 결제 금액</td>
+            <td class="content" id="final-total-price">40000원</td>
+          </tr>
+        </table>
+      </div>
+
+      <!-- <div class="input-boxes" >
         <div>
           <h6 class="address">주소</h6>
           <input type="text" class="addresstext" id="user_address" placeholder="내용을 입력해 주세요.">
         </div>
         <div>
-          <h6 class="callnumber">전화번호</h6>
-          <input type='tel' class='phonetext' id="user_phone" maxLength='13' placeholder='-없이 입력'>
+            <div class="input-boxes">
+                <div>
+                    <h6 class="address">주소</h6>
+                    <input type="text" class="addresstext" id="user_address" placeholder="내용을 입력해 주세요.">
+                </div>
+                <div>
+                    <h6 class="callnumber">전화번호</h6>
+                    <input type='tel' class='phonetext' id="user_phone" maxLength='13' placeholder='-없이 입력'>
+                </div>
+                <div>
+                    <h6 class="Request">배달시 요청사항</h6>
+                    <input type="text" class="Request-text" id="receiver" placeholder="내용을 입력해 주세요.">
+                </div>
+            </div>
+            <div class="order-box">
+                <div class="consent"><input type="checkbox" value="" />주문 상품에 동의합니다.</div>
+                <button class="checkout" type="button" onclick="fillin()">주문하기</button>
+            </div>
         </div>
-        <div>
-          <h6 class="Request">배달시 요청사항</h6>
-          <input type="text" class="Request-text" id="receiver" placeholder="내용을 입력해 주세요.">
-        </div>
-      </div>
-      <div class="order-box">
-        <div class="consent"><input type="checkbox" value=""/>주문 상품에 동의합니다.</div>
-        <button class="checkout" type="button" onclick="fillin()" >주문하기</button>
-      </div>
-    </div>
-  </main>
-  <section id="aa-client-brand">
-  </section>
-  <footer id="aa-footer">
-  </footer>
+    </main>
+    <section id="aa-client-brand">
+    </section>
+    <footer id="aa-footer">
+    </footer>
 </body>
-<script src="/js/header.js"></script>
 <script src="/js/footer.js"></script>
 <script src="/js/all_data.js"></script>
 <script src="/js/checkout.js"></script>
