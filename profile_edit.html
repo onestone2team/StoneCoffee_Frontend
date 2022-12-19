@@ -10,7 +10,6 @@
     <link id="switcher" href="/css/default-theme.css" rel="stylesheet">
     <link href="/css/sequence-theme.modern-slide-in.css" rel="stylesheet" media="all">
     <link href="/css/style.css" rel="stylesheet">
-    <link href="/css/header.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="/css/profile_edit.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css">
 </head>
@@ -19,47 +18,76 @@
     <header id="headers"></header>
     <header id="menu-bar"></header>
 
-    <div class="title">
-        <!-- <h3>Change Your Profile Here!</h3> -->
-    </div>
     <div class="profile-content">
         <form class="profile-input-form">
-            <div class="profile-image">
-                <p id="email"><img id="preview"
-                        src="https://as2.ftcdn.net/v2/jpg/03/49/49/79/1000_F_349497933_Ly4im8BDmHLaLzgyKg2f2yZOvJjBtlw5.jpg"
-                        alt="Avatar" class="avatar"><button type="button" id="btn-modal"><i class="bi bi-gear"></i></button>
-                <p id="profile_email">djererdj@djdj.com</p>
-                </p>
-            </div>
-            <div class-"file-button">
-                <div class="input-group mb-3" style="font-size:11px; position:relative; left:130px; top:-80px;">
-                    <input type="file" name="file" id="file" placeholder="file" onchange="readURL(this);" />
-                </div>
-            </div>
-            <div class="input-boxes">
-                <div class="input-group input-group-sm mb-3">
-                    <span class="input-group-text" id="inputGroup-sizing-sm">프로필 이름</span>
-                    <input type="text" class="form-control" aria-label="Sizing example input" id="profilename"
-                        name="profilename" aria-describedby="inputGroup-sizing-sm" value="">
-                </div>
-                <div class="input-group input-group-sm mb-3">
-                    <span class="input-group-text" id="inputGroup-sizing-sm">주소</span>
-                    <input type="text" class="form-control" aria-label="Sizing example input" id="address"
-                        name="address" aria-describedby="inputGroup-sizing-sm" value="">
-                </div>
-                <div class="input-group input-group-sm mb-3">
-                    <span class="input-group-text" id="inputGroup-sizing-sm">핸드폰번호</span>
-                    <input type="text" class="form-control" aria-label="Sizing example input" id="phone" name="phone"
-                        aria-describedby="inputGroup-sizing-sm" value="">
-                </div>
-            </div>
-            <div class="button-profile-edit">
-                <button type="button" class="btn btn-dark" onclick="update_profile()">수정하기 <i
-                        class="bi bi-cup-hot-fill"></i></button>
-                <button type="button" class="btn btn-dark" onclick="cancel()">돌아가기 <i
-                        class="bi bi-cup-hot"></i></button>
-            </div>
-        </form>
+            <table class="profile-table" style=" ">
+                <tr>
+                    <td rowspan="4" class="profile-image">
+                        <p><img id="preview"
+                                src="https://as2.ftcdn.net/v2/jpg/03/49/49/79/1000_F_349497933_Ly4im8BDmHLaLzgyKg2f2yZOvJjBtlw5.jpg"
+                                alt="Avatar" class="avatar"></p>
+                    </td>
+                    <td class="pw-change-btn"><button type="button" id="btn-modal"><i class="bi bi-gear"></i></button>
+                    </td>
+                </tr>
+                <tr class="profile-email-tr">
+                    <td rowspan="2" class="profile-email" style="">
+                        <p id="profile_email">djererdj@djdj.com</p>
+                    </td>
+                </tr>
+                <tr>
+
+                </tr>
+                <tr class="profile-file-tr">
+                    <td class="profile-file">
+                        <div style="position:relative; left:55px; top:-40px;">
+                            <input type="file" name="file" id="file" placeholder="file" onchange="readURL(this);" />
+                        </div>
+    </div>
+    </td>
+    </tr>
+    </table>
+    <div class="input-boxes">
+        <table>
+            <tr>
+                <td><span class="input-group-text" id="inputGroup-sizing-sm">프로필 이름</span></td>
+                <td><input type="text" id="profilename" name="profilename" value=""></td>
+            </tr>
+            <tr>
+                <td><span class="input-group-text" id="inputGroup-sizing-sm">주소</span></td>
+                <td>
+                    <div style="display:inline-block">
+                        <input type="text" id="postcode" placeholder="우편번호" value="">
+                        <input type="button" onclick="execDaumPostcode()" value="우편번호 찾기"><br>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td><input type="text" id="address" placeholder="주소" value=""></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>
+                    <div>
+                        <input type="text" id="detailAddress" placeholder="상세주소" value="">
+                        <input type="text" id="extraAddress" placeholder="참고항목" value="">
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td><span class="input-group-text" id="inputGroup-sizing-sm">핸드폰번호</span></td>
+                <td><input type="text" id="phone" name="phone" placeholder="핸드폰번호" value=""></td>
+            </tr>
+        </table>
+
+    </div>
+    <div class="button-profile-edit">
+        <button type="button" class="btn btn-dark" onclick="update_profile()">수정하기 <i
+                class="bi bi-cup-hot-fill"></i></button>
+        <button type="button" class="btn btn-dark" onclick="cancel()">돌아가기 <i class="bi bi-cup-hot"></i></button>
+    </div>
+    </form>
     </div>
     <!-- 모달 -->
     <div id="modal" class="modal-overlay">
@@ -90,17 +118,17 @@
                                 class="bi bi-lock-fill"></i></button>
                         <button type="button" class="btn btn-dark gobackbtn">돌아가기 <i class="bi bi-unlock"></i></button>
                     </div>
-                </form>
+                    </form>
+                </div>
             </div>
-        </div>
-    
+
         </div>
     </div>
     <!-- 모달끝 -->
 
     <footer id="aa-footer">
     </footer>
-
+    <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="/js/footer.js"></script>
     <script src="/js/all_data.js"></script>

@@ -1,11 +1,17 @@
-@import url(//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css);
 
+.wrap{
+    width:80%; margin:auto; margin-top: 5%; margin-bottom:5%; 
+    border:solid rgb(62,36,12) 5px;
+    border-radius:10px; 
+    background-color: rgb(194, 194, 172);
+    
+}
 .detailBox {
     width:100%;
     border-bottom: 1px solid rgb(51, 4, 4);
 }
 .titleBox {
-    background-color: rgb(194, 194, 172);
+    /* background-color: rgb(194, 194, 172); */
     padding:2%;
 }
 .titleBox table{
@@ -41,7 +47,8 @@
 .commentBox {
     padding:1%;
     border-top:1px solid rgb(51, 4, 4);
-    background-color: rgb(194, 194, 172);
+    /* background-color: rgb(194, 194, 172); */
+    font-size: medium;
 }
 .commentBox table{
     width:100%;
@@ -71,6 +78,7 @@
     padding-left:1.5%;
     text-align: left;
     vertical-align: bottom;
+    font-size: medium;
 }    
 .like-button{
     width:5%; 
@@ -83,7 +91,7 @@
     width:100%;
 }
 .like-button button i{
-    font-size: 180%;
+    font-size: 100%;
 }
 .like-count{
     width:25%;
@@ -92,14 +100,17 @@
 }
 /* 대댓글 보기*/
 .nestedcommentBox {
-    background-color: rgb(194, 194, 172);
+    /* background-color: rgb(194, 194, 172); */
     padding:2% ;
     display:flex;
     flex-direction: column;
-    overflow-y: scroll;
+    border-bottom: 1px solid rgb(51, 4, 4);
+    overflow-y: scroll;   
 }
 .nestedcommentBox table{
     width:100%;
+    max-height: 50px;
+    /* overflow-y:scroll; */
 }
 .nestedcommentBox .first-column{
     width:10%;
@@ -118,11 +129,12 @@
     font-size: medium;
 }
 .nestedcommentBox .comment{
-    font-size: medium;
+    font-size: small;
 }
 .nestedcommentBox .third-column{
     width:13%;
-    text-align:right
+    text-align:right;
+    font-size: small;
 }
 /* 대댓글 수정 */
 .nested-edit{
@@ -157,7 +169,7 @@
     /* position:fixed;
     bottom:0; */
     width:100%;
-    background-color:rgb(194, 194, 172)
+    /* background-color:rgb(194, 194, 172) */
 }
 .nested-create{
     margin: auto;
@@ -174,7 +186,11 @@
     width:10%; text-align: center;
 }
 .nested-create-btn button{
-    border:none; border-radius:10%; height:12%; background-color: rgb(62, 15, 15); color:aliceblue
+    border:none; 
+    border-radius:10%; 
+    height:12%; 
+    background-color: rgb(62, 15, 15); 
+    color:aliceblue;
 }
 #edit_nested:hover{
     cursor: pointer;
