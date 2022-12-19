@@ -59,9 +59,10 @@ async function nestedcommentlist() {
 
     })
 }
+
 window.onload=
 async function CommentDetailPage() {
-
+    $("#headers").load("header.html");
     // 임포트를 해보자!!
     nestedcommentlist()
     const payload = localStorage.getItem("payload")

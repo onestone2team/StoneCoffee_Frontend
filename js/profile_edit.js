@@ -61,10 +61,9 @@ window.onload =
         })
 
         const profile_json = await profile.json()
-
         const profile_image = document.getElementById("preview")
         profile_image.setAttribute("src", `${BACK_END_URL}${profile_json.profile}`)
-        const profile_email = document.getElementById("profile_email") //이메일 받아와야함
+        const profile_email = document.getElementById("profile_email")
         profile_email.innerText = profile_json.email
         const profile_name = document.getElementById("profilename")
         profile_name.setAttribute("value", profile_json.profilename)
@@ -80,15 +79,19 @@ async function update_profile() {
 
     const profile_name = document.getElementById("profilename").value;
     const profile_phone = document.getElementById("phone").value;
-    const profile_address = document.getElementById("address").value;
+
+    const postcode = document.getElementById("postcode").value;
+    const address = document.getElementById("address").value;
+    const detailAddress = document.getElementById("detailAddress").value;
+    const extraAddress = document.getElementById("extraAddress").value;
+    const profile_address = '(' + postcode + ')' + ' ' + address + ' ' + detailAddress + ' ' + extraAddress
     const profile_image = document.querySelector("input[type='file']");
 
-
     let formData = new FormData();
-
     formData.append("profilename", profile_name);
     formData.append("phone", profile_phone);
     formData.append("address", profile_address);
+
     if (profile_image.value != "") {
         formData.append('profile', profile_image.files[0]);
     }
@@ -100,14 +103,12 @@ async function update_profile() {
         method: "PUT",
         body: formData,
     })
-    
+
     new_profile_json = await response.json()
 
     if (response.status == 200) {
         alert(new_profile_json.message);
-    } else { alert("수정이 정상적으로 되지 않았습니다. 다시 시도해주세요.") }
-
-    // location.reload();
+    } else { alert(new_profile_json.message) }
 
 }
 
@@ -139,4 +140,45 @@ function cancel() {
 
     location.replace("../index.html")
 
+}
+
+// ================주소 입력==================
+function execDaumPostcode() {
+    new daum.Postcode({
+        oncomplete: function (data) {
+
+            var addr = '';
+            var extraAddr = '';
+
+            if (data.userSelectedType === 'R') {
+                addr = data.roadAddress;
+            } else {
+                addr = data.jibunAddress;
+            }
+
+            if (data.userSelectedType === 'R') {
+
+                if (data.bname !== '' && /[동|로|가]$/g.test(data.bname)) {
+                    extraAddr += data.bname;
+                }
+
+                if (data.buildingName !== '' && data.apartment === 'Y') {
+                    extraAddr += (extraAddr !== '' ? ', ' + data.buildingName : data.buildingName);
+                }
+
+                if (extraAddr !== '') {
+                    extraAddr = ' (' + extraAddr + ')';
+                }
+
+                document.getElementById("extraAddress").value = extraAddr;
+
+            } else {
+                document.getElementById("extraAddress").value = '';
+            }
+
+            document.getElementById('postcode').value = data.zonecode;
+            document.getElementById("address").value = addr;
+            document.getElementById("detailAddress").focus();
+        }
+    }).open();
 }

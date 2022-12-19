@@ -524,19 +524,23 @@ button,
 }
 
 .item {
-	width: 45%;
+	width: 20%;
+	text-align: center;
 }
 
 .price {
-	width: 15%;
+	width: 40%;
+	text-align: center;
 }
 
 .quantity {
-	width: 10%;
+	width: 20%;
+	text-align: center;
 }
 
 .order_status{
-	width: 15%;
+	width: 20%;
+	text-align: center;
 }
 
 .subtotal {
@@ -545,12 +549,42 @@ button,
 }
 .basket{
 	width: 90%;
-	margin: 50px;
+	margin: 3px;
+	height: 800px;
 	min-height: 400px;
+	margin-bottom: 50px;
 }
 .subtotal-value::after,
 .total-value::after,
 .promo-value::after {
 	content: '원';
+}
+
+.basket-labels{
+	width: 90%;
+	background-color: #ccc;
+	font-size: calc(0.7vw + 5px);
+}
+
+table {
+	width: 100%;
+	font-size: calc(0.7vw + 5px);
+	text-align: center;
+}
+
+table .product-image{
+	width: 100%;
+}
+
+table .item-quantity{
+	font-size: calc(0.7vw + 5px);
+}
+
+table .price {
+	width: auto;
+}
+
+table .quantity {
+	width: auto;
 }
 
