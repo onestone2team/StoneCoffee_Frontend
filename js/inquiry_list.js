@@ -5,21 +5,6 @@ window.onload = function () {
     inquirylist()
 }
 
-// $(document).on('click','.remove button',function(){
-//     if (confirm("문의내역을 삭제 하시겠습니까?") == true){
-//         alert("문의내역을 삭제하였습니다");
-//         removeItem(this)
-//     } else {
-//         alert("취소되었습니다");
-//     }
-// });
-
-// function removeItem(removeButton) {
-//     var productRow = $(removeButton).parent().parent();
-//     productRow.slideUp(fadeTime, function () {
-//         productRow.remove();
-//     });
-// }
 
 async function inquirylist() {
     const response = await fetch(`${BACK_END_URL}/mypage/inquiry/`, {
@@ -30,23 +15,20 @@ async function inquirylist() {
         method: "GET"
     })
     const response_json = await response.json()
-    var inquiry_frame = document.getElementById('append_inquiry')
+    var inquiry_frame = document.getElementById('tbody')
     response_json.forEach(element => {
-        const inquiry = document.createElement('div')
-        inquiry.innerHTML = `<div class="basket-product">
-                                <div class="item">
-                                    <div class="product-details">
-                                        <h3 class="item-quantity" id="inquiry"><strong><span>${element.title}</span></strong></h3>
-                                    </div>
-                                </div>
-                                <div class="price">${element.content}</div>
-                                <div class="quantity"></div>
-                                <div class="subtotal" id="inquiry-subtotal">${element.created_at}</div>
-                            </div>
-                            <span id="not${element.id}">미확인</span><span id="see${element.id}">답변: ${element.answer}</span>
-                            <hr>`
-        inquiry_frame.appendChild(inquiry)
-        console.log(element)
+        const inquiry = document.createElement('tr')
+        inquiry.innerHTML = `<tbody class="tbody">
+                                <tr>
+                                    <td>${element.id}</td>
+                                    <td><button1 onclick="answer(${element.id})" >${element.title}</button1 ></td>
+                                    <td>${element.category}</td>
+                                    <td>${element.created_at}</td>
+                                    <td id="not${element.id}">미확인</td><td id="see${element.id}">확인</td>
+                                </tr>
+                                
+                            </tbody>`
+        inquiry_frame.prepend(inquiry)
         if (element.status == true) {
             document.getElementById(`not${element.id}`).style.display = "none"
         } else if (element.status == false || element.answer == null) {
@@ -54,3 +36,46 @@ async function inquirylist() {
         }
     })
 }
+async function answer(id){
+    const response = await fetch(`${BACK_END_URL}/mypage/inquiry/`, {
+        headers: {
+            "content-type": "application/json",
+            "Authorization": "Bearer " + localStorage.getItem("access"),
+        },
+        method: "GET"
+    })
+    .then(response => {
+        return response.json();
+    })
+    .then(data => {
+
+    var content_frame = document.getElementById('content')
+    $("#content").empty();
+
+    for (i = 0; i < data.length; i ++) {
+        if (data[i]['id'] == id) {
+            const content = document.createElement('content')
+            content.innerHTML = `${data[i].content}`
+            content_frame.appendChild(content)
+        }
+    }
+
+
+    var answer_frame = document.getElementById('answer')
+    $("#answer").empty();
+
+    for (i = 0; i < data.length; i++) {
+        if (data[i]['id'] == id) {
+            if(data[i]["answer"] == null) {
+                const answer = document.createElement('answer')
+                answer.innerHTML = `아직 답변이 등록되지 않았습니다.`
+                answer_frame.appendChild(answer)
+ 
+            } else {
+                const answer = document.createElement('answer')
+                answer.innerHTML = `${data[i].answer}`
+                answer_frame.appendChild(answer)
+            }
+        }
+        }
+})}

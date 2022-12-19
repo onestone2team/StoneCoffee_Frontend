@@ -141,3 +141,139 @@ button,
 	}
 
 }
+button1{
+    cursor: pointer;
+}
+.table{
+    font-size :20px;
+    /* border-collapse: collapse; */
+    width: auto;
+    border: 1px solid gray;    
+    text-align: center;
+}
+
+.thead td {
+    background: #B2B2B2;
+	padding-left: 50px;
+	text-align: center;
+}
+td{
+    height: 40px;
+    border-bottom:1px solid black;
+	text-align: center;
+}
+tr td:nth-child(2){
+    width: 750px;
+}
+
+.left{
+    border: solid; 
+    width: 50%;
+    height: 100%;
+    float: left;
+    box-sizing: border-box;
+    
+
+}
+.right{
+    border: solid; 
+    width: 50%;
+    height: 100%;
+    float: right;
+    box-sizing: border-box;
+
+}
+
+
+
+
+
+
+
+/* ********페이징******** */
+
+.page-nation li{ 
+
+    list-style: none;
+
+} 
+
+ 
+
+.page-wrap {
+
+    text-align:center;
+
+    font-size:0;
+
+ }
+
+.page-nation  {
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    margin-top:20px;
+
+}
+
+ 
+
+.page-nation a {
+
+    display:block;
+
+    margin:0 3px;
+
+    float:left;
+
+    border:1px solid #e6e6e6;
+
+    width:28px;
+
+    height:28px;
+
+    line-height:28px;
+
+    text-align:center;
+
+    background-color:#fff;
+
+    font-size:13px;
+
+    color:black;
+
+    text-decoration:none;
+
+    font-weight:bold;
+
+}
+
+.page-nation a:hover{
+
+    background-color:gray;
+
+    color:white;
+
+}
+img{
+	border: solid;
+	width: 150px;
+	height: 150px;
+	
+}
+.orderbox{
+	text-align: left;
+}
+.namebox{
+	border: solid black;
+	/* text-align: center; */
+	/* width: 200px;
+	padding: auto; */
+}
+.imgbox{
+	
+}
