@@ -1,6 +1,7 @@
 /* 본문 */
 .profile-content {
     background-color: rgb(194, 194, 172);
+    border:solid rgb(62,36,12) 5px;
     min-width: fit-content;
     border-radius: 20px;
     padding-top: 2%;
@@ -115,7 +116,7 @@
     flex-direction: column;
     justify-content: center;
 
-    background: rgb(31, 18, 2);
+    background: rgb(62,36,12);
     box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
     backdrop-filter: blur(13.5px);
     -webkit-backdrop-filter: blur(13.5px);
