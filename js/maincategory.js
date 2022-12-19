@@ -6,10 +6,11 @@ const category_id= urlparams.get('id')
 const titlename = document.getElementById("titlename")
 current_page = 1
 
+
 if (category_id==1){
     titlename.innerText= "모든 원두 커피"
 } else if (category_id==2){
-    titlename.innerText= "스톤커피 굿즈"
+    titlename.innerText= "스톤커피 굿즈"      
 } else if (category_id==3){
     titlename.innerText= "커피용품"
 } else if (category_id==4){
@@ -42,15 +43,28 @@ async function show_product_list() {
                     <h4 class="aa-product-title">${data["data"][i]["product_name"]}</h4>
                     <span class="aa-product-price">${data["data"][i]["price"]}원</span>
                 </figcaption>
-            </figure>                        
+            </figure>                  
           </li>`
             products.appendChild(product)
             total_page = data["page"]["total_page"]
         }
+        console.log(data)
+        var pagenums =document.getElementById("pagenums");
+        $("#pagenums").empty();
+        console.log(data["page"]["total_page"])
+        for(i=1; i<data["data"].length; i++){
+            const pagenum = document.createElement('span')
+            pagenum.innerHTML=`<span>${data["data"].length}</span>`
+
+            pagenums.appendChild(pagenum)
+        }
     })
+
+    
 }
 
 function pageNext1() {
+    console.log(current_page)
     if (current_page > 0 && current_page < total_page) {
         ++current_page
         show_product_list()
@@ -65,6 +79,7 @@ function pagePreview1() {
         show_product_list()
     }
 }
+
 async function cart() {
     const response = await fetch(`${BACK_END_URL}/product/${product_id}/cart/`, {
         headers: {
