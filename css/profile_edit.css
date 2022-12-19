@@ -80,6 +80,7 @@
     font-size:xx-small;
     background-color: rgb(179, 248, 171);
     border-radius: 5px;
+    color:black
 }
 
 .bi:hover .tooltip{
@@ -100,7 +101,6 @@
 
 .profile-content .button-profile-edit {
     margin-top: 5%;
-    /* background-color: chartreuse; */
     margin-bottom: 5%;
 }
 
