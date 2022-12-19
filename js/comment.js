@@ -151,7 +151,12 @@ async function create_nested() {
         })
     })
     nested_json = await response.json()
+
     console.log(nested_json)
+    if (response.status == 201 ||response.status == 200) {
+        alert('리뷰-댓글이 작성되었습니다.')
+    } 
+        location.reload()
 }
 
 function edit_nested(id) {

@@ -3,6 +3,7 @@ parsed_payload = JSON.parse(payload)
 
 adminCheck = false
 
+
 function getCookie(key) {
     var result = null;
     var cookie = document.cookie.split(';');
