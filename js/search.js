@@ -1,14 +1,14 @@
 window.addEventListener('load', function() {
     $("#headers").load("header.html");
-    show_product_list()
+    show_product_list(1)
 });
 const urlparams = new URLSearchParams(window.location.search);
 const searchtag= urlparams.get('search')
 const titlename = document.getElementById("titlename")
 titlename.innerText= `'${searchtag}' 검색 결과입니다.`
 current_page = 1
-async function show_product_list() {
-    const response = await fetch(`${BACK_END_URL}/product/search/?search=${searchtag}&page=${current_page}`, {
+async function show_product_list(num) {
+    const response = await fetch(`${BACK_END_URL}/product/search/?search=${searchtag}&page=${num}`, {
         headers: {
             'content-type': 'application/json'
         },
@@ -19,8 +19,8 @@ async function show_product_list() {
     })
     .then(data => {
         var products = document.getElementById("products");
+        maxnum = data["page"].total_page
         $("#products").empty();
-        console.log(data)
         for (i = 0; i < data["data"].length; i++) {
             const product = document.createElement('div')
             product.className = "product-layout"
@@ -40,16 +40,105 @@ async function show_product_list() {
     })
 }
 
-function pageNext1() {
-    if (current_page > 0 && current_page < total_page) {
-        ++current_page
-        show_product_list()
-    }
+// 페이지네이션  함수
+var now = 1
+var prev = 1
+var firstPage = 1
+var nextPage = firstPage + 6
+var maxnum = 23
+var minnum = 1
+const backButton = document.getElementById("prev");
+const nextButton = document.getElementById("next");
+backButton.style.display = "none";
+
+if (now == minnum) {
+    console.log(backButton)
+    backButton.style.display = "none";
+} else {
+    backButton.style.display = "inline";
 }
 
-function pagePreview1() {
-    if (current_page > 1) {
-        --current_page
-        show_product_list()
+$(".pagenation a").click(function (e) {
+    const addpagenum = document.getElementById("pagenumber")
+
+    e.preventDefault();
+    var $item = $(this);
+    var $id = $item.attr("id");
+    var selectedPage = $item.text();
+    selectedPage = parseInt(selectedPage)
+    if ($id == "next") selectedPage = now + 1;
+    if ($id == "prev") selectedPage = now - 1;
+    if ($id == "allprev") selectedPage = 1;
+    if ($id == "allnext") selectedPage = totalPage;
+
+    if (selectedPage < firstPage){
+        // $("#pagenumber").empty();
+        for (i=0;i<7;i++){
+            id = firstPage+i
+            console.log(id)
+            const pagenate = document.getElementById(id);
+            pagenate.innerText = nextPage + i + 1 -14
+            pagenate.id = nextPage + i + 1 -14
+            pagenate.style.display="inline"
+        }
+        firstPage -= 7
+        nextPage = firstPage + 6
+
+        prev = firstPage
+        now = selectedPage
+
+        const nowbutton = document.getElementById(now)
+        const prevbutton = document.getElementById(prev)
+
+        prevbutton.className = ""
+        nowbutton.className = "active"
+
+    } else if (selectedPage>nextPage){
+        
+        for (i=0;i<7;i++){
+            id = firstPage+i
+            console.log(nextPage + i + 1)
+            
+            const pagenate = document.getElementById(id);
+            pagenate.innerText = nextPage + i + 1
+            pagenate.id = nextPage + i + 1
+            if ((nextPage + i + 1) > maxnum) {
+                pagenate.style.display="none"
+            } 
+        }
+        firstPage += 7
+        nextPage = firstPage + 6
+
+        prev = firstPage+6
+        now = selectedPage
+
+        const nowbutton = document.getElementById(now)
+        const prevbutton = document.getElementById(prev)
+
+        prevbutton.className = ""
+        nowbutton.className = "active"
+
+    } else {
+        prev = now
+        now = selectedPage
+
+        const nowbutton = document.getElementById(now)
+        const prevbutton = document.getElementById(prev)
+
+        prevbutton.className = ""
+        nowbutton.className = "active"
     }
-}
+
+    //now 가 1 일떄 비활성화
+    if (now == minnum) {
+        backButton.style.display = "none";
+    } else {
+        backButton.style.display = "inline";
+    }
+    if (now == maxnum){
+        nextButton.style.display = "none";
+    } else {
+        nextButton.style.display = "inline";
+    }
+    show_product_list(now)
+});

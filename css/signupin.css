@@ -1,10 +1,4 @@
-*,
-*:before,
-*:after {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
+@import url('https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900&display=swap');
 
 body {
   font-family: "Open Sans", Helvetica, Arial, sans-serif;
@@ -19,13 +13,24 @@ button {
   font-family: "Open Sans", Helvetica, Arial, sans-serif;
 }
 
-.tip {
-  font-size: 20px;
-  margin: 40px auto 50px;
-  text-align: center;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
 }
 
-.cont {
+section {
+  position: relative;
+  min-height: 100vh;
+  background-color: #eee;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+section .container {
   overflow: hidden;
   position: relative;
   width: 900px;
@@ -35,28 +40,13 @@ button {
   padding-top: 40px;
 }
 
-
-.form {
-  position: relative;
-  width: 640px;
-  height: 100%;
-  transition: transform 1.2s ease-in-out;
-  padding: 50px 30px 0;
-}
-
-.sub-cont {
-  overflow: hidden;
+section .container .user {
   position: absolute;
-  left: 640px;
   top: 0;
-  width: 900px;
+  left: 0;
+  width: 100%;
   height: 100%;
-  padding-left: 260px;
-  background: #fff;
-  transition: transform 1.2s ease-in-out;
-}
-.cont.s--signup .sub-cont {
-  transform: translate3d(-640px, 0, 0);
+  display: flex;
 }
 
 button {
@@ -70,116 +60,44 @@ button {
   cursor: pointer;
 }
 
-.img {
-  overflow: hidden;
-  z-index: 2;
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 260px;
-  height: 100%;
-  padding-top: 360px;
-}
-.img:before {
-  content: "";
-  position: absolute;
-  right: 0;
-  top: 0;
-  width: 900px;
-  height: 100%;
-  background-image: url("../img/user/coffeebag.jpg");
-  background-position: 50% 50%;
-  background-size: cover;
-  transition: transform 1.2s ease-in-out;
-}
-.img:after {
-  content: "";
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.6);
-}
-.cont.s--signup .img:before {
-  transform: translate3d(640px, 0, 0);
-}
-.img__text {
-  z-index: 2;
-  position: absolute;
-  left: 0;
-  top: 50px;
-  width: 100%;
-  padding: 0 20px;
-  text-align: center;
-  color: #fff;
-  transition: transform 1.2s ease-in-out;
-}
-.img__text h2 {
-  margin-bottom: 10px;
-  font-weight: normal;
-}
-.img__text p {
-  font-size: 14px;
-  line-height: 1.5;
-}
-.cont.s--signup .img__text.m--up {
-  transform: translateX(520px);
-}
-.img__text.m--in {
-  transform: translateX(-520px);
-}
-.cont.s--signup .img__text.m--in {
-  transform: translateX(0);
-}
-.img__btn {
-  overflow: hidden;
-  z-index: 2;
+section .container .user .imgBx {
   position: relative;
-  width: 100px;
-  height: 36px;
-  margin: 0 auto;
-  background: transparent;
-  color: #fff;
-  text-transform: uppercase;
-  font-size: 15px;
-  cursor: pointer;
+  width: 50%;
+  height: 100%;
+  background: #ff0;
+  transition: 0.5s;
 }
-.img__btn:after {
-  content: "";
-  z-index: 2;
+
+section .container .user .imgBx img {
   position: absolute;
-  left: 0;
   top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
-  border: 2px solid #fff;
-  border-radius: 30px;
+  object-fit: cover;
 }
-.img__btn span {
-  position: absolute;
-  left: 0;
-  top: 0;
+
+section .container .user .formBx {
+  position: relative;
+  width: 50%;
+  height: 100%;
+  background: #fff;
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 100%;
-  height: 100%;
-  transition: transform 1.2s;
-}
-.img__btn span.m--in {
-  transform: translateY(-72px);
-}
-.cont.s--signup .img__btn span.m--in {
-  transform: translateY(0);
-}
-.cont.s--signup .img__btn span.m--up {
-  transform: translateY(72px);
+  padding: 40px;
+  transition: 0.5s;
 }
 
-h2 {
+section .container .user .formBx form h2 {
+  font-size: 15px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  text-align: center;
   width: 100%;
-  font-size: 26px;
+  margin-bottom: 10px;
+  color: #555;
   text-align: center;
 }
 
@@ -189,6 +107,7 @@ label {
   margin: 25px auto 0;
   text-align: center;
 }
+
 label span {
   font-size: 12px;
   color: #cfcfcf;
@@ -228,33 +147,77 @@ input {
   color: #455a81;
 }
 
-.sign-in {
-  transition-timing-function: ease-out;
-}
-.cont.s--signup .sign-in {
-  transition-timing-function: ease-in-out;
-  transition-duration: 1.2s;
-  transform: translate3d(640px, 0, 0);
+section .container .user .formBx form .signup {
+  font-size: 12px;
+  margin-top: 20px;
+  text-align: center;
 }
 
-.sign-up {
-  transform: translate3d(-900px, 0, 0);
-}
-.cont.s--signup .sign-up {
-  transform: translate3d(0, 0, 0);
+section .container .user .formBx form .signup a {
+  font-size: 12px;
+  font-weight: 200;
+  text-decoration: none;
+  color: rgb(66, 53, 37);
 }
 
-.icon-link {
-  position: absolute;
-  left: 5px;
-  bottom: 5px;
-  width: 32px;
+
+section .container .signupBx {
+  pointer-events: none;
 }
-.icon-link img {
-  width: 100%;
-  vertical-align: top;
+
+section .container.active .signupBx {
+  pointer-events: initial;
 }
-.icon-link--twitter {
-  left: auto;
-  right: 5px;
+
+section .container .signupBx .formBx {
+  left: 100%;
+}
+
+section .container.active .signupBx .formBx {
+  left: 0;
+}
+
+section .container .signupBx .imgBx {
+  left: -100%;
+}
+
+section .container.active .signupBx .imgBx {
+  left: 0%;
+}
+
+section .container .signinBx .formBx {
+  left: 0%;
+}
+
+section .container.active .signinBx .formBx {
+  left: 100%;
+}
+
+section .container .signinBx .imgBx {
+  left: 0%;
+}
+
+section .container.active .signinBx .imgBx {
+  left: -100%;
+}
+
+@media (max-width: 991px) {
+  section .container {
+    max-width: 400px;
+  }
+
+  section .container .imgBx {
+    display: none;
+  }
+
+  section .container .user .formBx {
+    width: 100%;
+  }
+}
+
+.error-message {
+  display: none;
+  color: red;
+  text-align: center;
+  text-transform: uppercase;
 }

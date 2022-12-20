@@ -8,6 +8,10 @@ window.onload = async function ProductDetail() {
     $("#headers").load("header.html");
     const payload = localStorage.getItem("payload")
     const parsed_payload = JSON.parse(payload)
+    if(!parsed_payload){
+        alert("권한이 없습니다. 로그인 해주세요")
+        location.replace("../index.html")
+    }
 
     const product = await fetch(`${BACK_END_URL}/product/detail/?product_id=${product_id} `, {
         headers: {
@@ -104,19 +108,36 @@ window.onload = async function ProductDetail() {
         const w_option2 =document.createElement('p')
         w_option2.innerHTML=`<div class="size">
                                 <h4>용량 선택</h4>
-                                <select size="1" id="weight" onchange="valeChange(this)">
-                                <option value="0">중량</option>
-                                <option value="300">300g</option>
-                                <option value="500">500g</option>
+                                <select size="1" id="weight" onchange="valeChange()">
+                                <option value="1">중량</option>
+                                <option value="3">300g</option>
+                                <option value="5">500g</option>
                                 </select>
                             </div>`
         w_option.appendChild(w_option2)
+
+        var price_per_100g=document.getElementById('price')
+        var price_per_100g_2 = document.createElement('div')
+        price_per_100g_2.innerHTML=`<h3 class="price_per_100g">100g당 가격 : <span>${product_json.products["price"]}</span> 원</h3>`
+        price_per_100g.appendChild(price_per_100g_2)
+        totalprice = product_json.products["price"]
+        var price2=document.getElementById('price')
+        var price1 = document.createElement('div')
+        price1.innerHTML=`<h3 class="price">가격 : <span id="priceText">${totalprice}</span> 원</h3>`
+        price2.appendChild(price1)
+
+    } else {
+        var price_per_100g=document.getElementById('price')
+        var price_per_100g_2 = document.createElement('div')
+        price_per_100g.appendChild(price_per_100g_2)
+        totalprice = product_json.products["price"]
+        var price2=document.getElementById('price')
+        var price1 = document.createElement('div')
+        price1.innerHTML=`<h3 class="price">가격 : <span id="priceText">${totalprice}</span> 원</h3>`
+        price2.appendChild(price1)
     }
     // 가격
-    price2=document.getElementById('price')
-    const price1 = document.createElement('div')
-    price1.innerHTML=`<h3 class="price">가격 : <span id="priceText">${product_json.products["price"]}</span> 원</h3>`
-    price2.appendChild(price1)
+
     //상품 내용 description
     productinformation2=document.getElementById('description')
     const productinformations2 = document.createElement('p')
@@ -219,20 +240,21 @@ window.onload = async function ProductDetail() {
                 slidesToScroll: 2,
             }
         }, {
-            breakpoint: 1500,
+            breakpoint: 1300,
+            settings: {
+                slidesToShow: 4,
+                slidesToScroll: 2,
+            }
+        }, {
+        }, {
+            breakpoint: 1150,
             settings: {
                 slidesToShow: 3,
-                slidesToScroll: 1,
-            }
-        }, {
-            breakpoint: 1200,
-            settings: {
-                slidesToShow: 2,
-                slidesToScroll: 1,
+                slidesToScroll: 2,
             }
         }, {
         }, {
-            breakpoint: 630,
+            breakpoint: 900,
             settings: {
                 slidesToShow: 2,
                 slidesToScroll: 1,
@@ -240,17 +262,14 @@ window.onload = async function ProductDetail() {
         }]
     });
     var recommend_list = product_json.recommend
-    if (product_json.products["aroma_grade"] >=1){
-        for (i = 0; i < 6; i++) {
-            console.log(recommend_list)
-            $('.recommend-form').slick('slickAdd',
-                            `<div>
-                            <a href="product-detail.html?product_id=${recommend_list[i]["id"]}">
-                            <div class="image" style="background-image: url(${BACK_END_URL}${recommend_list[i]["image"]});"></div>
-                            <span >${recommend_list[i]["product_name"]}</span>
-                            </a></div>`
-                            );
-        }
+    for (i = 0; i < 6; i++) {
+        $('.recommend-form').slick('slickAdd',
+                        `<div>
+                        <a href="product-detail.html?product_id=${recommend_list[i]["id"]}">
+                        <div class="image" style="background-image: url(${BACK_END_URL}${recommend_list[i]["image"]});"></div>
+                        <span >${recommend_list[i]["product_name"]}</span>
+                        </a></div>`
+                        );
     }
 }
 
@@ -278,7 +297,8 @@ async function comment_like(id) {
 async function cart() {
     var priceText = document.getElementById("priceText")
     const count=document.querySelector(".readonly");
-    if(product_json.products.aroma_grade == null){
+    // 왜 null?
+    if(product_json.products.aroma_grade == 0 || product_json.products.aroma_grade == null){
         const weight=1;
 
         let formdata = new FormData
@@ -295,6 +315,7 @@ async function cart() {
         response_json=await response.json()
 
         if (response.status==200 || response.status==202 || response.status == 201){
+
                 alert("장바구니에 담겼습니다.")
                 location.reload();
             }
@@ -305,11 +326,10 @@ async function cart() {
         else if(product_json.products.aroma_grade >= 1) {
             const count=document.querySelector(".readonly");
             const weight=document.querySelectorAll("select")[0];
-            if (weight.value ==0){
+            if (weight.value ==1){
                 alert("용량을 선택해주세요")
             }
             if (weight.value > 1){
-                console.log(priceText.innerText)
                 let formdata = new FormData 
                 formdata.append('count', count.value)
                 formdata.append('price', priceText.innerText)
@@ -340,7 +360,8 @@ async function cart() {
 async function orderButton() {
     var priceText = document.getElementById("priceText")
     const count=document.querySelector(".readonly");
-    if(product_json.products.aroma_grade == null){
+    // 
+    if(product_json.products.aroma_grade == 0 || product_json.products.aroma_grade == null){
         const weight=1;
 
         let formdata = new FormData
@@ -367,7 +388,7 @@ async function orderButton() {
         else if(product_json.products.aroma_grade >= 1) {
             const count=document.querySelector(".readonly");
             const weight=document.querySelectorAll("select")[0];
-            if (weight.value ==0){
+            if (weight.value ==1){
                 alert("용량을 선택해주세요")
             }
             if (weight.value > 1){
@@ -447,7 +468,6 @@ async function commentrg(){
             alert("평점을 선택해 주세요")
         }   else {
         let formdata = new FormData
-        console.log(comment_content)
         formdata.append('comment', comment_content)
         formdata.append('point', comment_point.value)
         if (comment_img.files[0] != undefined){
@@ -569,25 +589,38 @@ async function saveeditCommentBtn() {
         document.body.style.overflowY = "visible";
         window.location.reload()
     }
-
 }
-//커멘트 디테일 페이지로 이동
-async function CommentDetail(num){
-    comment_id = num
-    console.log(comment_id)
-    const payload = localStorage.getItem("payload")
-    const parsed_payload = JSON.parse(payload)
 
-    if (!parsed_payload) {
-        alert("권한이 없습니다. 로그인 해주세요")
-        location.replace("../templates/main.html")
+function valeChange(){
+    if (product_json.products.category_id == 1){
+        var weight = document.getElementById("weight").value
+        var count = document.querySelector(".readonly").value
+        total_price = weight * one_price * count
+        var priceText = document.getElementById("priceText")
+        priceText.innerText = total_price
+    } else {
+        var count = document.querySelector(".readonly").value
+        total_price = one_price * count
+        var priceText = document.getElementById("priceText")
+        priceText.innerText = total_price
     }
-    location.href=`${FRONT_END_URL}/comment_copy.html?comment_id=${comment_id}`
 }
 
-function valeChange(obj){
-    weight = obj.value / 100
-    total_price = weight * one_price
-    var priceText = document.getElementById("priceText")
-    priceText.innerText = total_price
-}
+var $quantity=$('.quantity'),
+    $unitprice = $quantity.attr('data-unitprice'),
+    $qtyBtn = $quantity.find('span'),
+    $qytInput =$quantity.find('input'),
+    $targetTotal=$('.total_price .price');
+
+    $qtyBtn.click(function(){
+        var currentCount = $qytInput.val();
+        if($(this).hasClass('plus')){
+            $qytInput.val(++currentCount);
+            valeChange()
+        }else{
+            if(currentCount > 1){
+                $qytInput.val(--currentCount);
+                valeChange()
+            }
+        }
+    });

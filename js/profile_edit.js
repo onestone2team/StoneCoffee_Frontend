@@ -64,7 +64,6 @@ window.onload =
         })
 
         const profile_json = await profile.json()
-    
         const profile_image = document.getElementById("preview")
         profile_image.setAttribute("src", `${BACK_END_URL}${profile_json.profile}`)
         const profile_email = document.getElementById("profile_email")
@@ -90,9 +89,8 @@ async function update_profile() {
     const extraAddress = document.getElementById("extraAddress").value;
     const profile_address = '(' + postcode + ')' + ' ' + address + ' ' + detailAddress + ' ' + extraAddress
     const profile_image = document.querySelector("input[type='file']");
-   
-    let formData = new FormData();
 
+    let formData = new FormData();
     formData.append("profilename", profile_name);
     formData.append("phone", profile_phone);
     formData.append("address", profile_address);
@@ -139,7 +137,6 @@ async function edit_password() {
         method: 'PUT',
         body: formData,
     })
-
     new_pw_json = await response.json()
     alert(new_pw_json.message)
     location.reload();

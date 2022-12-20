@@ -9,21 +9,24 @@
     <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
     <link href="/css/bootstrap.css" rel="stylesheet">
     <link id="switcher" href="/css/default-theme.css" rel="stylesheet">
-    <link href="/css/sequence-theme.modern-slide-in.css" rel="stylesheet" media="all">
+    
     <link href="/css/header.css" rel="stylesheet">
     <link href="/css/servicecenter.css" rel="stylesheet">
     <link href="/css/style.css" rel="stylesheet">
     <link href="/css/rolling.css" rel="stylesheet">
+    <link href="/css/index.css" rel="stylesheet" >
     <script type="text/javascript" src="/js/rolling.js"></script>
+
 </head>
 <body>
     <header id="headers"></header>
-
+    <header id="menu-bar"></header>
+    </section>
     <section id="aa-slider" style="border: 10px;">
         <div class="aa-slider-area">
             <div id="sequence" class="seq">
                 <div id="slide" class="img-box" val="1" max="3">
-                    <a href="survey.html"><img class="slide1" src="/img/slide/11.jpg"></a>
+                    <a href="survey.html"><img class="slide1" src="/img/slide/survey.jpg"></a>
                     <img class="slide1" src="/img/slide/22.png">
                     <img class="slide1" src="/img/slide/33.jpg">
                     <img class="slide1" src="/img/slide/44.jpg">
@@ -36,54 +39,60 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="aa-promo-area">
-                        <div class="row">
-                            <div class="col-md-5 no-padding">
-                                <div class="aa-promo-left">
-                                    <div class="aa-promo-banner">
-                                        <img src="/img/thumnail/total.jpg" alt="img">
+                        <table class="category-table">
+                            <tr>
+                                <td rowspan ="2" class="all-category">
+                                    <div class="aa-promo-banner">            
+                                        <a href="mainAll.html?id=1"><img src="/img/thumnail/total.jpg" alt="img"></a>                             
                                         <div class="aa-prom-content">
                                             <h4><a href="mainAll.html?id=1">전체 상품보러가기</a></h4>
                                         </div>
                                     </div>
-                                </div>
-                            </div>
-                            <div class="col-md-7 no-padding">
-                                <div class="aa-promo-right">
+                                </td>
+                                <td class="other-category">
                                     <div class="aa-single-promo-right">
                                         <div class="aa-promo-banner">
-                                            <img src="/img/thumnail/coffeetea.jpg" alt="img">
+                                                <a href="mainAll.html?id=4"><img src="/img/thumnail/coffeetea.jpg" alt="img" ></a>
                                             <div class="aa-prom-content">
                                                 <h4><a href="mainAll.html?id=4">바디감</a></h4>
                                             </div>
                                         </div>
                                     </div>
+                                </td>
+                                <td class="other-category">
                                     <div class="aa-single-promo-right">
                                         <div class="aa-promo-banner">
-                                            <img src="/img/thumnail/coffeebean.jpg" alt="img">
-                                            <div class="aa-prom-content">
-                                                <h4><a href="mainAll.html?id=5">산미</a></h4>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="aa-single-promo-right">
-                                        <div class="aa-promo-banner">
-                                            <img src="/img/thumnail/coffemc.jpg" alt="img">
+                                                <a href="mainAll.html?id=3"><img src="/img/thumnail/coffemc.jpg" alt="img"> </a>                  
                                             <div class="aa-prom-content">
                                                 <h4><a href="mainAll.html?id=3">커피 용품</a></h4>
                                             </div>
                                         </div>
                                     </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="other-category">
+                                    <div class="aa-single-promo-right">
+                                        <div class="aa-promo-banner">            
+                                            <a href="mainAll.html?id=5"><img src="/img/thumnail/coffeebean.jpg" alt="img"></a> 
+                                            <div class="aa-prom-content">
+                                            <h4><a href="mainAll.html?id=5">산미</a></h4>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
                                     <div class="aa-single-promo-right">
                                         <div class="aa-promo-banner">
-                                            <img src="/img/thumnail/good.jpg" alt="img">
+                                            <a href="mainAll.html?id=2"><img src="/img/thumnail/good.jpg">  </a>                   
                                             <div class="aa-prom-content">
                                                 <h4><a href="mainAll.html?id=2">스톤 커피굿즈</a></h4>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                            </div>
-                        </div>
+                                </td>
+                            </tr>
+                        </table>
                     </div>
                 </div>
             </div>
@@ -147,7 +156,7 @@
 
 <script src="/js/footer.js"></script>
 <script src="/js/all_data.js"></script>
-<script src="/js/main.js"></script>
+<script src="/js/index.js"></script>
 <script src="/js/mainslide.js"></script>
 
 </html>

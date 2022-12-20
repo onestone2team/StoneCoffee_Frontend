@@ -12,15 +12,12 @@ window.onload = async function checkoutlist() {
         method: 'GET'
     })
     const response_json = await response.json()
-    console.log(response_json)
     let product_total_price = 0
     const order_frame = document.getElementById('append-product')
     response_json.forEach(element => {
         const order = document.createElement('div')
         var total_price = element.price * element.count
-        console.log(element.id)
         cartlist.push(element.id)
-        console.log(cartlist)
         order.setAttribute("class", "basket-product")
         order.innerHTML = `<div>
                                 <div id="cart_id" placeholder="${element.id}"></div>
@@ -37,7 +34,6 @@ window.onload = async function checkoutlist() {
         product_total_price = product_total_price + total_price
     }
     )
-    console.log(product_total_price)
     calculator(product_total_price)
 
     // 유저 주소랑 핸드폰번호 불러오기
@@ -71,14 +67,12 @@ async function calculator(product_total_price) {
 
 // =====개인정보 작성====== //
 async function fillin() {
-    let A = document.getElementById("cart_id")["placeholder"];
-    console.log(A)
+
     let cart_id = cartlist.join(",")
 
     const user_address = document.getElementById("user_address").value
     const user_phone = document.getElementById("user_phone").value
     const receiver = document.getElementById("receiver").value
-    console.log(cartlist, user_address, user_phone, receiver)
 
     const response = await fetch(`${BACK_END_URL}/order/product/order/?cart_id=${cart_id}`
         , {
@@ -92,8 +86,19 @@ async function fillin() {
                 "user_phone": user_phone,
                 "receiver": receiver
             }),
+            
         })
-    location.replace('../my_order_list.html')
+        response_json=await response.json()
+    
+        if (response.status==200 || response.status==202 || response.status == 201){
+            alert("정상적으로 결제가 되었습니다.")
+            location.reload();
+
+        }
+        else if(response.status==401 || response.status == 400){
+            alert("오류가 발생했습니다. 관리자에게 문의해주세요")
+            location.reload();
+        }
 
 }
 
