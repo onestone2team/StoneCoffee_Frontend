@@ -68,8 +68,14 @@
 }
 /* 바로가기 호버 이벤트 */
 #aa-promo  .aa-promo-banner:hover img {
-  height: 120%;
-  width: 120%;
+    height: 120%;
+    width: 120%;
+    cursor:pointer;
+    transform:scale(1.1); /* 마우스 오버시 이미지 크기를 1.1 배만큼 확대시킨다. */
+    -o-transform:scale(1.1); 
+    -moz-transform:scale(1.1);
+    -webkit-transform:scale(1.1);
+  
 }
 /* 바로가기 좌측이미지 크기 */
 #aa-promo .aa-promo-area .aa-promo-banner img {
@@ -81,6 +87,8 @@
   -o-transition: all 0.5s;
   transition: all 0.5s;
 }
+
+
 /* 바로가기 중앙 이름 */
 #aa-promo .aa-promo-area .aa-promo-banner .aa-prom-content {
   position: absolute;
@@ -94,7 +102,7 @@
 /* 바로가기 중앙 글씨  */
 #aa-promo .aa-promo-area .aa-promo-banner .aa-prom-content h4 {
   color: #fff;
-  font-size: 22px;
+  font-size: calc(1vw + 8px);
   font-weight: bold;
   text-transform: uppercase;
 }
