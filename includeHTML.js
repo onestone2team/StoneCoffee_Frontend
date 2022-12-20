@@ -7,7 +7,7 @@ fetch(`/index.html`)
                 `<!-- start header top  -->
         <div class="aa-header-top">
         <div class="container">
-            <div class="row">
+            <div class="">
             <div class="col-md-12">
                 <div class="aa-header-top-area">
                 <!-- start header top left -->
