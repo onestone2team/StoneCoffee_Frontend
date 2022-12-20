@@ -56,7 +56,7 @@ async function cartlist() {
                             <td><hr> 총 금액 : ${order_price}</td>
                         </tr>
                     </table>`
-        order_frame.appendChild(order)
+        order_frame.prepend(order)
         if (element.weight==1){
             const quantity = document.getElementById(`quantity${element.id}`)
             quantity.remove()
@@ -66,10 +66,3 @@ async function cartlist() {
 }
 
 
-
-// function removeItem(removeButton) {
-//     var productRow = $(removeButton).parent().parent();
-//     productRow.slideUp(fadeTime, function () {
-//         productRow.remove();
-//     });
-// }
