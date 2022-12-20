@@ -51,9 +51,6 @@ h4,
         width: 41.66666667%;
     }
 
-    .col-md-3 {
-        width: 25%;
-    }
 }
 
 /* 섹션 크기 */
@@ -68,5 +65,27 @@ h4,
     text-decoration: none;
     background-color: rgb(62, 37, 37);
 }
+@media (max-width: 520px) {
+    .footer_row{
+        display: flex;
+        /* align-items: center; */
+        justify-content: center;
+    }
+    .col-md-3{
+        width: 30%;
+        margin-left: 10%;
+        box-sizing: content-box;
+    }
 
+}
+.footer_row{
+    display: flex;
+    /* align-items: center; */
+    justify-content: center;
+}
+.col-md-3{
+    width: 30%;
+    margin-left: 10%;
+    box-sizing: content-box;
+}
 

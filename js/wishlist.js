@@ -72,7 +72,7 @@ window.onload =
         });
         product_list()
     };
-    
+
 async function product_list() {
     const response = await fetch(`${BACK_END_URL}/mypage/bookmark/`, {
         headers: {
@@ -86,25 +86,22 @@ async function product_list() {
     var etc_data = response_json.product
     const coffee_wish_container = document.getElementById("coffee_container")
     const etc_wish_container = document.getElementById("etc_container")
-    if (coffee_data.length == 0) {
-        coffee_wish_container.style.dispaly = "none"
-    } else {
-        coffee_data.forEach(element => {
-            $('#append-coffee').slick('slickAdd',
-            `<a href=product-detail.html?product_id=${element.id}>
-            <div class="image" style="background-image: url(${BACK_END_URL}${element.image});"></div>
-            </a>`
-            );
-        })
-        etc_data.forEach(element => {
-            $('#append-etc').slick('slickAdd',
-            `<a href=product-detail.html?product_id=${element.id}>
-            <div class="image" style="background-image: url(${BACK_END_URL}${element.image});"></div>
-            </a>`
-            );
-        })
-    }
 
+    coffee_data.forEach(element => {
+        $('#append-coffee').slick('slickAdd',
+        `<a href=product-detail.html?product_id=${element.id}>
+        <div class="image" style="background-image: url(${BACK_END_URL}${element.image});"></div>
+        </a>`
+        );
+    })
+    etc_data.forEach(element => {
+        $('#append-etc').slick('slickAdd',
+        `<a href=product-detail.html?product_id=${element.id}>
+        <div class="image" style="background-image: url(${BACK_END_URL}${element.image});"></div>
+        </a>`
+        );
+    })
 }
+
 
 

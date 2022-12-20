@@ -7,7 +7,7 @@ body {
     max-width: 1200px;
     width: 100%;
     margin: 0px auto;
-    height: 800px;
+    /* height: 800px; */
 }
 
 .product-image {
@@ -25,6 +25,7 @@ body {
 /* 페이지내이션 */
 .pagenation-form {
     width: 100%;
+    margin-top: 70px;
 }
 
 .pagenation {

@@ -12,7 +12,7 @@ fetch(`../index.html`)
                 <div class="row">
                     <div class="col-md-12">
                         <div class="aa-footer-top-area">
-                            <div class="row">
+                            <div class="footer_row">
                                 <div class="col-md-3 col-sm-6">
                                     <div class="aa-footer-widget">
                                         <h3>일석이조 팀원</h3>
@@ -23,20 +23,6 @@ fetch(`../index.html`)
                                         <li>박효진</li>
                                         <li>유승주</li>
                                     </ul>
-                                    </div>
-                                </div>
-                                <div class="col-md-3 col-sm-6">
-                                    <div class="aa-footer-widget">
-                                        <div class="aa-footer-widget">
-                                            
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-3 col-sm-6">
-                                    <div class="aa-footer-widget">
-                                        <div class="aa-footer-widget">
-
-                                        </div>
                                     </div>
                                 </div>
                                 <div class="col-md-3 col-sm-6">
