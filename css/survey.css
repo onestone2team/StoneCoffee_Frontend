@@ -29,9 +29,9 @@ body{
   height:76px;
   background:#39543f;
   border-radius:50%;
-  /* position:absolute;
-  top:50%;
-  left:50%; */
+  /* /* position:absolute; */
+  top:700px;
+  left:500px;
   /* margin-left:-68px; */
   /* margin-left:-38px;
   top:100px; */
@@ -40,6 +40,7 @@ body{
 
 /* 컵 바로 밑 받침 */
 .cup:after{
+  /* display:none; */
   content:"";
   width:66px;
   height:66px;
@@ -47,8 +48,8 @@ body{
   border-radius:50%;
   background:linear-gradient(-45deg, #cbcbcb, #f2f2f2 );
   /* background-color: blueviolet; */
-  top:497px;
-  left:583px;
+  top:210px;
+  left:303px;
   /* margin-left:-9px;
   margin-top:-26px; */
   /* margin-left:-33px;
@@ -63,9 +64,9 @@ body{
 
   /* background-image: linear-gradient(15deg, transparent 0px, transparent 29px, rgba(255,255,255,0.05) 29px, rgba(255,255,255,0.05) 47px); */
   border-radius:50%;
-  /* position:absolute; */
-  /* left:450px;
-  top:50%; */
+  position:absolute;
+  left:303px;
+  top:217px;
   margin-left:10px;
   margin-top:1px;
   /* margin-top: -20px;
@@ -96,9 +97,9 @@ body{
   content:"";
   width:15px;
   height:8px;
-  /* position:absolute; */
-   /* left:-19px;
-  top:18px; */
+  position:absolute;
+  left:-19px;
+  top:18px;
   /* left:-35%; */
   /* top:43%; */
   background:linear-gradient(90deg, #d6d6d6, #aeaeae);
@@ -110,10 +111,11 @@ body{
   height:100px; 
   /* background:; */
   position:absolute;
-  left:50%;
+  left:390px;
+  top:140px;
   margin-left:-90px;
   /* top:43px; */
-  top:280px;
+  
   background-image: -webkit-radial-gradient(75% 59%, ellipse, rgba(255,255,255,0.2), transparent 25%), -webkit-radial-gradient(25% 70%, ellipse, rgba(255,255,255,0.2), transparent 15%), -webkit-radial-gradient(35% 61%, ellipse, rgba(255,255,255,0.2), transparent 10%), -webkit-radial-gradient(55% 35%, ellipse, rgba(255,255,255,0.2), transparent 15%);
   background-image: -moz-radial-gradient(75% 59%, ellipse, rgba(255,255,255,0.2), transparent 25%), -moz-radial-gradient(25% 70%, ellipse, rgba(255,255,255,0.2), transparent 15%), -moz-radial-gradient(35% 61%, ellipse, rgba(255,255,255,0.2), transparent 10%), -moz-radial-gradient(55% 35%, ellipse, rgba(255,255,255,0.2), transparent 15%);
   background-image: radial-gradient(75% 59%, ellipse, rgba(255,255,255,0.2), transparent 25%), radial-gradient(25% 70%, ellipse, rgba(255,255,255,0.2), transparent 15%), radial-gradient(35% 61%, ellipse, rgba(255,255,255,0.2), transparent 10%), radial-gradient(55% 35%, ellipse, rgba(255,255,255,0.2), transparent 15%);

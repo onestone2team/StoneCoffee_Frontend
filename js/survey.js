@@ -17,8 +17,6 @@ function startSurvey(){
     showSurvey.style.display = "block"
 }
 
-
-
 async function sendSurvey(){
     const aroma_grade = document.querySelector('input[name="aroma"]:checked').value;
     const sweet_grade = document.querySelector('input[name="sweet"]:checked').value;
