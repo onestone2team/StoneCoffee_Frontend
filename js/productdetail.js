@@ -634,7 +634,7 @@ async function CommentDetail(num){
 
     if (!parsed_payload) {
         alert("권한이 없습니다. 로그인 해주세요")
-        location.replace("../templates/main.html")
+        location.replace("../templates/index.html")
     }
     location.href=`${FRONT_END_URL}/comment_copy.html?comment_id=${comment_id}`
 }
