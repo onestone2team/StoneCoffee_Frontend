@@ -69,37 +69,6 @@ async function adminorderlist() {
 }
 
 
-                         /* <div class="item">
-                            <div class="product-image">
-                                <img src="${BACK_END_URL}${element.product_image}"/>
-                            </div>
-                            <div class="product-details">
-                                <h2><strong><span class="item-quantity"></span>${element.product_name}</strong></h2>
-                                <p><strong>${element.weight}g</strong></p>
-                                <p>${element.created_at}</p>
-                            </div>
-                        </div>
-                        <div class="price">${element.order_price}원</div>
-                        <div class="quantity">${element.count}</div>
-                        <div role="navigation" class="order_status_dropdown2">
-                            <ul class="ul1">
-                                <li class="li1">${admin_status}&dtrif;
-                                    <ul class="dropdown1">
-                                        <li class="li2" id="${element.id}" value="0">확인 대기중</li>
-                                        <li class="li2" id="${element.id}" value="1">주문 확인</li>
-                                        <li class="li2" id="${element.id}" value="2">배송중</li>
-                                    </ul>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="subtotal">${admin_price}원</div>
-                        <div class="price">${element.user}</div>
-                        <div class="quantity">${element.receiver}</div>
-                        <div class="order_status_dropdown2" id="order_status_dropdown21">${element.user_address}</div> */
-
-
-
-
 
 
 

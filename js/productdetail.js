@@ -111,7 +111,7 @@ window.onload = async function ProductDetail() {
         const w_option2 =document.createElement('p')
         w_option2.innerHTML=`<div class="size">
                                 <h4>용량 선택</h4>
-                                <select size="1" id="weight" onchange="valeChange(this)">
+                                <select size="1" id="weight" onchange="valeChange()">
                                 <option value="1">중량</option>
                                 <option value="3">300g</option>
                                 <option value="5">500g</option>
@@ -120,9 +120,14 @@ window.onload = async function ProductDetail() {
         w_option.appendChild(w_option2)
     }
     // 가격
-    price2=document.getElementById('price')
-    const price1 = document.createElement('div')
-    price1.innerHTML=`<h3 class="price">가격 : <span id="priceText">${product_json.products["price"]}</span> 원</h3>`
+    var price_per_100g=document.getElementById('price')
+    var price_per_100g_2 = document.createElement('div')
+    price_per_100g_2.innerHTML=`<h3 class="price_per_100g">100g당 가격 : <span>${product_json.products["price"]}</span> 원</h3>`
+    price_per_100g.appendChild(price_per_100g_2)
+    totalprice = 0
+    var price2=document.getElementById('price')
+    var price1 = document.createElement('div')
+    price1.innerHTML=`<h3 class="price">가격 : <span id="priceText">${totalprice}</span> 원</h3>`
     price2.appendChild(price1)
     //상품 내용 description
     productinformation2=document.getElementById('description')
@@ -314,7 +319,7 @@ async function cart() {
         else if(product_json.products.aroma_grade >= 1) {
             const count=document.querySelector(".readonly");
             const weight=document.querySelectorAll("select")[0];
-            if (weight.value ==0){
+            if (weight.value ==1){
                 alert("용량을 선택해주세요")
             }
             if (weight.value > 1){
@@ -376,7 +381,7 @@ async function orderButton() {
         else if(product_json.products.aroma_grade >= 1) {
             const count=document.querySelector(".readonly");
             const weight=document.querySelectorAll("select")[0];
-            if (weight.value ==0){
+            if (weight.value ==1){
                 alert("용량을 선택해주세요")
             }
             if (weight.value > 1){
@@ -579,9 +584,30 @@ async function saveeditCommentBtn() {
     }
 }
 
-function valeChange(obj){
-    weight = obj.value
-    total_price = weight * one_price
+function valeChange(){
+    var weight = document.getElementById("weight").value
+    var count = document.querySelector(".readonly").value
+    console.log(count)
+    total_price = weight * one_price * count
     var priceText = document.getElementById("priceText")
     priceText.innerText = total_price
 }
+
+var $quantity=$('.quantity'),
+    $unitprice = $quantity.attr('data-unitprice'),
+    $qtyBtn = $quantity.find('span'),
+    $qytInput =$quantity.find('input'),
+    $targetTotal=$('.total_price .price');
+
+    $qtyBtn.click(function(){
+        var currentCount = $qytInput.val();
+        if($(this).hasClass('plus')){
+            $qytInput.val(++currentCount);
+            valeChange()
+        }else{
+            if(currentCount > 1){
+                $qytInput.val(--currentCount);
+                valeChange()
+            }
+        }
+    });
