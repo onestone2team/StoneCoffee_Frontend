@@ -16,7 +16,7 @@
 
 <body>
     <!-- <img class="logo-image" src="img/logo.png" alt="Coffee logo"> -->
-    <div>
+    <div class="first-page">
         <div class="icon" id="icon">
             <div class="cup">
                 <div class="coffee"></div>
@@ -37,8 +37,8 @@
 
 
     <div class="notView scrollBar" id="showSurvey">
-        <table class="survey-table" >
-            <tbody >
+        <table class="survey-table">
+            <tbody>
                 <tr>
                     <td>
                         <p>선호하는 커피 당도</p>
@@ -114,35 +114,44 @@
     </div>
 
     <button class="sendSurvey" onclick="sendSurvey()">제출하기</button>
-    <div class="show-screen" id="coffeeShow">
-        <table>
-            <thead>
-                <tr>
-                    <th id="recommend_name">브라질 산토스</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>
-                        <image class="show-image" id="recommend_img"
-                            src="https://media.istockphoto.com/id/1177900338/ko/%EC%82%AC%EC%A7%84/%EC%BB%A4%ED%94%BC-%EC%BD%A9%EC%9D%84-%EA%B3%81%EB%93%A4%EC%9D%B8-%EC%97%90%EC%8A%A4%ED%94%84%EB%A0%88%EC%86%8C-%ED%95%9C-%EC%9E%94.jpg?s=612x612&w=0&k=20&c=iH6mFbBAd6Wv2OWQLYb_ZJQSCIFwsBAIiIrgDsOAdjc=">
-                        </image>
-                    </td>
-                    <td style="padding: 20px;">
-                        <p id="recommend_content" class="show-txt">브라질 산토스는 세계 커피생산량의 30%를 차지하며, 산토스 지방의 3,4년 정도 된 어린
-                            커피나무에서 수확한 커피로, NO.2등급이
-                            최고 등급입니다. 부드러운 맛과 신맛이 균일하게 조화를 이루고, 부드러운 풍미와 적당히 쓴맛이 어우러진 중성적인 커피로 향이 깊고 깔끔한 마일드 커피입니다.</p>
-                        <a href="signupin.html"><button class="signup-btn" onclick="saveCookie('guestCheck', 'True')">회원
-                                가입
-                                후 구매하러 가기</button></a>
-                    </td>
-                </tr>
 
-            </tbody>
-        </table>
-        <p class="login-text">이미 회원이신가요? <a href="signupin.html" onclick="saveCookie('guestCheck', 'True')">로그인하러 가기</a>
-        </p>
+    <div class="show-screen" id="coffeeShow">
+        <div class="coffee-info" style="border:solid 1px black; border-radius:10px;">
+            <div class="1st-sec" style="background-color:blue">
+                <h3 id="recommend_name">브라질 산토스</h3>
+            </div>
+
+            <div class="2nd-sec" style="display:flex; flex-direction:row; justify-content:center; align-items:center;">
+                <div class="leftside-img" style="background-color:aqua; margin-right:1%;">
+                    <image class="show-image" id="recommend_img"
+                        src="https://media.istockphoto.com/id/1177900338/ko/%EC%82%AC%EC%A7%84/%EC%BB%A4%ED%94%BC-%EC%BD%A9%EC%9D%84-%EA%B3%81%EB%93%A4%EC%9D%B8-%EC%97%90%EC%8A%A4%ED%94%84%EB%A0%88%EC%86%8C-%ED%95%9C-%EC%9E%94.jpg?s=612x612&w=0&k=20&c=iH6mFbBAd6Wv2OWQLYb_ZJQSCIFwsBAIiIrgDsOAdjc=">
+                    </image>
+                </div>
+                <div class="3rd-sec" class="rightside-desc" style="margin:auto; background-color:rgb(78, 101, 101)">
+                    <p id="recommend_content" class="show-txt">브라질 산토스는 세계 커피생산량의 30%를 차지하며, 산토스 지방의 3,4년 정도
+                        된
+                        어린
+                        커피나무에서 수확한 커피로, NO.2등급이
+                        최고 등급입니다. 부드러운 맛과 신맛이 균일하게 조화를 이루고, 부드러운 풍미와 적당히 쓴맛이 어우러진 중성적인 커피로 향이 깊고 깔끔한 마일드
+                        커피입니다.
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="4th-sec" style="background-color:antiquewhite">
+            <a href="signupin.html"><button class="signup-btn" onclick="saveCookie('guestCheck', 'True')">
+                    회원가입 후 구매하러 가기</button></a>
+        </div>
+
+        <div class="5th-sec" style="background-color:rgb(29, 22, 12)">
+            <span class="login-text">이미 회원이신가요? <a href="signupin.html" onclick="saveCookie('guestCheck', 'True')">로그인하러
+                    가기</span>
+            </p>
+        </div>
+
+
     </div>
+
     <script src="/js/all_data.js"></script>
     <script src="/js/survey.js"></script>
 </body>
