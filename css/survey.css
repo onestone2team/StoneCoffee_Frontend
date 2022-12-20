@@ -5,6 +5,7 @@ body{
 }
 
 .logo-image{
+    content-visibility:hidden;
     width:150px;
     height:150px;
     text-align:left;   
