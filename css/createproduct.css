@@ -59,3 +59,18 @@ textarea {
 }
 
 }
+.first-box{
+    border: 1px #a39485 solid;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, .25);
+    background-color: rgb(62,36,12);
+}
+.second-box{
+    border: 1px #a39485 solid;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, .25);
+    background-color:rgb(75, 47, 20);
+}
+.third-box{
+    border: 1px #a39485 solid;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, .25);
+    background-color:rgb(62,36,12);
+}

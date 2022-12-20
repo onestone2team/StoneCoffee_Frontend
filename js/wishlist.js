@@ -96,10 +96,6 @@ async function product_list() {
             </a>`
             );
         })
-    }
-    if (etc_data.length == 0) {
-        etc_wish_container.setAttribute("style", "display: none;")
-    } else {
         etc_data.forEach(element => {
             $('#append-etc').slick('slickAdd',
             `<a href=product-detail.html?product_id=${element.id}>

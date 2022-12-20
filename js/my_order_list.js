@@ -1,6 +1,7 @@
 var fadeTime = 300;
 window.onload = function () {
     $("#menu-bar").load("header_user.html");
+    $("#headers").load("header.html");
     cartlist()
 }
 
@@ -50,7 +51,6 @@ async function cartlist() {
                             <td>${order_status}</td>
                         </tr>
                         <tr>
-                            
                             <td></td>
                             <td></td>
                             <td><hr> 총 금액 : ${order_price}</td>

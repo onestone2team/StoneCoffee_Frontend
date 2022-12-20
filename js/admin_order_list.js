@@ -57,6 +57,7 @@ async function adminorderlist() {
         admin_frame.prepend(order)
     })
 }
+
 async function answer(id){
     const response = await fetch(`${BACK_END_URL}/director/order`, {
         headers: {
@@ -88,7 +89,6 @@ async function answer(id){
         }
     }
 })}
-
 $(document).on('click','.li2',function(){
     var order_id = this.id
     if (this.value == 0){

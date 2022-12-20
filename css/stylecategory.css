@@ -96,7 +96,7 @@ a {
 /* 바로가기 중앙 글씨  */
 #aa-promo .aa-promo-area .aa-promo-banner .aa-prom-content h4 {
   color: #fff;
-  font-size: 30px;
+  font-size: calc(0.6vw + 5px);
   font-weight: bold;
   text-transform: uppercase;
 }
@@ -104,6 +104,7 @@ a {
 #aa-promo .aa-promo-area .aa-promo-banner .aa-prom-content h4 a {
   color: #fff !important;
   text-decoration: none;
+  font-size: 20px;
   -webkit-transition: all 0.5s;
   -moz-transition: all 0.5s;
   -ms-transition: all 0.5s;
