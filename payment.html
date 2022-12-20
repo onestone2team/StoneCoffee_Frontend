@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>결제</title>
+    <!-- jQuery -->
+    <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.min.js" ></script>
+    <!-- iamport.payment.js -->
+    <script type="text/javascript" src="https://cdn.iamport.kr/js/iamport.payment-1.1.8.js"></script>
+</head>
+<body>
+    <button onclick="requestPay()">결제하기</button>
+    
+</body>
+    <script>
+        function requestPay() {
+            var IMP = window.IMP;
+            var code = "imp85781414";  // FIXME: 가맹점 식별코드
+            IMP.init(code);
+
+            // 결제요청
+            IMP.request_pay({
+                // name과 amount만 있어도 결제 진행가능
+                pg : 'html5_inicis', // pg 사 선택
+                pay_method : 'card',
+                merchant_uid : 'merchant_' + new Date().getTime(),
+                name : '주문명:결제테스트',
+                amount : 100,
+                buyer_email : 'iamport@siot.do',
+                buyer_name : '구매자이름',
+                buyer_tel : '010-1234-5678',
+                buyer_addr : '서울특별시 강남구 삼성동',
+                buyer_postcode : '123-456',
+                // m_redirect_url : 'https://www.yourdomain.com/payments/complete'
+            }, function(rsp) {
+                if ( rsp.success ) {
+                    alert("결제가 완료됬습니다.");
+                }
+                else {
+                    alert("결제에 실패하였습니다. 에러 내용: " +  rsp.error_msg);
+                }
+            });
+        }
+    </script>
+</html>
