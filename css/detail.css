@@ -527,6 +527,7 @@
     height: 300px;
     object-fit: cover;
     background-size: cover;
+    background-position: center;
 }
 #rowdetail{
     flex-direction: column !important;

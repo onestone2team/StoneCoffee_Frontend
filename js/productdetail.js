@@ -12,9 +12,6 @@ window.onload = async function ProductDetail() {
         alert("권한이 없습니다. 로그인 해주세요")
         location.replace("../index.html")
     }
-    // data["data"]["coffee"]["0"]["product_name"]
-
-
 
     const product = await fetch(`${BACK_END_URL}/product/detail/?product_id=${product_id} `, {
         headers: {
@@ -118,17 +115,29 @@ window.onload = async function ProductDetail() {
                                 </select>
                             </div>`
         w_option.appendChild(w_option2)
+
+        var price_per_100g=document.getElementById('price')
+        var price_per_100g_2 = document.createElement('div')
+        price_per_100g_2.innerHTML=`<h3 class="price_per_100g">100g당 가격 : <span>${product_json.products["price"]}</span> 원</h3>`
+        price_per_100g.appendChild(price_per_100g_2)
+        totalprice = product_json.products["price"]
+        var price2=document.getElementById('price')
+        var price1 = document.createElement('div')
+        price1.innerHTML=`<h3 class="price">가격 : <span id="priceText">${totalprice}</span> 원</h3>`
+        price2.appendChild(price1)
+
+    } else {
+        var price_per_100g=document.getElementById('price')
+        var price_per_100g_2 = document.createElement('div')
+        price_per_100g.appendChild(price_per_100g_2)
+        totalprice = product_json.products["price"]
+        var price2=document.getElementById('price')
+        var price1 = document.createElement('div')
+        price1.innerHTML=`<h3 class="price">가격 : <span id="priceText">${totalprice}</span> 원</h3>`
+        price2.appendChild(price1)
     }
     // 가격
-    var price_per_100g=document.getElementById('price')
-    var price_per_100g_2 = document.createElement('div')
-    price_per_100g_2.innerHTML=`<h3 class="price_per_100g">100g당 가격 : <span>${product_json.products["price"]}</span> 원</h3>`
-    price_per_100g.appendChild(price_per_100g_2)
-    totalprice = 0
-    var price2=document.getElementById('price')
-    var price1 = document.createElement('div')
-    price1.innerHTML=`<h3 class="price">가격 : <span id="priceText">${totalprice}</span> 원</h3>`
-    price2.appendChild(price1)
+
     //상품 내용 description
     productinformation2=document.getElementById('description')
     const productinformations2 = document.createElement('p')
@@ -234,14 +243,14 @@ window.onload = async function ProductDetail() {
             breakpoint: 1300,
             settings: {
                 slidesToShow: 4,
-                slidesToScroll: 1,
+                slidesToScroll: 2,
             }
         }, {
         }, {
             breakpoint: 1150,
             settings: {
                 slidesToShow: 3,
-                slidesToScroll: 1,
+                slidesToScroll: 2,
             }
         }, {
         }, {
@@ -253,16 +262,14 @@ window.onload = async function ProductDetail() {
         }]
     });
     var recommend_list = product_json.recommend
-    if (product_json.products["aroma_grade"] >=1){
-        for (i = 0; i < 6; i++) {
-            $('.recommend-form').slick('slickAdd',
-                            `<div>
-                            <a href="product-detail.html?product_id=${recommend_list[i]["id"]}">
-                            <div class="image" style="background-image: url(${BACK_END_URL}${recommend_list[i]["image"]});"></div>
-                            <span >${recommend_list[i]["product_name"]}</span>
-                            </a></div>`
-                            );
-        }
+    for (i = 0; i < 6; i++) {
+        $('.recommend-form').slick('slickAdd',
+                        `<div>
+                        <a href="product-detail.html?product_id=${recommend_list[i]["id"]}">
+                        <div class="image" style="background-image: url(${BACK_END_URL}${recommend_list[i]["image"]});"></div>
+                        <span >${recommend_list[i]["product_name"]}</span>
+                        </a></div>`
+                        );
     }
 }
 
@@ -585,12 +592,18 @@ async function saveeditCommentBtn() {
 }
 
 function valeChange(){
-    var weight = document.getElementById("weight").value
-    var count = document.querySelector(".readonly").value
-    console.log(count)
-    total_price = weight * one_price * count
-    var priceText = document.getElementById("priceText")
-    priceText.innerText = total_price
+    if (product_json.products.category_id == 1){
+        var weight = document.getElementById("weight").value
+        var count = document.querySelector(".readonly").value
+        total_price = weight * one_price * count
+        var priceText = document.getElementById("priceText")
+        priceText.innerText = total_price
+    } else {
+        var count = document.querySelector(".readonly").value
+        total_price = one_price * count
+        var priceText = document.getElementById("priceText")
+        priceText.innerText = total_price
+    }
 }
 
 var $quantity=$('.quantity'),
