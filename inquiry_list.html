@@ -5,9 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>stone coffee</title>
     <link rel="stylesheet" type="text/css" href="/css/inquiry_list.css">
-    <link rel="stylesheet" type="text/css" href="/css/cart_base.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Stone Coffee| 문의내역</title>
@@ -18,28 +16,47 @@
     <link href="/css/header.css" rel="stylesheet">
     <!-- <meta name="viewport" content="width=device-width, initial-scale=1"> -->
 </head>
-
 <body>
-    <header id="headers"></header>
+
+    <header id="headers" ></header>
     <header id="menu-bar"></header>
     <div class="cart_page">
-        <main>
-            <div class="basket" id="style-4">
-                <div class="basket-labels">
-                    <ul class="labels">
-                        <li class="item item-heading">문의 제목</li>
-                        <li class="price">문의 내용</li>
-                        <li class="quantity"></li>
-                        <li class="subtotal">문의 일자</li>
-                    </ul>
-                </div>
-                <div id="append_inquiry">
+        <section class="main" style="text-align: center;">
+            <h1 class="d-none">문의 목록</h1>
+            <div class="board">
+                <table class="table" id="table">
+                    <thead>
+                        <tr>
+                            <th>번호</th>
+                            <th>문의 제목</th>
+                            <th>문의종류</th>
+                            <th>문의 날짜</th>
+                            <th>문의 확인</th>
+                        </tr>
+                        </thead>
+                    <tbody class="tbody" id="tbody">
+
+                    </tbody>
+                </table>
+                <div style=" padding-top:50px;padding-bottom: 100px;">
+                    <div class="left">
+                        <div>
+                            <h2>글 내용</h2>
+                        </div>
+                        <p id="content"></p>
+                    </div>
+                    <div class="right">
+                        <div>
+                            <h2>답변</h2>
+                        </div>
+                        <p id="answer"></p>
+                    </div>
                 </div>
             </div>
-        </main>
+        </section>
     </div>
-    <div class="fix">
-        <footer id="aa-footer">
+    <div class="fix" style=" padding-top:200px;">
+        <footer id="aa-footer" >
         </footer>
     </div>
 </body>

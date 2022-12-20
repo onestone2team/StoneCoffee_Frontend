@@ -114,39 +114,34 @@
     position: relative;
     bottom: 160px;
     left:375px;
-    
     width: 350px;
 }
 .user-block .point{
     position: relative;
-    
     width: 60px;
     bottom: 80px;
 }
 #image_preview{
     position: relative;
-    width: auto;
 }
 .grade{
     position: relative;
-    width: 200px;
 }
 .image img{
     width: 50%;
     height: 50%;
 }
 #comment_form{
-    
-    width: auto;
+    width: 100%;
 }
 
 .recommend {
     width: 100%;
     height: auto;
-    display: inline-block; 
-    margin: 0 5px;  
-    text-align: center;
+    display: inline-block;
+    margin: 0 5px;
     padding: 20px 0;
+    align-items: center;
 }
 
 .divrecommend{
@@ -350,9 +345,9 @@
 }
 
 .recommend-form {
-    width: 70%;
+    width: 80%;
     height: auto;
-    background-color: #ccc;
+    background-color: #a7978945;
     margin: 0px auto;
 }
 
@@ -361,6 +356,189 @@
 }
 
 .product_img{
-    padding: 30px;
-    
+    align-items: center;
+    margin-top: 50px;
+    object-fit: contain;
+}
+
+.slick-slide {
+    margin: 0px 20px;
+    width: 80%;
+}
+
+.slide {
+    width: 150px;
+    height: 150px;
+    background-size: cover;
+    object-fit: cover;
+}
+
+.slick-slider {
+    position: relative;
+    display: block;
+    box-sizing: border-box;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -webkit-touch-callout: none;
+    -khtml-user-select: none;
+    -ms-touch-action: pan-y;
+    touch-action: pan-y;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.slick-list {
+    position: relative;
+    display: block;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+}
+
+.slick-list:focus {
+    outline: none;
+}
+
+.slick-list.dragging {
+    cursor: pointer;
+    cursor: hand;
+}
+
+.slick-slider .slick-track,
+.slick-slider .slick-list {
+    -webkit-transform: translate3d(0, 0, 0);
+    -moz-transform: translate3d(0, 0, 0);
+    -ms-transform: translate3d(0, 0, 0);
+    -o-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+}
+
+.slick-track {
+    position: relative;
+    top: 0;
+    left: 0;
+    display: block;
+    width: 76%;
+    height: 400px;
+    margin-top: 50px;
+}
+
+.slick-track:before,
+.slick-track:after {
+    display: table;
+    content: '';
+}
+
+.slick-track:after {
+    clear: both;
+}
+
+.slick-loading .slick-track {
+    visibility: hidden;
+}
+
+.slick-slide {
+    display: none;
+    float: left;
+    height: 100%;
+}
+
+[dir='rtl'] .slick-slide {
+    float: right;
+}
+
+.slick-slide.slick-loading img {
+    display: none;
+}
+
+.slick-slide.dragging img {
+    pointer-events: none;
+}
+
+.slick-initialized .slick-slide {
+    display: block;
+}
+
+.slick-loading .slick-slide {
+    visibility: hidden;
+}
+.slick-vertical .slick-slide {
+    display: block;
+    height: auto;
+    border: 1px solid transparent;
+}
+.slick-arrow.slick-hidden {
+    display: none;
+}
+.image{
+    border-radius: 20px;
+}
+
+.recommendimage > img{
+    width: 30%;
+}
+.header_navi {
+    margin-left: 10px;
+    margin-right: 20px;
+}
+.slick-slide > a{
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+}
+.minus {
+    cursor: pointer;
+}
+.plus {
+    cursor: pointer;
+}
+#rowdetail {
+    display: flex;
+    flex-direction: row;
+}
+#productimage{
+    min-width: 250px;
+    min-height: 250px;
+    width: 30%;
+    height: 30%;
+}
+
+@media screen and (max-width: 600px) {
+    .recommend-form {
+        width: 100%;
+    }
+    .image{
+        width: 150px !important;
+        height: 250px;
+        object-fit: cover;
+        background-size: cover;
+    }
+}
+@media screen and (max-width: 500px) {
+    #description > h3{
+        font-size: 15px;
+    }
+}
+
+.image{
+    width: 200px;
+    height: 300px;
+    object-fit: cover;
+    background-size: cover;
+}
+#rowdetail{
+    flex-direction: column !important;
+    width: 80% !important;
+    margin: 0 auto;
+}
+.col-md-3 {
+    display: block !important;
+    width: 25% !important;
+    justify-content: center !important;
+    align-items: center !important;
+    float: left !important;
+    display: flex !important;
+
 }

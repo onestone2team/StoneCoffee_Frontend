@@ -19,8 +19,9 @@ async function adminorderlist() {
         method: "GET"
     })
     const response_json = await response.json()
-    var admin_frame = document.getElementById('append_admin')
+    var admin_frame = document.getElementById('tbody')
     response_json.data.forEach(element => {
+        console.log(element)
         if (element.status == 0) {
             var admin_status = "확인 대기중";
         } else if (element.status == 1) {
@@ -28,10 +29,47 @@ async function adminorderlist() {
         } else if (element.status == 2) {
             var admin_status = "배송중";
         }
+        // img src="${BACK_END_URL}${element.product_image}"/>
         var admin_price = element.count * element.order_price
-        const order = document.createElement('div')
-        order.setAttribute("class", "basket-product")
-        order.innerHTML = `<div class="item">
+        const order = document.createElement('tr')
+        order.innerHTML = `<tbody class="tbody">
+                                        <tr>
+                                            <td>${element.id}</td>
+                                            <td class="orderbox">
+                                                <div class=imgbox>
+                                                    <button1 onclick="answer(${element.id})">
+                                                    <img src="${BACK_END_URL}${element.product_image}">
+                                                </div>
+                                                <div class="namebox">
+                                                    ${element.product_name}
+                                                </div>
+                                                </button1 >
+                                            </td>
+                                            <td>${element.created_at}</td>
+                                            <td>
+                                                <div role="navigation" class="order_status_dropdown2">
+                                                    <ul class="ul1">
+                                                        <li class="li1">${admin_status}&dtrif;
+                                                            <ul class="dropdown1">
+                                                                <li class="li2" id="${element.id}" value="0">확인 대기중</li>
+                                                                <li class="li2" id="${element.id}" value="1">주문 확인</li>
+                                                                <li class="li2" id="${element.id}" value="2">배송중</li>
+                                                            </ul>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </td>
+   
+                                    </tbody>
+                        <div class="remove">
+                            <button>지우기</button>
+                        </div>`
+        admin_frame.prepend(order)
+    })
+}
+
+
+                         /* <div class="item">
                             <div class="product-image">
                                 <img src="${BACK_END_URL}${element.product_image}"/>
                             </div>
@@ -57,13 +95,34 @@ async function adminorderlist() {
                         <div class="subtotal">${admin_price}원</div>
                         <div class="price">${element.user}</div>
                         <div class="quantity">${element.receiver}</div>
-                        <div class="order_status_dropdown2" id="order_status_dropdown21">${element.user_address}</div>
-                        <div class="remove">
-                            <button>지우기</button>
-                        </div>`
-        admin_frame.appendChild(order)
-    })
-}
+                        <div class="order_status_dropdown2" id="order_status_dropdown21">${element.user_address}</div> */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 function removeItem(removeButton) {
     var productRow = $(removeButton).parent().parent();

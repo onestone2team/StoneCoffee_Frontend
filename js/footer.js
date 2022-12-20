@@ -1,3 +1,4 @@
+fetch(` `)
 fetch(`../index.html`)
     .then(response => {
         return response.text()
@@ -27,28 +28,14 @@ fetch(`../index.html`)
                                 <div class="col-md-3 col-sm-6">
                                     <div class="aa-footer-widget">
                                         <div class="aa-footer-widget">
-                                            <h3>Knowledge Base</h3>
-                                            <ul class="aa-footer-nav">
-                                            <li><a href="#">Delivery</a></li>
-                                            <li><a href="#">Returns</a></li>
-                                            <li><a href="#">Services</a></li>
-                                            <li><a href="#">Discount</a></li>
-                                            <li><a href="#">Special Offer</a></li>
-                                            </ul>
+                                            
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col-md-3 col-sm-6">
                                     <div class="aa-footer-widget">
                                         <div class="aa-footer-widget">
-                                            <h3>Useful Links</h3>
-                                            <ul class="aa-footer-nav">
-                                            <li><a href="#">Site Map</a></li>
-                                            <li><a href="#">Search</a></li>
-                                            <li><a href="#">Advanced Search</a></li>
-                                            <li><a href="#">Suppliers</a></li>
-                                            <li><a href="#">FAQ</a></li>
-                                            </ul>
+
                                         </div>
                                     </div>
                                 </div>
@@ -76,12 +63,7 @@ fetch(`../index.html`)
                 <div class="row">
                     <div class="col-md-12">
                         <div class="aa-footer-bottom-area">
-                            <p>Designed by <a href="http://www.markups.io/">MarkUps.io</a></p>
-                            <div class="aa-footer-payment">
-                            <span class="fa fa-cc-mastercard"></span>
-                            <span class="fa fa-cc-visa"></span>
-                            <span class="fa fa-paypal"></span>
-                            <span class="fa fa-cc-discover"></span>
+
                         </div>
                     </div>
                 </div>

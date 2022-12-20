@@ -114,9 +114,8 @@ async function signupButton() {
     else if (!password_re.test(password)){
         passwordError.innerText = "패스워드 형식을 확인해주세요 특수문자 포함 8글자 이상입니다"
         passwordError.style.display = "inline"
-    }
 
-    else{ 
+    }else{
         const response = await fetch(`${BACK_END_URL}/user/signup/`, {
             headers: {
                 "content-type": "application/json",
@@ -152,6 +151,7 @@ async function signupButton() {
 }
 
 
+
 //------------------------------로그인---------------------------------
 async function loginButton() {
     const email = document.getElementById("login_email").value
@@ -167,6 +167,7 @@ async function loginButton() {
             "password": password
         })
     })
+
 
     if (response.status == 200) {
         alert("로그인 완료")
