@@ -1,44 +1,34 @@
 @import url(https://fonts.googleapis.com/css?family=Josefin+Sans:100,400);
 
 body{
-    /* width:100%; */
-    /* height:100%; */
-
     background:#3E240C;
 }
 
-/* .logo-image{
+.logo-image{
+    content-visibility:hidden;
     width:150px;
     height:150px;
     text-align:left;   
-} */
-.first-page{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  /* justify-content: center; */
 }
+
 .icon {
-  font-family: 'Josefin Sans', sans-serif;
-  
-  margin-top: 30%;
+    font-family: 'Josefin Sans', sans-serif;
+    text-align:center;
+    margin-bottom: 5%;
 }
 
 .cup {
-  width:80px;
+  width:76px;
   height:76px;
-  background:#39543f;
+  background:#dedede;
   border-radius:50%;
-  /* position:absolute;
-  top:50%;
-  left:50%; */
-  /* margin-left:-68px; */
-  /* margin-left:-38px;
-  top:100px; */
+  position:absolute;
+  left:50%;
+  margin-left:-38px;
+  top:100px;
   box-shadow:-4px -1px 0 rgba(0,0,0,0.2);
 }
 
-/* 컵 바로 밑 받침 */
 .cup:after{
   content:"";
   width:66px;
@@ -46,38 +36,40 @@ body{
   position:absolute;
   border-radius:50%;
   background:linear-gradient(-45deg, #cbcbcb, #f2f2f2 );
-  /* background-color: blueviolet; */
-  top:497px;
-  left:583px;
-  /* margin-left:-9px;
-  margin-top:-26px; */
-  /* margin-left:-33px;
-  top:5px;*/
+  left:50%;
+  margin-left:-33px;
+  top:5px;
 }
 
-/* 커피 컵 전체 */
 .coffee{
   width:47px;
   height:47px;
   background:#613317;
-
-  /* background-image: linear-gradient(15deg, transparent 0px, transparent 29px, rgba(255,255,255,0.05) 29px, rgba(255,255,255,0.05) 47px); */
+  /*background-image: linear-gradient(15deg, transparent 0px, transparent 29px, rgba(255,255,255,0.05) 29px, rgba(255,255,255,0.05) 47px);*/
   border-radius:50%;
-  /* position:absolute; */
-  /* left:450px;
-  top:50%; */
-  margin-left:10px;
-  margin-top:1px;
-  /* margin-top: -20px;
-  margin-left:-50px; */
-  /* z-index:1; */
+  position:absolute;
+  left:50%;
+  margin-left:-25px;
+  z-index:1;
+  top:50%;
+  margin-top:-26px;
   border:3px solid #e9e9e9;
   box-shadow:-3px 2px 0 rgba(0,0,0,0.1);
   transform:rotate(30deg);
   transition:transform 0.3s;
 }
 
-/* 커피 김뚜껑 */
+.coffee:after{ /*assa*/
+ content:"";
+  width:15px;
+  height:8px;
+  position:absolute;
+  left:-19px;
+  top:18px;
+  background:linear-gradient(90deg, #d6d6d6, #aeaeae);
+  box-shadow:0px 2px 0 rgba(0,0,0,0.2);
+}
+
 .coffee:before {
   content:"";
   width:47px;
@@ -86,23 +78,8 @@ body{
   background-image: -webkit-radial-gradient(75% 59%, ellipse, rgba(255,255,255,0.2), transparent 95%), -webkit-radial-gradient(5% 9%, ellipse, rgba(255,255,255,0.1), transparent 5%), -webkit-radial-gradient(0% 0%, ellipse, rgba(255,255,255,0.3), transparent 55%);
   background-image: -moz-radial-gradient(75% 59%, ellipse, rgba(255,255,255,0.2), transparent 95%), -moz-radial-gradient(5% 9%, ellipse, rgba(255,255,255,0.1), transparent 5%), -moz-radial-gradient(0% 0%, ellipse, rgba(255,255,255,0.3), transparent 55%);
   position:absolute;
-  /* left:0; */
-  left:0%;
+  left:0;
   border-radius:50%;
-}
-
-/* 손잡이 */
-.coffee:after{ /*assa*/
-  content:"";
-  width:15px;
-  height:8px;
-  /* position:absolute; */
-   /* left:-19px;
-  top:18px; */
-  /* left:-35%; */
-  /* top:43%; */
-  background:linear-gradient(90deg, #d6d6d6, #aeaeae);
-  box-shadow:0px 2px 0 rgba(0,0,0,0.2);
 }
 
 .smoke {
@@ -111,9 +88,8 @@ body{
   /* background:; */
   position:absolute;
   left:50%;
-  margin-left:-90px;
-  /* top:43px; */
-  top:280px;
+  margin-left:-40px;
+  top:43px;
   background-image: -webkit-radial-gradient(75% 59%, ellipse, rgba(255,255,255,0.2), transparent 25%), -webkit-radial-gradient(25% 70%, ellipse, rgba(255,255,255,0.2), transparent 15%), -webkit-radial-gradient(35% 61%, ellipse, rgba(255,255,255,0.2), transparent 10%), -webkit-radial-gradient(55% 35%, ellipse, rgba(255,255,255,0.2), transparent 15%);
   background-image: -moz-radial-gradient(75% 59%, ellipse, rgba(255,255,255,0.2), transparent 25%), -moz-radial-gradient(25% 70%, ellipse, rgba(255,255,255,0.2), transparent 15%), -moz-radial-gradient(35% 61%, ellipse, rgba(255,255,255,0.2), transparent 10%), -moz-radial-gradient(55% 35%, ellipse, rgba(255,255,255,0.2), transparent 15%);
   background-image: radial-gradient(75% 59%, ellipse, rgba(255,255,255,0.2), transparent 25%), radial-gradient(25% 70%, ellipse, rgba(255,255,255,0.2), transparent 15%), radial-gradient(35% 61%, ellipse, rgba(255,255,255,0.2), transparent 10%), radial-gradient(55% 35%, ellipse, rgba(255,255,255,0.2), transparent 15%);
@@ -146,9 +122,7 @@ body{
   text-align: center;
   font-family: 'Jua', sans-serif;
 }
-.maintext{
-  margin-top:30%;
-}
+
 .maintext span{
   font-size: 50px;
   color: white;
@@ -451,19 +425,14 @@ table hr {
   padding: 20px;
   color: white;
   display: none;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
 }
 
-/* .show-screen table{
+.show-screen table{
   margin-bottom: 20px;
-} */
+}
 
 .show-image{
-  width: 100%;
-  min-width:200px;
-  
+  width: 300px;
 }
 
 .show-txt{
@@ -472,35 +441,25 @@ table hr {
   font-size: medium;
   text-align:left;
   vertical-align: top;
-  max-height:200px;
-
-  overflow-y: scroll;
-  -ms-overflow-style: none; /* IE and Edge */
-    scrollbar-width: none; /* Firefox */
-}
-
-.show-txt::-webkit-scrollbar {
-  display: none; /* Chrome, Safari, Opera*/
 }
 
 .signup-btn {
-  /* display: block; */
+  display: block;
   padding: 1em 2em;
   border-radius: 20px;
   color: #b2876f;
-  /* margin-top: 2rem; */
+  margin-top: 2rem;
   font-weight: bold;
   font-size: 0.5rem;
   letter-spacing: 2px;
-  /* text-transform: uppercase; */
+  text-transform: uppercase;
   text-decoration: none;
   background: linear-gradient(to right, rgba(178, 135, 111, 0) 25%, rgba(178, 135, 111, 0.8) 75%);
   background-position: 1% 50%;
   background-size: 400% 300%;
   transition: 700ms cubic-bezier(0.165, 0.84, 0.44, 1);
   cursor:pointer;
-  /* float: right; */
-  margin:auto;
+  float: right;
 }
 .signup-btn:hover {
   transition: 400ms cubic-bezier(0.165, 0.84, 0.44, 1);
@@ -512,7 +471,7 @@ table hr {
 
 .login-text{
   color: black;
-  /* text-align: center; */
+  text-align: center;
 }
 
 .login-text a{
