@@ -1,3 +1,135 @@
+/* 본문 */
+
+.profile-content {
+    background-color: rgb(194, 194, 172);
+    border:solid rgb(62,36,12) 5px;
+    min-width: fit-content;
+    border-radius: 20px;
+    padding-top: 2%;
+    padding-bottom: 2%;
+    margin: auto;
+    margin-top: 5%;
+    margin-bottom: 5%;
+    width: 80%;
+}
+@media(max-width: 420px){
+    .profile-content {
+       width:30vmax;
+    }
+    .avatar {
+        margin-left:30px;
+        max-width:80px;
+        max-height:80px;
+    }
+    .profile-file div input{
+        position:relative;
+        left: -10px;
+        top: 30px;
+    }
+}
+    
+.profile-content form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.profile-table {
+    width: 40%;
+    margin-top: 3%;
+    margin-bottom: 5%;
+}
+
+.profile-image button {
+    border: none;
+    background: transparent;
+}
+
+.avatar {
+    vertical-align: middle;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+}
+
+.pw-change-btn button {
+    border: none;
+    background: transparent;
+    cursor: pointer;
+}
+
+.pw-change-btn button i {
+    font-size: large;
+}
+
+.profile-email {
+    font-size: large;
+    height: 30%;
+}
+
+#profile_email {
+    text-align: center;
+}
+
+/* 입력란 */
+.input-boxes {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 50%;
+}
+
+.input-boxes table {
+    margin-top: -5%
+}
+
+.input-boxes .input-group-text i{
+    cursor:help;
+    display:inline-block;
+}
+
+.bi .tooltip{
+    display:none;
+    position: absolute;
+    font-size:xx-small;
+    background-color: rgb(179, 248, 171);
+    border-radius: 5px;
+    color:black
+}
+
+.bi:hover .tooltip{
+    display: block;
+}
+
+.input-boxes input {
+    border: 0;
+}
+
+.profile-content span {
+    display: inline-block;
+    width: 120px;
+    color: rgb(30, 14, 14);
+    font-weight: bold;
+    font-size: 13px;
+}
+
+.profile-content .button-profile-edit {
+    margin-top: 5%;
+    margin-bottom: 5%;
+}
+
+.profile-content .profile-input-form .btn {
+    background-color: rgb(30, 14, 14);
+    border: none;
+    border-radius: 5rem;
+    width: 100px;
+    height: 30px;
+    font-size: small;
+    color: beige
+}
+
 /* 모달 */
 .modal-overlay {
     width: 100%;
@@ -5,24 +137,24 @@
     text-align: center;
     display: none;
     position: absolute;
-    border: 1px solid rgba(255, 255, 255, 0.18);
 }
 
 #modal .modal-window {
     position: absolute;
-    top: 50%;
+    top: 70%;
     left: 50%;
-    width: 500px;
-    height: 300px;
-    text-align: center;
-    
-    background: rgb(31, 18, 2);
+    width: 50%;
+    height: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    background: rgb(62,36,12);
     box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
     backdrop-filter: blur(13.5px);
     -webkit-backdrop-filter: blur(13.5px);
     border-radius: 10px;
     border: 1px solid rgba(255, 255, 255, 0.18);
-
     transform: translateX(-50%) translateY(0%);
 }
 
@@ -34,112 +166,21 @@
     cursor: pointer;
     color: white;
 }
-/* 본문 */
-.title {
-    text-align: center;
-    margin-top: 50px;
-    margin-bottom: 50px;
-    color: rgb(0, 0, 0);
-}
-.title h3 {
-    display: inline;
-    /* position:fixed; top:30px; left:40px; */
-}
-.profile-content {
-    background-color: rgba(136, 87, 4, 0.749);
-    border-radius: 20px;
-    padding-bottom: 80px;
-    margin:auto;
-    margin-bottom:70px;
-    width:80%;
-}
-.profile-content form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
-/* 사진 */
-.profile-image {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-top: 50px;
-    margin-bottom: 10px;
-}
-.profile-image p {
-    margin-top: 10px;
-    font-size: 20px;
-}
-.profile-image p i {
-    position: relative;
-    bottom: 55px;
-    font-size: 20px;
-}
-.profile-image button {
-    border: none;
-}
-.avatar {
-    vertical-align: middle;
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-}
-/* 입력란 */
-.input-boxes {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    width: 50%;
-}
-.input-boxes .input-group-text {
-    text-shadow: none;
-}
-.input-boxes input{
-    border:0;
-}
-.profile-content span{
-    display:inline-block;
-   width:120px;
-   color:rgb(30, 14, 14);
-   font-weight:bold;
-   font-size: 13px;
-}
-/* 비밀번호변경 페이지 진입 버튼 */
-.profile-content form button {
-    font-size: 10px;
-    background: transparent;
-}
-.profile-content .button-profile-edit{
-    margin-top:40px;
-    
-}
-.profile-content form .btn{
-    background-color: rgb(30, 14, 14);
-    border: none;
-    border-radius: 5rem;
-    width: 80px;
-    height: 30px;
-    color:beige
-}
-.content-modal {
-    margin: auto;
-}
+
 .content-modal h5 {
-    text-align: center;
     font-weight: bold;
     color: rgb(255, 255, 253);
-    margin-top:15px;
 }
-.pw-input-form{
-    margin-top: 30px;
+
+.pw-input-form {
+    margin-bottom: 5%;
 }
-.pw-input-form span{
-    display:inline-block;
-   width:120px;
-   color:rgb(255, 255, 255);
-   font-size: 13px;
+
+.pw-input-form span {
+    display: inline-block;
+    width: 120px;
+    color: rgb(255, 255, 255);
+    font-size: 13px;
 }
 
 .content-modal .input-group {
@@ -153,6 +194,7 @@
     justify-content: center;
     align-items: center;
 }
+
 .content-modal .button-modal button {
     background-color: rgb(19, 4, 4);
     border: none;
@@ -160,11 +202,11 @@
     border-radius: 5rem;
     width: 80px;
     height: 30px;
-    margin-top:20px;
-    color:beige
-}
-.content-modal .button-modal .button1 {
-    margin-right: 5px;
-    margin-top:20px;
+    margin-top: 2%;
+    color: beige
 }
 
+.content-modal .button-modal .button1 {
+    margin-right: 5px;
+    margin-top: 2%;
+}

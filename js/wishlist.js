@@ -1,5 +1,7 @@
 window.onload =
     function () {
+        $("#headers").load("header.html");
+        $("#menu-bar").load("header_user.html");
         $('#append-coffee').slick({
             slidesToShow: 4,
             slidesToScroll: 3,
@@ -68,15 +70,14 @@ window.onload =
                 }
             }]
         });
+        product_list()
     };
-
-product_list()
+    
 async function product_list() {
     const response = await fetch(`${BACK_END_URL}/mypage/bookmark/`, {
         headers: {
             "content-type": "application/json",
             "Authorization": "Bearer " + localStorage.getItem("access"),
-            // "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjcwODU1OTI4LCJpYXQiOjE2NzA4MTI3MjgsImp0aSI6IjIxZTAyYThjMmM3YzQ5ZTg5MGFkYzU2MTZhYjNlNDZjIiwidXNlcl9pZCI6MiwicHJvZmlsZW5hbWUiOiJhZG1pbiJ9.nKz_eNokXLnEQLMfNPdKY6xiAw4Q6DgWh0zys7wTajk",
         },
         method: "GET"
     })
@@ -90,18 +91,14 @@ async function product_list() {
     } else {
         coffee_data.forEach(element => {
             $('#append-coffee').slick('slickAdd',
-            `<a href=${BACK_END_URL}/product/detail/?product_id=${element.id}>
+            `<a href=product-detail.html?product_id=${element.id}>
             <div class="image" style="background-image: url(${BACK_END_URL}${element.image});"></div>
             </a>`
             );
         })
-    }
-    if (etc_data.length == 0) {
-        etc_wish_container.setAttribute("style", "display: none;")
-    } else {
         etc_data.forEach(element => {
             $('#append-etc').slick('slickAdd',
-            `<a href=${BACK_END_URL}/product/detail/?product_id=${element.id}>
+            `<a href=product-detail.html?product_id=${element.id}>
             <div class="image" style="background-image: url(${BACK_END_URL}${element.image});"></div>
             </a>`
             );

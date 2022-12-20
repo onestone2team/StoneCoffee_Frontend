@@ -6,48 +6,63 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>stone coffee</title>
-    <link rel="stylesheet" type="text/css" href="/css/cart_base.css">
     <link rel="stylesheet" type="text/css" href="/css/admin_order_list.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Stone Coffee| 장바구니</title>
+    <title>Stone Coffee| 배송 목록</title>
     <link href="/css/bootstrap.css" rel="stylesheet">
     <link id="switcher" href="/css/default-theme.css" rel="stylesheet">
     <link href="/css/sequence-theme.modern-slide-in.css" rel="stylesheet" media="all">
     <link href="/css/style.css" rel="stylesheet">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="/css/header.css" rel="stylesheet">
+    
 </head>
 
 <body>
-    <header id="aa-header">
-    </header>
-    <section id="menu">
-    </section>
-
+    <header id="headers"></header>
+    <header id="menu-bar"></header>
     <div class="cart_page">
-        <main>
-            <div class="basket" id="style-4">
-                <div class="basket-labels">
-                    <ul>
-                        <li class="item item-heading">상품</li>
-                        <li class="price">가격</li>
-                        <li class="quantity">수량</li>
-                        <li class="order_status_dropdown1">주문 상태</li>
-                        <li class="subtotal">total</li>
-                    </ul>
-                </div>
-                <div id="append_admin">
+        <section class="main" style="text-align: center;">
+            <h1 class="d-none">배송 목록</h1>
+                <div class="board">
+                    <table class="table" id="table">
+                        <thead>
+                            <tr>
+                                <th style="padding-right: 50px;width: 300px;">주문 번호</th>
+                                <th style="padding-right: 50px;width: 300px;">상품</th>
+                                <th style="padding-right: 50px;width: 300px;">주문일</th>
+                                <th style="padding-right: 50px;width: 300px;">배송 상태</th>
+                            </tr>
+                        </thead>
+                        <tbody class="tbody" id="tbody">
 
+                        </tbody>
+                    </table>
+                    <!-- <div class="page-wrap">
+                        <ul class="page-nation">
+                            <li><a href="/board/list?p=1">1</a></li>
+                            <li><a href="/board/list?p=2">2</a></li>
+                            <li><a href="/board/list?p=3">3</a></li>
+                            <li><a href="/board/list?p=4">4</a></li>
+                            <li><a href="/board/list?p=5">5</a></li>
+                        </ul>
+                    </div> -->
+                    <div style=" padding-top:50px;padding-bottom: 100px;">
+                        <div class="left" >
+                            <div>
+                                <h2>주문 정보</h2>
+                            </div>
+                            <p id="content"></p>
+                        </div>
+                    </div>
                 </div>
-            </div>
-        </main>
+        </section>
     </div>
     <div class="fix">
         <footer id="aa-footer">
         </footer>
     </div>
 </body>
-<script src="/js/header.js"></script>
 <script src="/js/footer.js"></script>
 <script src="/js/all_data.js"></script>
 <script src="/js/admin_order_list.js"></script>

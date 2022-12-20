@@ -5,70 +5,71 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>로그인 회원가입 페이지</title>
+  <title>Stone Coffee| 로그인 회원가입 페이지</title>
   <link rel="stylesheet" type="text/css" href="/css/signupin.css">
 </head>
 
 <body>
-  <div class="cont">
-    <div class="form sign-in">
-      <h2 style="color: rgb(66, 53, 37);">안녕하세요</h2>
-      <form action="">
-        <label>
-          <span>Email</span>
-          <input type="email" id="login_email" />
-        </label>
-        <label>
-          <span>Password</span>
-          <input type="password" id="login_password" />
-        </label>
-        <p class="forgot-pass">비밀번호를 잊으셨나요?</p>
-        <button type="button" class="submit" onclick="loginButton()">Sign In</button>
-        <button type="button" class="fb-btn" onclick="kakaologin()">Connect with <span>kakao</span></button>
-      </form>
-    </div>
-    <div class="sub-cont">
-      <div class="img">
-        <div class="img__text m--up">
-          <h2>처음오셨나요?</h2>
-          <br>
-          <p>StoneCoffee에서 <br>새로운 경험을 해보세요!</p>
-        </div>
-        <div class="img__text m--in">
-          <h2>이미 <br>회원이신가요?</h2>
-          <br>
-          <p>계정이 있으시다면<br> 로그인해주세요!</p>
-        </div>
-        <div class="img__btn">
-          <span class="m--up">Sign Up</span>
-          <span class="m--in">Sign In</span>
-        </div>
-      </div>
-      <div class="form sign-up" style="margin-top:10px;">
-        <h2 style="color: rgb(66, 53, 37);">어서오세요</h2>
-        <form>
-          <label>
-            <span>Username</span>
-            <input type="text" id="signup_profilename" />
-          </label>
-          <label>
+  <section>
+    <div class="container">
+      <div class="user signinBx">
+        <div class="imgBx"><img src="../img/user/cafeparis.jpg" alt="" /></div>
+        <div class="formBx">
+          <form>
+            <h2 style="color: rgb(66, 53, 37);">안녕하세요</h2>
+            <label>
             <span>Email</span>
-            <input type="email" id="signup_email" />
-          </label>
-          <label>
-            <span>Password</span>
-            <input type="password" id="signup_password" />
-          </label>
-          <label>
-            <span>Password Again</span>
-            <input type="password" id="signup_password2" />
-          </label>
-          <button type="button" class="submit" onclick="signupButton()">Sign Up</button>
-          <button type="button" class="fb-btn" onclick="kakaologin()">Join with <span>kakao</span></button>
-        </form>
+            <input type="text" id="login_email"/>
+            </label>
+            <label>
+              <span>Password</span>
+              <input type="password" id="login_password" />
+            </label>
+            <p class="forgot-pass">비밀번호를 잊으셨나요?</p>
+            <button type="button" class="submit" onclick="loginButton()">Sign In</button>
+            <button type="button" class="fb-btn" onclick="kakaologin()">Connect with <span>kakao</span></button>
+            <p class="signup">
+              계정이 없으신가요?
+              <a href="#" onclick="toggleForm();">회원가입.</a>
+            </p>
+          </form>
+        </div>
+      </div>
+      <div class="user signupBx">
+        <div class="formBx">
+          <form action="" onsubmit="return false;">
+            <h2 style="color: rgb(66, 53, 37);">어서오세요</h2>
+            <label>
+              <span>Username</span>
+              <input type="text" id="signup_profilename" />
+              <span class="error-message" id="name-error">유저 이름을 입력하세요</span>
+            </label>
+            <label>
+              <span>Email</span>
+              <input type="email" id="signup_email" />
+              <span class="error-message" id="email-error">email을 입력하세요</span>
+            </label>
+            <label>
+              <span>Password</span>
+              <input type="password" id="signup_password" />
+              <span class="error-message" id="password-error">패스워드를 입력하세요</span>
+            </label>
+            <label>
+              <span>Password Again</span>
+              <input type="password" id="signup_password2" />
+            </label>
+            <button type="button" class="submit" onclick="signupButton()">Sign Up</button>
+        <button type="button" class="fb-btn" onclick="kakaologin()">Join with <span>kakao</span></button>
+            <p class="signup">
+              계정이 있으신가요?
+              <a href="#" onclick="toggleForm();">로그인</a>
+            </p>
+          </form>
+        </div>
+        <div class="imgBx"><img src="/img/user/coffeemachine.jpg" alt="" /></div>
       </div>
     </div>
-  </div>
+  </section>
 
   <script src='/js/all_data.js'> </script>
   <script src='/js/signupin.js'> </script>
