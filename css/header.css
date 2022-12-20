@@ -65,6 +65,7 @@ a {
 }
 #aa-header .aa-header-bottom .aa-header-bottom-area .aa-logo {
   margin-top: 0px;
+  margin-left: 30px;
 }
 /*로고 크기*/
 #aa-header .aa-header-bottom .aa-header-bottom-area .aa-logo a {
@@ -234,13 +235,3 @@ a {
     clear: both;
 }
 
-#aa-header .aa-header-bottom .aa-header-bottom-area .aa-search-box button {
-    background-color: #3E240C;  
-}
-
-
-
-#aa-promo .aa-promo-area .aa-promo-banner .aa-prom-content h4 a:hover {
-color: #3E240C !important;
-}
-  

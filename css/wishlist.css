@@ -130,7 +130,7 @@
     margin: auto;
     width: 70%;
     min-height: 200px;
-    border:solid rgb(62,36,12) 4px;
+    border: solid rgb(62,36,12) 4px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, .25);
     background-color: rgb(194,194,172);
 }

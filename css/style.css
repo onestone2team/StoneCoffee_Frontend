@@ -35,7 +35,7 @@ a {
 /* 판매중인 상품 가운데로 */
 .aa-products-tab {
     display: block;
-    text-align: center;
+    text-align:center;
     border: none;
     margin-bottom: 20px;
 }
@@ -48,19 +48,25 @@ a {
 }
 
 /* 상품 배열 */
-.aa-product-catg {
-    margin-left: 0px;
+.tab-pane > ul {
+    text-align: center;
+    margin:0 auto;
 }
-
+.tab-content{
+    height: 60% !important;
+}
 /* 상품배열 */
-.aa-product-catg li {
-    display: block;
-    float: left;
+.aa-product-catg > div {
     text-align: center;
     width: 25%;
-    position: relative;
+    max-width: 330px !important;
     overflow: hidden;
     margin-bottom: 30px;
+    display: inline-block;
+}
+.tab-pane{
+    text-align: center;
+    margin:0 auto;
 }
 
 /* 섹션1 검정배경 */

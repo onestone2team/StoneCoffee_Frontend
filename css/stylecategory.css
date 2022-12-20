@@ -126,16 +126,13 @@ a {
 }
 /* 상품 배열 */
 .aa-product-catg {
-  /* float: left; */
   text-align:center;
   margin:0 auto;
-  max-width: 900px;
+  max-width: 1300px;
 }
 .product-listform{
-  /* display: flex; */
-  /* flex-direction: column !important; */
   margin:0 auto;
-  width: 80%;
+  width: 90%;
 }
 .product-layout{
   width: 25%;
@@ -143,14 +140,9 @@ a {
 }
 /* 상품배열 */
 .aa-product-catg li {
-  /* display: block; */
-  /* float: left; */
   text-align: center;
   margin: 0 10% 40px 10%;
-  /* width: 20.5%; */
-  /* position: relative; */
   overflow: hidden;
-  /* display:inline-block; */
 }
 /* 섹션1 검정배경 */
 #aa-client-brand {
