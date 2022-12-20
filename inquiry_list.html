@@ -6,7 +6,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="/css/inquiry_list.css">
-    <link rel="stylesheet" type="text/css" href="/css/cart_base.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Stone Coffee| 문의내역</title>
@@ -17,54 +16,43 @@
     <link href="/css/header.css" rel="stylesheet">
     <!-- <meta name="viewport" content="width=device-width, initial-scale=1"> -->
 </head>
-
 <body>
+
     <header id="headers" ></header>
     <header id="menu-bar"></header>
     <div class="cart_page">
         <section class="main" style="text-align: center;">
             <h1 class="d-none">문의 목록</h1>
-                <div class="board">
-                    <table class="table" id="table">
-                        <thead class="thead">
-                            <tr>
-                                <td style="padding-right: 50px;width: 300px;">번호</td>
-                                <td style="padding-right: 50px;width: 300px;">제목</td>
-                                <td style="padding-right: 50px;width: 300px;">분류</td>
-                                <td style="padding-right: 50px;width: 300px;">작성일</td>
-                                <td style="padding-right: 50px;width: 300px;">답변 상태</td>
-                            </tr>
+            <div class="board">
+                <table class="table" id="table">
+                    <thead>
+                        <tr>
+                            <th>번호</th>
+                            <th>문의 제목</th>
+                            <th>문의종류</th>
+                            <th>문의 날짜</th>
+                            <th>문의 확인</th>
+                        </tr>
                         </thead>
-                        <tbody class="tbody" id="tbody">
+                    <tbody class="tbody" id="tbody">
 
-                        </tbody>
-                    </table>
-                    <div class="page-wrap">
-                        <ul class="page-nation">
-                            <li><a href="/board/list?p=1">1</a></li>
-                            <li><a href="/board/list?p=2">2</a></li>
-                            <li><a href="/board/list?p=3">3</a></li>
-                            <li><a href="/board/list?p=4">4</a></li>
-                            <li><a href="/board/list?p=5">5</a></li>
-                        </ul>
-                    </div>
-                    <div style=" padding-top:50px;padding-bottom: 100px;">
-                        <div class="left" >
-                            <div>
-                                <h2>글 내용</h2>
-                            </div>
-                            <p id="content"></p>
+                    </tbody>
+                </table>
+                <div style=" padding-top:50px;padding-bottom: 100px;">
+                    <div class="left">
+                        <div>
+                            <h2>글 내용</h2>
                         </div>
-                        <div class="right">
-                            <div>
-                                <h2>답변</h2>
-                            </div>
-                                <p id="answer"></p>
-                        </div>
+                        <p id="content"></p>
                     </div>
-    
+                    <div class="right">
+                        <div>
+                            <h2>답변</h2>
+                        </div>
+                        <p id="answer"></p>
+                    </div>
                 </div>
-    
+            </div>
         </section>
     </div>
     <div class="fix" style=" padding-top:200px;">

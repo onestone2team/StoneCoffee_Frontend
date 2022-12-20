@@ -34,29 +34,31 @@ a {
 
 
 /* 바로가기 배열 */
-#aa-promo .aa-promo-area {
+#aa-promo .aa-promo-area .aa-promo-left {
   display: inline;
-  width: 70%;
-  height: 50px;
+  float: left;
+  width: 100%;
+  height: 400px;
   overflow: hidden;
 }
 /* 바로가기 2x2칸 배열 */
 #aa-promo .aa-promo-area .aa-promo-right {
   display: inline;
+  float: left;
   width: 100%;
-  height: 100px;
+  height: 400px;
 }
 /* 바로가기 배열 */
-#aa-promo .aa-promo-area .aa-promo-right  {
-  width: 150%;
+#aa-promo .aa-promo-area .aa-promo-right .aa-single-promo-right {
+  width: 50%;
   height: 50%;
+  float: left;
 }
 /* 바로가기 배열 */
 #aa-promo .aa-promo-area .aa-promo-banner {
-  width: 70%;
-  height: 50%;
+  width: 100%;
+  height: 100%;
   position: relative;
-  left: 130px;
   overflow: hidden;
   -moz-transform: translateZ(0);
   -o-transform: translateZ(0);
@@ -65,7 +67,7 @@ a {
   transform: translateZ(0);
 }
 /* 바로가기 호버 이벤트 */
-#aa-promo  .aa-promo-banner:hover img {
+#aa-promo .aa-promo-area .aa-promo-banner:hover img {
   height: 120%;
   width: 120%;
   margin-left: -10%;
@@ -94,7 +96,7 @@ a {
 /* 바로가기 중앙 글씨  */
 #aa-promo .aa-promo-area .aa-promo-banner .aa-prom-content h4 {
   color: #fff;
-  font-size: 22px;
+  font-size: 30px;
   font-weight: bold;
   text-transform: uppercase;
 }
