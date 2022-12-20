@@ -66,10 +66,3 @@ async function cartlist() {
 }
 
 
-
-// function removeItem(removeButton) {
-//     var productRow = $(removeButton).parent().parent();
-//     productRow.slideUp(fadeTime, function () {
-//         productRow.remove();
-//     });
-// }

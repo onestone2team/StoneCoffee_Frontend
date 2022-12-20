@@ -6,10 +6,6 @@ window.onload = function() {
 }
 
 
-$(document).on('click','.remove button',function(){
-    removeItem(this)
-});
-
 async function adminorderlist() {
     const response = await fetch(`${BACK_END_URL}/director/order`, {
         headers: {
@@ -32,18 +28,16 @@ async function adminorderlist() {
         // img src="${BACK_END_URL}${element.product_image}"/>
         var admin_price = element.count * element.order_price
         const order = document.createElement('tr')
-        order.innerHTML = `<tbody class="tbody">
-                                        <tr>
+        order.innerHTML = `<tr>
                                             <td>${element.id}</td>
                                             <td class="orderbox">
                                                 <div class=imgbox>
-                                                    
                                                     <img src="${BACK_END_URL}${element.product_image}" onclick="answer(${element.id})">
+                                                </div>
                                                 </div>
                                                 <div class="namebox">
                                                     <p onclick="answer(${element.id})">${element.product_name}</p>
                                                 </div>
-                                               
                                             </td>
                                             <td>${element.created_at}</td>
                                             <td>
@@ -54,15 +48,12 @@ async function adminorderlist() {
                                                                 <li class="li2" id="${element.id}" value="0">확인 대기중</li>
                                                                 <li class="li2" id="${element.id}" value="1">주문 확인</li>
                                                                 <li class="li2" id="${element.id}" value="2">배송중</li>
+                                                                
                                                             </ul>
                                                         </li>
                                                     </ul>
                                                 </div>
-                                            </td>
-                                    </tbody>
-                        <div class="remove" style="width: max-content; margin-top: 100%;">
-                            <button>지우기</button>
-                        </div>`
+                                            </td>`
         admin_frame.prepend(order)
     })
 }
@@ -85,9 +76,9 @@ async function answer(id){
         if (data["data"][i]['id'] == id) {
             const content = document.createElement('content')
             content.innerHTML = `<div style="text-align:left; margin-left:40%">
-                                갯수 :${data["data"][i].count}<br/>
-                                 총 가격 :${data["data"][i].order_price}<br/>
-                                 하고싶은 말 :${data["data"][i].receiver}<br/>
+                                 갯수 :${data["data"][i].count}<br/>
+                                 총 가격 :${data["data"][i].order_price}원<br/>
+                                 요청 사항:${data["data"][i].receiver}<br/>
                                  고객 ID: ${data["data"][i].user}<br/>
                                  주소 : ${data["data"][i].user_address}<br/>
                                  받는분 핸드폰 번호 :${data["data"][i].user_phone}<br/>
@@ -97,14 +88,6 @@ async function answer(id){
         }
     }
 })}
-
-function removeItem(removeButton) {
-    var productRow = $(removeButton).parent().parent();
-    productRow.slideUp(fadeTime, function () {
-        productRow.remove();
-    });
-}
-
 
 $(document).on('click','.li2',function(){
     var order_id = this.id
