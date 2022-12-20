@@ -6,10 +6,6 @@ window.onload = function() {
 }
 
 
-$(document).on('click','.remove button',function(){
-    removeItem(this)
-});
-
 async function adminorderlist() {
     const response = await fetch(`${BACK_END_URL}/director/order`, {
         headers: {
@@ -21,7 +17,7 @@ async function adminorderlist() {
     const response_json = await response.json()
     var admin_frame = document.getElementById('tbody')
     response_json.data.forEach(element => {
-        console.log(element)
+    
         if (element.status == 0) {
             var admin_status = "확인 대기중";
         } else if (element.status == 1) {
@@ -32,18 +28,16 @@ async function adminorderlist() {
         // img src="${BACK_END_URL}${element.product_image}"/>
         var admin_price = element.count * element.order_price
         const order = document.createElement('tr')
-        order.innerHTML = `<tbody class="tbody">
-                                        <tr>
+        order.innerHTML = `<tr>
                                             <td>${element.id}</td>
                                             <td class="orderbox">
                                                 <div class=imgbox>
-                                                    <button1 onclick="answer(${element.id})">
-                                                    <img src="${BACK_END_URL}${element.product_image}">
+                                                    <img src="${BACK_END_URL}${element.product_image}" onclick="answer(${element.id})">
+                                                </div>
                                                 </div>
                                                 <div class="namebox">
-                                                    ${element.product_name}
+                                                    <p onclick="answer(${element.id})">${element.product_name}</p>
                                                 </div>
-                                                </button1 >
                                             </td>
                                             <td>${element.created_at}</td>
                                             <td>
@@ -54,52 +48,47 @@ async function adminorderlist() {
                                                                 <li class="li2" id="${element.id}" value="0">확인 대기중</li>
                                                                 <li class="li2" id="${element.id}" value="1">주문 확인</li>
                                                                 <li class="li2" id="${element.id}" value="2">배송중</li>
+                                                                
                                                             </ul>
                                                         </li>
                                                     </ul>
                                                 </div>
-                                            </td>
-   
-                                    </tbody>
-                        <div class="remove">
-                            <button>지우기</button>
-                        </div>`
+                                            </td>`
         admin_frame.prepend(order)
     })
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-function removeItem(removeButton) {
-    var productRow = $(removeButton).parent().parent();
-    productRow.slideUp(fadeTime, function () {
-        productRow.remove();
-    });
-}
-
+async function answer(id){
+    const response = await fetch(`${BACK_END_URL}/director/order`, {
+        headers: {
+            "content-type": "application/json",
+            "Authorization": "Bearer " + localStorage.getItem("access"),
+        },
+        method: "GET"
+    })
+    .then(response => {
+        return response.json();
+    })
+    .then(data => {
+    var content_frame = document.getElementById('content')
+    console.log(data)
+    $("#content").empty();
+    for (i = 0; i < data["data"].length; i ++) {
+        if (data["data"][i]['id'] == id) {
+            const content = document.createElement('content')
+            content.innerHTML = `<div style="text-align:left; margin-left:40%">
+                                 갯수 :${data["data"][i].count}<br/>
+                                 총 가격 :${data["data"][i].order_price}원<br/>
+                                 요청 사항:${data["data"][i].receiver}<br/>
+                                 고객 ID: ${data["data"][i].user}<br/>
+                                 주소 : ${data["data"][i].user_address}<br/>
+                                 받는분 핸드폰 번호 :${data["data"][i].user_phone}<br/>
+                                 </div>
+                                 `
+            content_frame.appendChild(content)
+        }
+    }
+})}
 $(document).on('click','.li2',function(){
     var order_id = this.id
     if (this.value == 0){

@@ -148,8 +148,9 @@ td {
     float: left;
     box-sizing: border-box;
     border: 1px solid gray;
-    box-shadow: 0 2px 5px rgb(0 0 0 / 25%);
-    border-radius: 5px;
+box-shadow: 0 2px 5px rgb(0 0 0 / 25%);
+    border-radius: 5px;    
+
 }
 
 .right {
