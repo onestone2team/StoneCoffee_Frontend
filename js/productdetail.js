@@ -628,7 +628,6 @@ var $quantity=$('.quantity'),
 //커멘트 디테일 페이지로 이동
 async function CommentDetail(num){
     comment_id = num
-    console.log(comment_id)
     const payload = localStorage.getItem("payload")
     const parsed_payload = JSON.parse(payload)
 

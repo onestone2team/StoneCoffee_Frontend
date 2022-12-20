@@ -52,7 +52,6 @@ const nextButton = document.getElementById("next");
 backButton.style.display = "none";
 
 if (now == minnum) {
-    console.log(backButton)
     backButton.style.display = "none";
 } else {
     backButton.style.display = "inline";
@@ -75,7 +74,6 @@ $(".pagenation a").click(function (e) {
         // $("#pagenumber").empty();
         for (i=0;i<7;i++){
             id = firstPage+i
-            console.log(id)
             const pagenate = document.getElementById(id);
             pagenate.innerText = nextPage + i + 1 -14
             pagenate.id = nextPage + i + 1 -14
@@ -94,17 +92,15 @@ $(".pagenation a").click(function (e) {
         nowbutton.className = "active"
 
     } else if (selectedPage>nextPage){
-        
+
         for (i=0;i<7;i++){
             id = firstPage+i
-            console.log(nextPage + i + 1)
-            
-            const pagenate = document.getElementById(id);
+                        const pagenate = document.getElementById(id);
             pagenate.innerText = nextPage + i + 1
             pagenate.id = nextPage + i + 1
             if ((nextPage + i + 1) > maxnum) {
                 pagenate.style.display="none"
-            } 
+            }
         }
         firstPage += 7
         nextPage = firstPage + 6

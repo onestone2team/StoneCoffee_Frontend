@@ -71,7 +71,6 @@ async function answer(id){
     })
     .then(data => {
     var content_frame = document.getElementById('content')
-    console.log(data)
     $("#content").empty();
     for (i = 0; i < data["data"].length; i ++) {
         if (data["data"][i]['id'] == id) {
