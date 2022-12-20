@@ -46,7 +46,7 @@ async function nestedcommentlist() {
                                     <tr id="nested-edit-text-tr${element.id}">
                                         <td class="nested-edit-text" ><textarea placeholder="" required id="nested-edit-text${element.id}"></textarea></td>
                                         <td class="nested-edit-btn">
-                                            <button type="button" onclick="save_nested(${element.id})">수정하기</button>
+                                            <button type="button" onclick="save_nested(${element.id})">수정</button>
                                         </td>
                                     </tr>
                                 </table>`
@@ -152,6 +152,8 @@ async function create_nested() {
         alert(nested_json.message)
     }
     nestedcommentlist()
+    //댓글 작성란 비우기
+    document.getElementById('nested-create-text').value=''
 }
 
 function edit_nested(id) {
