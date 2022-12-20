@@ -19,6 +19,7 @@ async function show_product_list(num) {
     })
     .then(data => {
         var products = document.getElementById("products");
+        maxnum = data["page"].total_page
         $("#products").empty();
         for (i = 0; i < data["data"].length; i++) {
             const product = document.createElement('div')
