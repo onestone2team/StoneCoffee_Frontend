@@ -1,6 +1,7 @@
 /* 본문 */
 .profile-content {
     background-color: rgb(194, 194, 172);
+    border:solid rgb(62,36,12) 5px;
     min-width: fit-content;
     border-radius: 20px;
     padding-top: 2%;
@@ -68,6 +69,24 @@
     margin-top: -5%
 }
 
+.input-boxes .input-group-text i{
+    cursor:help;
+    display:inline-block;
+}
+
+.bi .tooltip{
+    display:none;
+    position: absolute;
+    font-size:xx-small;
+    background-color: rgb(179, 248, 171);
+    border-radius: 5px;
+    color:black
+}
+
+.bi:hover .tooltip{
+    display: block;
+}
+
 .input-boxes input {
     border: 0;
 }
@@ -82,7 +101,6 @@
 
 .profile-content .button-profile-edit {
     margin-top: 5%;
-    /* background-color: chartreuse; */
     margin-bottom: 5%;
 }
 
@@ -115,7 +133,7 @@
     flex-direction: column;
     justify-content: center;
 
-    background: rgb(31, 18, 2);
+    background: rgb(62,36,12);
     box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
     backdrop-filter: blur(13.5px);
     -webkit-backdrop-filter: blur(13.5px);

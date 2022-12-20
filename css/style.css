@@ -123,15 +123,14 @@ a {
 }
 /* 상품 배열 */
 .aa-product-catg {
-  margin-left: -50px;
+  margin-left: 50px;
 }
 /* 상품배열 */
 .aa-product-catg li {
   display: block;
   float: left;
-  height: 380px;
   text-align: center;
-  margin: 0 0 20px 55px;
+  margin: 0 0 20px 10px;
   width: 20.5%;
   position: relative;
   overflow: hidden;
