@@ -1,6 +1,8 @@
 cartlist = []
 
 // =====장바구니 리스트 불러오기========= //
+user_name = ""
+user_email = ""
 
 window.onload = async function checkoutlist() {
     $("#headers").load("header.html");
@@ -51,6 +53,9 @@ window.onload = async function checkoutlist() {
     const profile_phone = document.getElementById("user_phone")
     profile_phone.setAttribute("value", profile_json.phone)
 
+    user_name = profile_json.profilename
+    user_email = profile_json.email
+
 }//onload끝
 
 // 총 상품 금액 및 배송비 및 결제 금액 계산
@@ -65,6 +70,19 @@ async function calculator(product_total_price) {
     final_total_price.innerText = String(parseInt(products_price.innerText) + parseInt(delivery_price.innerText)) + ' 원'
 }
 
+function is_checked(){
+    const checkbox = document.getElementById("checkbox")
+    const orderbutton = document.getElementById("orderbutton")
+    const is_checked = checkbox.checked;
+    if (is_checked==true) {
+        orderbutton.disabled = false
+        
+    } else{
+        orderbutton.disabled = true
+    }
+}
+
+
 // =====개인정보 작성====== //
 async function fillin() {
 
@@ -73,32 +91,64 @@ async function fillin() {
     const user_address = document.getElementById("user_address").value
     const user_phone = document.getElementById("user_phone").value
     const receiver = document.getElementById("receiver").value
+    const total_price = document.getElementById("final-total-price").innerText
+    console.log(total_price)
+    var payment = document.querySelector('input[name="payment"]:checked').value
+    if (payment == 'kakaopay'){
+        paymethod = 'kakaopay'
+    } else if (payment == 'kcp'){
+        paymethod = 'card'
+    }
 
-    const response = await fetch(`${BACK_END_URL}/order/product/order/?cart_id=${cart_id}`
-        , {
-            headers: {
-                "Content-Type": "application/json",
-                "Authorization": "Bearer " + localStorage.getItem("access")
-            },
-            method: 'POST',
-            body: JSON.stringify({
-                "user_address": user_address,
-                "user_phone": user_phone,
-                "receiver": receiver
-            }),
-            
-        })
-        response_json=await response.json()
-    
-        if (response.status==200 || response.status==202 || response.status == 201){
-            alert("정상적으로 결제가 되었습니다.")
-            location.reload();
+    var IMP = window.IMP;
+    var code = "imp85781414";  // FIXME: 가맹점 식별코드
+    IMP.init(code);
 
+    // 결제요청
+    IMP.request_pay({
+        // name과 amount만 있어도 결제 진행가능
+        pg : payment, // pg 사 선택
+        pay_method : paymethod,
+        merchant_uid : 'merchant_' + new Date().getTime(),
+        name : '주문명:stonecoffee',
+        amount : total_price,
+        buyer_email : user_email,
+        buyer_name : user_name,
+        buyer_tel : user_phone,
+        buyer_addr : user_address,
+        m_redirect_url : `${FRONT_END_URL}/payment.html`
+    }, async function(rsp) {
+        if ( rsp.success ) {
+                        
+            const response = await fetch(`${BACK_END_URL}/order/product/order/?cart_id=${cart_id}`, {
+                headers: {
+                    "Content-Type": "application/json",
+                    "Authorization": "Bearer " + localStorage.getItem("access")
+                },
+                method: 'POST',
+                body: JSON.stringify({
+                    "user_address": user_address,
+                    "user_phone": user_phone,
+                    "receiver": rsp.imp_uid
+                }),
+                
+            })
+            response_json=await response.json()
+        
+            if (response.status==200 || response.status==202 || response.status == 201){
+                alert("정상적으로 결제가 되었습니다.")
+                location.replace("../payment.html");
+
+            }
+            else if(response.status==401 || response.status == 400){
+                alert("오류가 발생했습니다. 관리자에게 문의해주세요")
+                location.reload();
+            }
         }
-        else if(response.status==401 || response.status == 400){
-            alert("오류가 발생했습니다. 관리자에게 문의해주세요")
-            location.reload();
+        else {
+            alert("결제에 실패하였습니다. 에러 내용: " +  rsp.error_msg);
         }
+    });
 
 }
 

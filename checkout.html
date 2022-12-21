@@ -7,6 +7,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Stone Coffee| 결제페이지</title>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <!-- jQuery -->
+  <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.min.js" ></script>
+  <!-- iamport.payment.js -->
+  <script type="text/javascript" src="https://cdn.iamport.kr/js/iamport.payment-1.1.8.js"></script>
+
   <link href="/css/bootstrap.css" rel="stylesheet">
   <link id="switcher" href="/css/default-theme.css" rel="stylesheet">
   <link href="/css/sequence-theme.modern-slide-in.css" rel="stylesheet" media="all">
@@ -54,12 +59,20 @@
         <h6 class="Request">배달시 요청사항</h6>
         <input type="text" class="Request-text" id="receiver" placeholder="내용을 입력해 주세요.">
       </div>
+      <div>
+        <h6 class="Request">결제 방식</h6>
+        <div class="select">
+            <input type='radio' name="payment" id='kakaopay' value="kakaopay" class="inputdesign"><label for="kakaopay">카카오페이</label>
+
+            <input type='radio' name="payment" id='KCP' value="kcp" class="inputdesign"><label for="KCP">KCP</label>
+        </div>
+        <p class="warning-font">실제 결제가 진행되지 않으며 테스트 결제로 넘어가게 됩니다. 카카오페이는 가상 계좌에서 결제하지만 KCP 결제 경우 몇몇 결제에서 실제 계좌에서 결제될수 있어 결제되어도 12시 이내 환불되오니 당황하지 않으셔도 됩니다.</p>
     </div>
     <div class="order-box">
-      <div class="consent"><input type="checkbox" value="" />주문 상품에 동의합니다.</div>
-      <button class="checkout" type="button" onclick="fillin()">주문하기</button>
+      <div class="consent"><input type="checkbox" id="checkbox" onclick='is_checked()' value=""/>주문 상품에 동의합니다.</div>
+      <button class="checkout" type="button" id="orderbutton" onclick="fillin()" disabled = false>주문하기</button>
     </div>
-    </div>
+    
   </main>
   <section id="aa-client-brand">
   </section>
