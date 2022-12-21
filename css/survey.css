@@ -376,7 +376,6 @@ table hr {
 #balance input[name=balance]:checked ~ label{
   color: unset; /* 마우스 클릭 체크 */
 }
-
 #balance label{
   font-size: 40px;
   color: transparent; /* 기존 이모지 컬러 제거 */
@@ -483,30 +482,60 @@ table hr {
   display:flex; 
   flex-direction: column; 
   align-items:center;
-  margin-bottom:1%
+  margin-bottom:1%;
+  
 }
+  
+@media(max-width:420px){
+  .notView {
+    height:fit-content
+  }
+  .show-screen{
+    width:80%;
+  }
+  .survey-table p{
+    font-size:medium;
+  }
+  .signup-btn {
+    font-size:10px;
+  }
+  #sweet label{
+    font-size: 1.5rem;
+  }
+  #aroma label{
+    font-size: 1.5rem;
+  }
+  #acidity label{
+    font-size: 1.5rem;
+  }
+  #balance label{
+    font-size: 1.5rem;
+  }
+}
+
 .signup-btn {
+  margin-top:5%;
+  margin-bottom:5%;
   display: block;
   padding: 1em 2em;
   border-radius: 10px;
+  
   color:rgb(62,36,12);
-  /* margin-top: 2rem; */
   font-weight: bold;
   font-size:medium;
 
   letter-spacing: 2px;
-  text-transform: uppercase;
-  text-decoration: none;
+  text-decoration-line: none !important; 
   background: linear-gradient(to right, rgba(178, 135, 111, 0) 25%, rgba(178, 135, 111, 0.8) 75%);
   background-position: 1% 50%;
   background-size: 400% 300%;
   transition: 700ms cubic-bezier(0.165, 0.84, 0.44, 1);
   cursor:pointer;
-  margin-bottom:1%
   
 }
 .signup-btn a{
   font-size:large;
+  text-decoration-line: none !important;
 }
 .signup-btn:hover {
   transition: 400ms cubic-bezier(0.165, 0.84, 0.44, 1);
