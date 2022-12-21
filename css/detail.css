@@ -510,10 +510,22 @@
         width: 100%;
     }
     .image{
-        width: 150px !important;
-        height: 250px;
+        width: 100px !important;
+        height: 150px !important;
         object-fit: cover;
         background-size: cover;
+    }
+    .recommend{
+        height: 200px !important;
+    }
+    #recommend{
+        height: 300px !important;
+    }
+    .slick-track{
+        height: 250px;
+    }
+    .recomend_text{
+        font-size: 15px;
     }
 }
 @media screen and (max-width: 500px) {

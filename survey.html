@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Stone Coffee| </title>
+    <title>STONE COFFEE</title>
     <link rel="stylesheet" type="text/css" href="css/survey.css">
 
     <!-- 구글 폰트 불러오기 -->
@@ -15,26 +15,23 @@
 </head>
 
 <body>
-    <!-- <img class="logo-image" src="img/logo.png" alt="Coffee logo"> -->
-    <div class="first-page">
-        <div class="icon" id="icon">
-            <div class="cup">
-                <div class="coffee"></div>
-            </div>
-            <div class="smoke"></div>
+    <img class="logo-image" src="img/logo.png" alt="Coffee logo">
+    <div class="icon" id="icon">
+        <div class="cup">
+            <div class="coffee"></div>
         </div>
-        <div class="survey">
-            <div class="maintext">
-                <span>나</span><span>에</span><span>게</span><span> </span><span>맞</span><span>는</span><span>
-                </span><span>커</span><span>피</span><span>는</span><span>?</span>
-            </div>
-            <br>
-            <a id="removeText1" class="gradient-btn" onclick="startSurvey()">설문조사 시작하기</a>
-
-            <p id="removeText2" onclick="saveCookie('guestCheck', 'True', 1)">⊗ 오늘 하루 그만보기</p>
-        </div>
+        <div class="smoke"></div>
     </div>
+    <div class="survey">
+        <div class="maintext">
+            <span>나</span><span>에</span><span>게</span><span> </span><span>맞</span><span>는</span><span>
+            </span><span>커</span><span>피</span><span>는</span><span>?</span>
+        </div>
+        <br>
+        <a id="removeText1" class="gradient-btn" onclick="startSurvey()">설문조사 시작하기</a>
 
+        <p id="removeText2" onclick="saveCookie('guestCheck', 'True', 1)">⊗ 오늘 하루 그만보기</p>
+    </div>
 
     <div class="notView scrollBar" id="showSurvey">
         <table class="survey-table">
@@ -114,7 +111,6 @@
     </div>
 
     <button class="sendSurvey" onclick="sendSurvey()">제출하기</button>
-
     <div class="show-screen" id="coffeeShow">
         <div class="coffee-info">
             <div class="first-sec">
@@ -150,8 +146,11 @@
         </div>
 
 
+            </tbody>
+        </table>
+        <p class="login-text">이미 회원이신가요? <a href="signupin.html" onclick="saveCookie('guestCheck', 'True')">로그인하러 가기</a>
+        </p>
     </div>
-
     <script src="/js/all_data.js"></script>
     <script src="/js/survey.js"></script>
 </body>

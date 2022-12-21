@@ -60,17 +60,17 @@ textarea {
 
 }
 .first-box{
-    border: 1px #a39485 solid;
+    border: solid rgb(62,36,12) 2px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, .25);
-    background-color: rgb(62,36,12);
+    background-color: rgb(194,194,172);
 }
 .second-box{
-    border: 1px #a39485 solid;
+    border: solid rgb(62,36,12) 2px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, .25);
-    background-color:rgb(75, 47, 20);
+    background-color: rgb(194,194,172);
 }
 .third-box{
-    border: 1px #a39485 solid;
+    border: solid rgb(62,36,12) 2px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, .25);
-    background-color:rgb(62,36,12);
+    background-color: rgb(194,194,172);
 }

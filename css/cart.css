@@ -602,7 +602,7 @@ aside {
 	overflow-y:scroll;
 	max-height: 530px;
 	width: 70%;
-	background-color: rgb(236, 236, 236);
+	background-color: rgb(194,194,172);
 }
 
 
@@ -640,9 +640,10 @@ label {
 }
 
 .basket-labels {
-	border-top: 1px solid #ccc;
-	border-bottom: 1px solid #ccc;
+	border-top: 1px solid rgb(62,36,12);
+	border-bottom: 1px solid rgb(62,36,12);
 	margin-top: 1.625rem;
+	
 }
 
 ul {
@@ -737,8 +738,8 @@ aside {
 }
 
 .summary {
-	background-color: #eee;
-	border: 1px solid #aaa;
+	background-color: rgb(194,194,172);
+	border: 1px solid rgb(62,36,12);
 	position: relative;
 	box-sizing: border-box;
 	width: 30%;
@@ -754,8 +755,8 @@ aside {
 
 .summary-subtotal,
 .summary-total {
-	border-top: 1px solid #ccc;
-	border-bottom: 1px solid #ccc;
+	border-top: 1px solid rgb(62,36,12);
+	border-bottom: 1px solid rgb(62,36,12);
 	clear: both;
 	margin: 0.5rem 0;
 	overflow: hidden;

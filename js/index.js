@@ -44,15 +44,15 @@ async function show_product_list() {
             const product = document.createElement('div')
             product.setAttribute("class", "aa-product-catg","style","max-width: 150; height: 150;")
             product.innerHTML = `<li>
-            <figure>
-                  <a id="img" class="aa-product-img" href="product-detail.html?product_id=${data["data"]["coffee"][i]["id"]}">
-                  <img style="max-width:80%; height: 150%; margin:0 auto; display: block;" src="${BACK_END_URL}${data["data"]["coffee"][i]["image"]}" alt="${data["data"]["coffee"][i]["id"]}"></a>
-                <figcaption>
-                    <h4 class="aa-product-title">${data["data"]["coffee"][i]["product_name"]}</h4>
-                    <span class="aa-product-price">${data["data"]["coffee"][i]["price"]}원</span><span class="aa-product-price"></span>
-                </figcaption>
-            </figure>
-          </li>`
+                                    <figure>
+                                        <a id="img" class="aa-product-img" href="product-detail.html?product_id=${data["data"]["coffee"][i]["id"]}">
+                                        <img style="max-width:80%; height: 150%; margin:0 auto; display: block;" src="${BACK_END_URL}${data["data"]["coffee"][i]["image"]}" alt="${data["data"]["coffee"][i]["id"]}"></a>
+                                        <figcaption>
+                                            <h4 class="aa-product-title">${data["data"]["coffee"][i]["product_name"]}</h4>
+                                            <span class="aa-product-price">${data["data"]["coffee"][i]["price"]}원</span><span class="aa-product-price"></span>
+                                        </figcaption>
+                                    </figure>
+                                </li>`
                 products.appendChild(product)
             }
         })

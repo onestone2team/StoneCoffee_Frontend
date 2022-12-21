@@ -16,13 +16,14 @@
     .seq {
       position: relative;
       height: 30%;
+      width: 1200px;
       max-height: 500px;
       background-position: 50% 100%;
-      
     }
 }
 .category-table {
     width: 80%;
+    max-width: 1200px;
     height: 40%;
     margin: 0px auto;
     background-color: #3E240C;
@@ -75,6 +76,7 @@
     -o-transform:scale(1.1); 
     -moz-transform:scale(1.1);
     -webkit-transform:scale(1.1);
+    filter: brightness(0.5);
   
 }
 /* 바로가기 좌측이미지 크기 */

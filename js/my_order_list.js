@@ -26,7 +26,6 @@ async function cartlist() {
         var order_price = element.count * element.order_price
         const order = document.createElement('div')
         order.setAttribute("class", "basket-product")
-        console.log(element)
         order.innerHTML = `<table>
                         <tr>
                             <td colspan="1" width="20%" height="40px"> 주문번호 : ${element.id}<hr></td>
