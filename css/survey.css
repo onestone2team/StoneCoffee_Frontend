@@ -30,6 +30,7 @@ body{
 }
 
 .cup:after{
+  /* display:none; */
   content:"";
   width:66px;
   height:66px;
@@ -375,7 +376,6 @@ table hr {
 #balance input[name=balance]:checked ~ label{
   color: unset; /* 마우스 클릭 체크 */
 }
-
 #balance label{
   font-size: 40px;
   color: transparent; /* 기존 이모지 컬러 제거 */
@@ -419,47 +419,123 @@ table hr {
 }
 
 .show-screen{
-  width: 60%;
+  background-color: #aeaeae;
+  border-radius: 10px;
+  width: 40vw;
   height: auto;
   margin: 0px auto;
-  padding: 20px;
+  padding: 10%;
   color: white;
   display: none;
 }
 
-.show-screen table{
+.first-sec{
+  background-color:rgb(78, 101, 101); 
+  width:70%;
+  margin:auto;
+  border-radius: 5px;
+  height: 10%;
+  font-size:larger;
+  text-align: center;
+}
+/* .show-screen table{
   margin-bottom: 20px;
+} */
+.second-sec{
+  display:flex; 
+  flex-direction:column; 
+  justify-content:center; 
+  align-items:center;
 }
-
 .show-image{
-  width: 300px;
+  width: 100%;
+  min-width:200px;
+  max-width:400px;
+  border-radius: 10px;
+  
 }
-
+.desc{
+  width: 100%;
+  min-width:200px;
+  max-width:400px;
+  /* margin:auto;  */
+  /* background-color:rgb(78, 101, 101) */
+}
 .show-txt{
   
   font-family: 'Stylish', sans-serif;
   font-size: medium;
   text-align:left;
   vertical-align: top;
+  max-height:200px;
+
+  /* overflow-y: scroll; */
+  -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+}
+
+.show-txt::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera*/
+}
+.fourth-sec{
+  /* background-color:antiquewhite; */
+  display:flex; 
+  flex-direction: column; 
+  align-items:center;
+  margin-bottom:1%;
+  
+}
+  
+@media(max-width:420px){
+  .notView {
+    height:fit-content
+  }
+  .show-screen{
+    width:80%;
+  }
+  .survey-table p{
+    font-size:medium;
+  }
+  .signup-btn {
+    font-size:10px;
+  }
+  #sweet label{
+    font-size: 1.5rem;
+  }
+  #aroma label{
+    font-size: 1.5rem;
+  }
+  #acidity label{
+    font-size: 1.5rem;
+  }
+  #balance label{
+    font-size: 1.5rem;
+  }
 }
 
 .signup-btn {
+  margin-top:5%;
+  margin-bottom:5%;
   display: block;
   padding: 1em 2em;
-  border-radius: 20px;
-  color: #b2876f;
-  margin-top: 2rem;
+  border-radius: 10px;
+  
+  color:rgb(62,36,12);
   font-weight: bold;
-  font-size: 0.5rem;
+  font-size:medium;
+
   letter-spacing: 2px;
-  text-transform: uppercase;
-  text-decoration: none;
+  text-decoration-line: none !important; 
   background: linear-gradient(to right, rgba(178, 135, 111, 0) 25%, rgba(178, 135, 111, 0.8) 75%);
   background-position: 1% 50%;
   background-size: 400% 300%;
   transition: 700ms cubic-bezier(0.165, 0.84, 0.44, 1);
   cursor:pointer;
-  float: right;
+  
+}
+.signup-btn a{
+  font-size:large;
+  text-decoration-line: none !important;
 }
 .signup-btn:hover {
   transition: 400ms cubic-bezier(0.165, 0.84, 0.44, 1);
@@ -468,13 +544,19 @@ table hr {
   color: white;
   color: #fff;
 }
-
+.fifth-sec{
+  /* background-color:rgb(124, 88, 37); */
+  display:flex; 
+  flex-direction: column; 
+  align-items:center;
+}
 .login-text{
-  color: black;
-  text-align: center;
+  color: rgb(255, 255, 255);
+  font-size: 10px;
+  /* text-align: center; */
 }
 
 .login-text a{
-  color: rgb(139, 121, 121);
+  color:rgb(62,36,12);
   text-decoration-line : none;
 }
