@@ -91,6 +91,9 @@ a {
   display: flex;
   flex-direction: row;
 }
+#aa-header .aa-header-bottom .aa-header-bottom-area .aa-search-box button{
+  background-color:rgb(62,36,12);
+}
 /* 검색창과검색버튼 나란히 */
 .aa-header-bottom{
     height: 100px;
