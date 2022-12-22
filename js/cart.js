@@ -48,7 +48,6 @@ async function cartlist() {
     var cart_frame = document.getElementById('append-product')
     response_json.forEach(element => {
         
-        console.log(element.id)
         const cart = document.createElement('div')
         var total_price = element.price * element.count
         cart.setAttribute("class", "basket-product")
@@ -72,7 +71,7 @@ async function cartlist() {
         cart_frame.appendChild(cart)
         if (element.weight ==1) {
                 document.getElementById(`product_weight${element.product.id}`).style.display = "none"
-        }   
+            }      
         recalculateCart(element.price, element.count)
     
     })
