@@ -185,9 +185,7 @@ async function loginButton() {
     else {
         alert("아이디와 비밀번호를 확인해주세요")
     }
-    if (email != email){
-       alert("email을 확인해주세요") 
-    }
+   
       
 
 }
