@@ -72,7 +72,6 @@ async function cartlist() {
         cart_frame.appendChild(cart)
         if (element.weight ==1) {
                 document.getElementById(`product_weight${element.product.id}`).style.display = "none"
-                console.log("?")
         }   
         recalculateCart(element.price, element.count)
     
