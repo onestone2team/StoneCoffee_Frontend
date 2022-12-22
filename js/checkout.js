@@ -94,12 +94,12 @@ function is_checked(){
 async function fillin() {
 
     let cart_id = cartlist.join(",")
-
+    var blank_pattern = /[\s]/g;
     const user_address = document.getElementById("user_address").value
     const user_phone = document.getElementById("user_phone").value
     const receiver = document.getElementById("receiver").value
     const total_price = document.getElementById("final-total-price").innerText
-    if (user_address == "-" || user_phone == null || user_address == null || user_phone == "-"){
+    if (user_address == "-" || user_phone == null || user_address == null || user_phone == "-" || user_address == ("" >= 1) || user_phone == ("" >= 1)){
             alert("주소 또는 핸드폰 번호를 입력해주세요")
     }else if (total_price == "3,000 원"){
         alert("결제하실 상품들을 담아주세요")
