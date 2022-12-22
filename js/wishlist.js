@@ -14,25 +14,27 @@ window.onload =
                 breakpoint: 5000,
                 settings: {
                     slidesToShow: 4,
-                    slidesToScroll: 3,
+                    slidesToScroll: 2,
                 }
             }, {
-                breakpoint: 1500,
+                breakpoint: 1700,
                 settings: {
                     slidesToShow: 3,
                     slidesToScroll: 2,
                 }
             }, {
-                breakpoint: 1200,
+            }, {
+                breakpoint: 1250,
                 settings: {
                     slidesToShow: 2,
                     slidesToScroll: 2,
                 }
             }, {
-                breakpoint: 570,
+            }, {
+                breakpoint: 900,
                 settings: {
-                    slidesToShow: 1,
-                    slidesToScroll: 1
+                    slidesToShow: 2,
+                    slidesToScroll: 1,
                 }
             }]
         });
@@ -48,25 +50,27 @@ window.onload =
                 breakpoint: 5000,
                 settings: {
                     slidesToShow: 4,
-                    slidesToScroll: 3,
+                    slidesToScroll: 2,
                 }
             }, {
-                breakpoint: 1500,
+                breakpoint: 1700,
                 settings: {
                     slidesToShow: 3,
                     slidesToScroll: 2,
                 }
             }, {
-                breakpoint: 1200,
+            }, {
+                breakpoint: 1250,
                 settings: {
                     slidesToShow: 2,
                     slidesToScroll: 2,
                 }
             }, {
-                breakpoint: 520,
+            }, {
+                breakpoint: 900,
                 settings: {
-                    slidesToShow: 1,
-                    slidesToScroll: 1
+                    slidesToShow: 2,
+                    slidesToScroll: 1,
                 }
             }]
         });
@@ -84,13 +88,12 @@ async function product_list() {
     var response_json = await response.json()
     var coffee_data = response_json.coffee
     var etc_data = response_json.product
-    const coffee_wish_container = document.getElementById("coffee_container")
-    const etc_wish_container = document.getElementById("etc_container")
-
+    console.log(response_json)
     coffee_data.forEach(element => {
         $('#append-coffee').slick('slickAdd',
         `<a href=product-detail.html?product_id=${element.id}>
         <div class="image" style="background-image: url(${BACK_END_URL}${element.image});"></div>
+        <p class="product_name">${element.product_name}</p>
         </a>`
         );
     })
@@ -98,6 +101,7 @@ async function product_list() {
         $('#append-etc').slick('slickAdd',
         `<a href=product-detail.html?product_id=${element.id}>
         <div class="image" style="background-image: url(${BACK_END_URL}${element.image});"></div>
+        <p class="product_name">${element.product_name}</p>
         </a>`
         );
     })
