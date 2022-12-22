@@ -50,7 +50,7 @@ img,
 .basket-module,
 .basket-labels,
 .basket-product {
-	width: 100%;
+	width: 80%;
 }
 
 .hide {
@@ -701,9 +701,9 @@ li.subtotal:before {
 }
 
 .product-image {
-	width: 35%;
-	min-width: 177px;
-	min-height: 177px;
+	width: 60%;
+	height: 50%;
+
 }
 
 .product-details {
@@ -1108,8 +1108,8 @@ button,
 	flex-direction: row;
 }
 .product-image {
-	max-width: 177px;
-	max-height: 177px;
+	width: 10%;
+	height: 10%;
 }
 .price {
 	width: 15%;

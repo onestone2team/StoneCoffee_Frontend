@@ -40,4 +40,3 @@ function searchButton() {
     const searchtage = document.getElementById("searchtage").value
     location.replace(`${FRONT_END_URL}/search.html?search=${searchtage}`)
 }
-
