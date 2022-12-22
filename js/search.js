@@ -20,6 +20,7 @@ async function show_product_list(num) {
     .then(data => {
         var products = document.getElementById("products");
         maxnum = data["page"].total_page
+        loadpagenation()
         $("#products").empty();
         for (i = 0; i < data["data"].length; i++) {
             const product = document.createElement('div')
@@ -51,6 +52,20 @@ const backButton = document.getElementById("prev");
 const nextButton = document.getElementById("next");
 backButton.style.display = "none";
 
+function loadpagenation() {
+
+    for (i=1;i<8;i++){
+        const pagenate = document.getElementById(i);
+        if (maxnum==1) {
+            pagenate.style.display="none"
+            next.style.display = "none"
+        }
+        else if ((i) > maxnum) {
+            pagenate.style.display="none"
+        }
+    }
+}
+
 if (now == minnum) {
     backButton.style.display = "none";
 } else {
@@ -58,8 +73,6 @@ if (now == minnum) {
 }
 
 $(".pagenation a").click(function (e) {
-    const addpagenum = document.getElementById("pagenumber")
-
     e.preventDefault();
     var $item = $(this);
     var $id = $item.attr("id");
