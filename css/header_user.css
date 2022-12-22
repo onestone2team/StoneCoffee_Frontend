@@ -1,0 +1,49 @@
+
+/* 섹션바 배열 */
+#user_menu .menu-area .navbar-default {
+  background-color: transparent;
+  border: medium none;
+  border-radius: 0;
+  margin: auto 0px;
+  min-height: auto;
+}
+/* 섹션바 색 크기 배열 */
+#user_menu {
+    background-color: #706f6e; 
+    height: auto;
+} 
+.usermenu-area .navbar-default .navbar-nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size:100%;
+  margin: 0px auto;
+  width: auto;
+  height: auto;
+}
+.usermenu-area .navbar-default .navbar-nav div {
+  height: 40px;
+  line-height: 40px;
+}
+
+.usermenu-area .navbar-default .navbar-nav div a {
+  color: #fff;
+  width: 20%;
+  margin: auto 20px;
+  font-size: calc(0.6vw + 5px);
+  text-align: center;
+  -webkit-transition: all 0.5s;
+  -moz-transition: all 0.5s;
+  -ms-transition: all 0.5s;
+  -o-transition: all 0.5s;
+  transition: all 0.5s;
+}
+
+
+@media ( max-width: 480px ) {
+  .usermenu-area .navbar-default .navbar-nav div a {
+    margin: auto 10px;
+  }
+  
+}
+

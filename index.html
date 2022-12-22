@@ -1,15 +1,162 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
+    <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>STONE COFFEE</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Stone Coffee| Home</title>
+    <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+    <link href="/css/bootstrap.css" rel="stylesheet">
+    <link id="switcher" href="/css/default-theme.css" rel="stylesheet">
+    
+    <link href="/css/header.css" rel="stylesheet">
+    <link href="/css/servicecenter.css" rel="stylesheet">
+    <link href="/css/style.css" rel="stylesheet">
+    <link href="/css/rolling.css" rel="stylesheet">
+    <link href="/css/index.css" rel="stylesheet" >
+    <script type="text/javascript" src="/js/rolling.js"></script>
+
 </head>
 <body>
-    메인 페이지
-    <button onclick="saveCookie('guestCheck', 'True',1)">쿠키 저장하기</button>
-    <button onclick="getCheck()">쿠키 확인하기</button>
-    <script src="static/js/index.js"></script>
+    <header id="headers"></header>
+    <header id="menu-bar"></header>
+    </section>
+    <section id="aa-slider" style="border: 10px;">
+        <div class="aa-slider-area">
+            <div id="sequence" class="seq">
+                <div id="slide" class="img-box" val="1" max="3">
+                    <a href="survey.html"><img class="slide1" src="/img/slide/survey.jpg"></a>
+                    <img class="slide1" src="/img/slide/22.png">
+                    <img class="slide1" src="/img/slide/33.jpg">
+                    <img class="slide1" src="/img/slide/44.jpg">
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="aa-promo" style=padding-top:30px>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="aa-promo-area">
+                        <table class="category-table">
+                            <tr>
+                                <td rowspan ="2" class="all-category">
+                                    <div class="aa-promo-banner">            
+                                        <a href="mainAll.html?id=1"><img src="/img/thumnail/total.jpg" alt="img"></a>                             
+                                        <div class="aa-prom-content">
+                                            <h4><a href="mainAll.html?id=1">전체상품 보러가기</a></h4>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="other-category">
+                                    <div class="aa-single-promo-right">
+                                        <div class="aa-promo-banner">
+                                                <a href="mainAll.html?id=4"><img src="/img/thumnail/coffeetea.jpg" alt="img" ></a>
+                                            <div class="aa-prom-content">
+                                                <h4><a href="mainAll.html?id=4">바디감</a></h4>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="other-category">
+                                    <div class="aa-single-promo-right">
+                                        <div class="aa-promo-banner">
+                                                <a href="mainAll.html?id=3"><img src="/img/thumnail/coffemc.jpg" alt="img"> </a>                  
+                                            <div class="aa-prom-content">
+                                                <h4><a href="mainAll.html?id=3">커피 용품</a></h4>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="other-category">
+                                    <div class="aa-single-promo-right">
+                                        <div class="aa-promo-banner">            
+                                            <a href="mainAll.html?id=5"><img src="/img/thumnail/coffeebean.jpg" alt="img"></a> 
+                                            <div class="aa-prom-content">
+                                            <h4><a href="mainAll.html?id=5">산미</a></h4>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="aa-single-promo-right">
+                                        <div class="aa-promo-banner">
+                                            <a href="mainAll.html?id=2"><img src="/img/thumnail/good.jpg">  </a>                   
+                                            <div class="aa-prom-content">
+                                                <h4><a href="mainAll.html?id=2">스톤커피 굿즈</a></h4>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- / Promo section -->
+    <!-- Products section -->
+    <section id="aa-product">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="row">
+                        <div class="aa-product-area">
+                            <div class="aa-product-inner">
+                                <!-- start prduct navigation -->
+                                <ul class="nav nav-tabs aa-products-tab">
+                                    <h2>판매중인 상품들 </h2>
+                                </ul>
+                                <!-- Tab panes -->
+                                <div class="tab-content">
+                                    <!-- Start men product category -->
+                                    <div class="tab-pane fade in active">
+                                        <ul class="aa-product-catg" id="products">
+
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="aa-client-brand">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="aa-client-brand-area">
+                        <ul class="aa-client-brand-slider">
+                            <div class="rolling_wrap">
+                                <a href="" class="content"><img src="/img/footerimg/css.png"></a>
+                                <a href="" class="content"><img src="/img/footerimg/django.png"></a>
+                                <a href="" class="content"><img src="/img/footerimg/html.png"></a>
+                                <a href="" class="content"><img src="/img/footerimg/js.png"></a>
+                                <a href="" class="content"><img src="/img/footerimg/json.png"></a>
+                                <a href="" class="content"><img src="/img/footerimg/ML.png"></a>
+                                <a href="" class="content"><img src="/img/footerimg/python.jpg"></a>
+                                <a href="" class="content"><img src="/img/footerimg/sparta.png"></a>
+                                <a href="" class="content"><img src="/img/footerimg/git.png"></a>
+                            </div>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+    </section>
+
+    <footer id="aa-footer">
+    </footer>
 </body>
+
+<script src="/js/footer.js"></script>
+<script src="/js/all_data.js"></script>
+<script src="/js/index.js"></script>
+<script src="/js/mainslide.js"></script>
+
 </html>

@@ -1,0 +1,241 @@
+
+/* 미리보기 배열 */
+ul {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+/* 글자 색 */
+a {
+  text-decoration: none;
+  color: #333333;
+}
+
+/* 미리보기 버튼 */
+.aa-add-to-cart-btn {
+  border: 1px solid #ccc;
+  color: #555;
+  display: inline-block;
+  font-size: 14px;
+  font-weight: bold;
+  letter-spacing: 0.5px;
+  margin-top: 5px;
+  padding: 10px 15px;
+  text-transform: uppercase;
+  transition: all 0.5s ease 0s;
+}
+
+.fix{
+  position: relative;
+  bottom: 0;
+  width: 100%;
+  height: 100px;
+}
+
+
+/* 바로가기 배열 */
+#aa-promo .aa-promo-area .aa-promo-left {
+  display: inline;
+  float: left;
+  width: 100%;
+  height: 400px;
+  overflow: hidden;
+}
+/* 바로가기 2x2칸 배열 */
+#aa-promo .aa-promo-area .aa-promo-right {
+  display: inline;
+  float: left;
+  width: 100%;
+  height: 400px;
+}
+/* 바로가기 배열 */
+#aa-promo .aa-promo-area .aa-promo-right .aa-single-promo-right {
+  width: 50%;
+  height: 50%;
+  float: left;
+}
+/* 바로가기 배열 */
+#aa-promo .aa-promo-area .aa-promo-banner {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+  -moz-transform: translateZ(0);
+  -o-transform: translateZ(0);
+  -ms-transform: translateZ(0);
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+}
+/* 바로가기 호버 이벤트 */
+#aa-promo .aa-promo-area .aa-promo-banner:hover img {
+  height: 120%;
+  width: 120%;
+  margin-left: -10%;
+  margin-top: -10%;
+}
+/* 바로가기 좌측이미지 크기 */
+#aa-promo .aa-promo-area .aa-promo-banner img {
+  width: 100%;
+  height: 100%;
+  -webkit-transition: all 0.5s;
+  -moz-transition: all 0.5s;
+  -ms-transition: all 0.5s;
+  -o-transition: all 0.5s;
+  transition: all 0.5s;
+}
+/* 바로가기 중앙 이름 */
+#aa-promo .aa-promo-area .aa-promo-banner .aa-prom-content {
+  position: absolute;
+  left: 0;
+  top: 35%;
+  right: 0;
+  width: 100%;
+  text-align: center;
+  z-index: 99;
+}
+/* 바로가기 중앙 글씨  */
+#aa-promo .aa-promo-area .aa-promo-banner .aa-prom-content h4 {
+  color: #fff;
+  font-size: calc(0.6vw + 5px);
+  font-weight: bold;
+  text-transform: uppercase;
+}
+/* 바로가기 중앙 글씨 */
+#aa-promo .aa-promo-area .aa-promo-banner .aa-prom-content h4 a {
+  color: #fff !important;
+  text-decoration: none;
+  font-size: 20px;
+  -webkit-transition: all 0.5s;
+  -moz-transition: all 0.5s;
+  -ms-transition: all 0.5s;
+  -o-transition: all 0.5s;
+  transition: all 0.5s;
+}
+/* 판매중인 상품 가운데로 */
+.aa-products-tab {
+  display: block;
+  text-align: center;
+  border: none;
+  margin-bottom: 20px;
+}
+/* 판매중인 상품 가운데로 */
+.aa-products-tab li {
+  border: none;
+  float: none;
+  display: inline-block;
+}
+/* 상품 배열 */
+.aa-product-catg {
+  text-align:center;
+  margin:0 auto;
+  max-width: 1300px;
+}
+.product-listform{
+  margin:0 auto;
+  width: 90%;
+}
+.product-layout{
+  width: 25%;
+  display:inline-block;
+}
+/* 상품배열 */
+.aa-product-catg li {
+  text-align: center;
+  margin: 0 10% 40px 10%;
+  overflow: hidden;
+}
+/* 섹션1 검정배경 */
+#aa-client-brand {
+  background-color: #333;
+  display: inline;
+  float: left;
+  padding: 40px 0;
+  width: 100%;
+}
+/* 섹션1 배열 */
+#aa-client-brand .aa-client-brand-area .aa-client-brand-slider {
+  margin-left: -35px;
+}
+/* 섹션1 가로 배열 */
+#aa-client-brand .aa-client-brand-area .aa-client-brand-slider li {
+  background: #fff none repeat scroll 0 0;
+  float: left;
+  margin-left: 35px;
+  margin-top: 35px;
+  text-align: center;
+  width: 17%;
+}
+/* 섹션1 이미지 크기 */
+#aa-client-brand .aa-client-brand-area .aa-client-brand-slider li a {
+  display: block;
+  padding: 20px 0;
+}
+.product-listform{
+  height: 700px;
+}
+.tab-content{
+  margin-bottom: 30px;
+}
+/* 풋터 배경 */
+#aa-footer {
+  background-color: rgb(34, 34, 34);
+  display: inline;
+  float: left;
+  width: 100%;
+}
+/* 풋터 아랫공간 */
+#aa-footer .aa-footer-top {
+  display: inline;
+  float: left;
+  padding: 50px 0;
+  width: 100%;
+  min-height: 100px;
+}
+/* 풋터 큰글씨 색 */
+#aa-footer .aa-footer-top .aa-footer-top-area .aa-footer-widget h3 {
+  color: #fff;
+}
+#aa-footer .aa-footer-top .aa-footer-top-area .aa-footer-widget li a {
+  color: #fff;
+}
+/* 풋터 작은글씨 색 */
+#aa-footer .aa-footer-top .aa-footer-top-area .aa-footer-widget .aa-footer-nav li {
+  color: rgb(235, 225, 225);
+  -webkit-transition: all 0.5s;
+  -moz-transition: all 0.5s;
+  -ms-transition: all 0.5s;
+  -o-transition: all 0.5s;
+  transition: all 0.5s;
+}
+/* 풋터 주소 색 */
+#aa-footer .aa-footer-top .aa-footer-top-area .aa-footer-widget address p {
+  margin-bottom: 5px;
+  color: #888;
+}
+/*  */
+.pagination{
+	justify-content: center;
+	display:-ms-flexbox;
+	float: left;
+	display:flex;
+	list-style:none;
+	border-radius:.25rem;
+	padding-left: 600px;
+	padding-bottom: 100px;
+}
+
+.page-link{
+	position:relative;
+	display:block;padding:.5rem .75rem;
+	margin-left:-1px;
+	line-height:1.25;color:#090909;
+	background-color:rgb(251, 251, 251);
+	border:1px solid #dee2e6;
+}
+.page-link:hover{
+	z-index:2;color:#000000;
+	text-decoration:none;
+	background-color:#993939;
+	border-color:#471111;
+  cursor: pointer;
+}

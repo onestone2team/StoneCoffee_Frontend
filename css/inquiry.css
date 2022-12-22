@@ -1,0 +1,387 @@
+/* align center css start*/
+	.wrapper{
+	width:100%;
+	overflow:hidden;
+	position:relative;
+	}
+
+	.container{
+		margin:0 auto
+	}
+	.sectionInner{
+	max-width:1200px;
+	height:100%;
+	}
+
+.btn_findStore{
+	width: 280px;
+	height:32px;
+	display:block;
+	background-image:url(../../lib/img/btn_img/btn_findStore.png);
+	background-size:100%;
+	background-repeat:no-repeat;
+}
+
+/* btn_search css */
+.btn_search{
+		width: 32px;
+		height: 32px;
+		background-color:#FFF ;
+		background-position:center center;
+		background-repeat:no-repeat;
+		z-index:999;
+		text-indent:-9999px;
+		outline:none;
+		border:0;
+		box-sizing:border-box;
+		cursor:pointer;
+	}
+
+/* input css */
+.btn_input{
+		border:1px #beb4af solid;
+		width:268px; 
+		padding:0 5px;
+		line-height:34px;
+		font-size:14px;
+		color:#464646;
+		vertical-align:middle;
+		box-shadow:none;
+		outline:none;
+		box-sizing:border-box;
+	}
+
+/* red butten */
+.btn2{
+	min-width: 100px;
+	display:inline-block;
+	height: 34px;
+	font-size: 14px;
+	line-height: 32px;
+	font-weight: bold;
+	color: #fff !important;
+	text-align: center;
+	vertical-align: middle;
+	border-radius: 3px;
+	background: #6d3525 no-repeat right center;
+	outline: none;
+	border: 0;
+}
+.btn2:hover{
+	background:#4e271f no-repeat right center;
+}
+
+/* custom_select css start */
+.inputBox{
+	display:inline-block;
+	width: 90%;
+	line-height:34px;
+	margin:0 3px 0 0;
+	border:1px solid #dfdfdf;
+	border-radius:3px;
+	position:relative;
+	box-sizing: border-box;
+	padding: 0 0 0 5px;
+	outline:none;
+	vertical-align:middle;
+	resize: none;
+}
+
+.custom_select{
+	display:inline-block;
+	width:120px;
+	margin:0 3px 3px 0;
+	border:1px solid #dfdfdf;
+	border-radius:3px;
+	position:relative;
+	box-sizing: border-box;
+	vertical-align:middle;
+	top:-1px;
+	overflow:hidden
+}
+
+.custom_select span{
+	display:block;
+	position:absolute;
+	top:50%;
+	right:30px;
+	left:10px;
+	margin:-10px 0 0;
+	line-height:20px;
+	font-size:14px;
+	color:#464646;
+	white-space: nowrap;
+	overflow:hidden;
+}
+
+select{
+	width:100%;
+	height:36px;
+	padding:0;
+	font-size:14px;
+	color:#464646;
+	outline:none;
+	border:none;
+	vertical-align:top;
+	opacity:0;
+}
+
+@media screen and (max-width:720px) {
+
+.btn2:hover{
+	background-size: 12px 6px;
+}
+
+.custom_select span.text{margin:0; font-size:12px; right:17px; margin: -10px 0 0 -7px; overflow:hidden;}
+select{font-size:12px; height:28px;}
+}
+
+.content{padding:50px 0 200px 0; }
+
+.tableWrap{
+border-top:2px solid rgb(62,36,12);
+border-bottom:1px solid rgb(62,36,12);
+width: 85%;
+height:100%;
+font-size:14px;
+color:#464646;
+}
+
+.tableWrap tr:first-child th,
+.tableWrap tr:first-child td{border-top:none; height:100%}
+
+.tableNumber{
+width:15%;
+border-top:1px solid rgb(62,36,12);
+text-align:left;
+vertical-align:middle;
+padding: 0 10px;
+font-size:15px; 
+line-height:34px;
+}
+.tableTitle{
+width:99%;
+border-top:1px solid rgb(62,36,12);
+padding: 8px 0;
+line-height: 21px;
+font-size: 16px;
+font-weight:normal;
+border-spacing:10px;
+display:block;
+font-size:14px;
+line-height:34px;
+margin-left:1%;
+box-sizing:border-box;
+}
+.tableDate{
+width:130px;
+border-top:1px solid #b6ada8;
+vertical-align:middle;
+padding: 0;
+}
+.tableHit{
+width:90px;
+border-top:1px solid #b6ada8;
+vertical-align:middle;
+padding: 0;
+}
+
+.tableTitle,
+.tableDate,
+.tableHit:hover{cursor: default;}
+/* table css end  */
+
+.custom_select{height:34px;}
+.custom_select span.text{ color:#464646}
+
+input.inputBox{
+width: 95%;
+margin-bottom:3px;
+}
+
+span.text{
+display:block;
+color:#aaa;
+line-height:20px
+}
+
+span.txtInput{
+color:#464646;
+font-size:14px;
+line-height:34px;
+}
+
+.content .btnwrap {
+margin:30px 0 0 0;
+text-align:right;
+}
+
+@media screen and (max-width:1200px){
+
+.content{padding:50px 30px 200px; }
+.joinStep_Img{ width:90%;}
+
+.content .btn01{font-size:14px;}
+.content .btn2{font-size:14px; }
+.tableNumber {
+	width: 25%;
+}
+
+}
+
+@media screen and (max-width:720px){
+.content{padding: 30px 15px 100px; }
+.joinStepWrap .joinStep_Img{ width:100%; margin-bottom: 20px; }
+
+.personalInfo .tableNumber{
+	display: block;
+	width: auto;
+	text-align: left;
+	font-size:13px;
+	line-height:18px;
+	padding:8px 5px 4px;
+}
+
+.personalInfo .tableTitle{
+	border-top:none;
+	padding: 4px 5px 8px;
+	line-height: 18px;
+	font-size: 12px;
+	margin: 0;
+	text-align:left;
+}
+
+.personalInfo .tableTitle span.txtInput{
+	font-size: 13px;
+	line-height: 18px;
+}
+
+span.text{text-align:left; margin: 5px 0 0;}
+
+input.inputBox{
+	line-height:27px;
+	font-size:12px;
+	line-height:24px;
+	margin:0;
+}
+
+.personalInfo .btn2{
+	height:27px;
+	font-size:12px;
+	line-height:25px;
+	background-size: 12px 6px;
+}
+
+.tableTitle .custom_select{
+	height:27px;
+	font-size:12px;
+	background-size:12px 6px;
+	white-space: nowrap;
+	overflow: hidden;
+	top:0
+}
+}
+
+.btnwrap .btn2{
+	background-size: 12px 6px;
+	width: 10%;
+	margin-left: 1%;
+	box-sizing: border-box;
+}
+
+.content .btnwrap {
+	margin:15px 0 0 0;
+	font-size:0;
+}
+
+.checkId{
+	width: 100%;
+}
+
+.content-box{
+	background-color: rgb(194,194,172);
+	box-sizing: content-box;
+	padding: 50px 20px 10px 50px;
+	border-radius: 10px;
+}
+
+.order_status_dropdown2{
+	display: block;
+	width: 15%;
+	float: right;
+}
+
+.order_status_dropdown2 ul li {
+	list-style: none;
+	margin: 0 auto;
+	display: inline-block;
+	position: relative;
+	text-decoration: none;
+	text-align: center;
+	z-index: 2;
+}
+.order_status_dropdown2 > li{
+	padding: 0 30px
+}
+.order_status_dropdown2 li a {
+	color: rgb(68, 68, 68);
+}
+
+.order_status_dropdown2 li a:hover {
+	color: #d2d2d2;
+}
+
+.order_status_dropdown2 li:hover {
+	cursor: pointer;
+}
+
+.order_status_dropdown2 ul li ul {
+	visibility: hidden;
+	opacity: 0;
+	position: absolute;
+	padding-left: 0;
+	left: 0;
+	display: none;
+	background: rgb(251, 247, 242);
+}
+
+.order_status_dropdown2 ul li:hover>ul,
+.order_status_dropdown2 ul li ul:hover {
+	visibility: visible;
+	opacity: 1;
+	display: block;
+	min-width: 100px;
+	text-align: left;
+	padding-top: 20px;
+	box-shadow: 0px 3px 5px -1px #ccc;
+}
+
+.order_status_dropdown2 ul li ul li {
+	clear: both;
+	text-align: left;
+	margin-bottom: 15px;
+	border-style: none;
+}
+
+.order_status_dropdown2 ul li ul li a:hover {
+	padding-left: 10px;
+	transition: all 0.3s ease;
+}
+
+.order_status_dropdown2>a {
+	text-decoration: none;
+}
+
+.order_status_dropdown2 a:hover {
+	color: #95b1c5;
+}
+
+.order_status_dropdown2 ul li ul li a {
+	transition: all 0.5s ease;
+}
+#checkId{
+	width: 50%;
+}
+#checkPw{
+	min-height: 100px;
+}
