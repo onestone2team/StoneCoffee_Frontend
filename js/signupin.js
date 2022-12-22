@@ -112,7 +112,7 @@ async function signupButton() {
         passwordError.style.display = "inline"
     }
     else if (!password_re.test(password)){
-        passwordError.innerText = "패스워드 형식을 확인해주세요 특수문자 포함 8글자 이상입니다"
+        passwordError.innerText = "패스워드 형식을 확인해주세요 영문 대소문자/숫자/특수문자 포함 8글자 이상입니다"
         passwordError.style.display = "inline"
 
     }else{
@@ -170,7 +170,6 @@ async function loginButton() {
 
 
     if (response.status == 200) {
-        alert("로그인 완료")
         const response_json = await response.json()
         localStorage.setItem("access", response_json.access);
         localStorage.setItem("refresh", response_json.refresh);
@@ -186,4 +185,9 @@ async function loginButton() {
     else {
         alert("아이디와 비밀번호를 확인해주세요")
     }
+    if (email != email){
+       alert("email을 확인해주세요") 
+    }
+      
+
 }
