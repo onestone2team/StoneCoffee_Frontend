@@ -70,7 +70,6 @@ async function calculator(product_total_price) {
         delivery_price.innerText = delivery.toLocaleString('ko-KR')+ ' 원'
     }
     let final_total_price = document.getElementById('final-total-price')
-    console.log(product_total_price.toLocaleString('ko-KR'))
     if (product_total_price > 50000){
         final_total_price.innerText = product_total_price.toLocaleString('ko-KR') + ' 원'
     }else{
@@ -100,7 +99,6 @@ async function fillin() {
     const user_phone = document.getElementById("user_phone").value
     const receiver = document.getElementById("receiver").value
     const total_price = document.getElementById("final-total-price").innerText
-    console.log(total_price)
     if (user_address == "-" || user_phone == null || user_address == null || user_phone == "-"){
             alert("주소 또는 핸드폰 번호를 입력해주세요")
     }else if (total_price == "3,000 원"){
