@@ -2,6 +2,7 @@ let urlParameter = window.location.search;
 var product_id1 = urlParameter.split('=')[1]
 var product_id = product_id1.split('/')[0]
 one_price = 0
+console.log(product_id)
 
 //=======게시글 불러오기========
 window.onload = async function ProductDetail() {
@@ -625,6 +626,7 @@ var $quantity=$('.quantity'),
         }
     });
 
+
 //커멘트 디테일 페이지로 이동
 async function CommentDetail(num){
     comment_id = num
@@ -635,5 +637,6 @@ async function CommentDetail(num){
         alert("권한이 없습니다. 로그인 해주세요")
         location.replace("../templates/index.html")
     }
+
     location.href=`${FRONT_END_URL}/comment_copy.html?comment_id=${comment_id}`
 }
