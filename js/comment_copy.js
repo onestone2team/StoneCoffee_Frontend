@@ -138,13 +138,16 @@ async function CommentDetailPage() {
 
     like_list = comment_detail_json["like"]
     if (like_list.includes(parsed_payload["user_id"])) {
-        const like_icon = document.getElementById('like_icon')
-        // const like_icon = document.getElementById('cbtn')
-        like_icon.className = "bi bi-heart-fill"
-        // like_icon.innerHTML=`<i class="bi bi-heart-fill"></i>`
+        const like_icon = document.getElementById('cbtn')
+        like_icon.style.color = 'inherit'
     }
 
 }//window.onload
+
+//좋아요
+$(".btn-like").click(function() {
+	$(this).toggleClass("done");
+})
 
 async function comment_like() {
 
@@ -155,14 +158,23 @@ async function comment_like() {
         },
         method: "POST",
     })
+    
+    const comment_detail = await fetch(`${BACK_END_URL}/comment/edit/?comment_id=${comment_id}`, {
+        headers: {
+            'content-type': 'application/json',
+            "Authorization": "Bearer " + localStorage.getItem("access")
+        },
+        method: 'GET',
+    })
 
-    if (response.status == 201) {
-        alert('좋아요')
-    } else { alert('좋아요 취소') }
-    location.reload()
+    const comment_detail_json = await comment_detail.json()
+
+    const like_count=document.getElementById('like_count')
+    if (response.status == 201 || 200){
+        like_count.innerText= '좋아요 ' + comment_detail_json.like.length + '개'
+    }
 
 }
-
 
 async function create_nested() {
 
@@ -219,7 +231,6 @@ async function save_nested(nestedcomment_id) {
 
     nestedcommentlist()
     
-
 }
 
 async function del_nested(nestedcomment_id) {
@@ -343,3 +354,4 @@ async function saveeditCommentBtn() {
         window.location.reload()
     }
 }
+
