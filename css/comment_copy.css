@@ -327,3 +327,13 @@
 #close_modal {
     cursor: pointer;
 }
+/* 좋아요 */
+.btn-like {
+    color: transparent;
+    text-shadow: 0 0 2px rgba(255,255,255,.7), 0 0 0 #000;
+  }
+
+.btn-like.done {
+    color: inherit;
+    text-shadow: 0;
+  }
