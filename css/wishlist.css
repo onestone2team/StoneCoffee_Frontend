@@ -85,6 +85,7 @@
     display: none;
     float: left;
     height: 100%;
+    align-items: center;
 }
 
 [dir='rtl'] .slick-slide {
@@ -189,10 +190,11 @@
         width: 100%;
     }
     .image{
-        width: 100px !important;
+        width: 150px !important;
         height: 150px !important;
         object-fit: cover;
         background-size: cover;
+        justify-content: center;
     }
     .recommend{
         height: 200px !important;
@@ -206,4 +208,5 @@
     .recomend_text{
         font-size: 15px;
     }
+
 }
