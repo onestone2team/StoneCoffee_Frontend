@@ -1108,8 +1108,8 @@ button,
 	flex-direction: row;
 }
 .product-image {
-	max-width: 177px;
-	max-height: 177px;
+	width: 30%;
+	height: 30%;
 }
 .price {
 	width: 15%;

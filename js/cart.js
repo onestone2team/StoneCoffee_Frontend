@@ -11,7 +11,7 @@ async function recalculateCart(price, count) {
 
     let num = document.getElementById("subtotal").innerHTML.slice(0, -1) * 1;
     total = total + price*count
-    $("#basket-subtotal").html(total)
+    $("#basket-subtotal").html(total.toLocaleString('ko-KR'))
     if (total >= 50000) {
         $('#delivery_price').fadeOut(fadeTime) && $('#delivery_price2').fadeIn(fadeTime);
         delivery_price = 0
@@ -21,7 +21,7 @@ async function recalculateCart(price, count) {
     }
     final_total = total + delivery_price
     $('.final-value').fadeIn(fadeTime, function () {
-        $('#basket-total').html(final_total);
+        $('#basket-total').html(final_total.toLocaleString('ko-KR'));
         if (total == 0) {
             $('.checkout-cta').fadeOut(fadeTime);
         } else {
@@ -47,6 +47,8 @@ async function cartlist() {
     var response_json = await response.json()
     var cart_frame = document.getElementById('append-product')
     response_json.forEach(element => {
+        
+        console.log(element.id)
         const cart = document.createElement('div')
         var total_price = element.price * element.count
         cart.setAttribute("class", "basket-product")
@@ -56,56 +58,64 @@ async function cartlist() {
                             </div>
                             <div class="product-details">
                                 <h4><span class="item-quantity"></span>${element.product.product_name}</h4>
-                                <p id="product_weight"><strong>${element.weight}g</strong></p>
+                                <p id="product_weight${element.product.id}"><strong>${element.weight*100}g</strong></p>
                             </div>
                         </div>
                         <div id="flex_row">
-                            <div class="price" id="price${element.id}">${element.price}원</div>
+                            <div class="price" id="price${element.id}">${element.price.toLocaleString('ko-KR')}원</div>
                             <div class="quantity" id="count${element.id}">${element.count}개</div>
-                            <div class="subtotal" id="subtotal">${total_price}원</div>
+                            <div class="subtotal" id="subtotal">${total_price.toLocaleString('ko-KR')}원</div>
                         </div>
                         <div class="remove" id="${element.id}">
                             <button>삭제하기</button>
                         </div>`
         cart_frame.appendChild(cart)
-        if (element.weight == 1) {
-            document.getElementById("product_weight").style.display = "none"
-        }
+        if (element.weight ==1) {
+                document.getElementById(`product_weight${element.product.id}`).style.display = "none"
+                console.log("?")
+        }   
         recalculateCart(element.price, element.count)
+    
     })
 }
 
 function removeItem(removeButton) {
-    var cart_id = removeButton.closest("div").id
-    var price = document.getElementById(`price${cart_id}`).innerText
-    var count = document.getElementById(`count${cart_id}`).innerText
-    price_num=price.replace("원","")
-    const response = fetch(`${BACK_END_URL}/product/cart/?cart_id=${cart_id}`, {
-        headers: {
-            "content-type": "application/json",
-            "Authorization": "Bearer " + localStorage.getItem("access"),
-        },
-        method: "DELETE",
-    })
+    var result =confirm("장바구니에서 삭제 하시겠습니까?");
+    if (result){
+        var cart_id = removeButton.closest("div").id
+        var price = document.getElementById(`price${cart_id}`).innerText
+        var count = document.getElementById(`count${cart_id}`).innerText
+        price_num=price.replace("원","")
+        const response = fetch(`${BACK_END_URL}/product/cart/?cart_id=${cart_id}`, {
+            headers: {
+                "content-type": "application/json",
+                "Authorization": "Bearer " + localStorage.getItem("access"),
+            },
+            method: "DELETE",
+        })
 
-    var productRow = $(removeButton).parent().parent();
-    productRow.slideUp(fadeTime, function () {
-    productRow.remove();
-    product = $(".basket-product").length
-    if (product > 0) {
-        recalculateMinusCart(parseInt(price), parseInt(count));
-    } else {
-        $("#basket-subtotal").html(total)
-        $('#basket-total').html(total);
-        $('#delivery_price').fadeOut(fadeTime) && $('#delivery_price2').fadeIn(fadeTime)
-    }
-    });
+        var productRow = $(removeButton).parent().parent();
+        
+        productRow.slideUp(fadeTime, function () {
+        productRow.remove();
+        product = $(".basket-product").length
+        if (product > 0) {
+            recalculateMinusCart(parseInt(price), parseInt(count));
+        } else {
+            $("#basket-subtotal").html(total);
+            $('#basket-total').html(total);
+            $('#delivery_price').fadeOut(fadeTime) && $('#delivery_price2').fadeIn(fadeTime);
+        }
+        });}else{
+            
+        }
+
 }
 
 
 async function recalculateMinusCart(price, count) {
     total = total - price*count
-    $("#basket-subtotal").html(total)
+    $("#basket-subtotal").html(total.toLocaleString('ko-KR'))
     if (total >= 50000) {
         $('#delivery_price').fadeOut(fadeTime) && $('#delivery_price2').fadeIn(fadeTime);
         delivery_price = 0
@@ -115,7 +125,7 @@ async function recalculateMinusCart(price, count) {
     }
     final_total = total + delivery_price
     $('.final-value').fadeIn(fadeTime, function () {
-        $('#basket-total').html(final_total);
+        $('#basket-total').html(final_total.toLocaleString('ko-KR'));
         if (total == 0) {
             $('.checkout-cta').fadeOut(fadeTime);
         } else {
