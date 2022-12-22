@@ -171,3 +171,39 @@
     background-size: 100% 100%;
     border-radius: 20px;
 }
+.product_name{
+    text-align: center;
+    line-height: 20px;
+    word-break: normal;
+}
+.image{
+    width: 200px;
+    height: 300px;
+    object-fit: cover;
+    background-size: cover;
+    background-position: center;
+}
+
+@media screen and (max-width: 700px) {
+    .recommend-form {
+        width: 100%;
+    }
+    .image{
+        width: 100px !important;
+        height: 150px !important;
+        object-fit: cover;
+        background-size: cover;
+    }
+    .recommend{
+        height: 200px !important;
+    }
+    #recommend{
+        height: 300px !important;
+    }
+    .slick-track{
+        height: 250px;
+    }
+    .recomend_text{
+        font-size: 15px;
+    }
+}
