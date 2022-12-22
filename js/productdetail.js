@@ -625,6 +625,7 @@ $qtyBtn.click(function () {
     }
 });
 
+
 //커멘트 디테일 페이지로 이동
 async function CommentDetail(num) {
     comment_id = num
@@ -635,5 +636,5 @@ async function CommentDetail(num) {
         alert("권한이 없습니다. 로그인 해주세요")
         location.replace("../templates/index.html")
     }
-    location.href = `${FRONT_END_URL}/comment_copy.html?comment_id=${comment_id}`
+    location.href=`${FRONT_END_URL}/comment_copy.html?comment_id=${comment_id}`
 }

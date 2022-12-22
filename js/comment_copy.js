@@ -125,10 +125,10 @@ async function comment_like() {
     })
 
 
-    if (response.status == 201) {
-        alert('좋아요')
-    } else { alert('좋아요 취소') }
-    location.reload()
+    // if (response.status == 201) {
+    //     alert('좋아요')
+    // } else { alert('좋아요 취소') }
+    // location.reload()
 
 }
 
@@ -210,3 +210,104 @@ async function del_nested(nestedcomment_id) {
     nestedcommentlist()
 }
 
+//커멘트 모달창
+const modal = document.querySelector('.modal');
+
+const buttonCloseModal = document.getElementById("close_modal");
+buttonCloseModal.addEventListener("click", e => {
+    modal.style.display = "none";
+    document.body.style.overflowY = "visible";
+});
+
+$("#input_image").change(function(){
+    readFile(this);
+});
+
+function readFile(input_image){
+    var reader = new FileReader();
+    reader.onload = function(e){
+        $('#output_image').attr('src', e.target.result);
+    }
+    reader.readAsDataURL(input_image.files[0]);
+}
+
+async function editCommentBtn() {
+    const modal = document.querySelector('.modal');
+    modal.style.display = 'block';
+    modal.style.top = window.pageYOffset + 'px';
+    document.body.style.overflowY = "hidden";
+
+    const response = await fetch(`${BACK_END_URL}/comment/edit/?comment_id=${comment_id}`, {
+        headers: {
+            "content-type": "application/json",
+            "Authorization": "Bearer " + localStorage.getItem("access")
+        },
+        method: "GET",
+    })
+    var response_json = await response.json()
+    console.log(response.json)
+    const editmodalImage = document.getElementById("output_image");
+    editmodalImage.src = BACK_END_URL+response_json["image"]
+    const editmodalComment = document.getElementById("edit-text");
+    editmodalComment.innerText = response_json["comment"]
+    const editcomment_point = document.getElementById("editcomment_point");
+    editcomment_point.value = response_json["point"]
+    const editCommentbtn = document.getElementById("edit-commentbtn");
+    editCommentbtn.value = response_json["id"]
+}
+
+async function deleteComment() {
+
+    const response = await fetch(`${BACK_END_URL}/comment/edit/?comment_id=${comment_id}`, {
+        headers: {
+            "content-type": "application/json",
+            "Authorization": "Bearer " + localStorage.getItem("access")
+        },
+        method: "DELETE",
+    })
+    var referrer = document.referrer
+    const product_id=referrer.split('=')[1]
+
+    var target = document.getElementById('detailBox')
+    
+    if (response.status==204){
+        alert("삭제되었습니다")
+        target.remove();
+        location.href=`${FRONT_END_URL}/product-detail.html?product_id=${product_id}` 
+    }
+    else {
+        alert("삭제되지 않았습니다")
+    }
+}
+    
+async function saveeditCommentBtn() {
+    const modal = document.querySelector('.modal');
+    const editCommentbtn = document.getElementById("edit-commentbtn");
+    var num = editCommentbtn.value
+    // const comment_form= document.querySelector("comment_form")
+    const comment_content=document.getElementById("edit-text").value
+    const comment_img=document.getElementById("input_image")
+    const comment_point=document.getElementById("editcomment_point").value
+    let formdata = new FormData
+    formdata.append('comment', comment_content)
+    formdata.append('point', comment_point)
+    if (comment_img.files[0] != undefined){
+        formdata.append('image', comment_img.files[0])
+    }
+
+    const response = await fetch(`${BACK_END_URL}/comment/edit/?comment_id=${num}`, {
+        headers: {
+            "Authorization": "Bearer " + localStorage.getItem("access")
+        },
+        method: "PUT",
+        body: formdata
+    })
+
+    var response_json = await response.json()
+    if(response.status == 201){
+        alert(response_json["message"])
+        modal.style.display = "none";
+        document.body.style.overflowY = "visible";
+        window.location.reload()
+    }
+}

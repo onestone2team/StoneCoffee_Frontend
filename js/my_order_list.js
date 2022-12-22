@@ -43,8 +43,8 @@ async function cartlist() {
                                 <strong>상품 이름 : <span class="item-quantity">${element.product_name}</span></strong>
                             </td>
                             <td>
-                                <div class="price">금액 : ${element.order_price}</div><br>
-                                <div class="quantity">수량 : ${element.count}</div><br>
+                                <div class="price">금액 : ${element.order_price.toLocaleString('ko-KR')}원</div><br>
+                                <div class="quantity">수량 : ${element.count}개</div><br>
                                 <div id="quantity${element.id}" class="quantity">용량 : ${element.weight}g</div>
                             </td>
                             <td>${order_status}</td>
@@ -52,7 +52,7 @@ async function cartlist() {
                         <tr>
                             <td></td>
                             <td></td>
-                            <td><hr> 총 금액 : ${order_price}</td>
+                            <td><hr> 총 금액 : ${order_price.toLocaleString('ko-KR')}원</td>
                         </tr>
                     </table>`
         order_frame.prepend(order)

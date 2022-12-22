@@ -45,11 +45,8 @@ button {
 }
 
 
-img,
-.basket-module,
-.basket-labels,
-.basket-product {
-	width: 100%;
+img{
+	width: 70%;
 }
 
 .hide {
