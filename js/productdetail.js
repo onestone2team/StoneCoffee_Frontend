@@ -186,7 +186,7 @@ window.onload = async function ProductDetail() {
                     <tr>
                         <td class="table-font">
                             <span class="table-righttext" width="150px>좋아요</span>
-                            <span class="table-lefttext" id="like_${commentSet.id}">${commentSet.like.length}개</span>
+                            <span class="table-lefttext" id="like_${commentSet.id}">좋아요 ${commentSet.like.length}개</span>
                         </td>
                     </tr>
                     <tr>
@@ -285,10 +285,10 @@ async function comment_like(id) {
     response_json = await response.json()
     if (response.status == 201) {
         heart.className = "bi bi-heart-fill"
-        document.getElementById(`like_${id}`).innerHTML = `${response_json.count}개`
+        document.getElementById(`like_${id}`).innerHTML = `좋아요 ${response_json.count}개`
     } else if (response.status == 200) {
         heart.className = "bi bi-heart"
-        document.getElementById(`like_${id}`).innerHTML = `${response_json.count}개`
+        document.getElementById(`like_${id}`).innerHTML = `좋아요 ${response_json.count}개`
     } else {
         alert(response_json["message"])
     }
