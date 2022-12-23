@@ -1,4 +1,9 @@
-
+body{
+    background-image: url(../img/colombia-g93bf29a6a_1920.jpg);
+    height: 100vh;
+    width: 100vw;
+    background-size: cover;
+}
 .wrap{
     width:80%; margin:auto; margin-top: 5%; margin-bottom:5%; 
     border:solid rgb(62,36,12) 5px;
@@ -337,3 +342,6 @@
     color: inherit;
     text-shadow: 0;
   }
+#coffeebean_{
+    color: transparent; text-shadow: 0 0 2px rgba(255,255,255,.7), 0 0 0 #000;
+}

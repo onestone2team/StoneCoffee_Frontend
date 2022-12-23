@@ -105,7 +105,7 @@ async function CommentDetailPage() {
                                         <p id="date">${comment_detail_json.created_at.substr(0, 10)}</p>
                                     </td>
                                     <td class="clike-button">
-                                        <p><button onclick="comment_like()"><i id="like_icon" class="bi bi-heart"></i></button></p>
+                                    <p><button id='cbtn' class="btn-like" onclick ="comment_like()">❤️</button></p>
                                     </td>
                                     <td class="like-count">
                                         <p id="like_count">좋아요 ${comment_detail_json.like.length}개</p>
@@ -127,13 +127,15 @@ async function CommentDetailPage() {
         like_count.innerText = '좋아요 ' + comment_detail_json.like.length + '개' 
     }
 
-    var point = document.getElementById('coffeebean');
-    point.innerHTML = ""
+    var star_point = document.getElementById('taste-grade')
+    star_point.innerHTML = ""
     for (var i = 0; i < comment_detail_json.point; i++) {
-        point.innerHTML += "<img id='coffeebean_img' src='../img/comment/coffeebean.png'>";
+
+        star_point.innerHTML+=`<span id="coffeebean">⭐</span>`
     }
     for (var i = 0; i < 5 - comment_detail_json.point; i++) {
-        point.innerHTML += "<img id='coffeebean_img_' src='../img/comment/coffeebean-outline.png'>";
+
+        star_point.innerHTML += `<span id="coffeebean_">⭐</span>`
     }
 
     like_list = comment_detail_json["like"]
@@ -159,19 +161,10 @@ async function comment_like() {
         method: "POST",
     })
     
-    const comment_detail = await fetch(`${BACK_END_URL}/comment/edit/?comment_id=${comment_id}`, {
-        headers: {
-            'content-type': 'application/json',
-            "Authorization": "Bearer " + localStorage.getItem("access")
-        },
-        method: 'GET',
-    })
-
-    const comment_detail_json = await comment_detail.json()
-
+    const response_json = await response.json()
     const like_count=document.getElementById('like_count')
     if (response.status == 201 || 200){
-        like_count.innerText= '좋아요 ' + comment_detail_json.like.length + '개'
+        like_count.innerText= '좋아요 ' + response_json.count + '개'
     }
 
 }
@@ -307,9 +300,7 @@ async function deleteComment() {
         },
         method: "DELETE",
     })
-    var referrer = document.referrer
-    const product_id=referrer.split('=')[1]
-   
+
     var target = document.getElementById('detailBox')
     
     if (response.status==204){
@@ -320,7 +311,7 @@ async function deleteComment() {
         alert("삭제되지 않았습니다")
     }
 
-    location.href=`${FRONT_END_URL}/product-detail.html?product_id=${product_id}` 
+    location.href=document.referrer
 }
     
 async function saveeditCommentBtn() {
