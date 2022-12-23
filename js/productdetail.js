@@ -1,15 +1,13 @@
 let urlParameter = window.location.search;
 var product_id1 = urlParameter.split('=')[1]
 var product_id = product_id1.split('/')[0]
-one_price = 0
-console.log(product_id)
 
 //=======게시글 불러오기========
 window.onload = async function ProductDetail() {
     $("#headers").load("header.html");
     const payload = localStorage.getItem("payload")
     const parsed_payload = JSON.parse(payload)
-    if(!parsed_payload){
+    if (!parsed_payload) {
         alert("권한이 없습니다. 로그인 해주세요")
         location.replace("../index.html")
     }
@@ -22,144 +20,149 @@ window.onload = async function ProductDetail() {
         method: 'GET',
     })
 
-//========제품 이미지 불러오기========
+    //========제품 이미지 불러오기========
     product_json = await product.json()
     const product_image = document.getElementById("productimage")
     product_image.setAttribute("src", `${BACK_END_URL}${product_json.products["image"]}`)
 
     //========좋아요 아이콘 변경=======
     const likeIcon = document.getElementById("like_icon")
-    if (product_json["products"]['like'].includes(parsed_payload['user_id'])){
-        likeIcon.setAttribute('class','bi bi-heart-fill')
-    } else{
-        likeIcon.setAttribute('class','bi bi-heart')
+    if (product_json["products"]['like'].includes(parsed_payload['user_id'])) {
+        likeIcon.setAttribute('class', 'bi bi-heart-fill')
+    } else {
+        likeIcon.setAttribute('class', 'bi bi-heart')
     }
     one_price = product_json.products["price"]
-//이름,가격불러오는 코드
-    name2=document.getElementById('name')
+    //이름,가격불러오는 코드
+    name2 = document.getElementById('name')
     const name1 = document.createElement('p')
-    name1.innerHTML=`<h3>${product_json.products["product_name"]}</h3>`
+    name1.innerHTML = `<h3>${product_json.products["product_name"]}</h3>`
     name2.appendChild(name1)
     //상품 평가 점수
-    if (product_json.products["aroma_grade"] >=1){
-        aroma2=document.getElementById('aroma')
+    if (product_json.products["aroma_grade"] >= 1) {
+        aroma2 = document.getElementById('aroma')
         const aroma1 = document.createElement('span')
-        aroma1.innerHTML=`<span class="coffeebean-text">향</span>`
+        aroma1.innerHTML = `<span class="coffeebean-text">향</span>`
         aroma2.appendChild(aroma1)
-        for (i=0;i<5;i++){
+        for (i = 0; i < 5; i++) {
             const aromaBean = document.createElement('img')
-            aromaBean.setAttribute('class','coffeebean-image')
-            if (i<product_json.products["aroma_grade"]){
-                aromaBean.setAttribute('src','img/comment/coffeebean.png')
+            aromaBean.setAttribute('class', 'coffeebean-image')
+            if (i < product_json.products["aroma_grade"]) {
+                aromaBean.setAttribute('src', 'img/comment/coffeebean.png')
             } else {
-                aromaBean.setAttribute('src','img/comment/coffeebean-outline.png')
+                aromaBean.setAttribute('src', 'img/comment/coffeebean-outline.png')
             }
             aroma2.appendChild(aromaBean)
         }
 
-        acidity2=document.getElementById('acidity')
+        acidity2 = document.getElementById('acidity')
         const acidity1 = document.createElement('span')
-        acidity1.innerHTML=`<span class="coffeebean-text">산미</span>`
+        acidity1.innerHTML = `<span class="coffeebean-text">산미</span>`
         acidity2.appendChild(acidity1)
-        for (i=0;i<5;i++){
+        for (i = 0; i < 5; i++) {
             const acidityBean = document.createElement('img')
-            acidityBean.setAttribute('class','coffeebean-image')
-            if (i<product_json.products["acidity_grade"]){
-                acidityBean.setAttribute('src','img/comment/coffeebean.png')
+            acidityBean.setAttribute('class', 'coffeebean-image')
+            if (i < product_json.products["acidity_grade"]) {
+                acidityBean.setAttribute('src', 'img/comment/coffeebean.png')
             } else {
-                acidityBean.setAttribute('src','img/comment/coffeebean-outline.png')
+                acidityBean.setAttribute('src', 'img/comment/coffeebean-outline.png')
             }
             acidity2.appendChild(acidityBean)
         }
 
-        body2=document.getElementById('body')
+        body2 = document.getElementById('body')
         const body1 = document.createElement('span')
-        body1.innerHTML=`<span class="coffeebean-text">바디</span>`
+        body1.innerHTML = `<span class="coffeebean-text">바디</span>`
         body2.appendChild(body1)
 
-        for (i=0;i<5;i++){
+        for (i = 0; i < 5; i++) {
             const bodyBean = document.createElement('img')
-            bodyBean.setAttribute('class','coffeebean-image')
-            if (i<product_json.products["body_grade"]){
-                bodyBean.setAttribute('src','img/comment/coffeebean.png')
+            bodyBean.setAttribute('class', 'coffeebean-image')
+            if (i < product_json.products["body_grade"]) {
+                bodyBean.setAttribute('src', 'img/comment/coffeebean.png')
             } else {
-                bodyBean.setAttribute('src','img/comment/coffeebean-outline.png')
+                bodyBean.setAttribute('src', 'img/comment/coffeebean-outline.png')
             }
             body2.appendChild(bodyBean)
         }
 
-        sweet2=document.getElementById('sweet')
+        sweet2 = document.getElementById('sweet')
         const sweet1 = document.createElement('span')
-        sweet1.innerHTML=`<span class="coffeebean-text">당도</span>`
+        sweet1.innerHTML = `<span class="coffeebean-text">당도</span>`
         sweet2.appendChild(sweet1)
 
-        for (i=0;i<5;i++){
+        for (i = 0; i < 5; i++) {
             const sweetBean = document.createElement('img')
-            sweetBean.setAttribute('class','coffeebean-image')
-            if (i<product_json.products["sweet_grade"]){
-                sweetBean.setAttribute('src','img/comment/coffeebean.png')
+            sweetBean.setAttribute('class', 'coffeebean-image')
+            if (i < product_json.products["sweet_grade"]) {
+                sweetBean.setAttribute('src', 'img/comment/coffeebean.png')
             } else {
-                sweetBean.setAttribute('src','img/comment/coffeebean-outline.png')
+                sweetBean.setAttribute('src', 'img/comment/coffeebean-outline.png')
             }
             sweet2.appendChild(sweetBean)
         }
 
         //용량 선택하는 select
-        w_option=document.getElementById('option')
-        const w_option2 =document.createElement('p')
-        w_option2.innerHTML=`<div class="size">
+        w_option = document.getElementById('option')
+        const w_option2 = document.createElement('p')
+        w_option2.innerHTML = `<div class="size">
                                 <h4>용량 선택</h4>
                                 <select size="1" id="weight" onchange="valeChange()">
-                                <option value="1">중량</option>
+                                <option value="1">100g</option>
                                 <option value="3">300g</option>
                                 <option value="5">500g</option>
                                 </select>
                             </div>`
         w_option.appendChild(w_option2)
 
-        var price_per_100g=document.getElementById('price')
+        // 가격
+        var price_per_100g = document.getElementById('price')
         var price_per_100g_2 = document.createElement('div')
-        price_per_100g_2.innerHTML=`<h3 class="price_per_100g">100g당 가격 : <span>${product_json.products["price"]}</span> 원</h3>`
+        price_per_100g_2.innerHTML = `<h3 class="price_per_100g">100g당 가격 : <span>${product_json.products["price"].toLocaleString('ko-KR')}</span> 원</h3>`
         price_per_100g.appendChild(price_per_100g_2)
+
+        productprice = product_json.products["price"]
+        var product_price = document.getElementById('price')
+        var product_price2 = document.createElement('div')
+        product_price2.innerHTML = `<h3 class="product_price">상품 가격 : <span id="product_price">${productprice.toLocaleString('ko-KR')}</span> 원</h3>`
+        product_price.appendChild(product_price2)
+
         totalprice = product_json.products["price"]
-        var price2=document.getElementById('price')
+        var price2 = document.getElementById('price')
         var price1 = document.createElement('div')
-        price1.innerHTML=`<h3 class="price">가격 : <span id="priceText">${totalprice}</span> 원</h3>`
+        price1.innerHTML = `<h3 class="price">가격 : <span id="priceText">${totalprice.toLocaleString('ko-KR')}</span> 원</h3>`
         price2.appendChild(price1)
 
     } else {
-        var price_per_100g=document.getElementById('price')
+        var price_per_100g = document.getElementById('price')
         var price_per_100g_2 = document.createElement('div')
         price_per_100g.appendChild(price_per_100g_2)
         totalprice = product_json.products["price"]
-        var price2=document.getElementById('price')
+        var price2 = document.getElementById('price')
         var price1 = document.createElement('div')
-        price1.innerHTML=`<h3 class="price">가격 : <span id="priceText">${totalprice}</span> 원</h3>`
+        price1.innerHTML = `<h3 class="price">가격 : <span id="priceText">${totalprice.toLocaleString('ko-KR')}</span> 원</h3>`
         price2.appendChild(price1)
     }
-    // 가격
 
     //상품 내용 description
-    productinformation2=document.getElementById('description')
+    productinformation2 = document.getElementById('description')
     const productinformations2 = document.createElement('p')
-    productinformation2.innerHTML=`<h3>${product_json.products["content"]}</h3>`
+    productinformation2.innerHTML = `<h3>${product_json.products["content"]}</h3>`
     productinformation2.appendChild(productinformations2)
     //용량
-
-    // 추천 상품
 
     const product_list = product_json.products
     const commentPut = document.getElementById('comment-list')
     const commentform = document.createElement('div')
     commentform.className = "comment-form"
-    for (i=0; i <product_list.comment_set.length; i++) {
+    for (i = 0; i < product_list.comment_set.length; i++) {
         const commentSet = product_list.comment_set[i]
         const commentform = document.createElement('div')
         commentform.id = `total_commnet${commentSet.id}`
         createTime = commentSet.created_at
         createTime = createTime.split("T")
         commentform.className = "comment-form"
-        commentform.innerHTML=`
+        commentform.innerHTML = `
             <div class="comment-form">
                 <table class="comment-table">
                     <td colspan = "3" span style="color:black">
@@ -183,7 +186,7 @@ window.onload = async function ProductDetail() {
                     <tr>
                         <td class="table-font">
                             <span class="table-righttext" width="150px>좋아요</span>
-                            <span class="table-lefttext">${commentSet.like.length}개</span>
+                            <span class="table-lefttext" id="like_${commentSet.id}">${commentSet.like.length}개</span>
                         </td>
                     </tr>
                     <tr>
@@ -196,32 +199,29 @@ window.onload = async function ProductDetail() {
                         <td colspan = "3" span style="color:black">
                         <span style="cursor: pointer;" onclick="CommentDetail(${commentSet.id})">댓글 더보기</span>
                             <span style="float: right; margin-right: 10px;" id="editView${commentSet.id}">
-                            <span onclick="editCommentBtn(${commentSet.id})" style="cursor: pointer;">수정</span> /
-                            <span onclick="deleteComment(${commentSet.id})" style="cursor: pointer;">삭제</span> </span>
+                            <span onclick="editCommentBtn(${commentSet.id})" style="cursor: pointer;">수정</span>
+                            <span onclick="deleteComment(${commentSet.id})" style="cursor: pointer;">삭제</span></span>
                         </td>
                     </tr>
                 </table>
             </div>`
 
         commentPut.appendChild(commentform)
+
         // 별 추가하기
         const starInput = document.getElementById(`table-star${commentSet.id}`)
         const starForm = document.createElement('span')
-        starForm.className = "table-lefttext"
-        for (j=0; j < commentSet.point; j++) {
-            const starIcon = document.createElement('i')
-            starIcon.className = 'bi bi-star-fill'
-            starForm.appendChild(starIcon)
-        }
+        starForm.innerHTML = '☕'.repeat(commentSet.point)
         starInput.appendChild(starForm)
+
         // 하트 모양 변경하기
         const heart = document.getElementById(`profile-icon${commentSet.id}`)
-        if (commentSet['like'].includes(parsed_payload['user_id'])){
+        if (commentSet['like'].includes(parsed_payload['user_id'])) {
             heart.className = "bi bi-heart-fill"
         }
         // 수정 삭제 제거
         const editComment = document.getElementById(`editView${commentSet.id}`)
-        if (commentSet.user.id != parsed_payload['user_id']){
+        if (commentSet.user.id != parsed_payload['user_id']) {
             editComment.style.display = "none"
         }
     }
@@ -265,31 +265,30 @@ window.onload = async function ProductDetail() {
     var recommend_list = product_json.recommend
     for (i = 0; i < 6; i++) {
         $('.recommend-form').slick('slickAdd',
-                        `<div>
+            `<div>
                         <a href="product-detail.html?product_id=${recommend_list[i]["id"]}">
                         <div class="image" style="background-image: url(${BACK_END_URL}${recommend_list[i]["image"]});"></div>
                         <span >${recommend_list[i]["product_name"]}</span>
                         </a></div>`
-                        );
+        );
     }
 }
 
 async function comment_like(id) {
     const response = await fetch(`${BACK_END_URL}/comment/like/?comment_id=${id}`, {
-        headers:{
+        headers: {
             "Authorization": "Bearer " + localStorage.getItem("access"),
         },
         method: "POST",
     })
-    var heart =document.getElementById(`profile-icon${id}`)
-    response_json=await response.json()
-    if (response.status == 201){
-        alert(response_json["message"])
+    var heart = document.getElementById(`profile-icon${id}`)
+    response_json = await response.json()
+    if (response.status == 201) {
         heart.className = "bi bi-heart-fill"
-
-    } else if(response.status == 200) {
-        alert(response_json["message"])
+        document.getElementById(`like_${id}`).innerHTML = `${response_json.count}개`
+    } else if (response.status == 200) {
         heart.className = "bi bi-heart"
+        document.getElementById(`like_${id}`).innerHTML = `${response_json.count}개`
     } else {
         alert(response_json["message"])
     }
@@ -297,125 +296,118 @@ async function comment_like(id) {
 
 async function cart() {
     var priceText = document.getElementById("priceText")
-    const count=document.querySelector(".readonly");
+    var product_price = document.getElementById("product_price")
+    const count = document.querySelector(".readonly");
     // 왜 null?
-    if(product_json.products.aroma_grade == 0 || product_json.products.aroma_grade == null){
-        const weight=1;
+    if (product_json.products.aroma_grade == 0 || product_json.products.aroma_grade == null) {
+        const weight = 1;
 
         let formdata = new FormData
         formdata.append('count', count.value)
         formdata.append('price', priceText.innerText)
         formdata.append('weight', weight)
         const response = await fetch(`${BACK_END_URL}/product/cart/?product_id=${product_id}`, {
-            headers:{
+            headers: {
                 "Authorization": "Bearer " + localStorage.getItem("access"),
             },
             method: "POST",
             body: formdata
         })
-        response_json=await response.json()
+        response_json = await response.json()
 
-        if (response.status==200 || response.status==202 || response.status == 201){
+        if (response.status == 200 || response.status == 202 || response.status == 201) {
 
-                alert("장바구니에 담겼습니다.")
-                location.reload();
-            }
-        else if(response.status==401 || response.status == 400){
-                alert("로그인을 해주세요")
-                location.reload();
-        }}
-        else if(product_json.products.aroma_grade >= 1) {
-            const count=document.querySelector(".readonly");
-            const weight=document.querySelectorAll("select")[0];
-            if (weight.value ==1){
-                alert("용량을 선택해주세요")
-            }
-            if (weight.value > 1){
-                let formdata = new FormData 
-                formdata.append('count', count.value)
-                formdata.append('price', priceText.innerText)
-                formdata.append('weight', weight.value)
+            alert("장바구니에 담겼습니다.")
+            location.reload();
+        }
+        else if (response.status == 401 || response.status == 400) {
+            alert("로그인을 해주세요")
+            location.reload();
+        }
+    }
+    else if (product_json.products.aroma_grade >= 1) {
+        const count = document.querySelector(".readonly");
+        const weight = document.querySelectorAll("select")[0];
+        let formdata = new FormData
+        formdata.append('count', count.value)
+        formdata.append('price', product_price.innerText)
+        formdata.append('weight', weight.value)
+        const response = await fetch(`${BACK_END_URL}/product/cart/?product_id=${product_id}`, {
+            headers: {
+                "Authorization": "Bearer " + localStorage.getItem("access"),
+            },
+            method: "POST",
+            body: formdata
+        })
+        response_json = await response.json()
 
-            const response = await fetch(`${BACK_END_URL}/product/cart/?product_id=${product_id}`, {
-                headers:{
-                    "Authorization": "Bearer " + localStorage.getItem("access"),
-                },
-                method: "POST",
-                body: formdata
-            })
-            response_json=await response.json()
+        if (response.status == 200 || response.status == 202 || response.status == 201) {
+            alert("장바구니에 담겼습니다.")
+            location.reload();
 
-            if (response.status==200 || response.status==202 || response.status == 201){
-                alert("장바구니에 담겼습니다.")
-                location.reload();
-
-            }
-            else if(response.status==401 || response.status == 400){
-                alert("로그인을 해주세요")
-                location.reload();
-            }
+        }
+        else if (response.status == 401 || response.status == 400) {
+            alert("로그인을 해주세요")
+            location.reload();
         }
     }
 }
 
 async function orderButton() {
     var priceText = document.getElementById("priceText")
-    const count=document.querySelector(".readonly");
-    // 
-    if(product_json.products.aroma_grade == 0 || product_json.products.aroma_grade == null){
-        const weight=1;
+    var product_price = document.getElementById("product_price")
+    const count = document.querySelector(".readonly");
+
+    if (product_json.products.aroma_grade == 0 || product_json.products.aroma_grade == null) {
+        const weight = 1;
 
         let formdata = new FormData
         formdata.append('count', count.value)
         formdata.append('price', priceText.innerText)
         formdata.append('weight', weight)
         const response = await fetch(`${BACK_END_URL}/product/cart/?product_id=${product_id}`, {
-            headers:{
+            headers: {
                 "Authorization": "Bearer " + localStorage.getItem("access"),
             },
             method: "POST",
             body: formdata
         })
-        response_json=await response.json()
+        response_json = await response.json()
 
-        if (response.status==200 || response.status==202 || response.status == 201){
-                alert("주문하기")
-                location.replace("cart.html");
-            }
-        else if(response.status==401 || response.status == 400){
-                alert("로그인을 해주세요")
-                location.reload();
-        }}
-        else if(product_json.products.aroma_grade >= 1) {
-            const count=document.querySelector(".readonly");
-            const weight=document.querySelectorAll("select")[0];
-            if (weight.value ==1){
-                alert("용량을 선택해주세요")
-            }
-            if (weight.value > 1){
-                let formdata = new FormData 
-                formdata.append('count', count.value)
-                formdata.append('price', priceText.innerText)
-                formdata.append('weight', weight.value)
+        if (response.status == 200 || response.status == 202 || response.status == 201) {
+            alert("주문하기")
+            location.replace("cart.html");
+        }
+        else if (response.status == 401 || response.status == 400) {
+            alert("로그인을 해주세요")
+            location.reload();
+        }
+    }
+    else if (product_json.products.aroma_grade >= 1) {
+        const count = document.querySelector(".readonly");
+        const weight = document.querySelectorAll("select")[0];
+        let formdata = new FormData
+        formdata.append('count', count.value)
+        formdata.append('price', product_price.innerText)
+        formdata.append('weight', weight.value)
 
-            const response = await fetch(`${BACK_END_URL}/product/cart/?product_id=${product_id}`, {
-                headers:{
-                    "Authorization": "Bearer " + localStorage.getItem("access"),
-                },
-                method: "POST",
-                body: formdata
-            })
-            response_json=await response.json()
+        const response = await fetch(`${BACK_END_URL}/product/cart/?product_id=${product_id}`, {
+            headers: {
+                "Authorization": "Bearer " + localStorage.getItem("access"),
+            },
+            method: "POST",
+            body: formdata
+        })
+        response_json = await response.json()
 
-            if (response.status==200 || response.status==202 || response.status == 201){
-                alert("주문하기")
-                location.replace("cart.html");
+        if (response.status == 200 || response.status == 202 || response.status == 201) {
+            alert("주문하기")
+            location.replace("cart.html");
 
-            }
-            else if(response.status==401 || response.status == 400){
-                alert("로그인을 해주세요")
-                location.reload();
-            }
+        }
+        else if (response.status == 401 || response.status == 400) {
+            alert("로그인을 해주세요")
+            location.reload();
         }
     }
 }
@@ -429,71 +421,75 @@ async function like() {
         method: "POST",
     })
 
-    if (responproduct_jsonse.status==200 || responproduct_jsonse.status==202){
+    if (responproduct_jsonse.status == 200 || responproduct_jsonse.status == 202) {
         alert("좋아요에 등록되었습니다.")
         location.reload();
     }
-    else if(responproduct_jsonse.status==401){
+    else if (responproduct_jsonse.status == 401) {
         alert("로그인을 해주세요")
         location.reload();
     }
 }
 // 댓글 이미지 출력 js
-$('#comment_img').on('change', function() {
-    ext = $(this).val().split('.').pop().toLowerCase(); //확장자
+$('#comment_img').on('change', function () {
+    ext = $(this).val().split(".").pop().toLowerCase(); //확장자
     //배열에 추출한 확장자가 존재하는지 체크
-    if($.inArray(ext, ['gif', 'png', 'jpg', 'jpeg']) == -1) {
-        resetFormElement($(this)); //폼 초기화
-        window.alert('이미지 파일이 아닙니다! (gif, png, jpg, jpeg 만 업로드 가능)');
+    if ($.inArray(ext, ['gif', 'png', 'jpg', 'jpeg']) == -1) {
+        alert('이미지 파일이 아닙니다! (gif, png, jpg, jpeg 만 업로드 가능)');
+        $(this).val("")
+        $('#image_preview img').attr('src', "/img/icon.png");
+        $('#image_preview').slideDown();
+
     } else {
         file = $('#comment_img').prop("files")[0];
         blobURL = window.URL.createObjectURL(file);
         $('#image_preview img').attr('src', blobURL);
         $('#image_preview').slideDown(); //업로드한 이미지 미리보기
-        $(this).slideUp(); //파일 양식 감춤
     }
-    });
+});document.querySelector('input[name="product_price"]:checked')
 
-    // 댓글 등록하는 js
-async function commentrg(){
-        const comment_form= document.querySelector("comment_form")
-        const comment_content=document.getElementById("comment-input").value
-        const comment_img=document.querySelector("input[type='file']");
-        const comment_point=document.querySelectorAll("#grade")[0];
+// 댓글 등록하는 js
+async function commentrg() {
+    const comment_form = document.querySelector("comment_form")
+    const comment_content = document.getElementById("comment-input").value
+    const comment_img = document.querySelector("input[type='file']");
+    var comment_point = document.querySelector('input[name="point"]:checked').value;
 
-        if (comment_content.value == ""){
-            alert("리뷰를 작성해 주세요")
-        } else if (comment_content.value == " "){
-            alert("리뷰를 작성해 주세요")
-        } else if (comment_point.value ==0){
-            alert("평점을 선택해 주세요")
-        }   else {
+    if (comment_content.value == "") {
+        alert("리뷰를 작성해 주세요")
+    } else if (comment_content.value == " ") {
+        alert("리뷰를 작성해 주세요")
+    } else if (comment_point.value == 0) {
+        alert("평점을 선택해 주세요")
+    } else {
         let formdata = new FormData
         formdata.append('comment', comment_content)
-        formdata.append('point', comment_point.value)
-        if (comment_img.files[0] != undefined){
+        formdata.append('point', comment_point)
+        if (comment_img.files[0] != undefined) {
             formdata.append('image', comment_img.files[0])
-        }else {
+        } else {
 
         }
-        const response =await fetch(`${BACK_END_URL}/comment/?product_id=${product_id}`, {
-            headers:{
+        const response = await fetch(`${BACK_END_URL}/comment/?product_id=${product_id}`, {
+            headers: {
                 "Authorization": "Bearer " + localStorage.getItem("access"),
             },
             method: 'POST',
             body: formdata
         })
-            response_json=await response.json()
-            if (response.status == 200 || response.status == 202 || response.status == 201) {
-                alert("정상적으로 리뷰 작성을 하였습니다.")
-                location.reload();
-                return response.json()
-            }
-            else if (response.status == 400) {
-                alert("게시글당 한번의 리뷰만 작성이 가능합니다.")
-                }
-                location.reload();
-                return response.json()
+        response_json = await response.json()
+        if (response.status == 200 || response.status == 202 || response.status == 201) {
+            alert("정상적으로 리뷰 작성을 하였습니다.")
+            location.reload();
+            return response.json()
+        }
+        else if (response.status == 400) {
+            alert("게시글당 한번의 리뷰만 작성이 가능합니다.")
+        } else {
+            alert("주문을 한 회원만 댓글을 등록할 수 있습니다")
+        }
+        location.reload();
+        return response.json()
     }
 }
 
@@ -507,7 +503,7 @@ async function deleteComment(num) {
     })
 
     var total_commnet = document.getElementById(`total_commnet${num}`)
-    if (response.status==204){
+    if (response.status == 204) {
         alert("삭제 되었습니다")
         total_commnet.parentNode.removeChild(total_commnet)
     }
@@ -531,7 +527,7 @@ async function editCommentBtn(num) {
     })
     var response_json = await response.json()
     const editmodalImage = document.getElementById("output_image");
-    editmodalImage.src = BACK_END_URL+response_json["image"]
+    editmodalImage.src = BACK_END_URL + response_json["image"]
     const editmodalComment = document.getElementById("edit-text");
     editmodalComment.innerText = response_json["comment"]
     const editcomment_point = document.getElementById("editcomment_point");
@@ -548,13 +544,13 @@ buttonCloseModal.addEventListener("click", e => {
     document.body.style.overflowY = "visible";
 });
 
-$("#input_image").change(function(){
+$("#input_image").change(function () {
     readFile(this);
 });
 
-function readFile(input_image){
+function readFile(input_image) {
     var reader = new FileReader();
-    reader.onload = function(e){
+    reader.onload = function (e) {
         $('#output_image').attr('src', e.target.result);
     }
     reader.readAsDataURL(input_image.files[0]);
@@ -565,13 +561,13 @@ async function saveeditCommentBtn() {
     const editCommentbtn = document.getElementById("edit-commentbtn");
     var num = editCommentbtn.value
     // const comment_form= document.querySelector("comment_form")
-    const comment_content=document.getElementById("edit-text").value
-    const comment_img=document.getElementById("input_image")
-    const comment_point=document.getElementById("editcomment_point").value
+    const comment_content = document.getElementById("edit-text").value
+    const comment_img = document.getElementById("input_image")
+    const comment_point = document.getElementById("editcomment_point").value
     let formdata = new FormData
     formdata.append('comment', comment_content)
     formdata.append('point', comment_point)
-    if (comment_img.files[0] != undefined){
+    if (comment_img.files[0] != undefined) {
         formdata.append('image', comment_img.files[0])
     }
 
@@ -584,7 +580,7 @@ async function saveeditCommentBtn() {
     })
 
     var response_json = await response.json()
-    if(response.status == 201){
+    if (response.status == 201) {
         alert(response_json["message"])
         modal.style.display = "none";
         document.body.style.overflowY = "visible";
@@ -592,43 +588,46 @@ async function saveeditCommentBtn() {
     }
 }
 
-function valeChange(){
-    if (product_json.products.category_id == 1){
+function valeChange() {
+    if (product_json.products.category_id == 1) {
         var weight = document.getElementById("weight").value
         var count = document.querySelector(".readonly").value
+        productprice = weight * one_price
         total_price = weight * one_price * count
+        var product_price = document.getElementById("product_price")
         var priceText = document.getElementById("priceText")
-        priceText.innerText = total_price
+        priceText.innerText = total_price.toLocaleString('ko-KR')
+        product_price.innerText = productprice.toLocaleString('ko-KR')
     } else {
         var count = document.querySelector(".readonly").value
         total_price = one_price * count
         var priceText = document.getElementById("priceText")
-        priceText.innerText = total_price
+        priceText.innerText = total_price.toLocaleString('ko-KR')
     }
 }
 
-var $quantity=$('.quantity'),
+var $quantity = $('.quantity'),
     $unitprice = $quantity.attr('data-unitprice'),
     $qtyBtn = $quantity.find('span'),
-    $qytInput =$quantity.find('input'),
-    $targetTotal=$('.total_price .price');
+    $qytInput = $quantity.find('input'),
+    $targetTotal = $('.total_price .price');
 
-    $qtyBtn.click(function(){
-        var currentCount = $qytInput.val();
-        if($(this).hasClass('plus')){
-            $qytInput.val(++currentCount);
+$qtyBtn.click(function () {
+    var currentCount = $qytInput.val();
+    if ($(this).hasClass('plus')) {
+        $qytInput.val(++currentCount);
+        valeChange()
+    } else {
+        if (currentCount > 1) {
+            $qytInput.val(--currentCount);
             valeChange()
-        }else{
-            if(currentCount > 1){
-                $qytInput.val(--currentCount);
-                valeChange()
-            }
         }
-    });
+    }
+});
 
 
 //커멘트 디테일 페이지로 이동
-async function CommentDetail(num){
+async function CommentDetail(num) {
     comment_id = num
     const payload = localStorage.getItem("payload")
     const parsed_payload = JSON.parse(payload)
@@ -637,6 +636,5 @@ async function CommentDetail(num){
         alert("권한이 없습니다. 로그인 해주세요")
         location.replace("../templates/index.html")
     }
-
     location.href=`${FRONT_END_URL}/comment_copy.html?comment_id=${comment_id}`
 }

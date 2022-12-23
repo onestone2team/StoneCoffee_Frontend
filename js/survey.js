@@ -10,7 +10,7 @@ function startSurvey(){
     const removeText1 = document.getElementById('removeText1')
     const removeText2 = document.getElementById('removeText2')
     const showSurvey = document.getElementById('showSurvey')
-    
+
     icon.style.display = "none"
     removeText1.style.display = "none"
     removeText2.style.display = "none"
