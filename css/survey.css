@@ -125,7 +125,7 @@ body{
 }
 
 .maintext span{
-  font-size: 50px;
+  font-size: 30px;
   color: white;
   position: relative;
   animation: anime_textup 1.5s infinite;
@@ -218,7 +218,7 @@ body{
 
 .survey-table p {
   color: #4e342e;
-  font-size: 30px;
+  font-size: 20px;
   font-family: 'Stylish', sans-serif;
 }
 
