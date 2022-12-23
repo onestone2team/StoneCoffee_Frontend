@@ -35,8 +35,16 @@ async function logoutUser() {
 
     window.location.replace(`../signupin.html`);
 }
+function enterkey(e){
+    const code = e.code;
+    if(code == 'Enter'){
+        searchButton()
+ }
+}
 
 function searchButton() {
-    const searchtage = document.getElementById("searchtage").value
-    location.replace(`${FRONT_END_URL}/search.html?search=${searchtage}`)
+
+        const searchtage = document.getElementById("searchtage").value
+        location.replace(`${FRONT_END_URL}/search.html?search=${searchtage}`)
+
 }
