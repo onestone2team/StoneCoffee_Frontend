@@ -498,21 +498,26 @@ async function commentrg() {
 }
 
 async function deleteComment(num) {
-    const response = await fetch(`${BACK_END_URL}/comment/edit/?comment_id=${num}`, {
-        headers: {
-            "content-type": "application/json",
-            "Authorization": "Bearer " + localStorage.getItem("access")
-        },
-        method: "DELETE",
-    })
+    var reviewdelete =confirm("리뷰를 삭제 하시겠습니까?");
+    if (reviewdelete){
+        const response = await fetch(`${BACK_END_URL}/comment/edit/?comment_id=${num}`, {
+            headers: {
+                "content-type": "application/json",
+                "Authorization": "Bearer " + localStorage.getItem("access")
+            },
+            method: "DELETE",
+        })
 
-    var total_commnet = document.getElementById(`total_commnet${num}`)
-    if (response.status == 204) {
-        alert("삭제 되었습니다")
-        total_commnet.parentNode.removeChild(total_commnet)
-    }
-    else {
-        alert("삭제 실패")
+        var total_commnet = document.getElementById(`total_commnet${num}`)
+        if (response.status == 204) {
+            alert("삭제 되었습니다")
+            total_commnet.parentNode.removeChild(total_commnet)
+        }
+        else {
+            alert("삭제 실패")
+        }
+    }else{
+        
     }
 }
 
