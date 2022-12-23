@@ -1,3 +1,9 @@
+window.onload = function () {
+    $("#headers").load("header.html");
+    $("#menu-bar").load("header_admin.html");
+}
+
+
 $('#comment_img').on('change', function() {
     ext = $(this).val().split('.').pop().toLowerCase(); //확장자
     //배열에 추출한 확장자가 존재하는지 체크
@@ -57,7 +63,6 @@ $('#comment_img').on('change', function() {
             body: formdata
         })
             response_json=await response.json()
-            console.log(response_json)
             if (response.status == 200 || response.status == 202 || response.status == 201) {
                 alert("정상적으로 상품 등록이 되었습니다.")
                 location.reload();

@@ -1,54 +1,61 @@
-#form-commentInfo{
+.quantity input {
+    width: 15%
+}
+
+#form-commentInfo {
     width: 100%;
 }
 
-.review-Edit{
+.review-Edit {
     margin: 0px auto;
-    max-width:1200px;
+    max-width: 1200px;
     width: 100%;
 }
 
-#comment-count{
-    margin-bottom: 10px; 
+#comment-count {
+    margin-bottom: 10px;
 }
 
-#comment-input{
+#comment-input {
     width: 80%;
     height: 3.3em;
 }
 
-#submit{
+#submit {
     background-color: #3E240C;
     width: 5.5em;
-    height: 3.3em;;
+    height: 3.3em;
+    ;
     font-size: 15px;
     font-weight: bold;
     color: aliceblue;
     cursor: pointer;
 }
+
 #submit:hover {
     background-color: #8b7158;
     color: rgb(0, 0, 0);
 }
 
-#voteUp, #voteDown{
+#voteUp,
+#voteDown {
     width: 3.5em;
     height: 1.9em;
-    background-color: aqua;    
+    background-color: aqua;
 }
 
-#comments{
+#comments {
     margin-top: 10px;
 }
 
-.eachComment{   
-    width :50%; 
-    margin: 10px;  
-    padding: 0.5em; 
+.eachComment {
+    width: 50%;
+    margin: 10px;
+    padding: 0.5em;
     border-bottom: 1px solid #c1bcba;
 }
 
-.eachComment .name{
+.eachComment .name {
     font-size: 1.5em;
     font-weight: bold;
     margin-bottom: 0.3em;
@@ -56,106 +63,110 @@
     justify-content: space-between;
 }
 
-.eachComment .inputValue{
+.eachComment .inputValue {
     font-size: 1.2em;
-    font-style: italic;    
+    font-style: italic;
 }
 
-.eachComment .time{
+.eachComment .time {
     font-size: 0.7em;
     color: #c1bcba;
     font-style: oblique;
     margin-top: 0.5em;
     margin-bottom: 0.5em;
-    
+
 }
 
-.eachComment .voteDiv{
+.eachComment .voteDiv {
     display: flex;
     justify-content: flex-end;
 }
 
-.eachComment .deleteComment{
+.eachComment .deleteComment {
     background-color: red;
     color: aliceblue;
 }
 
-#reviewbox{
+#reviewbox {
     border: 3px solid rgb(212, 22, 22);
     width: 850px;
     height: auto;
     margin-bottom: 35px;
 
 }
-.user-block .username{
+
+.user-block .username {
     position: relative;
-    
+
     width: 300px;
     height: 30px;
     top: -60px;
     left: 60px;
 }
-.user-block .content{
+
+.user-block .content {
     position: relative;
-    
+
     width: 750px;
     height: auto;
     left: 60px;
     bottom: 55px;
 }
-.user-block .like{
+
+.user-block .like {
     position: relative;
-    
+
     left: 730px;
-    bottom:113px;
+    bottom: 113px;
     width: 100px;
 }
-.user-block .time{
+
+.user-block .time {
     position: relative;
     bottom: 160px;
-    left:375px;
-    
+    left: 375px;
     width: 350px;
 }
-.user-block .point{
+
+.user-block .point {
     position: relative;
-    
     width: 60px;
     bottom: 80px;
 }
-#image_preview{
+
+#image_preview {
     position: relative;
-    width: auto;
 }
-.grade{
+
+.grade {
     position: relative;
-    width: 200px;
 }
-.image img{
+
+.image img {
     width: 50%;
     height: 50%;
 }
-#comment_form{
-    
-    width: auto;
+
+#comment_form {
+    width: 100%;
 }
 
 .recommend {
     width: 100%;
     height: auto;
-    display: inline-block; 
-    margin: 0 5px;  
-    text-align: center;
+    display: inline-block;
+    margin: 0 5px;
     padding: 20px 0;
+    align-items: center;
 }
 
-.divrecommend{
+.divrecommend {
     display: inline-block;
     max-width: 200px;
     width: 100%;
 }
 
-.like-button{
+.like-button {
     float: right;
     max-width: auto;
     height: 60px;
@@ -172,12 +183,13 @@
     margin: auto 0px;
     cursor: pointer;
 }
+
 .order-button:hover {
     background-color: #8b7158;
     color: rgb(0, 0, 0);
 }
 
-.cart-button{
+.cart-button {
     max-width: 100px;
     width: 100%;
     height: 60px;
@@ -187,25 +199,26 @@
     font-size: x-large;
     cursor: pointer;
 }
+
 .cart-button:hover {
     background-color: #8b7158;
     color: rgb(0, 0, 0);
 }
 
-#like_icon{
+#like_icon {
     vertical-align: middle;
     font-size: x-large;
     cursor: pointer;
     margin: auto 0px;
 }
 
-.coffeebean-text{
+.coffeebean-text {
     font-size: 20px;
     font-weight: bold;
     margin-right: 10px;
 }
 
-.coffeebean-image{
+.coffeebean-image {
     width: 20px;
     height: 20px;
 }
@@ -215,12 +228,13 @@
     text-align: center;
 }
 
-.comment-form{
-    display: inline-block;
+.comment-form {
+    display: block;
     max-width: 800px;
     width: 100%;
     border-top: 0.5px solid #3E240C;
     height: 200px;
+    margin: 0px auto;
 }
 
 .comment-table {
@@ -228,6 +242,7 @@
     height: 100%;
     color: #3E240C;
 }
+
 .profile-image {
     float: left;
     width: 40px;
@@ -235,19 +250,22 @@
     border-radius: 20px;
     margin: 0px 20px;
 }
-.profile-name{
+
+.profile-name {
     float: left;
 }
 
 .table-image {
-    
-    background-repeat : no-repeat;
-    background-size : cover;
+
+    background-repeat: no-repeat;
+    background-size: cover;
 }
+
 .profile-like {
     float: right;
     margin-right: 10px;
 }
+
 #profile-icon {
     vertical-align: middle;
     font-size: x-large;
@@ -258,9 +276,11 @@
 .table-content {
     margin-left: 10px;
 }
-.table-font{
+
+.table-font {
     padding: 0px 10px;
 }
+
 .table-righttext {
     float: left;
 }
@@ -280,7 +300,7 @@
 /* .modal.show {
     display: block;
 } */
-  
+
 .modal_body {
     position: absolute;
     top: 50%;
@@ -292,11 +312,11 @@
     background-color: rgb(255, 255, 255);
     border-radius: 10px;
     box-shadow: 0 2px 3px 0 rgba(34, 36, 38, 0.15);
-  
+
     transform: translateX(-50%) translateY(-50%);
 }
 
-.modal_title{
+.modal_title {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -304,17 +324,17 @@
     font-size: 15px;
 }
 
-.modal_title_side{
+.modal_title_side {
     flex: 0 0 40px;
     text-align: center;
 }
 
-.edit-commentform{
+.edit-commentform {
     width: 100%;
     height: 200px;
 }
 
-#output_image{
+#output_image {
     max-width: 250px;
     width: 100%;
     max-height: 200px;
@@ -349,17 +369,280 @@
 }
 
 .recommend-form {
-    width: 70%;
+    width: 80%;
     height: auto;
-    background-color: #ccc;
+    background-color: #a7978945;
     margin: 0px auto;
 }
 
-.divrecommend{
+.divrecommend {
     height: 260px;
 }
 
-.product_img{
-    padding: 30px;
-    
+.product_img {
+    align-items: center;
+    margin-top: 50px;
+    object-fit: contain;
+}
+
+.slick-slide {
+    margin: 0px 20px;
+    width: 80%;
+}
+
+.slide {
+    width: 150px;
+    height: 150px;
+    background-size: cover;
+    object-fit: cover;
+}
+
+.slick-slider {
+    position: relative;
+    display: block;
+    box-sizing: border-box;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -webkit-touch-callout: none;
+    -khtml-user-select: none;
+    -ms-touch-action: pan-y;
+    touch-action: pan-y;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.slick-list {
+    position: relative;
+    display: block;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+}
+
+.slick-list:focus {
+    outline: none;
+}
+
+.slick-list.dragging {
+    cursor: pointer;
+    cursor: hand;
+}
+
+.slick-slider .slick-track,
+.slick-slider .slick-list {
+    -webkit-transform: translate3d(0, 0, 0);
+    -moz-transform: translate3d(0, 0, 0);
+    -ms-transform: translate3d(0, 0, 0);
+    -o-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+}
+
+.slick-track {
+    position: relative;
+    top: 0;
+    left: 0;
+    display: block;
+    width: 76%;
+    height: 400px;
+    margin-top: 50px;
+}
+
+.slick-track:before,
+.slick-track:after {
+    display: table;
+    content: '';
+}
+
+.slick-track:after {
+    clear: both;
+}
+
+.slick-loading .slick-track {
+    visibility: hidden;
+}
+
+.slick-slide {
+    display: none;
+    float: left;
+    height: 100%;
+}
+
+[dir='rtl'] .slick-slide {
+    float: right;
+}
+
+.slick-slide.slick-loading img {
+    display: none;
+}
+
+.slick-slide.dragging img {
+    pointer-events: none;
+}
+
+.slick-initialized .slick-slide {
+    display: block;
+}
+
+.slick-loading .slick-slide {
+    visibility: hidden;
+}
+
+.slick-vertical .slick-slide {
+    display: block;
+    height: auto;
+    border: 1px solid transparent;
+}
+
+.slick-arrow.slick-hidden {
+    display: none;
+}
+
+.image {
+    border-radius: 20px;
+}
+
+.recommendimage>img {
+    width: 30%;
+}
+
+.header_navi {
+    margin-left: 10px;
+    margin-right: 20px;
+}
+
+.slick-slide>a {
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.minus {
+    cursor: pointer;
+}
+
+.plus {
+    cursor: pointer;
+}
+
+#rowdetail {
+    display: flex;
+    flex-direction: row;
+}
+
+#productimage {
+    min-width: 250px;
+    min-height: 250px;
+    width: 30%;
+    height: 30%;
+}
+
+@media screen and (max-width: 600px) {
+    .recommend-form {
+        width: 100%;
+    }
+
+    .image {
+        width: 100px !important;
+        height: 150px !important;
+        object-fit: cover;
+        background-size: cover;
+    }
+
+    .recommend {
+        height: 200px !important;
+    }
+
+    #recommend {
+        height: 300px !important;
+    }
+
+    .slick-track {
+        height: 250px;
+    }
+
+    .recomend_text {
+        font-size: 15px;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    #description>h3 {
+        font-size: 15px;
+    }
+}
+
+.image {
+    width: 200px;
+    height: 300px;
+    object-fit: cover;
+    background-size: cover;
+    background-position: center;
+}
+
+#rowdetail {
+    flex-direction: column !important;
+    width: 80% !important;
+    margin: 0 auto;
+}
+
+.col-md-3 {
+    display: block !important;
+    width: 25% !important;
+    justify-content: center !important;
+    align-items: center !important;
+    float: left !important;
+    display: flex !important;
+
+}
+
+
+
+/* ------------별점--------------- */
+#point fieldset {
+    display: inline-block;
+    /* 하위 별점 이미지들이 있는 영역만 자리를 차지함.*/
+    direction: rtl;
+    border: 0;
+    /* 필드셋 테두리 제거 */
+}
+
+#point input[type=radio] {
+    display: none;
+    /* 라디오박스 감춤 */
+}
+
+#point input[name=point]:checked~label {
+    color: unset;
+    /* 마우스 클릭 체크 */
+}
+
+#point label {
+    font-size: 40px;
+    color: transparent;
+    /* 기존 이모지 컬러 제거 */
+    text-shadow: 0 0 0 #9c9c9c;
+    /* 새 이모지 색상 부여 */
+}
+
+#point label:hover {
+    color: unset;
+    /* 마우스 호버 */
+}
+
+#point label:hover~label {
+    color: unset;
+    /* 마우스 호버 뒤에오는 이모지들 */
+}
+
+#point fieldset legend {
+    text-align: left;
+}
+
+@media (max-width: 430px) {
+
+    #point label{
+        font-size: 25px !important;
+    }
 }

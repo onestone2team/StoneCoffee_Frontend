@@ -10,14 +10,12 @@ function startSurvey(){
     const removeText1 = document.getElementById('removeText1')
     const removeText2 = document.getElementById('removeText2')
     const showSurvey = document.getElementById('showSurvey')
-    
+
     icon.style.display = "none"
     removeText1.style.display = "none"
     removeText2.style.display = "none"
     showSurvey.style.display = "block"
 }
-
-
 
 async function sendSurvey(){
     const aroma_grade = document.querySelector('input[name="aroma"]:checked').value;
@@ -27,7 +25,6 @@ async function sendSurvey(){
     const sendSurvey = document.getElementsByClassName('sendSurvey')[0].style
     const showSurvey = document.getElementById('showSurvey')
 
-    console.log(aroma_grade, sweet_grade, acidity_grade, balance_grade)
     const response_survey = await fetch(`${BACK_END_URL}/survey/`, {
         headers: {
             'Content-Type': 'application/json'

@@ -11,7 +11,7 @@
     margin-right:10px; margin-left:10px; display:flex; flex-direction: column; justify-content:center; text-align: center;
 }
 .second-box{
-    margin-top:20px; border: solid 5px; width:80%; black; border-radius: 120px; height:100px; display:flex; flex-direction:column; justify-content: center; align-items: center;
+    margin-top:20px; border: solid 5px; width:80%; border: solid 5px black; border-radius: 120px; height:100px; display:flex; flex-direction:column; justify-content: center; align-items: center;
 }
 .taste-box{
     display:flex; flex-direction:row; justify-content: center; padding-bottom:15px;
@@ -27,4 +27,50 @@ textarea {
 }
 .btn {
     height:30px; margin-top:10px; margin-bottom:10px; display:flex; justify-content: center; position:absolute; left: 47%;
+}
+@media (max-width:670px){
+*{
+    width: auto;
+}
+ .first-box{
+    border: 0ch;
+    width: 100%;
+ }
+ .first-box div{
+    width: 100px;
+}
+.second-box div{
+    width: 70%;
+}
+.second-box{
+    border: 0ch;
+    width: 100%;
+}
+.third-box{
+    border: 0ch;
+}
+.third-box img {
+    width: 300px;
+    height: 300px;
+}
+#textarea{
+    width: 300px;
+
+}
+
+}
+.first-box{
+    border: solid rgb(62,36,12) 2px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, .25);
+    background-color: rgb(194,194,172);
+}
+.second-box{
+    border: solid rgb(62,36,12) 2px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, .25);
+    background-color: rgb(194,194,172);
+}
+.third-box{
+    border: solid rgb(62,36,12) 2px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, .25);
+    background-color: rgb(194,194,172);
 }

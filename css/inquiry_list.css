@@ -10,50 +10,54 @@ button,
 .product-details,
 .inquiry_title,
 .inquiry_content {
-	float: left;
+    float: center;
 }
 
 .item {
-	width: 30% !important;
-	margin-left: 50px;
+    width: 30% !important;
+    margin-left: 50px;
 }
 
 .price {
-	width: 20% !important;
+    width: 20% !important;
 }
 
 .quantity {
-	width: 20% !important;
+    width: 20% !important;
 }
 
 .subtotal-value::after,
 .total-value::after,
 .promo-value::after {
-	content: '원';
+    content: '원';
 }
 
-.basket{
-	margin: 5rem;
-	min-height: 500px;
-	width: 80% !important;
+.basket {
+    margin: 5rem;
+    min-height: 500px;
+    width: 80% !important;
 }
 
-
+@media screen and (max-width: 1500px) {
+    .board {
+        width: 50%;
+    }
+}
 @media screen and (max-width: 1300px) {
-	.basket {
-		width: 70%;
-		margin: 5rem;
-	}
+    .basket {
+        width: 70%;
+        margin: 5rem;
+    }
 }
 
 @media screen and (min-width: 1300px) {
-	main{
-		display: flex;
-		flex-direction: column !important;
-		margin: 5rem 4rem 5rem 10rem;
-		align-items: center;
-		margin: 5rem !important;
-	}
+    main {
+        display: flex;
+        flex-direction: column !important;
+        margin: 5rem 4rem 5rem 10rem;
+        align-items: center;
+        margin: 5rem !important;
+    }
 }
 
 hr.style-six {
@@ -62,46 +66,160 @@ hr.style-six {
     border-top: 1px solid rgba(0, 0, 0, 0.1);
     border-bottom: 1px solid rgba(255, 255, 255, 0.3);
 }
-.inquiry-item{
-	width: 100%;
-}
-.inquiry-details{
-	width: 100%;
-	display: flex;
-	flex-direction: row;
-	align-items: center;
-}
-.basket-product{
-	display: flex;
-	align-items: center;
-}
-#inquiry{
-	width: 100%;
-	margin-left: 50px;
-}
-.basket-labels{
-	align-items: center;
-}
-.subtotal{
-	right: 0;
+
+.inquiry-item {
+    width: 100%;
 }
 
-@media screen and (max-width: 1000px) {
-	.item-heading{
-		padding-left: 0 !important;
-	}
-	.product-details{
-		position: absolute;
-		left: 0;
-		top: 0;
-	}
+.inquiry-details {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
 }
-@media screen and (max-width: 1300px) {
-	.labels {
-		display: flex !important;
-	}
-	.product-details{
-		width: max-content !important;
-	}
+
+.basket-product {
+    display: flex;
+    align-items: center;
+}
+
+#inquiry {
+    width: 100%;
+    margin-left: 50px;
+}
+
+.basket-labels {
+    align-items: center;
+}
+
+.subtotal {
+    right: 0;
+}
+
+html {
+    height: 100%;
+}
+
+body {
+    margin: 0px;
+    height: 100%;
+}
+
+.main {
+    height: 100%;
+    width: 100%;
+}
+
+.board {
+    width: 70%;
+    height: 100%;
+    margin: auto;
+}
+
+button1 {
+    cursor: pointer;
+}
+
+.table {
+    font-size: 20px;
+    border: 1px solid gray;
+    text-align: center;
+    justify-content: center;
+
 
 }
+
+.thead td {
+    background: #B2B2B2;
+    padding-left: 50px;
+    text-align: center;
+}
+
+td {
+    height: 40px;
+    border-bottom: 1px solid black;
+    text-align: center;
+}
+
+.left {
+    border: solid;
+    width: 50%;
+    height: 100%;
+    float: left;
+    box-sizing: border-box;
+    border: 1px solid gray;
+box-shadow: 0 2px 5px rgb(0 0 0 / 25%);
+    border-radius: 5px;    
+
+}
+
+.right {
+    border: solid;
+    width: 50%;
+    height: 100%;
+    float: right;
+    box-sizing: border-box;
+    border: 1px solid gray;
+    box-shadow: 0 2px 5px rgb(0 0 0 / 25%);
+    border-radius: 5px;
+}
+/* --------------------------------------------------- */
+table {
+    border: 1px #a39485 solid;
+    font-size: .9em;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, .25);
+    width: 100%;
+    border-collapse: collapse;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+thead {
+    font-weight: bold;
+    color: #fff;
+    background: #73685d;
+}
+
+td,
+th {
+    padding: 1em .5em;
+    vertical-align: middle;
+}
+
+td {
+    border-bottom: 1px solid rgba(0, 0, 0, .1);
+    background: #fff;
+}
+
+a {
+    color: #73685d;
+}
+
+@media all and (max-width: 768px) {
+    th {
+        border-bottom: 1px solid #a39485;
+    }
+
+    td {
+        border-bottom: 1px solid #e5e5e5;
+    }
+    td{
+        font-size: calc(0.6vw + 5px) !important;
+    }
+
+    th{
+        font-size: calc(0.6vw + 5px) !important;
+    }
+    #content{
+        font-size: calc(0.6vw + 5px) !important;
+    }
+    #answer{
+        font-size: calc(0.6vw + 5px) !important;
+    }
+    .d-none{
+        font-size: 15px;
+    }
+     h2 {
+        font-size: 15px;
+    }
+}   

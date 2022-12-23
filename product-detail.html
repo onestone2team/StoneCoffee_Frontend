@@ -8,36 +8,33 @@
     <title>Stone Coffee| 상세페이지</title>
     <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css">
-    <link href="/css/bootstrap.css" rel="stylesheet">
     <link id="switcher" href="/css/default-theme.css" rel="stylesheet">
-    <link href="/css/sequence-theme.modern-slide-in.css" rel="stylesheet" media="all">
     <link href="/css/style.css" rel="stylesheet">
-    <link href="/css/recommend.css" rel="stylesheet">
     <link href="/css/detail.css" rel="stylesheet">
-    <link href="/css/comment_copy.css" rel="stylesheet">
+    <link href="/css/comment.css" rel="stylesheet">
+    <link href="/css/header.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.js"></script>
+
 </head>
 
 <body>
-    <header id="aa-header">
-    </header>
-    <section id="menu">
-    </section>
+    <header id="headers"></header>
+
     <section Class="product_info">
         <div class="container" id="condetail">
             <div class="row" id="rowdetail">
-                <div class="product_img col-md-5">
-                    <!-- padding-top: 220px; padding-left: 80px; -->
-
-                    <img id="productimage">
-
+                <div style="display: table; text-align:center; margin-top: 50px;">
+                    <div class="product_img" style="display: table-cell; vertical-align: middle;">
+                        <!-- padding-top: 220px; padding-left: 80px; -->
+                        <img id="productimage">
+                    </div>
                 </div>
                 <div class="product_specs col-md-7">
                     <h2>상품 정보</h2>
                     <div id="name"></div>
                     <hr />
                     <ul>
-                        <li id="description">여기에는 상품내용이 들어갈 예정입니다여기에는 상품내용이 들어갈 예정입니다여기에는 상품내용이 들어갈 예정입니다여기에는 상품내용이 들어갈
-                            예정입니다</li>
+                        <li id="description"></li>
                         <li>
                             <p id="aroma"></p>
                         </li>
@@ -52,19 +49,21 @@
                         </li>
                     </ul>
                     <p></p>
-                    <form action="">
+                    <form>
                         <hr />
                         <div class="option" id="option">
                             <div class="quantity" id="quantity"><!-- data-unitprice -->
-                                <span class="plus">+</span>
-                                <input type="text" class="readonly" readonly value="1">
-                                <span class="minus">-</span>
+                                <span class="minus"><i class="bi bi-caret-down-fill"></i></span>
+                                <input type="text" class="readonly" value="1" readonly>
+                                <span class="plus"><i class="bi bi-caret-up-fill"></i></span>
                             </div>
                         </div>
                         <hr />
                         <div class="order_summary">
                             <div class="total_price">
                                 <span class="price"></span>
+                                <div id="price_per_100g"></div>
+                                <div id="productprice"></div>
                                 <div id="price"></div>
                             </div>
                         </div>
@@ -81,54 +80,52 @@
     </section>
     <hr />
     <div style="text-align: center;">
-        <h2>위 의 상품과 유사한 상품들 입니다.</h2>
+        <h2 class="recomend_text">위 의 상품과 유사한 상품들 입니다.</h2>
     </div>
     <hr />
     <div class="recommend">
-        <div id="recommend" class="recommend-form">
+        <section id="recommend" class="recommend-form">
 
-        </div>
+        </section>
     </div>
-    <div style="text-align: center; padding-top: 50px;">
+    <div style="text-align: center;">
         <h2>
-            <hr />리뷰 보기.
+            <hr />리뷰
         </h2>
     </div>
     <hr />
     <div id="form-commentInfo" style="text-align: center;">
         <form id="comment_form">
             <table class="review-Edit">
-                <td width="300">
-                    <div id="image_preview">
-                        <img src="../img/icon.png" alt="사진영역" style="width:126px; height:165px;">
-                        <div class="f_box">
-                            <label for="img">사진첨부</label>
-                            <input type="file" id="comment_img" name="product_id">
+                <div id="image_preview">
+                    <img class="image_preview_box" src="/img/icon.png" alt="사진영역" style="width:126px; height:165px;"">
+                    <div class="f_box">
+                        <label for="img">사진첨부</label>
+                        <input type="file" id="comment_img" name="product_id">
+                    </div>
+                </div>
+                <td>
+                    <div class="grade">
+                        <input id="comment-input" placeholder="리뷰을 입력해 주세요.">
+                        <div style="display: flex; flex-direction: row; align-items: center; justify-content: center;">
+                            <h4>평점 선택</h4>
+                            <div class="star-grade" name="point" id="point" method="post" action="./save">
+                                <fieldset>
+                                    <input type="radio" name="point" value="5" id="point1"><label class="point" for="point1">☕</label>
+                                    <input type="radio" name="point" value="4" id="point2"><label class="point" for="point2">☕</label>
+                                    <input type="radio" name="point" value="3" id="point3"><label class="point" for="point3">☕</label>
+                                    <input type="radio" name="point" value="2" id="point4"><label class="point" for="point4">☕</label>
+                                    <input type="radio" name="point" value="1" id="point5"><label class="point" for="point5">☕</label>
+                                </fieldset>
+                            </div>
+                        <div>
                         </div>
                     </div>
-                </td>
-                <td>
-                    <input id="comment-input" placeholder="리뷰을 입력해 주세요.">
                     <button type="button" id="submit" onclick="commentrg()">등록</button>
-                </td>
-                <td width="100">
-                    <div class="grade">
-                        <h4>평점 선택</h4>
-                        <select size="1" id="grade">
-                            <option value="0">평점</option>
-                            <option value="1">1 점</option>
-                            <option value="2">2 점</option>
-                            <option value="3">3 점</option>
-                            <option value="4">4 점</option>
-                            <option value="5">5 점</option>
-                        </select>
-                    </div>
                 </td>
             </table>
         </form>
-
     </div>
-
     <div class="comment-list" id="comment-list">
     </div>
 
@@ -145,10 +142,7 @@
             </div>
             <div class="media-body" id="four">
                 <div id="info_container">
-
                     <div class="profile_img">
-
-
                         <span class="username" id="user_image"></span>
                     </div>
                     <div class="filebox">
@@ -156,9 +150,7 @@
                         <input type='file' name="image" id="input_image">
                     </div>
                 </div>
-
             </div>
-
             <table class="edit-commentform">
                 <tr>
                 <tr>
@@ -187,13 +179,11 @@
                                 <option value="5">5 점</option>
                             </select>
                         </div>
-
                     </td>
                 </tr>
             </table>
             <button class="edit-commentbtn" id="edit-commentbtn" onclick="saveeditCommentBtn()"> 수정하기 </button>
         </div>
-
     </div>
 
     <footer id="aa-footer">
@@ -202,9 +192,6 @@
     <script src="/js/footer.js"></script>
     <script src="/js/all_data.js"></script>
     <script src="/js/productdetail.js"></script>
-    <script src="/js/productquantity.js"></script>
-
 </body>
-
 
 </html>

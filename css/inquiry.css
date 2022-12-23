@@ -74,9 +74,9 @@
 /* custom_select css start */
 .inputBox{
 	display:inline-block;
-	width:120px;
+	width: 90%;
 	line-height:34px;
-	margin:0 3px 0 0; 
+	margin:0 3px 0 0;
 	border:1px solid #dfdfdf;
 	border-radius:3px;
 	position:relative;
@@ -84,6 +84,7 @@
 	padding: 0 0 0 5px;
 	outline:none;
 	vertical-align:middle;
+	resize: none;
 }
 
 .custom_select{
@@ -138,8 +139,8 @@ select{font-size:12px; height:28px;}
 .content{padding:50px 0 200px 0; }
 
 .tableWrap{
-border-top:2px solid #464646;
-border-bottom:1px solid #464646;
+border-top:2px solid rgb(62,36,12);
+border-bottom:1px solid rgb(62,36,12);
 width: 85%;
 height:100%;
 font-size:14px;
@@ -151,7 +152,7 @@ color:#464646;
 
 .tableNumber{
 width:15%;
-border-top:1px solid #b6ada8;
+border-top:1px solid rgb(62,36,12);
 text-align:left;
 vertical-align:middle;
 padding: 0 10px;
@@ -160,7 +161,7 @@ line-height:34px;
 }
 .tableTitle{
 width:99%;
-border-top:1px solid #b6ada8;
+border-top:1px solid rgb(62,36,12);
 padding: 8px 0;
 line-height: 21px;
 font-size: 16px;
@@ -298,7 +299,7 @@ input.inputBox{
 }
 
 .content-box{
-	background-color: rgba(133, 130, 130, 0.11);
+	background-color: rgb(194,194,172);
 	box-sizing: content-box;
 	padding: 50px 20px 10px 50px;
 	border-radius: 10px;

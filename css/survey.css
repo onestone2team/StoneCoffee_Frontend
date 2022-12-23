@@ -1,77 +1,76 @@
 @import url(https://fonts.googleapis.com/css?family=Josefin+Sans:100,400);
 
 body{
-    width:100%;
-    height:100%;
-
     background:#3E240C;
 }
 
-/* .logo-image{
+.logo-image{
+    content-visibility:hidden;
     width:150px;
     height:150px;
     text-align:left;   
-} */
+}
 
 .icon {
-  font-family: 'Josefin Sans', sans-serif;
-  text-align:center;
-  /* margin-top: 30%; */
+    font-family: 'Josefin Sans', sans-serif;
+    text-align:center;
+    margin-bottom: 5%;
 }
 
 .cup {
-  width:80px;
+  width:76px;
   height:76px;
   background:#dedede;
   border-radius:50%;
   position:absolute;
-  top:50%;
   left:50%;
-  margin-left:-68px;
-  /* margin-left:-38px;
-  top:100px; */
+  margin-left:-38px;
+  top:100px;
   box-shadow:-4px -1px 0 rgba(0,0,0,0.2);
 }
 
-/* 컵 바로 밑 받침 */
 .cup:after{
+  /* display:none; */
   content:"";
   width:66px;
   height:66px;
   position:absolute;
   border-radius:50%;
   background:linear-gradient(-45deg, #cbcbcb, #f2f2f2 );
-  top:50%;
-  left:-10%;
-  margin-left:-9px;
-  margin-top:-26px;
-  /* margin-left:-33px;
-  top:5px;*/
+  left:50%;
+  margin-left:-33px;
+  top:5px;
 }
 
-/* 커피 컵 전체 */
 .coffee{
   width:47px;
   height:47px;
   background:#613317;
-
-  /* background-image: linear-gradient(15deg, transparent 0px, transparent 29px, rgba(255,255,255,0.05) 29px, rgba(255,255,255,0.05) 47px); */
+  /*background-image: linear-gradient(15deg, transparent 0px, transparent 29px, rgba(255,255,255,0.05) 29px, rgba(255,255,255,0.05) 47px);*/
   border-radius:50%;
   position:absolute;
   left:50%;
-  top:50%;
-  /* margin-left:-26px; */
-  /* margin-top:-26px; */
-  margin-top: -20px;
-  margin-left:-50px;
+  margin-left:-25px;
   z-index:1;
+  top:50%;
+  margin-top:-26px;
   border:3px solid #e9e9e9;
   box-shadow:-3px 2px 0 rgba(0,0,0,0.1);
   transform:rotate(30deg);
   transition:transform 0.3s;
 }
 
-/* 커피 김뚜껑 */
+.coffee:after{ /*assa*/
+ content:"";
+  width:15px;
+  height:8px;
+  position:absolute;
+  left:-19px;
+  top:18px;
+  background:linear-gradient(90deg, #d6d6d6, #aeaeae);
+  box-shadow:0px 2px 0 rgba(0,0,0,0.2);
+}
+
 .coffee:before {
   content:"";
   width:47px;
@@ -80,23 +79,8 @@ body{
   background-image: -webkit-radial-gradient(75% 59%, ellipse, rgba(255,255,255,0.2), transparent 95%), -webkit-radial-gradient(5% 9%, ellipse, rgba(255,255,255,0.1), transparent 5%), -webkit-radial-gradient(0% 0%, ellipse, rgba(255,255,255,0.3), transparent 55%);
   background-image: -moz-radial-gradient(75% 59%, ellipse, rgba(255,255,255,0.2), transparent 95%), -moz-radial-gradient(5% 9%, ellipse, rgba(255,255,255,0.1), transparent 5%), -moz-radial-gradient(0% 0%, ellipse, rgba(255,255,255,0.3), transparent 55%);
   position:absolute;
-  /* left:0; */
-  left:0%;
+  left:0;
   border-radius:50%;
-}
-
-/* 손잡이 */
-.coffee:after{ /*assa*/
-  content:"";
-  width:15px;
-  height:8px;
-  position:absolute;
-   /* left:-19px;
-  top:18px; */
-  left:-35%;
-  top:43%;
-  background:linear-gradient(90deg, #d6d6d6, #aeaeae);
-  box-shadow:0px 2px 0 rgba(0,0,0,0.2);
 }
 
 .smoke {
@@ -106,7 +90,6 @@ body{
   position:absolute;
   left:50%;
   margin-left:-40px;
-  /* top:43px; */
   top:43px;
   background-image: -webkit-radial-gradient(75% 59%, ellipse, rgba(255,255,255,0.2), transparent 25%), -webkit-radial-gradient(25% 70%, ellipse, rgba(255,255,255,0.2), transparent 15%), -webkit-radial-gradient(35% 61%, ellipse, rgba(255,255,255,0.2), transparent 10%), -webkit-radial-gradient(55% 35%, ellipse, rgba(255,255,255,0.2), transparent 15%);
   background-image: -moz-radial-gradient(75% 59%, ellipse, rgba(255,255,255,0.2), transparent 25%), -moz-radial-gradient(25% 70%, ellipse, rgba(255,255,255,0.2), transparent 15%), -moz-radial-gradient(35% 61%, ellipse, rgba(255,255,255,0.2), transparent 10%), -moz-radial-gradient(55% 35%, ellipse, rgba(255,255,255,0.2), transparent 15%);
@@ -267,6 +250,11 @@ body{
   margin: 0 auto;
   text-align: center;
   margin: auto 0px;
+  -webkit-appearance: none;
+}
+
+input[type=radio]{
+  -webkit-appearance: none;;
 }
 
 .sweetform{
@@ -393,7 +381,6 @@ table hr {
 #balance input[name=balance]:checked ~ label{
   color: unset; /* 마우스 클릭 체크 */
 }
-
 #balance label{
   font-size: 40px;
   color: transparent; /* 기존 이모지 컬러 제거 */
@@ -437,47 +424,123 @@ table hr {
 }
 
 .show-screen{
-  width: 60%;
+  background-color: #aeaeae;
+  border-radius: 10px;
+  width: 40vw;
   height: auto;
   margin: 0px auto;
-  padding: 20px;
+  padding: 10%;
   color: white;
   display: none;
 }
 
-.show-screen table{
+.first-sec{
+  background-color:rgb(78, 101, 101); 
+  width:70%;
+  margin:auto;
+  border-radius: 5px;
+  height: 10%;
+  font-size:larger;
+  text-align: center;
+}
+/* .show-screen table{
   margin-bottom: 20px;
+} */
+.second-sec{
+  display:flex; 
+  flex-direction:column; 
+  justify-content:center; 
+  align-items:center;
 }
-
 .show-image{
-  width: 300px;
+  width: 100%;
+  min-width:200px;
+  max-width:400px;
+  border-radius: 10px;
+  
 }
-
+.desc{
+  width: 100%;
+  min-width:200px;
+  max-width:400px;
+  /* margin:auto;  */
+  /* background-color:rgb(78, 101, 101) */
+}
 .show-txt{
   
   font-family: 'Stylish', sans-serif;
   font-size: medium;
   text-align:left;
   vertical-align: top;
+  max-height:200px;
+
+  /* overflow-y: scroll; */
+  -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+}
+
+.show-txt::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera*/
+}
+.fourth-sec{
+  /* background-color:antiquewhite; */
+  display:flex; 
+  flex-direction: column; 
+  align-items:center;
+  margin-bottom:1%;
+  
+}
+  
+@media(max-width:420px){
+  .notView {
+    height:fit-content
+  }
+  .show-screen{
+    width:80%;
+  }
+  .survey-table p{
+    font-size:medium;
+  }
+  .signup-btn {
+    font-size:10px;
+  }
+  #sweet label{
+    font-size: 1.5rem;
+  }
+  #aroma label{
+    font-size: 1.5rem;
+  }
+  #acidity label{
+    font-size: 1.5rem;
+  }
+  #balance label{
+    font-size: 1.5rem;
+  }
 }
 
 .signup-btn {
+  margin-top:5%;
+  margin-bottom:5%;
   display: block;
   padding: 1em 2em;
-  border-radius: 20px;
-  color: #b2876f;
-  margin-top: 2rem;
+  border-radius: 10px;
+  
+  color:rgb(62,36,12);
   font-weight: bold;
-  font-size: 0.5rem;
+  font-size:medium;
+
   letter-spacing: 2px;
-  text-transform: uppercase;
-  text-decoration: none;
+  text-decoration-line: none !important; 
   background: linear-gradient(to right, rgba(178, 135, 111, 0) 25%, rgba(178, 135, 111, 0.8) 75%);
   background-position: 1% 50%;
   background-size: 400% 300%;
   transition: 700ms cubic-bezier(0.165, 0.84, 0.44, 1);
   cursor:pointer;
-  float: right;
+  
+}
+.signup-btn a{
+  font-size:large;
+  text-decoration-line: none !important;
 }
 .signup-btn:hover {
   transition: 400ms cubic-bezier(0.165, 0.84, 0.44, 1);
@@ -486,13 +549,19 @@ table hr {
   color: white;
   color: #fff;
 }
-
+.fifth-sec{
+  /* background-color:rgb(124, 88, 37); */
+  display:flex; 
+  flex-direction: column; 
+  align-items:center;
+}
 .login-text{
-  color: black;
-  text-align: center;
+  color: rgb(255, 255, 255);
+  font-size: 10px;
+  /* text-align: center; */
 }
 
 .login-text a{
-  color: rgb(139, 121, 121);
+  color:rgb(62,36,12);
   text-decoration-line : none;
 }
