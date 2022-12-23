@@ -130,7 +130,7 @@ window.onload = async function ProductDetail() {
         totalprice = product_json.products["price"]
         var price2 = document.getElementById('price')
         var price1 = document.createElement('div')
-        price1.innerHTML = `<h3 class="price">가격 : <span id="priceText">${totalprice.toLocaleString('ko-KR')}</span> 원</h3>`
+        price1.innerHTML = `<h3 class="price">총 가격 : <span id="priceText">${totalprice.toLocaleString('ko-KR')}</span> 원</h3>`
         price2.appendChild(price1)
 
     } else {
@@ -457,18 +457,18 @@ async function commentrg() {
     const comment_form = document.querySelector("comment_form")
     const comment_content = document.getElementById("comment-input").value
     const comment_img = document.querySelector("input[type='file']");
-    var comment_point = document.querySelector('input[name="point"]:checked').value;
-
+    var comment_point = document.querySelector('input[name="point"]:checked');
+    console.log(comment_point)
     if (comment_content.value == "") {
         alert("리뷰를 작성해 주세요")
     } else if (comment_content.value == " ") {
         alert("리뷰를 작성해 주세요")
-    } else if (comment_point.value == 0) {
+    } else if (comment_point == null) {
         alert("평점을 선택해 주세요")
     } else {
         let formdata = new FormData
         formdata.append('comment', comment_content)
-        formdata.append('point', comment_point)
+        formdata.append('point', comment_point.value)
         if (comment_img.files[0] != undefined) {
             formdata.append('image', comment_img.files[0])
         } else {
@@ -517,7 +517,7 @@ async function deleteComment(num) {
             alert("삭제 실패")
         }
     }else{
-        
+
     }
 }
 
