@@ -98,13 +98,15 @@ function removeItem(removeButton) {
         productRow.remove();
         product = $(".basket-product").length
         if (product > 0) {
-            recalculateMinusCart(parseInt(price), parseInt(count));
-        } else {
-            $("#basket-subtotal").html(total);
-            $('#basket-total').html(total);
-            $('#delivery_price').fadeOut(fadeTime) && $('#delivery_price2').fadeIn(fadeTime);
+            price_a=price.replace('원',' ')
+            price_b=price_a.replace(',','')
+            recalculateMinusCart(parseFloat(price_b), parseFloat(count));
+        } else if (product == 0) {
+            $("#basket-subtotal").html("0");
+            $('#basket-total').html("0");
         }
-        });}else{
+        });}
+        else{
             
         }
 
