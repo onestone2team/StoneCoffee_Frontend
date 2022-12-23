@@ -6,7 +6,7 @@ var loginText = document.getElementById("loginout")
 
 if(access_token) {
     const username = document.getElementById("user")
-    username.innerText = `${parsed_payload["profilename"]}님`
+    username.innerText = `${parsed_payload["profilename"]}님 반갑습니다`
     loginText.innerText = "로그아웃"
     if(parsed_payload["is_admin"]==true){
         username.href = "admin_order_list.html"
@@ -35,9 +35,16 @@ async function logoutUser() {
 
     window.location.replace(`../signupin.html`);
 }
-
-function searchButton() {
-    const searchtage = document.getElementById("searchtage").value
-    location.replace(`${FRONT_END_URL}/search.html?search=${searchtage}`)
+function enterkey(e){
+    const code = e.code;
+    if(code == 'Enter'){
+        searchButton()
+ }
 }
 
+function searchButton() {
+
+        const searchtage = document.getElementById("searchtage").value
+        location.replace(`${FRONT_END_URL}/search.html?search=${searchtage}`)
+
+}

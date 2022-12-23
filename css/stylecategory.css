@@ -31,7 +31,10 @@ a {
   width: 100%;
   height: 100px;
 }
-
+#category_sort {
+  display: none;
+  margin: 0 10px 0 auto;
+}
 
 /* 바로가기 배열 */
 #aa-promo .aa-promo-area .aa-promo-left {

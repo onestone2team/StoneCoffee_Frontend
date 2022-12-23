@@ -1,6 +1,8 @@
 window.addEventListener('load', function() {
     $("#headers").load("header.html");
+    category_check()
     show_product_list(1)
+    
 });
 const urlparams = new URLSearchParams(window.location.search);
 const category_id= urlparams.get('id')
@@ -20,7 +22,14 @@ if (category_id==1){
 }
 
 async function show_product_list(page) {
-    const response = await fetch(`${BACK_END_URL}/product/category/?category_id=${category_id}&page=${page}`, {
+    var sort = "down"
+    if (category_id==4||category_id==5){
+        var category_sort = document.getElementById("category_sort");
+        var sort = category_sort.value
+    }
+    
+
+    const response = await fetch(`${BACK_END_URL}/product/category/?category_id=${category_id}&page=${page}&&sort=${sort}`, {
         headers: {
             'content-type': 'application/json'
         },
@@ -32,6 +41,7 @@ async function show_product_list(page) {
     .then(data => {
         var products = document.getElementById("products");
         maxnum = data["page"].total_page
+        loadpagenation()
         $("#products").empty();
         for (i = 0; i < data["data"].length; i++) {
             const product = document.createElement('div')
@@ -48,14 +58,6 @@ async function show_product_list(page) {
           </li>`
             products.appendChild(product)
             total_page = data["page"]["total_page"]
-        }
-        var pagenums =document.getElementById("pagenums");
-        $("#pagenums").empty();
-        for(i=1; i<data["data"].length; i++){
-            const pagenum = document.createElement('span')
-            pagenum.innerHTML=`<span>${data["data"].length}</span>`
-
-            pagenums.appendChild(pagenum)
         }
     })
 
@@ -113,6 +115,21 @@ const backButton = document.getElementById("prev");
 const nextButton = document.getElementById("next");
 backButton.style.display = "none";
 
+function loadpagenation() {
+
+    for (i=1;i<8;i++){
+        const pagenate = document.getElementById(i);
+        if (maxnum==1) {
+            pagenate.style.display="none"
+            next.style.display = "none"
+        }
+        else if ((i) > maxnum) {
+            pagenate.style.display="none"
+        }
+    }
+}
+
+
 if (now == minnum) {
     backButton.style.display = "none";
 } else {
@@ -120,8 +137,6 @@ if (now == minnum) {
 }
 
 $(".pagenation a").click(function (e) {
-    const addpagenum = document.getElementById("pagenumber")
-
     e.preventDefault();
     var $item = $(this);
     var $id = $item.attr("id");
@@ -199,3 +214,31 @@ $(".pagenation a").click(function (e) {
     }
     show_product_list(now)
 });
+
+function chageLangSelect(){
+    var category_sort = document.getElementById("category_sort");
+    var selectValue = category_sort.value;
+
+    sch = location.search
+    var params = new URLSearchParams(sch);
+    params.set('sort', selectValue);
+
+    url = params.toString();
+    location.replace(`${FRONT_END_URL}/mainAll.html?${url}`)
+
+}
+
+function category_check() {
+    if (category_id==4 || category_id==5){
+        const categorySort = document.getElementById('category_sort')
+        categorySort.style.display='block'
+
+        sch = location.search
+        var params = new URLSearchParams(sch);
+        var sort_keyword = params.get('sort')
+        if (sort_keyword){
+            categorySort.value = sort_keyword
+        }
+    }
+}
+

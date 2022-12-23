@@ -25,6 +25,99 @@ const gobackBtn = modal.querySelector(".gobackbtn")
 gobackBtn.addEventListener("click", e => {
     modalOff()
 })
+function autoHypenPhone(str){
+            str = str.replace(/[^0-9]/g, '');
+            var tmp = '';
+            if( str.length < 4){
+                return str;
+            }else if(str.length < 7){
+                tmp += str.substr(0, 3);
+                tmp += '-';
+                tmp += str.substr(3);
+                return tmp;
+            }else if(str.length < 11){
+                tmp += str.substr(0, 3);
+                tmp += '-';
+                tmp += str.substr(3, 3);
+                tmp += '-';
+                tmp += str.substr(6);
+                return tmp;
+            }else{              
+                tmp += str.substr(0, 3);
+                tmp += '-';
+                tmp += str.substr(3, 4);
+                tmp += '-';
+                tmp += str.substr(7);
+                return tmp;
+            }
+            return str;
+        }
+// =======자동으로 하이픈 입력하기 ===========
+function autoHypenPhone(str){
+    str = str.replace(/[^0-9]/g, '');
+    var tmp = '';
+    if( str.length < 4){
+        return str;
+    }else if(str.length < 7){
+        tmp += str.substr(0, 3);
+        tmp += '-';
+        tmp += str.substr(3);
+        return tmp;
+    }else if(str.length < 10){
+        tmp += str.substr(0, 3);
+        tmp += '-';
+        tmp += str.substr(3, 3);
+        tmp += '-';
+        tmp += str.substr(6);
+        return tmp;
+    }else{              
+        tmp += str.substr(0, 3);
+        tmp += '-';
+        tmp += str.substr(3, 4);
+        tmp += '-';
+        tmp += str.substr(7);
+        return tmp;
+    }
+    return str;
+}
+
+var cellphone = document.getElementById('phone');
+cellphone.onkeydown = function(event){
+    event = event || window.event;
+    var _val = this.value.trim();
+    this.value = autoHypenPhone(_val);
+}
+
+// ========프로필 수정 눌렀을때 inputbox 보이기===========
+function edit_profile() {
+
+    //보여준 글씨 숨기기
+    document.getElementById("show_name").style.display="none"
+    document.getElementById("show_address").style.display="none"
+    document.getElementById("show_phone").style.display="none"
+    document.querySelectorAll(".show-button").forEach(box => { 
+        box.style.display = "none" 
+    })
+
+    // 숨겨논 설정 창 보여주기
+    
+    document.querySelector(".pw-change-btn button").style.display = "inline-block"
+    document.querySelectorAll(".input-boxes .input-group-text i").forEach(box => { 
+        box.style.display = "inline-block" 
+    })
+    document.querySelectorAll(".input-boxes input").forEach(input => { 
+        input.style.display = "inline-block" 
+    })
+    document.querySelectorAll(".hide-button").forEach(box => { 
+        box.style.display = "inline" 
+    })
+}
+
+// =======아이콘 눌렀을때 이미지 변경 클릭=============
+function onClickUpload() {
+    let profileInput = document.getElementById("file");
+    profileInput.click();
+}
 
 // ==============프로필 이미지 변경=================
 function readURL(input) {
@@ -75,6 +168,14 @@ window.onload =
         const profile_phone = document.getElementById("phone")
         profile_phone.setAttribute("value", profile_json.phone)
 
+        // 처음 프로필 글자로 보여주기
+        const show_name = document.getElementById("show_name")
+        const show_address= document.getElementById("show_address")
+        const show_phone = document.getElementById("show_phone")
+        show_name.innerText = profile_json.profilename
+        show_address.innerText = profile_json.address
+        show_phone.innerText = profile_json.phone
+
 
     }//window.onload 종료
 
@@ -111,6 +212,7 @@ async function update_profile() {
 
     if (response.status == 200) {
         alert(new_profile_json.message);
+        location.reload()
     } else { alert(new_profile_json.message) }
 
 }
@@ -145,7 +247,7 @@ async function edit_password() {
 
 function cancel() {
 
-    location.replace("../index.html")
+    location.reload()
 
 }
 
