@@ -298,13 +298,14 @@ async function cart() {
     var priceText = document.getElementById("priceText")
     var product_price = document.getElementById("product_price")
     const count = document.querySelector(".readonly");
-    // 왜 null?
     if (product_json.products.aroma_grade == 0 || product_json.products.aroma_grade == null) {
         const weight = 1;
+        var price_a=priceText.innerText.replace(',','')
+        var price_b=parseFloat(price_a)
 
         let formdata = new FormData
         formdata.append('count', count.value)
-        formdata.append('price', priceText.innerText)
+        formdata.append('price', price_b)
         formdata.append('weight', weight)
         const response = await fetch(`${BACK_END_URL}/product/cart/?product_id=${product_id}`, {
             headers: {
@@ -318,19 +319,22 @@ async function cart() {
         if (response.status == 200 || response.status == 202 || response.status == 201) {
 
             alert("장바구니에 담겼습니다.")
-            location.reload();
+
         }
         else if (response.status == 401 || response.status == 400) {
-            alert("로그인을 해주세요")
-            location.reload();
+            alert("로그인을 해주세요s")
         }
     }
     else if (product_json.products.aroma_grade >= 1) {
         const count = document.querySelector(".readonly");
         const weight = document.querySelectorAll("select")[0];
+
+        var price_a=product_price.innerText.replace(',','')
+        var price_b=parseFloat(price_a)
+
         let formdata = new FormData
         formdata.append('count', count.value)
-        formdata.append('price', product_price.innerText)
+        formdata.append('price', price_b)
         formdata.append('weight', weight.value)
         const response = await fetch(`${BACK_END_URL}/product/cart/?product_id=${product_id}`, {
             headers: {
