@@ -211,7 +211,7 @@ window.onload = async function ProductDetail() {
         // 별 추가하기
         const starInput = document.getElementById(`table-star${commentSet.id}`)
         const starForm = document.createElement('span')
-        starForm.innerHTML = '☕'.repeat(commentSet.point)
+        starForm.innerHTML = '⭐'.repeat(commentSet.point)+`<span id='coffee'>⭐</span>`.repeat(5-commentSet.point)
         starInput.appendChild(starForm)
 
         // 하트 모양 변경하기
