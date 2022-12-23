@@ -26,17 +26,15 @@
                         </td>
                         <td class="comment-profilename"><label id="comment_profilename">profilename</label></td>
                         <td class="taste-grade">
-                            <!-- <div class="taste-grade" name="myform" id="taste-grade" method="post" action="./save"> -->
                             <label id="taste-grade">
-                                
+                                <!-- 별점 -->
                             </label>
-                            <!-- </div> -->
                         </td>
                     </tr>
                 </table>
             </div>
             <div class="commentBox" id="commentBox">
-                <table>
+                <!-- <table>
                     <tr class="comment-content-Box">
                         <td rowspan="2" class="comment-image"><img id="comment_image" src="./img/comment/1212.jpg"></td>
                         <td colspan="4" class="comment-text">
@@ -50,8 +48,7 @@
                             <p id="date">2022.5.24</p>
                         </td>
                         <td class="clike-button">
-                            <!-- <p><button id='cbtn' onclick ="comment_like()"><i id="like_icon" class="bi bi-heart"></i></button></p> -->
-                            <p><button id='cbtn' class="btn-like" onclick ="comment_like()">❤️</button></p>
+                            <p><button id='cbtn' onclick ="comment_like()"><i id="like_icon" class="bi bi-heart"></i></button></p>
                         </td>
                         <td class="like-count">
                             <p id="like_count">2225</p>
@@ -60,13 +57,13 @@
                                 onclick="deleteComment()">삭제</span>
                         </td>
                     </tr>
-                </table>
+                </table> -->
             </div>
         </div>
         <!-- 대댓글 -->
         <div class="nested-all">
             <div class="nestedcommentBox" id="nestedcommentBox">
-                <table class="nestedcomment">
+                <!-- <table class="nestedcomment">
                     <tr>
                         <td class="first-column" rowspan="2"><img src="http://placekitten.com/50/50" /></td>
                         <td class="second-column profilename">profilename</td>
@@ -82,7 +79,7 @@
                                 onclick="edit_nested()">수정</span>/<span id="del_nested" onclick="del_nested()">삭제</span>
                         </td>
                     </tr>
-                </table>
+                </table> -->
                 <!-- 대댓수정란 -->
                 <table class="nested-edit" id="nested-edit">
                     <tr>
@@ -124,27 +121,19 @@
             </div>
             <div class="media-body" id="four">
                 <div id="info_container">
-                    <!-- <div class="profile_img">
-                    <span class="username" id="user_image"></span>
-                </div> -->
-                    <!-- <div class="filebox">
-                    <label for="input_image"></label>
-                    <input type='file' name="image" id="input_image">
-                </div> -->
+
                 </div>
             </div>
             <hr>
             <table class="edit-commentform">
-                <!-- <tr> -->
                 <tr>
                     <td rowspan="2" style="width:40%;">
                         <img src="" alt="리뷰 이미지" id="output_image">
                     </td>
                     <td rowspan="2" style="width:70%; text-align:center;">
-                        <form style="">
+                        <form>
                             <input type='file' name="image" id="input_image">
-                            <textarea style="" class="edit-text"
-                                id="edit-text" placeholder=""></textarea>
+                            <textarea class="edit-text" id="edit-text" placeholder=""></textarea>
                         </form>
                     </td>
                     <td style="width:20%;">
@@ -162,8 +151,7 @@
                     </td>
                 </tr>
             </table>
-            <button class="edit-commentbtn" id="edit-commentbtn"
-                style="" onclick="saveeditCommentBtn()"> 수정 </button>
+            <button class="edit-commentbtn" id="edit-commentbtn" onclick="saveeditCommentBtn()"> 수정 </button>
         </div>
     </div>
 

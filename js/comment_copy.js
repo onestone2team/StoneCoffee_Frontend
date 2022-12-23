@@ -105,26 +105,51 @@ async function CommentDetailPage() {
                                         <p id="date">${comment_detail_json.created_at.substr(0, 10)}</p>
                                     </td>
                                     <td class="clike-button">
-                                    <p><button id='cbtn' class="btn-like" onclick ="comment_like()">❤️</button></p>
+                                    <p><button id='cbtn' onclick ="comment_like(${comment_detail_json.id})"><i id="like_icon${comment_detail_json.id}" class="bi bi-heart"></i></button></p>
                                     </td>
                                     <td class="like-count">
-                                        <p id="like_count">좋아요 ${comment_detail_json.like.length}개</p>
+                                        <p id="like_count${comment_detail_json.id}">좋아요 ${comment_detail_json.like.length}개</p>
                                     </td>
-                                    <td class="comment-editdel" id=""><span id="" onclick="editCommentBtn()">수정</span>/<span
-                                        id="" onclick="deleteComment()">삭제</span>
+                                    <td class="comment-editdel"><span id="comment-editdel${comment_detail_json.id}"><span id="" onclick="editCommentBtn()">수정</span>/<span
+                                        id="" onclick="deleteComment()">삭제</span></span>
                                     </td>
                                 </tr>
                             </table>`
+    
     }
     else{
-        const comment_image = document.getElementById("comment_image")
-        comment_image.setAttribute("src", `${BACK_END_URL}${comment_detail_json.image}`)
-        const comment_text = document.getElementById("comment_text")
-        comment_text.innerText = comment_detail_json.comment
-        const date = document.getElementById("date")
-        date.innerText = comment_detail_json.created_at.substr(0, 10)
-        const like_count = document.getElementById("like_count")
-        like_count.innerText = '좋아요 ' + comment_detail_json.like.length + '개' 
+        // const comment_image = document.getElementById("comment_image")
+        // comment_image.setAttribute("src", `${BACK_END_URL}${comment_detail_json.image}`)
+        // const comment_text = document.getElementById("comment_text")
+        // comment_text.innerText = comment_detail_json.comment
+        // const date = document.getElementById("date")
+        // date.innerText = comment_detail_json.created_at.substr(0, 10)
+        // const like_count = document.getElementById("like_count")
+        // like_count.innerText = '좋아요 ' + comment_detail_json.like.length + '개' 
+        const commentBox = document.getElementById('commentBox')
+        commentBox.innerHTML= `<table>
+                                <tr class="comment-content-Box">
+                                    <td rowspan="2" class="comment-image"><img id="comment_image" src=${BACK_END_URL}${comment_detail_json.image}></td>
+                                    <td colspan="4" class="comment-text">
+                                        <p id="comment_text">${comment_detail_json.comment}
+                                        </p>
+                                    </td>
+                                </tr>
+                                <tr class="comment-info-Box">
+                                    <td class="comment-date">
+                                        <p id="date">${comment_detail_json.created_at.substr(0, 10)}</p>
+                                    </td>
+                                    <td class="clike-button">
+                                        <p><button id='cbtn' onclick ="comment_like(${comment_detail_json.id})"><i id="like_icon${comment_detail_json.id}" class="bi bi-heart"></i></button></p>
+                                    </td>
+                                    <td class="like-count">
+                                        <p id="like_count${comment_detail_json.id}">좋아요 ${comment_detail_json.like.length}개</p>
+                                    </td>
+                                    <td class="comment-editdel"><span id="comment-editdel${comment_detail_json.id}"><span id="" onclick="editCommentBtn()">수정</span>/<span id=""
+                                            onclick="deleteComment()">삭제</span></span>
+                                    </td>
+                                </tr>
+                            </table>`
     }
 
     var star_point = document.getElementById('taste-grade')
@@ -139,21 +164,24 @@ async function CommentDetailPage() {
     }
 
     like_list = comment_detail_json["like"]
+    console.log(like_list)
+    
+    const like_icon = document.getElementById(`like_icon${comment_detail_json.id}`)
     if (like_list.includes(parsed_payload["user_id"])) {
-        const like_icon = document.getElementById('cbtn')
-        like_icon.style.color = 'inherit'
-    }
+        // like_icon.style.color = 'inherit'
+        like_icon.className = "bi bi-heart-fill"
+    } else { like_icon.className = "bi bi-heart" }
 
+    const check_author = document.getElementById(`comment-editdel${comment_detail_json.id}`)
+    console.log(comment_detail_json.user.id)
+    if (comment_detail_json.user.id != parsed_payload.user_id) {
+        check_author.style.display = "none"
+    }
 }//window.onload
 
-//좋아요
-$(".btn-like").click(function() {
-	$(this).toggleClass("done");
-})
+async function comment_like(id) {
 
-async function comment_like() {
-
-    const response = await fetch(`${BACK_END_URL}/comment/like/?comment_id=${comment_id}`, {
+    const response = await fetch(`${BACK_END_URL}/comment/like/?comment_id=${id}`, {
         headers: {
             "content-type": "application/json",
             "Authorization": "Bearer " + localStorage.getItem("access")
@@ -162,9 +190,18 @@ async function comment_like() {
     })
     
     const response_json = await response.json()
-    const like_count=document.getElementById('like_count')
-    if (response.status == 201 || 200){
-        like_count.innerText= '좋아요 ' + response_json.count + '개'
+
+    var like_count=document.getElementById(`like_count${id}`)
+    var heart = document.getElementById(`like_icon${id}`)
+    if (response.status == 201){
+        heart.className = "bi bi-heart-fill"
+        // like_count.innerText= '좋아요 ' + response_json.count + '개'
+        like_count.innerText= `좋아요 ${response_json.count}개`
+    } else if (response.status == 200) {
+        heart.className = "bi bi-heart"
+        like_count.innerText= `좋아요 ${response_json.count}개`
+    } else {
+        alert(response_json["message"])
     }
 
 }
