@@ -182,10 +182,11 @@ async function loginButton() {
         localStorage.setItem("payload", jsonPayload);
         window.location.replace(`${FRONT_END_URL}/index.html`);
     }
-    else {
-        alert("아이디와 비밀번호를 확인해주세요")
-    }
+     else{
+          alert("아이디와 비밀번호 다시 확인해주세요")
+        }
+    
    
-      
-
 }
+
+$("#login_password").keyup(function(e){if(e.keyCode == 13) loginButton();});
