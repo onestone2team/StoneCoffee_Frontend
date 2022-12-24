@@ -145,7 +145,7 @@ window.onload =
 
         if (!parsed_payload) {
             alert("권한이 없습니다. 로그인 해주세요")
-            location.replace("../templates/index.html")
+            location.replace(`${FRONT_END_URL}/signupin.html`)
         }
 
         const profile = await fetch(`${BACK_END_URL}/mypage/profile/`, {
