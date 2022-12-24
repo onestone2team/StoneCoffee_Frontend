@@ -39,7 +39,10 @@ window.onload = async function ProductDetail() {
     name1.innerHTML = `<h3>${product_json.products["product_name"]}</h3>`
     name2.appendChild(name1)
     //상품 평가 점수
-    if (product_json.products["aroma_grade"] >= 1) {
+    //수정중
+    //커피인 상품만 점수 표시하도록
+    console.log(product_json.products)
+    if (product_json.products.category_id == 1) {
         aroma2 = document.getElementById('aroma')
         const aroma1 = document.createElement('span')
         aroma1.innerHTML = `<span class="coffeebean-text">향</span>`
@@ -186,7 +189,7 @@ window.onload = async function ProductDetail() {
                     <tr>
                         <td class="table-font">
                             <span class="table-righttext" width="150px>좋아요</span>
-                            <span class="table-lefttext" id="like_${commentSet.id}">${commentSet.like.length}개</span>
+                            <span class="table-lefttext" id="like_${commentSet.id}">좋아요 ${commentSet.like.length}개</span>
                         </td>
                     </tr>
                     <tr>
@@ -200,6 +203,7 @@ window.onload = async function ProductDetail() {
                         <span style="cursor: pointer;" onclick="CommentDetail(${commentSet.id})">댓글 더보기</span>
                             <span style="float: right; margin-right: 10px;" id="editView${commentSet.id}">
                             <span onclick="editCommentBtn(${commentSet.id})" style="cursor: pointer;">수정</span>
+                            <span>/</span>
                             <span onclick="deleteComment(${commentSet.id})" style="cursor: pointer;">삭제</span></span>
                         </td>
                     </tr>
@@ -211,7 +215,7 @@ window.onload = async function ProductDetail() {
         // 별 추가하기
         const starInput = document.getElementById(`table-star${commentSet.id}`)
         const starForm = document.createElement('span')
-        starForm.innerHTML = '☕'.repeat(commentSet.point)
+        starForm.innerHTML = '⭐'.repeat(commentSet.point)+`<span id='coffee'>⭐</span>`.repeat(5-commentSet.point)
         starInput.appendChild(starForm)
 
         // 하트 모양 변경하기
@@ -285,10 +289,10 @@ async function comment_like(id) {
     response_json = await response.json()
     if (response.status == 201) {
         heart.className = "bi bi-heart-fill"
-        document.getElementById(`like_${id}`).innerHTML = `${response_json.count}개`
+        document.getElementById(`like_${id}`).innerHTML = `좋아요 ${response_json.count}개`
     } else if (response.status == 200) {
         heart.className = "bi bi-heart"
-        document.getElementById(`like_${id}`).innerHTML = `${response_json.count}개`
+        document.getElementById(`like_${id}`).innerHTML = `좋아요 ${response_json.count}개`
     } else {
         alert(response_json["message"])
     }
@@ -299,7 +303,9 @@ async function cart() {
     var priceText = document.getElementById("priceText")
     var product_price = document.getElementById("product_price")
     const count = document.querySelector(".readonly");
-    if (product_json.products.aroma_grade == 0 || product_json.products.aroma_grade == null) {
+    //수정중
+    // if (product_json.products.aroma_grade == 0 || product_json.products.aroma_grade == null)
+    if (product_json.products.category_id != 1) {
         const weight = 1;
         var price_a=priceText.innerText.replace(',','')
         var price_b=parseFloat(price_a)
@@ -326,7 +332,8 @@ async function cart() {
             alert("로그인을 해주세요s")
         }
     }
-    else if (product_json.products.aroma_grade >= 1) {
+    // else if (product_json.products.aroma_grade >= 1)
+    else if (product_json.products.category_id == 1) {
         const count = document.querySelector(".readonly");
         const weight = document.querySelectorAll("select")[0];
 
@@ -363,7 +370,8 @@ async function orderButton() {
     var product_price = document.getElementById("product_price")
     const count = document.querySelector(".readonly");
 
-    if (product_json.products.aroma_grade == 0 || product_json.products.aroma_grade == null) {
+    // if (product_json.products.aroma_grade == 0 || product_json.products.aroma_grade == null) 
+    if (product_json.products.category_id != 1){
         const weight = 1;
 
         let formdata = new FormData
@@ -388,7 +396,8 @@ async function orderButton() {
             location.reload();
         }
     }
-    else if (product_json.products.aroma_grade >= 1) {
+    // else if (product_json.products.aroma_grade >= 1) 
+    else if (product_json.products.category_id == 1) {
         const count = document.querySelector(".readonly");
         const weight = document.querySelectorAll("select")[0];
         let formdata = new FormData
@@ -484,7 +493,7 @@ async function commentrg() {
         })
         response_json = await response.json()
         if (response.status == 200 || response.status == 202 || response.status == 201) {
-            alert("정상적으로 리뷰 작성을 하였습니다.")
+            // alert("정상적으로 리뷰 작성을 하였습니다.")
             location.reload();
             return response.json()
         }
@@ -511,17 +520,13 @@ async function deleteComment(num) {
 
         var total_commnet = document.getElementById(`total_commnet${num}`)
         if (response.status == 204) {
-            alert("삭제 되었습니다")
             total_commnet.parentNode.removeChild(total_commnet)
         }
         else {
-            alert("삭제 실패")
+            alert("삭제되지 않았습니다")
         }
-    }else{
-
     }
 }
-
 async function editCommentBtn(num) {
     const modal = document.querySelector('.modal');
     modal.style.display = 'block';
