@@ -95,24 +95,21 @@ async function CommentDetailPage() {
         const commentBox = document.getElementById('commentBox')
         commentBox.innerHTML=`<table>
                                 <tr class="comment-content-Box">
-                                    <td colspan="4" class="comment-text">
+                                    <td colspan="2" class="comment-text">
                                         <p id="comment_text">${comment_detail_json.comment}
                                         </p>
                                     </td>
                                 </tr>
                                 <tr class="comment-info-Box">
                                     <td class="comment-date">
-                                        <p id="date">${comment_detail_json.created_at.substr(0, 10)}</p>
-                                    </td>
-                                    <td class="clike-button">
-                                    <p><button id='cbtn' onclick ="comment_like(${comment_detail_json.id})"><i id="like_icon${comment_detail_json.id}" class="bi bi-heart"></i></button></p>
-                                    </td>
-                                    <td class="like-count">
-                                        <p id="like_count${comment_detail_json.id}">좋아요 ${comment_detail_json.like.length}개</p>
-                                    </td>
-                                    <td class="comment-editdel"><span id="comment-editdel${comment_detail_json.id}"><span id="" onclick="editCommentBtn()">수정</span>/<span
+                                        <span id="date">${comment_detail_json.created_at.substr(0, 10)}</span>
+                                    </td>                                    
+                                    <td class="clike-button like-count">
+                                        <span><button id='cbtn' onclick ="comment_like(${comment_detail_json.id})"><i id="like_icon${comment_detail_json.id}" class="bi bi-heart"></i></button></span>
+                                        <span id="like_count${comment_detail_json.id}">좋아요 ${comment_detail_json.like.length}개</span>                                
+                                        <span class="comment-editdel id="comment-editdel${comment_detail_json.id}"><span id="" onclick="editCommentBtn()">수정</span>/<span
                                         id="" onclick="deleteComment()">삭제</span></span>
-                                    </td>
+                                    </td> 
                                 </tr>
                             </table>`
     
@@ -130,24 +127,21 @@ async function CommentDetailPage() {
         commentBox.innerHTML= `<table>
                                 <tr class="comment-content-Box">
                                     <td rowspan="2" class="comment-image"><img id="comment_image" src=${BACK_END_URL}${comment_detail_json.image}></td>
-                                    <td colspan="4" class="comment-text">
+                                    <td colspan="2" class="comment-text">                                    
                                         <p id="comment_text">${comment_detail_json.comment}
-                                        </p>
+                                        </p>                                                                            
                                     </td>
                                 </tr>
                                 <tr class="comment-info-Box">
                                     <td class="comment-date">
-                                        <p id="date">${comment_detail_json.created_at.substr(0, 10)}</p>
+                                        <span id="date">${comment_detail_json.created_at.substr(0, 10)}</span>
                                     </td>
-                                    <td class="clike-button">
-                                        <p><button id='cbtn' onclick ="comment_like(${comment_detail_json.id})"><i id="like_icon${comment_detail_json.id}" class="bi bi-heart"></i></button></p>
-                                    </td>
-                                    <td class="like-count">
-                                        <p id="like_count${comment_detail_json.id}">좋아요 ${comment_detail_json.like.length}개</p>
-                                    </td>
-                                    <td class="comment-editdel"><span id="comment-editdel${comment_detail_json.id}"><span id="" onclick="editCommentBtn()">수정</span>/<span id=""
-                                            onclick="deleteComment()">삭제</span></span>
-                                    </td>
+                                    <td class="clike-button like-count">
+                                        <span><button id='cbtn' onclick ="comment_like(${comment_detail_json.id})"><i id="like_icon${comment_detail_json.id}" class="bi bi-heart"></i></button></span>
+                                        <span id="like_count${comment_detail_json.id}">좋아요 ${comment_detail_json.like.length}개</span>                                
+                                        <span class="comment-editdel id="comment-editdel${comment_detail_json.id}"><span id="" onclick="editCommentBtn()">수정</span>/<span
+                                        id="" onclick="deleteComment()">삭제</span></span>
+                                    </td> 
                                 </tr>
                             </table>`
     }
@@ -221,9 +215,9 @@ async function create_nested() {
     })
     nested_json = await response.json()
 
-    if (response.status == 201 || 200) {
-        alert(nested_json.message)
-    }
+    // if (response.status == 201 || 200) {
+    //     alert(nested_json.message)
+    // }
     nestedcommentlist()
     //댓글 작성란 비우기
     document.getElementById('nested-create-text').value=''

@@ -492,7 +492,7 @@ async function commentrg() {
         })
         response_json = await response.json()
         if (response.status == 200 || response.status == 202 || response.status == 201) {
-            alert("정상적으로 리뷰 작성을 하였습니다.")
+            // alert("정상적으로 리뷰 작성을 하였습니다.")
             location.reload();
             return response.json()
         }
