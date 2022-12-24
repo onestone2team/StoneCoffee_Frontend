@@ -1,8 +1,43 @@
+window.onload = function(){
+    access = localStorage.getItem("access")
+    refresh = localStorage.getItem("refresh")
+    payload = localStorage.getItem("payload")
+
+    if (access==null||refresh==null||payload==null){
+
+        document.getElementById("removeText2").innerHTML="⊗ 로그인 하러 가기"       
+    }
+    else{       
+        document.getElementById("removeText2").innerHTML="⊗ 메인화면으로 가기"
+    }
+}
+
+
+function check(){
+    
+
+    if (access==null||refresh==null||payload==null){
+
+        location.replace('signupin.html')
+    }
+    else{
+        location.replace('index.html')
+    }
+
+}
+
+
+
 function saveCookie(name, value, unixTime){
+
     var date = new Date();
     date.setTime(date.getTime() + unixTime*1000*60*60*24);
+
     document.cookie = encodeURIComponent(name) + '=' + encodeURIComponent(value) + ';expires=' + date.toUTCString() + ';path=/';
-    location.replace('signupin.html')
+    //   location.replace('signupin.html')
+    // 
+    check()
+
 }
 
 function startSurvey(){

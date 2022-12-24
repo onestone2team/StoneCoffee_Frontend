@@ -184,7 +184,7 @@ async function loginButton() {
     }
      else{
           alert("아이디와 비밀번호 다시 확인해주세요")
-        }
+       }
     
    
 }
