@@ -173,7 +173,7 @@ async function CommentDetailPage() {
     } else { like_icon.className = "bi bi-heart" }
 
     const check_author = document.getElementById(`comment-editdel${comment_detail_json.id}`)
-    console.log(comment_detail_json.user.id)
+    // console.log(comment_detail_json.user.id)
     if (comment_detail_json.user.id != parsed_payload.user_id) {
         check_author.style.display = "none"
     }
@@ -330,7 +330,10 @@ async function editCommentBtn() {
 
 async function deleteComment() {
 
-    const response = await fetch(`${BACK_END_URL}/comment/edit/?comment_id=${comment_id}`, {
+    var del_comment_confirm = confirm('리뷰를 삭제하시겠습니까?')
+    
+    if(del_comment_confirm){
+        const response = await fetch(`${BACK_END_URL}/comment/edit/?comment_id=${comment_id}`, {
         headers: {
             "content-type": "application/json",
             "Authorization": "Bearer " + localStorage.getItem("access")
@@ -339,16 +342,21 @@ async function deleteComment() {
     })
 
     var target = document.getElementById('detailBox')
-    
+    console.log('2'+document.referrer)
     if (response.status==204){
-        alert("삭제되었습니다")
-        target.remove();   
-    }
-    else {
-        alert("삭제되지 않았습니다")
-    }
+            target.remove();
+            location.href=document.referrer       
+    } else{
+            alert("삭제되지 않았습니다")
+          }
 
-    location.href=document.referrer
+    }
+    
+    
+    
+    
+
+    
 }
     
 async function saveeditCommentBtn() {
