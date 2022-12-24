@@ -1,7 +1,10 @@
+const payload = localStorage.getItem("payload")
+const parsed_payload = JSON.parse(payload)
+
 window.onload = function(){
     access = localStorage.getItem("access")
     refresh = localStorage.getItem("refresh")
-    payload = localStorage.getItem("payload")
+    
 
     if (access==null||refresh==null||payload==null){
 
@@ -14,7 +17,6 @@ window.onload = function(){
 
 
 function check(){
-    
 
     if (access==null||refresh==null||payload==null){
 
@@ -25,7 +27,6 @@ function check(){
     }
 
 }
-
 
 
 function saveCookie(name, value, unixTime){
@@ -86,6 +87,19 @@ async function sendSurvey(){
     showSurvey.style.display = "none"
     sendSurvey.display= "none"
     coffeeshow.style.display = "block";
+
+    // 로그인 시 구매 위치로 이동
+    const nextButton = document.querySelector('.signup-btn')
+    const nextLink = document.querySelector('.fourth-sec a')
+    const loginText = document.querySelector('.login-text')
+
+    if (parsed_payload) {
+        console.log(nextLink)
+        nextButton.innerText = '구매하러 가기'
+        nextLink.href = `product-detail.html?product_id=${coffeedata.id}`
+        loginText.style.display = 'none'
+    }
+
 }
 
 const sweetChecks = document.querySelectorAll('input[name="sweet"]');

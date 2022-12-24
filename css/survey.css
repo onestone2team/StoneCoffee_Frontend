@@ -14,7 +14,7 @@ body{
 .icon {
     font-family: 'Josefin Sans', sans-serif;
     text-align:center;
-    margin-bottom: 5%;
+    margin-bottom: 200px;
 }
 
 .cup {
@@ -119,13 +119,14 @@ body{
 @keyframes anime_textup { 0% { top: 0; } 20% { top: -0.2rem; } 40% { top: 0 } 60% { top: 0 } 80% { top: 0 } 100% { top: 0 } }
 
 .survey{
-  margin-top : 0;
+  margin-top : 20px;
   text-align: center;
   font-family: 'Jua', sans-serif;
 }
 
+
 .maintext span{
-  font-size: 30px;
+  font-size: calc(2vw + 26px);
   color: white;
   position: relative;
   animation: anime_textup 1.5s infinite;
@@ -218,7 +219,7 @@ body{
 
 .survey-table p {
   color: #4e342e;
-  font-size: 20px;
+  font-size: calc(2vw + 10px);
   font-family: 'Stylish', sans-serif;
 }
 
@@ -275,7 +276,7 @@ input[type=radio]{
 }
 
 #sweet label{
-  font-size: 40px;
+  font-size: calc(2vw + 10px);
   color: transparent; /* 기존 이모지 컬러 제거 */
   text-shadow: 0 0 0 #9c9c9c; /* 새 이모지 색상 부여 */
 }
@@ -308,7 +309,7 @@ input[type=radio]{
 }
 
 #aroma label{
-  font-size: 40px;
+  font-size: calc(2vw + 10px);
   color: transparent; /* 기존 이모지 컬러 제거 */
   text-shadow: 0 0 0 #9c9c9c; /* 새 이모지 색상 부여 */
 }
@@ -342,7 +343,7 @@ input[type=radio]{
 }
 
 #acidity label{
-  font-size: 40px;
+  font-size: calc(2vw + 10px);
   color: transparent; /* 기존 이모지 컬러 제거 */
   text-shadow: 0 0 0 #9c9c9c; /* 새 이모지 색상 부여 */
 }
@@ -382,7 +383,7 @@ table hr {
   color: unset; /* 마우스 클릭 체크 */
 }
 #balance label{
-  font-size: 40px;
+  font-size: calc(2vw + 10px);
   color: transparent; /* 기존 이모지 컬러 제거 */
   text-shadow: 0 0 0 #9c9c9c; /* 새 이모지 색상 부여 */
 }
@@ -426,7 +427,7 @@ table hr {
 .show-screen{
   background-color: #aeaeae;
   border-radius: 10px;
-  width: 40vw;
+  width: 70vw;
   height: auto;
   margin: 0px auto;
   padding: 10%;
@@ -448,7 +449,6 @@ table hr {
 } */
 .second-sec{
   display:flex; 
-  flex-direction:column; 
   justify-content:center; 
   align-items:center;
 }
@@ -463,17 +463,14 @@ table hr {
   width: 100%;
   min-width:200px;
   max-width:400px;
-  /* margin:auto;  */
-  /* background-color:rgb(78, 101, 101) */
+  padding: 10px;
 }
 .show-txt{
   
   font-family: 'Stylish', sans-serif;
-  font-size: medium;
+  font-size: calc(0.5vw + 12px);
   text-align:left;
   vertical-align: top;
-  max-height:200px;
-
   /* overflow-y: scroll; */
   -ms-overflow-style: none; /* IE and Edge */
     scrollbar-width: none; /* Firefox */
@@ -491,12 +488,12 @@ table hr {
   
 }
   
-@media(max-width:420px){
+@media(max-width:820px){
   .notView {
     height:fit-content
   }
   .show-screen{
-    width:80%;
+    width:70%;
   }
   .survey-table p{
     font-size:medium;
@@ -504,17 +501,11 @@ table hr {
   .signup-btn {
     font-size:10px;
   }
-  #sweet label{
-    font-size: 1.5rem;
+  .show-txt{
+    font-size: calc(0.6vw + 10px);
   }
-  #aroma label{
-    font-size: 1.5rem;
-  }
-  #acidity label{
-    font-size: 1.5rem;
-  }
-  #balance label{
-    font-size: 1.5rem;
+  .second-sec{
+    flex-direction:column; 
   }
 }
 
