@@ -188,7 +188,14 @@ async function update_profile() {
     const address = document.getElementById("address").value;
     const detailAddress = document.getElementById("detailAddress").value;
     const extraAddress = document.getElementById("extraAddress").value;
-    const profile_address = '(' + postcode + ')' + ' ' + address + ' ' + detailAddress + ' ' + extraAddress
+
+    let profile_address = ''
+    if (postcode) {
+        profile_address = '(' + postcode + ')' + ' ' + address + ' ' + detailAddress + ' ' + extraAddress
+    } else {
+        profile_address = address + ' ' + detailAddress + ' ' + extraAddress
+    }
+    
     const profile_image = document.querySelector("input[type='file']");
 
     let formData = new FormData();
