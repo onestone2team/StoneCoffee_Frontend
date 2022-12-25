@@ -8,10 +8,10 @@
   <title>Stone Coffee| 결제페이지</title>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <!-- jQuery -->
-  <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.min.js" ></script>
+  <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
   <!-- iamport.payment.js -->
   <script type="text/javascript" src="https://cdn.iamport.kr/js/iamport.payment-1.1.8.js"></script>
-
+  <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
   <link href="/css/bootstrap.css" rel="stylesheet">
   <link id="switcher" href="/css/default-theme.css" rel="stylesheet">
   <link href="/css/sequence-theme.modern-slide-in.css" rel="stylesheet" media="all">
@@ -47,32 +47,45 @@
     </div>
 
     <div class="input-boxes">
-      <div>
-        <h6 class="address">주소<span style="color: red;">(필수 사항)</span></h6>
+      <div style="margin-top:5%;" >
+        <span style="font-weight:bold">배송 정보</span>
+        <span style="margin-top:10%; margin-bottom:0;font-size:x-small;">
+          <span style="color:red">*</span><span>은 필수 입력사항입니다</span>
+        </span>
+      </div>
+      <div class="div-input" id="div-1">
+        <h5 class="address">주소<span style="color: red;">* </span><span><button onclick="new_addr()">새로운 배송지 입력하기🔍</button></span></h5>
         <input type="text" class="addresstext" id="user_address" placeholder="내용을 입력해 주세요.">
       </div>
-      <div>
-        <h6 class="callnumber">전화번호<span style="color: red;">(필수 사항)</span></h6>
+      <div id="new-addr" class="new-addr">
+        <input type="text" id="postcode" placeholder="우편번호">
+        <input type="button" onclick="execDaumPostcode()" value="우편번호 찾기"><br>
+        <input type="text" id="address" placeholder="주소"><br>
+        <input type="text" id="detailAddress" placeholder="상세주소">
+        <input type="text" id="extraAddress" placeholder="참고항목">
+      </div>
+      <div class="div-input">
+        <h5 class="callnumber">전화번호<span style="color: red;">*</span></h5>
         <input type='tel' class='phonetext' id="user_phone" maxLength='13' placeholder='-없이 입력'>
       </div>
-      <div>
-        <h6 class="Request">배달시 요청사항<span style="color: blue;">(선택 사항)</span></h6>
+      <div class="div-input">
+        <h5 class="Request">배달시 요청사항</h5>
         <input type="text" class="Request-text" id="receiver" placeholder="내용을 입력해 주세요.">
       </div>
-      <div>
-        <h6 class="Request">결제 방식</h6>
+      <div class="div-input">
+        <h5 class="Request">결제 방식</h5>
         <div class="select">
-            <input type='radio' name="payment" id='kakaopay' value="kakaopay" class="inputdesign"><label for="kakaopay">카카오페이</label>
-
-            <input type='radio' name="payment" id='KCP' value="kcp" class="inputdesign"><label for="KCP">KCP</label>
+          <input type='radio' name="payment" id='kakaopay' value="kakaopay" class="inputdesign"><label
+            for="kakaopay">카카오페이</label>
+          <input type='radio' name="payment" id='KCP' value="kcp" class="inputdesign"><label for="KCP">KCP</label>
         </div>
-        <p class="warning-font">실제 결제가 진행되지 않으며 테스트 결제로 넘어가게 됩니다. 카카오페이는 가상 계좌에서 결제하지만 KCP 결제 경우 몇몇 결제에서 실제 계좌에서 결제될수 있어 결제되어도 12시 이내 환불되오니 당황하지 않으셔도 됩니다.</p>
-    </div>
-    <div class="order-box">
-      <div class="consent"><input type="checkbox" id="checkbox" onclick='is_checked()' value=""/>주문 상품에 동의합니다.</div>
-      <button class="checkout" type="button" id="orderbutton" onclick="fillin()" disabled = false>주문하기</button>
-    </div>
-    
+        <p class="warning-font">실제 결제가 아닌 테스트 결제로 진행 됩니다. 카카오페이는 가상 계좌에서 결제되며, KCP 결제의 경우 결제 방식에따라 실제 계좌에서 결제될 수 있으나 당일 내로 환불되니 안심하세요.</p>
+      </div>
+      <div class="order-box">
+        <div class="consent"><input type="checkbox" id="checkbox" onclick='is_checked()' value="" />주문 상품 정에 동의합니다.</div>
+        <button class="checkout" type="button" id="orderbutton" onclick="fillin()" disabled=false>주문하기</button>
+      </div>
+
   </main>
   <section id="aa-client-brand">
   </section>
