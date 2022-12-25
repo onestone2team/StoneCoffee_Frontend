@@ -170,7 +170,7 @@ async function loginButton() {
 
 
     if (response.status == 200) {
-        alert("로그인 완료")
+        // alert("로그인 완료")
         const response_json = await response.json()
         localStorage.setItem("access", response_json.access);
         localStorage.setItem("refresh", response_json.refresh);
