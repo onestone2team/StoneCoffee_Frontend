@@ -48,7 +48,6 @@ async function adminorderlist() {
                                                                 <li class="li2" id="${element.id}" value="0">확인 대기중</li>
                                                                 <li class="li2" id="${element.id}" value="1">주문 확인</li>
                                                                 <li class="li2" id="${element.id}" value="2">배송중</li>
-                                                                
                                                             </ul>
                                                         </li>
                                                     </ul>

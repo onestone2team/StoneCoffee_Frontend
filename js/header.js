@@ -48,3 +48,48 @@ function searchButton() {
         location.replace(`${FRONT_END_URL}/search.html?search=${searchtage}`)
 
 }
+async function timeOut() {
+    const payload = JSON.parse(localStorage.getItem("payload"));
+    // console.log(payload)
+    // console.log(payload["jti"])
+    // console.log(payload["exp"])
+    // console.log(payload["iat"])
+    // console.log(payload["user_id"])
+    // console.log(Date.now)
+
+    if (payload.exp <(Date.now()/7200)){
+        localStorage.removeItem("access")
+        localStorage.removeItem("refresh")
+        localStorage.removeItem("payload")
+        localStorage.removeItem("user")
+        localStorage.removeItem("pk")
+
+        alert("세션이 만료 되어서 로그아웃 되었습니다\n메인페이지로 이동하겠습니다.")
+        window.location.replace(`../index.html`);
+    };
+}timeOut()
+
+
+
+// 토큰 완료 자동 로그아웃//
+// async function timeOut() {
+//     const payload = JSON.parse(localStorage.getItem("payload"));
+//     if (payload.exp <(Date.now()/1000)){
+//         localStorage.removeItem("access")
+//         localStorage.removeItem("refresh")
+//         localStorage.removeItem("payload")
+//         localStorage.removeItem("user")
+//         localStorage.removeItem("pk")
+//         Swal.fire({
+//             title: '토큰세션이 만료되었습니다!',
+//             text: '다시로그인 해주세요',
+//             icon: 'warning',
+//             confirmButtonColor: '#FFCCCC',
+//             confirmButtonText: '확인',
+//         }).then(result =>{
+//             if(result.isConfirmed){
+//                 window.location.href = "../templates/main.html"
+//             }
+//         })
+//     };
+// }timeOut()

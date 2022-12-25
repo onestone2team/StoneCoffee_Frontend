@@ -139,6 +139,9 @@ td {
     border-bottom: 1px solid black;
     text-align: center;
 }
+.no{
+    height: 100px;
+}
 
 .left {
     border: solid;
