@@ -45,6 +45,8 @@ async function cartlist() {
         method: "GET"
     })
     var response_json = await response.json()
+    console.log(response_json)
+    
     var cart_frame = document.getElementById('append-product')
     response_json.forEach(element => {
         
@@ -69,7 +71,7 @@ async function cartlist() {
                             <button>삭제하기</button>
                         </div>`
         cart_frame.appendChild(cart)
-        if (element.weight ==1) {
+        if (element.product.category == '커피용품' || element.product.category == '굿즈') {
                 document.getElementById(`product_weight${element.product.id}`).style.display = "none"
             }      
         recalculateCart(element.price, element.count)
