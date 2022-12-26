@@ -213,18 +213,23 @@
 
 
 /*slide*/
-.slide_wrap {}
+.slide_wrap h2{
+  text-align: center;
+}
 .slide_show {
-  width: 900px; height: 200px; overflow: hidden;
+  width: 70%; height: 250px; overflow: hidden;
   margin: auto;
 }
 .slide_show .slide_list {
   position: relative;
-  overflow:hidden; width: 3300px; height: 360px;
+  overflow:hidden; width: 4000px; height: 360px;
 }
 .slide_show .slide_list > div {
-  float: left; width: 290px; padding: 5px; height: 174px;
-  box-sizing: content-box; 
+  float: left; width: 5%; margin: 0px 5px; height: auto;
+  box-sizing: content-box; text-align: center;
+}
+.slide_show .slide_list div > h4 {
+  font-size: 12px;
 }
 .slide_show .slide_list > div:before {
     color: #fff;
@@ -252,5 +257,12 @@
 .slide_btn button:hover {
   background: rgba(0,0,0,.8);;
 }
-.slide_btn .prev {}
-.slide_btn .next {}
+
+.slide_image {
+  max-width: 330px;
+  width: 20%;
+  text-align: center;
+  height: 180px;
+  margin: 0 auto;
+  display: block;
+}
