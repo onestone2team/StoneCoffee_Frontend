@@ -14,15 +14,18 @@ async function cartlist() {
         method: "GET"
     })
     const response_json = await response.json()
+    console.log(response_json)
     var order_frame = document.getElementById('append_order')
     response_json.forEach(element => {
         if (element.status == 0) {
             var order_status = "확인 대기중";
         } else if (element.status == 1) {
-            var order_status = "주문 확인";
+            var order_status = "배송 준비중";
         } else if (element.status == 2) {
             var order_status = "배송중";
-        }
+        } else if (element.status == 3) {
+            var order_status = "취소 요청됨";
+        } else { var order_status = "취소됨"; }
         var order_price = element.count * element.order_price
         const order = document.createElement('div')
         order.setAttribute("class", "basket-product")
@@ -45,9 +48,9 @@ async function cartlist() {
                             <td>
                                 <div class="price">금액 : ${element.order_price.toLocaleString('ko-KR')}원</div><br>
                                 <div class="quantity">수량 : ${element.count}개</div><br>
-                                <div id="quantity${element.id}" class="quantity">용량 : ${element.weight}g</div>
+                                <div id="quantity${element.id}" class="quantity">용량 : ${element.weight*100}g</div>
                             </td>
-                            <td>${order_status}</td>
+                            <td style="display:flex; flex-direction:column; align-items:center; justify-content:center;"><p>${order_status}</p><button id="cancel-order${element.id}" onclick="cancel_order(${element.id})">취소하기</button></td>
                         </tr>
                         <tr>
                             <td></td>
@@ -56,12 +59,41 @@ async function cartlist() {
                         </tr>
                     </table>`
         order_frame.prepend(order)
-        if (element.weight==1){
+        if (element.weight == 1) {
             const quantity = document.getElementById(`quantity${element.id}`)
             quantity.remove()
         }
-        
+        //주문 취소하기 버튼
+        const cancel_btn = document.getElementById(`cancel-order${element.id}`)
+        cancel_btn.style.display='none'
+        if (element.status == 0) {
+            cancel_btn.style.display = 'block';
+        }
+
     })
 }
 
+async function cancel_order(id) {
+    // const cancel_btn = document.getElementById(`cancel-order${id}`)
+    console.log('버튼 누름')
+    const response = await fetch(`${BACK_END_URL}/order/product/order_cancel/?order_id=${id}`, {
+        headers: {
+            "content-type": "application/json",
+            "Authorization": "Bearer " + localStorage.getItem("access"),
+        },
+        method: "POST",
+        body: JSON.stringify({
+            
+        }),
+    }) 
+    
+    const response_json = await response.json()
+    console.log(response_json)
 
+    if (response.status == 200){
+        alert(response_json.message)
+    }
+    
+    
+    
+}

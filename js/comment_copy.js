@@ -154,7 +154,6 @@ async function CommentDetailPage() {
     
     const like_icon = document.getElementById(`like_icon${comment_detail_json.id}`)
     if (like_list.includes(parsed_payload["user_id"])) {
-        // like_icon.style.color = 'inherit'
         like_icon.className = "bi bi-heart-fill"
     } else { like_icon.className = "bi bi-heart" }
 
