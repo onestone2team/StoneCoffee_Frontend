@@ -94,7 +94,6 @@ async function sendSurvey(){
     const loginText = document.querySelector('.login-text')
 
     if (parsed_payload) {
-        console.log(nextLink)
         nextButton.innerText = '구매하러 가기'
         nextLink.href = `product-detail.html?product_id=${coffeedata.id}`
         loginText.style.display = 'none'

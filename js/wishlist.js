@@ -88,7 +88,7 @@ async function product_list() {
     var response_json = await response.json()
     var coffee_data = response_json.coffee
     var etc_data = response_json.product
-    console.log(response_json)
+
     coffee_data.forEach(element => {
         $('#append-coffee').slick('slickAdd',
         `<a href=product-detail.html?product_id=${element.id}>

@@ -14,7 +14,6 @@ async function cartlist() {
         method: "GET"
     })
     const response_json = await response.json()
-    console.log(response_json)
     var order_frame = document.getElementById('append_order')
     response_json.forEach(element => {
         if (element.status == 0) {
@@ -75,7 +74,6 @@ async function cartlist() {
 
 async function cancel_order(id) {
     // const cancel_btn = document.getElementById(`cancel-order${id}`)
-    console.log('버튼 누름')
     const response = await fetch(`${BACK_END_URL}/order/product/order_cancel/?order_id=${id}`, {
         headers: {
             "content-type": "application/json",
@@ -88,7 +86,6 @@ async function cancel_order(id) {
     }) 
     
     const response_json = await response.json()
-    console.log(response_json)
 
     if (response.status == 200){
         alert(response_json.message)

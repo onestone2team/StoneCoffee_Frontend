@@ -48,8 +48,6 @@ async function cartlist() {
     var response_json = await response.json()
     var cart_frame = document.getElementById('append-product')
     response_json.forEach(element => {
-        console.log(element.product)
-        console.log(element.product["category"])
         
         const cart = document.createElement('div')
         var total_price = element.price * element.count

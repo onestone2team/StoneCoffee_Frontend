@@ -41,7 +41,6 @@ window.onload = async function ProductDetail() {
     //상품 평가 점수
     //수정중
     //커피인 상품만 점수 표시하도록
-    console.log(product_json.products)
     if (product_json.products.category_id == 1) {
         aroma2 = document.getElementById('aroma')
         const aroma1 = document.createElement('span')
@@ -299,7 +298,6 @@ async function comment_like(id) {
 }
 
 async function cart() {
-    console.log(product_json)
     var priceText = document.getElementById("priceText")
     var product_price = document.getElementById("product_price")
     const count = document.querySelector(".readonly");
@@ -307,7 +305,6 @@ async function cart() {
     // if (product_json.products.aroma_grade == 0 || product_json.products.aroma_grade == null)
     if (product_json.products.category_id != 1) {
         const weight = 1;
-        console.log(weight.value)
         var price_a=priceText.innerText.replace(',','')
         var price_b=parseFloat(price_a)
 
@@ -337,7 +334,6 @@ async function cart() {
     else if (product_json.products.category_id == 1) {
         const count = document.querySelector(".readonly");
         const weight = document.querySelectorAll("select")[0];
-        console.log(weight.value)
         var price_a=product_price.innerText.replace(',','')
         var price_b=parseFloat(price_a)
 
@@ -469,7 +465,6 @@ async function commentrg() {
     const comment_content = document.getElementById("comment-input").value
     const comment_img = document.querySelector("input[type='file']");
     var comment_point = document.querySelector('input[name="point"]:checked');
-    console.log(comment_point)
     if (comment_content.value == "") {
         alert("리뷰를 작성해 주세요")
     } else if (comment_content.value == " ") {
