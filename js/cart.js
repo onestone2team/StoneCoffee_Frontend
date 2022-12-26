@@ -37,6 +37,7 @@ $(document).on('click', '.remove button', function () {
 
 
 async function cartlist() {
+    
     const response = await fetch(`${BACK_END_URL}/product/cart/`, {
         headers: {
             "content-type": "application/json",
@@ -69,9 +70,11 @@ async function cartlist() {
                             <button>삭제하기</button>
                         </div>`
         cart_frame.appendChild(cart)
-        if (element.weight ==1) {
-                document.getElementById(`product_weight${element.product.id}`).style.display = "none"
-            }      
+        if (element.product["category"] =="article" || element.product["category"] =="goods"){
+            if (element.weight ==1) {
+                    document.getElementById(`product_weight${element.product.id}`).style.display = "none"
+                }      
+        }
         recalculateCart(element.price, element.count)
     
     })
