@@ -64,7 +64,7 @@ async function timeOut() {
         localStorage.removeItem("user")
         localStorage.removeItem("pk")
 
-        alert("세션이 만료 되어서 로그아웃 되었습니다\n메인페이지로 이동하겠습니다.")
+        alert("세션이 만료 되어 로그아웃 되었습니다\n메인페이지로 이동합니다")
         window.location.replace(`../index.html`);
     }else{
     };

@@ -163,6 +163,14 @@ li.subtotal:before {
 	position: relative;
 }
 
+.basket-product table{
+	border-radius:10px; padding:1%; background-color:rgba(210, 210, 181, 0.919);
+}
+
+.basket-product table hr{
+	background: #666; height:1px; border:0;
+}
+
 .product-image {
 	width: 35%;
 	min-width: 177px;
@@ -518,7 +526,7 @@ button,
 .quantity,
 .order_status,
 .subtotal,
-.basket-product,
+/* .basket-product, */
 .product-image,
 .product-details {
 	float: left;
