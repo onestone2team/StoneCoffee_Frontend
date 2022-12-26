@@ -48,9 +48,9 @@ async function cartlist() {
                             <td>
                                 <div class="price">금액 : ${element.order_price.toLocaleString('ko-KR')}원</div><br>
                                 <div class="quantity">수량 : ${element.count}개</div><br>
-                                <div id="quantity${element.id}" class="quantity">용량 : ${element.weight*100}g</div>
+                                <div id="quantity${element.id}" class="quantity">용량 : ${element.weight * 100}g</div>
                             </td>
-                            <td style="display:flex; flex-direction:column; align-items:center; justify-content:center;"><p>${order_status}</p><button id="cancel-order${element.id}" onclick="cancel_order(${element.id})">취소하기</button></td>
+                            <td style="display:flex; flex-direction:column; align-items:center; justify-content:center;"><p id='order_status${element.id}'>${order_status}</p><button id="cancel-order${element.id}" onclick="cancel_order(${element.id})">취소하기</button></td>
                         </tr>
                         <tr>
                             <td></td>
@@ -65,7 +65,7 @@ async function cartlist() {
         }
         //주문 취소하기 버튼
         const cancel_btn = document.getElementById(`cancel-order${element.id}`)
-        cancel_btn.style.display='none'
+        cancel_btn.style.display = 'none'
         if (element.status == 0) {
             cancel_btn.style.display = 'block';
         }
@@ -74,26 +74,36 @@ async function cartlist() {
 }
 
 async function cancel_order(id) {
-    // const cancel_btn = document.getElementById(`cancel-order${id}`)
-    console.log('버튼 누름')
-    const response = await fetch(`${BACK_END_URL}/order/product/order_cancel/?order_id=${id}`, {
-        headers: {
-            "content-type": "application/json",
-            "Authorization": "Bearer " + localStorage.getItem("access"),
-        },
-        method: "POST",
-        body: JSON.stringify({
-            
-        }),
-    }) 
-    
-    const response_json = await response.json()
-    console.log(response_json)
 
-    if (response.status == 200){
-        alert(response_json.message)
+    var cancel_confirm = confirm('해당 상품을 주문 취소하시겠습니까?')
+
+    if (cancel_confirm) {
+        const response = await fetch(`${BACK_END_URL}/order/product/order_cancel/?order_id=${id}`, {
+            headers: {
+                "content-type": "application/json",
+                "Authorization": "Bearer " + localStorage.getItem("access"),
+            },
+            method: "POST",
+            body: JSON.stringify({
+
+            }),
+        })
+
+        const response_json = await response.json()
+        console.log(response_json)
+        var order_status = document.getElementById(`order_status${id}`)
+        var cancel_btn = document.getElementById(`cancel-order${id}`)
+
+        if (response.status == 200) {
+            alert(response_json.message)
+            if (response_json.status == 3) {
+                order_status.innerText = "취소 요청됨"
+                cancel_btn.style.display = "none"
+            } else {
+                order_status.innerText = "취소됨"
+                cancel_btn.style.display = "none"
+            }
+        }
     }
-    
-    
-    
+
 }
