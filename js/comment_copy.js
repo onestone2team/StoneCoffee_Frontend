@@ -1,4 +1,3 @@
-
 const urlParameter = window.location.search
 var params = new URLSearchParams(urlParameter)
 var comment_id = params.get('comment_id')
@@ -63,8 +62,9 @@ async function nestedcommentlist() {
 window.onload=
 async function CommentDetailPage() {
     $("#headers").load("header.html");
-    // 임포트를 해보자!!
+
     nestedcommentlist()
+
     const payload = localStorage.getItem("payload")
     const parsed_payload = JSON.parse(payload)
 
@@ -115,14 +115,6 @@ async function CommentDetailPage() {
     
     }
     else{
-        // const comment_image = document.getElementById("comment_image")
-        // comment_image.setAttribute("src", `${BACK_END_URL}${comment_detail_json.image}`)
-        // const comment_text = document.getElementById("comment_text")
-        // comment_text.innerText = comment_detail_json.comment
-        // const date = document.getElementById("date")
-        // date.innerText = comment_detail_json.created_at.substr(0, 10)
-        // const like_count = document.getElementById("like_count")
-        // like_count.innerText = '좋아요 ' + comment_detail_json.like.length + '개' 
         const commentBox = document.getElementById('commentBox')
         commentBox.innerHTML= `<table>
                                 <tr class="comment-content-Box">
@@ -167,7 +159,7 @@ async function CommentDetailPage() {
     } else { like_icon.className = "bi bi-heart" }
 
     const check_author = document.getElementById(`comment-editdel${comment_detail_json.id}`)
-    // console.log(comment_detail_json.user.id)
+    
     if (comment_detail_json.user.id != parsed_payload.user_id) {
         check_author.style.display = "none"
     }
@@ -189,7 +181,6 @@ async function comment_like(id) {
     var heart = document.getElementById(`like_icon${id}`)
     if (response.status == 201){
         heart.className = "bi bi-heart-fill"
-        // like_count.innerText= '좋아요 ' + response_json.count + '개'
         like_count.innerText= `좋아요 ${response_json.count}개`
     } else if (response.status == 200) {
         heart.className = "bi bi-heart"
@@ -311,7 +302,7 @@ async function editCommentBtn() {
         method: "GET",
     })
     var response_json = await response.json()
-    console.log(response.json)
+    
     const editmodalImage = document.getElementById("output_image");
     editmodalImage.src = BACK_END_URL+response_json["image"]
     const editmodalComment = document.getElementById("edit-text");
@@ -336,21 +327,14 @@ async function deleteComment() {
     })
 
     var target = document.getElementById('detailBox')
-    console.log('2'+document.referrer)
     if (response.status==204){
             target.remove();
             location.href=document.referrer       
     } else{
             alert("삭제되지 않았습니다")
           }
-
     }
-    
-    
-    
-    
-
-    
+  
 }
     
 async function saveeditCommentBtn() {
