@@ -24,6 +24,10 @@ async function adminorderlist() {
             var admin_status = "주문 확인";
         } else if (element.status == 2) {
             var admin_status = "배송중";
+        } else if (element.status == 3) {
+            var order_status = "취소 대기중";
+        } else if (element.status == 4) {
+            var order_status = "취소 완료";
         }
         // img src="${BACK_END_URL}${element.product_image}"/>
         var admin_price = element.count * element.order_price
@@ -43,12 +47,13 @@ async function adminorderlist() {
                                             <td>
                                                 <div role="navigation" class="order_status_dropdown2">
                                                     <ul class="ul1">
-                                                        <li class="li1">${admin_status}&dtrif;
+                                                        <li class="li1" id="list_${element.id}">${admin_status}&dtrif;
                                                             <ul class="dropdown1">
                                                                 <li class="li2" id="${element.id}" value="0">확인 대기중</li>
                                                                 <li class="li2" id="${element.id}" value="1">주문 확인</li>
                                                                 <li class="li2" id="${element.id}" value="2">배송중</li>
-                                                                
+                                                                <li class="li2" id="${element.id}" value="3">취소 대기중</li>
+                                                                <li class="li2" id="${element.id}" value="4">취소 완료
                                                             </ul>
                                                         </li>
                                                     </ul>
@@ -76,14 +81,13 @@ async function answer(id){
         if (data["data"][i]['id'] == id) {
             const content = document.createElement('content')
             content.innerHTML = `<div style="text-align:left; margin-left:40%">
-                                 갯수 :${data["data"][i].count}<br/>
-                                 총 가격 :${data["data"][i].order_price}원<br/>
-                                 요청 사항:${data["data"][i].receiver}<br/>
-                                 고객 ID: ${data["data"][i].user}<br/>
-                                 주소 : ${data["data"][i].user_address}<br/>
-                                 받는분 핸드폰 번호 :${data["data"][i].user_phone}<br/>
-                                 </div>
-                                 `
+                                    갯수 :${data["data"][i].count}<br/>
+                                    총 가격 :${data["data"][i].order_price}원<br/>
+                                    요청 사항:${data["data"][i].receiver}<br/>
+                                    고객 ID: ${data["data"][i].user}<br/>
+                                    주소 : ${data["data"][i].user_address}<br/>
+                                    받는분 핸드폰 번호 :${data["data"][i].user_phone}<br/>
+                                </div>`
             content_frame.appendChild(content)
         }
     }
@@ -99,12 +103,39 @@ $(document).on('click','.li2',function(){
     } else if (this.value == 2){
         var admin_status = "배송중"
         var status = "2"
+    }else if (this.value == 3){
+        var admin_status = "취소 대기중"
+        var status = "3"
+    } else if (this.value == 4){
+        if (confirm("주문취소를 확정하시겠습니까?") == true){
+            alert("취소되었습니다\n앞으로 상품 상태를 변경하실 수 없습니다");
+            var admin_status = "취소 완료"
+            var status = "4"
+            $(this).parent().parent().closest("ul")[0].innerHTML = `<li class="li1">${admin_status};
+                                                                    </li>`
+            const requset = fetch(`${BACK_END_URL}/director/order/?order_id=${order_id}`,{
+                headers:{
+                    "content-type": "application/json",
+                    "Authorization": "Bearer " + localStorage.getItem("access"),
+                },
+                method: "PUT",
+                body: JSON.stringify({
+                    "status": status,
+                })
+            })
+            return
+        } else {
+            alert("취소되었습니다");
+            return
+        }
     }
     $(this).parent().parent().closest("ul")[0].innerHTML = `<li class="li1">${admin_status}&dtrif;
                                                                 <ul class="dropdown1">
                                                                     <li class="li2" id="${order_id}" value="0">확인 대기중</li>
                                                                     <li class="li2" id="${order_id}" value="1">주문 확인</li>
                                                                     <li class="li2" id="${order_id}" value="2">배송중</li>
+                                                                    <li class="li2" id="${order_id}" value="3">취소 대기중</li>
+                                                                    <li class="li2" id="${order_id}" value="4">취소 완료</li>
                                                                 </ul>
                                                             </li>`
 

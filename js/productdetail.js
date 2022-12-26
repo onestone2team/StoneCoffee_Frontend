@@ -364,10 +364,12 @@ async function orderButton() {
 
     if (product_json.products.aroma_grade == 0 || product_json.products.aroma_grade == null) {
         const weight = 1;
-
+        var price_a=product_price.innerText.replace(',','')
+        var price_b=parseFloat(price_a)
         let formdata = new FormData
+
         formdata.append('count', count.value)
-        formdata.append('price', priceText.innerText)
+        formdata.append('price', price_b)
         formdata.append('weight', weight)
         const response = await fetch(`${BACK_END_URL}/product/cart/?product_id=${product_id}`, {
             headers: {
@@ -390,9 +392,12 @@ async function orderButton() {
     else if (product_json.products.aroma_grade >= 1) {
         const count = document.querySelector(".readonly");
         const weight = document.querySelectorAll("select")[0];
+        var price_a=product_price.innerText.replace(',','')
+
+        var price_b=parseFloat(price_a)
         let formdata = new FormData
         formdata.append('count', count.value)
-        formdata.append('price', product_price.innerText)
+        formdata.append('price', price_b)
         formdata.append('weight', weight.value)
 
         const response = await fetch(`${BACK_END_URL}/product/cart/?product_id=${product_id}`, {
