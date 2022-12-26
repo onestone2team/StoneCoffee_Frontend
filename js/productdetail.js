@@ -307,6 +307,7 @@ async function cart() {
     // if (product_json.products.aroma_grade == 0 || product_json.products.aroma_grade == null)
     if (product_json.products.category_id != 1) {
         const weight = 1;
+        console.log(weight.value)
         var price_a=priceText.innerText.replace(',','')
         var price_b=parseFloat(price_a)
 
@@ -336,7 +337,7 @@ async function cart() {
     else if (product_json.products.category_id == 1) {
         const count = document.querySelector(".readonly");
         const weight = document.querySelectorAll("select")[0];
-
+        console.log(weight.value)
         var price_a=product_price.innerText.replace(',','')
         var price_b=parseFloat(price_a)
 
