@@ -21,19 +21,38 @@
 <body>
     <header id="headers"></header>
     <header id="menu-bar"></header>
-    </section>
-    <section id="aa-slider" style="border: 10px;">
-        <div class="aa-slider-area">
-            <div id="sequence" class="seq">
-                <div id="slide" class="img-box" val="1" max="3">
-                    <a href="survey.html"><img class="slide1" src="/img/slide/survey.jpg"></a>
-                    <img class="slide1" src="/img/slide/22.png">
-                    <img class="slide1" src="/img/slide/33.jpg">
-                    <img class="slide1" src="/img/slide/44.jpg">
-                </div>
-            </div>
-        </div>
-    </section>
+    <div class="section">
+		<input type="radio" name="slide" id="slide01" checked>
+		<input type="radio" name="slide" id="slide02">
+		<input type="radio" name="slide" id="slide03">
+
+		<div class="slidewrap">
+			<ul class="slidelist">
+				<li>
+					<a>
+						<label for="slide03" class="left"></label>
+						<img src="./img/slide/001.png">
+						<label for="slide02" class="right"></label>
+					</a>
+				</li>
+				<li>
+					<a>
+						<label for="slide01" class="left"></label>
+						<img src="./img/slide/002.png">
+						<label for="slide03" class="right"></label>
+					</a>
+				</li>
+				<li>
+					<a>
+						<label for="slide02" class="left"></label>
+						<img src="./img/slide/003.png">
+						<label for="slide01" class="right"></label>
+					</a>
+				</li>
+			</ul>
+		</div>
+	</div>
+
     <section id="aa-promo" style=padding-top:30px>
         <div class="container">
             <div class="row">
@@ -43,7 +62,7 @@
                             <tr>
                                 <td rowspan ="2" class="all-category">
                                     <div class="aa-promo-banner">            
-                                        <a href="mainAll.html?id=1"><img src="/img/thumnail/total.jpg" alt="img"></a>                             
+                                        <a href="mainAll.html?id=1"><img src="/img/thumnail/total.jpg" alt="img" class="promptimg"></a>                             
                                         <div class="aa-prom-content">
                                             <h4><a href="mainAll.html?id=1">전체상품 보러가기</a></h4>
                                         </div>
@@ -52,7 +71,7 @@
                                 <td class="other-category">
                                     <div class="aa-single-promo-right">
                                         <div class="aa-promo-banner">
-                                                <a href="mainAll.html?id=4"><img src="/img/thumnail/coffeetea.jpg" alt="img" ></a>
+                                                <a href="mainAll.html?id=4"><img src="/img/thumnail/coffeetea.jpg" alt="img" class="promptimg"></a>
                                             <div class="aa-prom-content">
                                                 <h4><a href="mainAll.html?id=4">바디감</a></h4>
                                             </div>
@@ -62,7 +81,7 @@
                                 <td class="other-category">
                                     <div class="aa-single-promo-right">
                                         <div class="aa-promo-banner">
-                                                <a href="mainAll.html?id=3"><img src="/img/thumnail/coffemc.jpg" alt="img"> </a>                  
+                                                <a href="mainAll.html?id=3"><img src="/img/thumnail/coffemc.jpg" alt="img" class="promptimg"> </a>                  
                                             <div class="aa-prom-content">
                                                 <h4><a href="mainAll.html?id=3">커피 용품</a></h4>
                                             </div>
@@ -74,7 +93,7 @@
                                 <td class="other-category">
                                     <div class="aa-single-promo-right">
                                         <div class="aa-promo-banner">            
-                                            <a href="mainAll.html?id=5"><img src="/img/thumnail/coffeebean.jpg" alt="img"></a> 
+                                            <a href="mainAll.html?id=5"><img src="/img/thumnail/coffeebean.jpg" alt="img" class="promptimg"></a> 
                                             <div class="aa-prom-content">
                                             <h4><a href="mainAll.html?id=5">산미</a></h4>
                                             </div>
@@ -84,7 +103,7 @@
                                 <td>
                                     <div class="aa-single-promo-right">
                                         <div class="aa-promo-banner">
-                                            <a href="mainAll.html?id=2"><img src="/img/thumnail/good.jpg">  </a>                   
+                                            <a href="mainAll.html?id=2"><img src="/img/thumnail/good.jpg" class="promptimg">  </a>                   
                                             <div class="aa-prom-content">
                                                 <h4><a href="mainAll.html?id=2">스톤커피 굿즈</a></h4>
                                             </div>
@@ -92,11 +111,26 @@
                                     </div>
                                 </td>
                             </tr>
-                        </table>
-                    </div>
+                       </table>
+                    </div>   
                 </div>
             </div>
         </div>
+        <div class="slide_wrap">
+            <div class="slide_show">
+              <div class="slide_list">
+              <div class="slide"><img src="https://tistory1.daumcdn.net/tistory/3344040/skin/images/slideshow_5.jpg" alt="이미지"></div>
+            <div class="slide"><img src="https://tistory4.daumcdn.net/tistory/3344040/skin/images/slideshow_1.jpg" alt="이미지"></div>
+            <div class="slide"><img src="https://tistory1.daumcdn.net/tistory/3344040/skin/images/slideshow_4.jpg" alt="이미지"></div>
+            <div class="slide"><img src="./img/comment/1212.jpg" alt="이미지"></div>
+            <div class="slide"><img src="./img/slide/001.png" alt="이미지"></div>
+              </div>
+            </div>
+            <div class="slide_btn">
+              <button class="prev">prev</button>
+              <button class="next">next</button>
+            </div>
+          </div>
     </section>
     <!-- / Promo section -->
     <!-- Products section -->

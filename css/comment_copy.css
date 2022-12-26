@@ -1,4 +1,9 @@
-
+/* body{
+    background-image: url(../img/colombia-g93bf29a6a_1920.jpg);
+    height: 100vh;
+    width: 100vw;
+    background-size: cover;
+} */
 .wrap{
     width:80%; margin:auto; margin-top: 5%; margin-bottom:5%; 
     border:solid rgb(62,36,12) 5px;
@@ -50,14 +55,15 @@
     .comment-content-Box .comment-text p{
         font-size:small;
     }
-    .comment-info-Box p{
+    .comment-info-Box span{
         font-size: x-small;
     }
     .comment-info-Box .comment-date{
         width:21%;
     }
     .clike-button{
-        width:1%
+        /* width:1% */
+        font-size:x-small
     }
     .clike-button button{
         vertical-align: bottom;
@@ -65,11 +71,9 @@
     .clike-button p button #like_icon{
         font-size: 10px;
     }
-    .comment-info-Box .like-count{
-        width:20%;
-    }
+    
     .comment-editdel{
-        width:10%;
+        /* width:10%; */
         font-size:xx-small;
     }
     .nested-edit .nested-edit-btn button{
@@ -85,10 +89,14 @@
 }
 .commentBox table{
     width:100%;
+    /* border-collapse: collapse */
+    /* border-spacing:10px; */
+    border-spacing:0.8rem;
 }
 .comment-image{
     width:40%;
     background-color: rgb(255, 255, 255);
+    border-radius: 5px;;
 }
 .comment-image img{
     width:100%;
@@ -97,45 +105,62 @@
 }
 .comment-text{
     width:60%;
-    height:80%;
+    height:100%;
+    background-color:  rgb(255, 255, 255);
+    border-radius: 5px;
 }
 .comment-text p{
-    margin:2%;
+    margin:1%;
+    padding:2%;
+    border-radius: 5px;
+    height:100%;
+    object-fit: contain;
 }
 /* 커멘트 기타 */
 .comment-info-Box{
-    height:10px;
+    /* border-top: dotted 1px rgb(62,36,12); */
+    height:5%;
+    border-radius: 10px;
 }
 .comment-date{
-    width:25%;
+    width:20%;
     padding-left:1.5%;
     text-align: left;
     font-size: medium;
+    /* background-color: #3E240C; */
 }    
 .clike-button{
-    width:10%; 
+    width:100%; 
     text-align: right;
-    vertical-align: bottom;
+    /* vertical-align: bottom; */
+    /* background-color: blueviolet; */
 }
 .clike-button button{
     border:none;
     background:none;
-    width:80%;
+    /* background-color: #917255; */
+    width:15%;
 }
 .clike-button #like_icon{
     font-size: 15px;
 }
-.like-count{
+/* .like-count{
     width:15%;
     text-align: right; 
-}
+} */
 .comment-editdel{
-    font-size:small;
-    width:25%;
-    text-align: right;
+    font-size:medium;
+    /* width:20%; */
+    /* text-align: right; */
+    background-color: #917255a7;
+    border-radius: 10px;
 }
 .comment-editdel span{
-    cursor:pointer
+    cursor:pointer;
+    padding:1%;
+    height:15%;
+    /* background-color:yellow;
+    border-radius: 10px; */
 }
 /* 대댓글 보기*/
 .nestedcommentBox {
@@ -327,13 +352,6 @@
 #close_modal {
     cursor: pointer;
 }
-/* 좋아요 */
-.btn-like {
-    color: transparent;
-    text-shadow: 0 0 2px rgba(255,255,255,.7), 0 0 0 #000;
-  }
-
-.btn-like.done {
-    color: inherit;
-    text-shadow: 0;
-  }
+#coffeebean_{
+    color: transparent; text-shadow: 0 0 2px rgba(255,255,255,.7), 0 0 0 #000;
+}

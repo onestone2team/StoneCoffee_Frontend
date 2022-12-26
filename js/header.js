@@ -48,3 +48,20 @@ function searchButton() {
         location.replace(`${FRONT_END_URL}/search.html?search=${searchtage}`)
 
 }
+async function timeOut() {
+    const payload = JSON.parse(localStorage.getItem("payload"));
+
+    if (payload.exp <(Date.now()/1000)){
+        localStorage.removeItem("access")
+        localStorage.removeItem("refresh")
+        localStorage.removeItem("payload")
+        localStorage.removeItem("user")
+        localStorage.removeItem("pk")
+
+        alert("세션이 만료 되어 로그아웃 되었습니다\n메인페이지로 이동합니다")
+        window.location.replace(`../index.html`);
+    }else{
+    };
+}timeOut()
+
+

@@ -145,7 +145,7 @@ window.onload =
 
         if (!parsed_payload) {
             alert("권한이 없습니다. 로그인 해주세요")
-            location.replace("../templates/index.html")
+            location.replace(`${FRONT_END_URL}/signupin.html`)
         }
 
         const profile = await fetch(`${BACK_END_URL}/mypage/profile/`, {
@@ -188,7 +188,14 @@ async function update_profile() {
     const address = document.getElementById("address").value;
     const detailAddress = document.getElementById("detailAddress").value;
     const extraAddress = document.getElementById("extraAddress").value;
-    const profile_address = '(' + postcode + ')' + ' ' + address + ' ' + detailAddress + ' ' + extraAddress
+
+    let profile_address = ''
+    if (postcode) {
+        profile_address = '(' + postcode + ')' + ' ' + address + ' ' + detailAddress + ' ' + extraAddress
+    } else {
+        profile_address = address + ' ' + detailAddress + ' ' + extraAddress
+    }
+    
     const profile_image = document.querySelector("input[type='file']");
 
     let formData = new FormData();

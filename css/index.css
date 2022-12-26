@@ -206,3 +206,51 @@
     }
 
 }
+#aa-promo .container{
+  width: 98%;
+}
+
+
+
+/*slide*/
+.slide_wrap {}
+.slide_show {
+  width: 900px; height: 200px; overflow: hidden;
+  margin: auto;
+}
+.slide_show .slide_list {
+  position: relative;
+  overflow:hidden; width: 3300px; height: 360px;
+}
+.slide_show .slide_list > div {
+  float: left; width: 290px; padding: 5px; height: 174px;
+  box-sizing: content-box; 
+}
+.slide_show .slide_list > div:before {
+    color: #fff;
+  font-family: 'RIDIBatang';
+}
+.slide_list > div:nth-child(3n+1)::before {content:'01'}
+.slide_list > div:nth-child(3n+2)::before {content:'02'}
+.slide_list > div:nth-child(3n+3)::before {content:'03'}
+
+.slide_show .slide_list > div img {width: 100%;}
+
+.slide_btn {
+  margin: 10px auto;
+  text-align: center;
+  width: 100%;
+}
+.slide_btn button {
+  background: rgba(0,0,0,.4);
+  border: 1px solid rgba(255,255,255,0.4);
+  color: #fff;
+  border-radius: 50%;
+  width: 40px; height: 40px;
+ 
+}
+.slide_btn button:hover {
+  background: rgba(0,0,0,.8);;
+}
+.slide_btn .prev {}
+.slide_btn .next {}
