@@ -39,9 +39,8 @@ window.onload = async function ProductDetail() {
     name1.innerHTML = `<h3>${product_json.products["product_name"]}</h3>`
     name2.appendChild(name1)
     //상품 평가 점수
-    //수정중
+    
     //커피인 상품만 점수 표시하도록
-    console.log(product_json.products)
     if (product_json.products.category_id == 1) {
         aroma2 = document.getElementById('aroma')
         const aroma1 = document.createElement('span')
@@ -215,7 +214,7 @@ window.onload = async function ProductDetail() {
         // 별 추가하기
         const starInput = document.getElementById(`table-star${commentSet.id}`)
         const starForm = document.createElement('span')
-        starForm.innerHTML = '⭐'.repeat(commentSet.point)+`<span id='coffee'>⭐</span>`.repeat(5-commentSet.point)
+        starForm.innerHTML = '⭐'.repeat(commentSet.point) + `<span id='coffee'>⭐</span>`.repeat(5 - commentSet.point)
         starInput.appendChild(starForm)
 
         // 하트 모양 변경하기
@@ -299,16 +298,15 @@ async function comment_like(id) {
 }
 
 async function cart() {
-    console.log(product_json)
+    
     var priceText = document.getElementById("priceText")
     var product_price = document.getElementById("product_price")
     const count = document.querySelector(".readonly");
-    //수정중
-    // if (product_json.products.aroma_grade == 0 || product_json.products.aroma_grade == null)
+    
     if (product_json.products.category_id != 1) {
         const weight = 1;
-        var price_a=priceText.innerText.replace(',','')
-        var price_b=parseFloat(price_a)
+        var price_a = priceText.innerText.replace(',', '')
+        var price_b = parseFloat(price_a)
 
         let formdata = new FormData
         formdata.append('count', count.value)
@@ -332,13 +330,13 @@ async function cart() {
             alert("로그인을 해주세요s")
         }
     }
-    // else if (product_json.products.aroma_grade >= 1)
+
     else if (product_json.products.category_id == 1) {
         const count = document.querySelector(".readonly");
         const weight = document.querySelectorAll("select")[0];
 
-        var price_a=product_price.innerText.replace(',','')
-        var price_b=parseFloat(price_a)
+        var price_a = product_price.innerText.replace(',', '')
+        var price_b = parseFloat(price_a)
 
         let formdata = new FormData
         formdata.append('count', count.value)
@@ -354,13 +352,14 @@ async function cart() {
         response_json = await response.json()
 
         if (response.status == 200 || response.status == 202 || response.status == 201) {
+
             alert("장바구니에 담겼습니다.")
-            
 
         }
         else if (response.status == 401 || response.status == 400) {
+
             alert("로그인을 해주세요")
-            
+
         }
     }
 }
@@ -370,8 +369,7 @@ async function orderButton() {
     var product_price = document.getElementById("product_price")
     const count = document.querySelector(".readonly");
 
-    // if (product_json.products.aroma_grade == 0 || product_json.products.aroma_grade == null) 
-    if (product_json.products.category_id != 1){
+    if (product_json.products.category_id != 1) {
         const weight = 1;
 
         let formdata = new FormData
@@ -396,7 +394,7 @@ async function orderButton() {
             location.reload();
         }
     }
-    // else if (product_json.products.aroma_grade >= 1) 
+
     else if (product_json.products.category_id == 1) {
         const count = document.querySelector(".readonly");
         const weight = document.querySelectorAll("select")[0];
@@ -460,7 +458,7 @@ $('#comment_img').on('change', function () {
         $('#image_preview img').attr('src', blobURL);
         $('#image_preview').slideDown(); //업로드한 이미지 미리보기
     }
-});document.querySelector('input[name="product_price"]:checked')
+}); document.querySelector('input[name="product_price"]:checked')
 
 // 댓글 등록하는 js
 async function commentrg() {
@@ -468,7 +466,7 @@ async function commentrg() {
     const comment_content = document.getElementById("comment-input").value
     const comment_img = document.querySelector("input[type='file']");
     var comment_point = document.querySelector('input[name="point"]:checked');
-    console.log(comment_point)
+    
     if (comment_content.value == "") {
         alert("리뷰를 작성해 주세요")
     } else if (comment_content.value == " ") {
@@ -493,7 +491,7 @@ async function commentrg() {
         })
         response_json = await response.json()
         if (response.status == 200 || response.status == 202 || response.status == 201) {
-            // alert("정상적으로 리뷰 작성을 하였습니다.")
+           
             location.reload();
             return response.json()
         }
@@ -508,8 +506,8 @@ async function commentrg() {
 }
 
 async function deleteComment(num) {
-    var reviewdelete =confirm("리뷰를 삭제 하시겠습니까?");
-    if (reviewdelete){
+    var reviewdelete = confirm("리뷰를 삭제 하시겠습니까?");
+    if (reviewdelete) {
         const response = await fetch(`${BACK_END_URL}/comment/edit/?comment_id=${num}`, {
             headers: {
                 "content-type": "application/json",
@@ -575,7 +573,6 @@ async function saveeditCommentBtn() {
     const modal = document.querySelector('.modal');
     const editCommentbtn = document.getElementById("edit-commentbtn");
     var num = editCommentbtn.value
-    // const comment_form= document.querySelector("comment_form")
     const comment_content = document.getElementById("edit-text").value
     const comment_img = document.getElementById("input_image")
     const comment_point = document.getElementById("editcomment_point").value
@@ -651,5 +648,5 @@ async function CommentDetail(num) {
         alert("권한이 없습니다. 로그인 해주세요")
         location.replace("../templates/index.html")
     }
-    location.href=`${FRONT_END_URL}/comment_copy.html?comment_id=${comment_id}`
+    location.href = `${FRONT_END_URL}/comment_copy.html?comment_id=${comment_id}`
 }
