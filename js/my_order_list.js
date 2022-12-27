@@ -50,7 +50,9 @@ async function cartlist() {
                                 <div class="quantity">수량 : ${element.count}개</div><br>
                                 <div id="quantity${element.id}" class="quantity">용량 : ${element.weight * 100}g</div>
                             </td>
+
                             <td class="status_${element.id}" style="display:flex; flex-direction:column; align-items:center; justify-content:center;"><p>${order_status}</p><button id="${element.id}" class="status_btn">취소하기</button></td>
+
                         </tr>
                         <tr>
                             <td></td>
@@ -64,6 +66,7 @@ async function cartlist() {
             quantity.remove()
         }
         //주문 취소하기 버튼
+
         const cancel_btn = document.getElementById(`${element.id}`)
         cancel_btn.style.display = 'none'
         if (element.status == 0) {
@@ -83,6 +86,7 @@ async function order_cancel_at_import(order_id) {
     var order_cancel_json = await order_cancel.json()
     console.log(order_cancel_json)
 }
+
 
 $(document).on('click', '.status_btn', async function () {
     var order_id = this.id
@@ -107,3 +111,4 @@ $(document).on('click', '.status_btn', async function () {
     var new_status = document.getElementsByClassName(`status_${order_id}`)[0]
     new_status.innerHTML = `<p>취소됨</p><button style="display: none;" id="${order_id}" class="status_btn">취소하기</button>`
 });
+
