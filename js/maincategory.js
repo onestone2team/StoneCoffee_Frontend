@@ -52,7 +52,7 @@ async function show_product_list(page) {
               <a id="img" class="aa-product-img" href="product-detail.html?product_id=${data["data"][i]["id"]}/"><img class="product-image" src="${BACK_END_URL}${data["data"][i]["image"]}" alt="${data["data"][i]["id"]}"></a>
                 <figcaption>
                     <h4 class="aa-product-title">${data["data"][i]["product_name"]}</h4>
-                    <span class="aa-product-price">${data["data"][i]["price"]}원</span>
+                    <span class="aa-product-price">${data["data"][i]["price"].toLocaleString('ko-KR')}원</span>
                 </figcaption>
             </figure>                  
           </li>`
