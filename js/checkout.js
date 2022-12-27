@@ -15,28 +15,6 @@ window.onload = async function checkoutlist() {
     })
     const response_json = await response.json()
     console.log(response_json)
-    // if (asd == 0) {
-    //     const order_frame = document.getElementById('append-product')
-    //     response_json.forEach(element => {
-    //             const order = document.createElement('div')
-    //             var total_price = element.price * element.count
-    //             cartlist.push(element.id)
-    //             order.setAttribute("class", "basket-product")
-    //             order.innerHTML = `<div>
-    //                                 <div id="cart_id" placeholder="${element.id}"></div>
-    //                                 <table>
-    //                                     <tr class="inner3">
-    //                                         <td class="img-box"><img src="${BACK_END_URL}${element.product["image"]}"></td>
-    //                                         <td class="product" id="product">${element.product.product_name}</td>
-    //                                         <td class="count" id="count" >${element.count}개</td>
-    //                                         <td class="price" id="price">${total_price.toLocaleString('ko-KR')}원</td>
-    //                                     </tr>
-    //                                 </table>
-    //                             </div><hr>`
-    //             order_frame.appendChild(order)
-    //             product_total_price = product_total_price + total_price
-    //     })
-    // } else {
 
     let product_total_price = 0
     const order_frame = document.getElementById('append-product')
@@ -58,8 +36,7 @@ window.onload = async function checkoutlist() {
                             </div><hr>`
         order_frame.appendChild(order)
         product_total_price = product_total_price + total_price
-    }
-    )
+    })
     calculator(product_total_price)
 
     // 유저 주소랑 핸드폰번호 불러오기
