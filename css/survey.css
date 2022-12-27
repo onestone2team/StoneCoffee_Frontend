@@ -251,11 +251,6 @@ body{
   margin: 0 auto;
   text-align: center;
   margin: auto 0px;
-  -webkit-appearance: none;
-}
-
-input[type=radio]{
-  -webkit-appearance: none;;
 }
 
 .sweetform{
