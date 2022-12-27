@@ -2,94 +2,98 @@
 <html lang="en">
 
 <head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Stone Coffee| 결제페이지</title>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-  <!-- jQuery -->
-  <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
-  <!-- iamport.payment.js -->
-  <script type="text/javascript" src="https://cdn.iamport.kr/js/iamport.payment-1.1.8.js"></script>
-  <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
-  <link href="/css/bootstrap.css" rel="stylesheet">
-  <link id="switcher" href="/css/default-theme.css" rel="stylesheet">
-  <link href="/css/style.css" rel="stylesheet">
-  <link href="/css/header.css" rel="stylesheet">
-  <link href="css/checkout.css" type="text/css" rel="stylesheet">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Stone Coffee| 결제페이지</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <!-- jQuery -->
+    <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <!-- iamport.payment.js -->
+    <script type="text/javascript" src="https://cdn.iamport.kr/js/iamport.payment-1.1.8.js"></script>
+    <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+    <link href="/css/bootstrap.css" rel="stylesheet">
+    <link id="switcher" href="/css/default-theme.css" rel="stylesheet">
+    <link href="/css/style.css" rel="stylesheet">
+    <link href="/css/header.css" rel="stylesheet">
+    <link href="css/checkout.css" type="text/css" rel="stylesheet">
 </head>
 
 <body>
-  <header id="headers"></header>
-  <main>
-    <div class="basket" id="style-4">
-      <div id="append-product">
-        <hr style="border:0;">
-      </div>
-      <!-- 총계 박스 -->
-      <div class="total-box">
-        <table>
-          <tr class="cal-box">
-            <td class="title">총 상품 금액</td>
-            <td class="content" id="products-price"></td>
-          </tr>
-          <tr class="cal-box">
-            <td class="title">배송비</td>
-            <td class="content" id="delivery-price">원</td>
-          </tr>
-          <tr class="cal-box">
-            <td class="title">최종 결제 금액</td>
-            <td class="content" id="final-total-price"></td>
-          </tr>
-        </table>
-      </div>
-    </div>
-
-    <div class="input-boxes">
-      <div style="margin-top:5%;" >
-        <span style="font-weight:bold">배송 정보</span>
-        <span style="margin-top:10%; margin-bottom:0;font-size:x-small;">
-          <span style="color:red">*</span><span>은 필수 입력사항입니다</span>
-        </span>
-      </div>
-      <div class="div-input" id="div-1">
-        <h5 class="address">주소<span style="color: red;">* </span><span><button onclick="new_addr()">새로운 배송지 입력하기🔍</button></span></h5>
-        <input type="text" class="addresstext" id="user_address" placeholder="내용을 입력해 주세요.">
-      </div>
-      <div id="new-addr" class="new-addr">
-        <input type="text" id="postcode" placeholder="우편번호">
-        <input type="button" onclick="execDaumPostcode()" value="우편번호 찾기"><br>
-        <input type="text" id="address" placeholder="주소"><br>
-        <input type="text" id="detailAddress" placeholder="상세주소">
-        <input type="text" id="extraAddress" placeholder="참고항목">
-      </div>
-      <div class="div-input">
-        <h5 class="callnumber">전화번호<span style="color: red;">*</span></h5>
-        <input type='tel' class='phonetext' id="user_phone" maxLength='13' placeholder='-없이 입력'>
-      </div>
-      <div class="div-input">
-        <h5 class="Request">배송시 요청사항</h5>
-        <input type="text" class="Request-text" id="receiver" placeholder="내용을 입력해 주세요.">
-      </div>
-      <div class="div-input">
-        <h5 class="Request">결제 방식</h5>
-        <div class="select">
-          <input type='radio' name="payment" id='kakaopay' value="kakaopay" class="inputdesign"><label
-            for="kakaopay">카카오페이</label>
-          <input type='radio' name="payment" id='KCP' value="kcp" class="inputdesign"><label for="KCP">KCP</label>
+    <header id="headers"></header>
+    <main>
+        <div class="basket" id="style-4">
+            <div id="append-product">
+                <hr style="border:0;">
+            </div>
+            <!-- 총계 박스 -->
+            <div class="total-box">
+                <table>
+                    <tr class="cal-box">
+                        <td class="title">총 상품 금액</td>
+                        <td class="content" id="products-price"></td>
+                    </tr>
+                    <tr class="cal-box">
+                        <td class="title">배송비</td>
+                        <td class="content" id="delivery-price">원</td>
+                    </tr>
+                    <tr class="cal-box">
+                        <td class="title">최종 결제 금액</td>
+                        <td class="content" id="final-total-price"></td>
+                    </tr>
+                </table>
+            </div>
         </div>
-        <p class="warning-font">실제 결제가 아닌 테스트 결제로 진행 됩니다. 카카오페이는 가상 계좌에서 결제되며, KCP 결제의 경우 결제 방식에따라 실제 계좌에서 결제될 수 있으나 당일 내로 환불되니 안심하세요.</p>
-      </div>
-      <div class="order-box">
-        <div class="consent"><input type="checkbox" id="checkbox" onclick='is_checked()' value="" />주문 상품 정에 동의합니다.</div>
-        <button class="checkout" type="button" id="orderbutton" onclick="fillin()" disabled=false>주문하기</button>
-      </div>
 
-  </main>
-  <section id="aa-client-brand">
-  </section>
-  <footer id="aa-footer">
-  </footer>
+        <div class="input-boxes">
+            <div style="margin-top:5%;">
+                <span style="font-weight:bold">배송 정보</span>
+                <span style="margin-top:10%; margin-bottom:0;font-size:x-small;">
+                    <span style="color:red">*</span><span>은 필수 입력사항입니다</span>
+                </span>
+            </div>
+            <div class="div-input" id="div-1">
+                <h5 class="address">주소<span style="color: red;">* </span><span><button onclick="new_addr()">새로운 배송지
+                            입력하기🔍</button></span></h5>
+                <input type="text" class="addresstext" id="user_address" placeholder="내용을 입력해 주세요.">
+            </div>
+            <div id="new-addr" class="new-addr">
+                <input type="text" id="postcode" placeholder="우편번호">
+                <input type="button" onclick="execDaumPostcode()" value="우편번호 찾기"><br>
+                <input type="text" id="address" placeholder="주소"><br>
+                <input type="text" id="detailAddress" placeholder="상세주소">
+                <input type="text" id="extraAddress" placeholder="참고항목">
+            </div>
+            <div class="div-input">
+                <h5 class="callnumber">전화번호<span style="color: red;">*</span></h5>
+                <input type='tel' class='phonetext' id="user_phone" maxLength='13' placeholder='-없이 입력'>
+            </div>
+            <div class="div-input">
+                <h5 class="Request">배송시 요청사항</h5>
+                <input type="text" class="Request-text" id="receiver" placeholder="내용을 입력해 주세요.">
+            </div>
+            <div class="div-input">
+                <h5 class="Request">결제 방식</h5>
+                <div class="select">
+                    <input type='radio' name="payment" id='kakaopay' value="kakaopay" class="inputdesign"><label
+                        for="kakaopay">카카오페이</label>
+                    <input type='radio' name="payment" id='KCP' value="kcp" class="inputdesign"><label
+                        for="KCP">KCP</label>
+                </div>
+                <p class="warning-font">실제 결제가 아닌 테스트 결제로 진행 됩니다. 카카오페이는 가상 계좌에서 결제되며, KCP 결제의 경우 결제 방식에따라 실제 계좌에서 결제될 수
+                    있으나 당일 내로 환불되니 안심하세요.</p>
+            </div>
+            <div class="order-box">
+                <div class="consent"><input type="checkbox" id="checkbox" onclick='is_checked()' value="" />주문 상품 정에
+                    동의합니다.</div>
+                <button class="checkout" type="button" id="orderbutton" onclick="fillin()" disabled=false>주문하기</button>
+            </div>
+
+    </main>
+    <section id="aa-client-brand">
+    </section>
+    <footer id="aa-footer">
+    </footer>
 </body>
 <script src="/js/footer.js"></script>
 <script src="/js/all_data.js"></script>
