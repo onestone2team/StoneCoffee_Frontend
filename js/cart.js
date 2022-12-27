@@ -102,8 +102,8 @@ function removeItem(removeButton) {
         productRow.remove();
         product = $(".basket-product").length
         if (product > 0) {
-            price_a=price.replace('원',' ')
-            price_b=price_a.replace(',','')
+            price_a=price.replace('원','')
+            price_b=price_a.replace(/,/g,'')
             recalculateMinusCart(parseFloat(price_b), parseFloat(count));
         } else if (product == 0) {
             $("#basket-subtotal").html("0");

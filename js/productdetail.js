@@ -307,7 +307,7 @@ async function cart() {
 
     if (product_json.products.category_id != 1) {
         const weight = 1;
-        var price_a = etc_price.innerText.replace(',', '')
+        var price_a = etc_price.innerText.replace(/,/g,'')
         var price_b = parseFloat(price_a)
 
         let formdata = new FormData
@@ -336,7 +336,7 @@ async function cart() {
     else if (product_json.products.category_id == 1) {
         const count = document.querySelector(".readonly");
         const weight = document.querySelectorAll("select")[0];
-        var price_a=product_price.innerText.replace(',','')
+        var price_a=product_price.innerText.replace(/,/g,'')
         var price_b=parseFloat(price_a)
         let formdata = new FormData
         formdata.append('count', count.value)
@@ -372,8 +372,7 @@ async function orderButton() {
 
     if (product_json.products.category_id != 1) {
         const weight = 1;
-        console.log(etc_price)
-        var price_a=etc_price.innerText.replace(',','')
+        var price_a=etc_price.innerText.replace(/,/g,'')
         var price_b=parseFloat(price_a)
         let formdata = new FormData
 
@@ -403,7 +402,7 @@ async function orderButton() {
         const count = document.querySelector(".readonly");
         const weight = document.querySelectorAll("select")[0];
 
-        var price_a=product_price.innerText.replace(',','')
+        var price_a=product_price.innerText.replace(/,/g,'')
 
         var price_b=parseFloat(price_a)
         let formdata = new FormData
