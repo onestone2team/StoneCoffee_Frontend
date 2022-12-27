@@ -14,8 +14,6 @@ window.onload = async function checkoutlist() {
         method: 'GET'
     })
     const response_json = await response.json()
-    console.log(response_json)
-
     let product_total_price = 0
     const order_frame = document.getElementById('append-product')
     response_json.forEach(element => {

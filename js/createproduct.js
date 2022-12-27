@@ -14,7 +14,7 @@ $('#comment_img').on('change', function() {
         file = $('#comment_img').prop("files")[0];
         blobURL = window.URL.createObjectURL(file);
         $('#image_preview img').attr('src', blobURL);
-        $('#image_preview').slideDown(); //업로드한 이미지 미리보기 
+        $('#image_preview').slideDown(); //업로드한 이미지 미리보기
         $(this).slideUp(); //파일 양식 감춤
     }
     });

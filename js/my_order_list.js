@@ -83,10 +83,7 @@ async function order_cancel_at_import(order_id) {
         },
         method: "POST"
     })
-    var order_cancel_json = await order_cancel.json()
-    console.log(order_cancel_json)
 }
-
 
 $(document).on('click', '.status_btn', async function () {
     var order_id = this.id

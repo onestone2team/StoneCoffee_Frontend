@@ -37,7 +37,6 @@ $(document).on('click', '.remove button', function () {
 
 
 async function cartlist() {
-    
     const response = await fetch(`${BACK_END_URL}/product/cart/`, {
         headers: {
             "content-type": "application/json",
@@ -46,8 +45,6 @@ async function cartlist() {
         method: "GET"
     })
     var response_json = await response.json()
-    console.log(response_json)
-    
     var cart_frame = document.getElementById('append-product')
     response_json.forEach(element => {
         const cart = document.createElement('div')
