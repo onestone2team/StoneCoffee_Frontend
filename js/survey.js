@@ -61,10 +61,20 @@ async function sendSurvey(){
     const sendSurvey = document.getElementsByClassName('sendSurvey')[0].style
     const showSurvey = document.getElementById('showSurvey')
 
+    if (localStorage.getItem("access")){
+        header_edit = {
+            'Content-Type': 'application/json',
+            "Authorization": "Bearer " + localStorage.getItem("access")
+        }
+        
+    } else {
+        header_edit = {
+            'Content-Type': 'application/json',
+        }
+    }
+
     const response_survey = await fetch(`${BACK_END_URL}/survey/`, {
-        headers: {
-            'Content-Type': 'application/json'
-        },
+        headers: header_edit,
         method: 'POST',
         body: JSON.stringify({
             "aroma_grade": aroma_grade,
@@ -94,7 +104,6 @@ async function sendSurvey(){
     const loginText = document.querySelector('.login-text')
 
     if (parsed_payload) {
-        console.log(nextLink)
         nextButton.innerText = '구매하러 가기'
         nextLink.href = `product-detail.html?product_id=${coffeedata.id}`
         loginText.style.display = 'none'

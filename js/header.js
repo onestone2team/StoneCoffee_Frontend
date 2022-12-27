@@ -50,12 +50,6 @@ function searchButton() {
 }
 async function timeOut() {
     const payload = JSON.parse(localStorage.getItem("payload"));
-    // console.log(payload)
-    // console.log(payload["jti"])
-    // console.log(payload["exp"])
-    // console.log(payload["iat"])
-    // console.log(payload["user_id"])
-    // console.log(Date.now()/1000)
 
     if (payload.exp <(Date.now()/1000)){
         localStorage.removeItem("access")

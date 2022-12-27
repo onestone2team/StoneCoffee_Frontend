@@ -298,7 +298,7 @@ async function comment_like(id) {
 }
 
 async function cart() {
-    
+
     var priceText = document.getElementById("priceText")
     var product_price = document.getElementById("product_price")
     const count = document.querySelector(".readonly");
@@ -335,8 +335,9 @@ async function cart() {
         const count = document.querySelector(".readonly");
         const weight = document.querySelectorAll("select")[0];
 
-        var price_a = product_price.innerText.replace(',', '')
-        var price_b = parseFloat(price_a)
+        var price_a=product_price.innerText.replace(',','')
+        var price_b=parseFloat(price_a)
+
 
         let formdata = new FormData
         formdata.append('count', count.value)
@@ -371,10 +372,12 @@ async function orderButton() {
 
     if (product_json.products.category_id != 1) {
         const weight = 1;
-
+        var price_a=product_price.innerText.replace(',','')
+        var price_b=parseFloat(price_a)
         let formdata = new FormData
+
         formdata.append('count', count.value)
-        formdata.append('price', priceText.innerText)
+        formdata.append('price', price_b)
         formdata.append('weight', weight)
         const response = await fetch(`${BACK_END_URL}/product/cart/?product_id=${product_id}`, {
             headers: {
@@ -398,9 +401,12 @@ async function orderButton() {
     else if (product_json.products.category_id == 1) {
         const count = document.querySelector(".readonly");
         const weight = document.querySelectorAll("select")[0];
+        var price_a=product_price.innerText.replace(',','')
+
+        var price_b=parseFloat(price_a)
         let formdata = new FormData
         formdata.append('count', count.value)
-        formdata.append('price', product_price.innerText)
+        formdata.append('price', price_b)
         formdata.append('weight', weight.value)
 
         const response = await fetch(`${BACK_END_URL}/product/cart/?product_id=${product_id}`, {
@@ -466,7 +472,7 @@ async function commentrg() {
     const comment_content = document.getElementById("comment-input").value
     const comment_img = document.querySelector("input[type='file']");
     var comment_point = document.querySelector('input[name="point"]:checked');
-    
+
     if (comment_content.value == "") {
         alert("리뷰를 작성해 주세요")
     } else if (comment_content.value == " ") {

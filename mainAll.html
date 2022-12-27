@@ -9,20 +9,24 @@
     <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
     <link href="/css/bootstrap.css" rel="stylesheet">
     <link id="switcher" href="/css/default-theme.css" rel="stylesheet">
-    <link href="/css/sequence-theme.modern-slide-in.css" rel="stylesheet" media="all">
     <link href="/css/stylecategory.css" rel="stylesheet">
     <link href="/css/category.css" rel="stylesheet">
 </head>
 
 <body>
     <header id="headers"></header>
+
     <ul class="nav nav-tabs aa-products-tab">
         <h2 id="titlename">모든 원두 커피 </h2>
-        <select id="category_sort" onchange="chageLangSelect()">
-            <option value="down">내림차순</option>
-            <option value="up">오름차순</option>
-        </select>
+        <div class="sort-form">
+            <select id="category_sort" onchange="chageLangSelect()">
+                <option value="down">내림차순</option>
+                <option value="up">오름차순</option>
+            </select>
+        </div>
     </ul>
+    
+    
 
     <div class="tab-content">
         <!-- Start men product category -->
@@ -61,8 +65,6 @@
     </div>
 </body>
 
-
-<script src="/js/header.js"></script>
 <script src="/js/footer.js"></script>
 <script src="/js/all_data.js"></script>
 <script src="/js/maincategory.js"></script>

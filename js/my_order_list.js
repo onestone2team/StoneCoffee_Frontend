@@ -5,6 +5,7 @@ window.onload = function () {
     cartlist()
 }
 
+
 async function cartlist() {
     const response = await fetch(`${BACK_END_URL}/mypage/orderlist/`, {
         headers: {
@@ -14,7 +15,6 @@ async function cartlist() {
         method: "GET"
     })
     const response_json = await response.json()
-    console.log(response_json)
     var order_frame = document.getElementById('append_order')
     response_json.forEach(element => {
         if (element.status == 0) {
@@ -50,7 +50,9 @@ async function cartlist() {
                                 <div class="quantity">수량 : ${element.count}개</div><br>
                                 <div id="quantity${element.id}" class="quantity">용량 : ${element.weight * 100}g</div>
                             </td>
-                            <td style="display:flex; flex-direction:column; align-items:center; justify-content:center;"><p id='order_status${element.id}'>${order_status}</p><button id="cancel-order${element.id}" onclick="cancel_order(${element.id})">취소하기</button></td>
+
+                            <td class="status_${element.id}" style="display:flex; flex-direction:column; align-items:center; justify-content:center;"><p>${order_status}</p><button id="${element.id}" class="status_btn">취소하기</button></td>
+
                         </tr>
                         <tr>
                             <td></td>
@@ -64,46 +66,49 @@ async function cartlist() {
             quantity.remove()
         }
         //주문 취소하기 버튼
-        const cancel_btn = document.getElementById(`cancel-order${element.id}`)
+
+        const cancel_btn = document.getElementById(`${element.id}`)
         cancel_btn.style.display = 'none'
         if (element.status == 0) {
             cancel_btn.style.display = 'block';
         }
-
     })
 }
 
-async function cancel_order(id) {
-
-    var cancel_confirm = confirm('해당 상품을 주문 취소하시겠습니까?')
-
-    if (cancel_confirm) {
-        const response = await fetch(`${BACK_END_URL}/order/product/order_cancel/?order_id=${id}`, {
-            headers: {
-                "content-type": "application/json",
-                "Authorization": "Bearer " + localStorage.getItem("access"),
-            },
-            method: "POST",
-            body: JSON.stringify({
-
-            }),
-        })
-
-        const response_json = await response.json()
-        console.log(response_json)
-        var order_status = document.getElementById(`order_status${id}`)
-        var cancel_btn = document.getElementById(`cancel-order${id}`)
-
-        if (response.status == 200) {
-            alert(response_json.message)
-            if (response_json.status == 3) {
-                order_status.innerText = "취소 요청됨"
-                cancel_btn.style.display = "none"
-            } else {
-                order_status.innerText = "취소됨"
-                cancel_btn.style.display = "none"
-            }
-        }
-    }
-
+async function order_cancel_at_import(order_id) {
+    var order_cancel = await fetch(`${BACK_END_URL}/order/product/order_cancel/?order_id=${order_id}`, {
+        headers: {
+            "Authorization": access_token,
+            "Content-type": "applycation/json"
+        },
+        method: "POST"
+    })
+    var order_cancel_json = await order_cancel.json()
+    console.log(order_cancel_json)
 }
+
+
+$(document).on('click', '.status_btn', async function () {
+    var order_id = this.id
+    console.log(order_id)
+    const cancel_btn = document.getElementById(`${order_id}`)
+
+    const response = await fetch(`${BACK_END_URL}/order/product/order_cancel/?order_id=${order_id}`, {
+        headers: {
+            "content-type": "application/json",
+            "Authorization": "Bearer " + localStorage.getItem("access"),
+        },
+        method: "POST",
+        body: JSON.stringify({
+        }),
+    })
+    const response_json = await response.json()
+    if (response.status == 200) {
+        alert(response_json.message)
+    }
+    await order_cancel_at_import(order_id)
+
+    var new_status = document.getElementsByClassName(`status_${order_id}`)[0]
+    new_status.innerHTML = `<p>취소됨</p><button style="display: none;" id="${order_id}" class="status_btn">취소하기</button>`
+});
+

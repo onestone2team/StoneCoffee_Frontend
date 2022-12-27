@@ -14,6 +14,8 @@ window.onload = async function checkoutlist() {
         method: 'GET'
     })
     const response_json = await response.json()
+    console.log(response_json)
+
     let product_total_price = 0
     const order_frame = document.getElementById('append-product')
     response_json.forEach(element => {
@@ -28,14 +30,13 @@ window.onload = async function checkoutlist() {
                                         <td class="img-box"><img src="${BACK_END_URL}${element.product["image"]}"></td>
                                         <td class="product" id="product">${element.product.product_name}</td>
                                         <td class="count" id="count" >${element.count}개</td>
-                                        <td class="price" id="price">${total_price.toLocaleString('ko-KR')}원</td>  
+                                        <td class="price" id="price">${total_price.toLocaleString('ko-KR')}원</td>
                                     </tr>
                                 </table>
                             </div><hr>`
         order_frame.appendChild(order)
         product_total_price = product_total_price + total_price
-    }
-    )
+    })
     calculator(product_total_price)
 
     // 유저 주소랑 핸드폰번호 불러오기
@@ -46,17 +47,18 @@ window.onload = async function checkoutlist() {
         },
         method: 'GET',
     })
+}
 
-    const profile_json = await profile.json()
-    const profile_address = document.getElementById("user_address")
-    profile_address.setAttribute("value", profile_json.address)
-    const profile_phone = document.getElementById("user_phone")
-    profile_phone.setAttribute("value", profile_json.phone)
+const profile_json = profile.json()
+const profile_address = document.getElementById("user_address")
+profile_address.setAttribute("value", profile_json.address)
+const profile_phone = document.getElementById("user_phone")
+profile_phone.setAttribute("value", profile_json.phone)
 
-    user_name = profile_json.profilename
-    user_email = profile_json.email
+user_name = profile_json.profilename
+user_email = profile_json.email
 
-}//onload끝
+// } //onload끝
 
 // 총 상품 금액 및 배송비 및 결제 금액 계산
 async function calculator(product_total_price) {
@@ -83,12 +85,10 @@ function is_checked() {
     const is_checked = checkbox.checked;
     if (is_checked == true) {
         orderbutton.disabled = false
-
     } else {
         orderbutton.disabled = true
     }
 }
-
 
 // =====개인정보 작성====== //
 async function fillin() {
@@ -101,18 +101,18 @@ async function fillin() {
     const address = document.getElementById("address").value;
     const detailAddress = document.getElementById("detailAddress").value;
     const extraAddress = document.getElementById("extraAddress").value;
-    
-    if (postcode != ""){
+
+    if (postcode != "") {
         user_address = '(' + postcode + ')' + ' ' + address + ' ' + detailAddress + ' ' + extraAddress
-    } 
+    }
 
     const user_phone = document.getElementById("user_phone").value
     const receiver = document.getElementById("receiver").value
     const total_price = document.getElementById("final-total-price").innerText
-    
-    if (user_address == " " ||  user_address == null || user_address == ("" >= 1)) {
+
+    if (user_address == " " || user_address == null || user_address == ("" >= 1)) {
         alert("주소는 필수 입력사항입니다")
-    } else if(user_phone == null || user_phone == "-" || user_phone == ("" >= 1)) {
+    } else if (user_phone == null || user_phone == "-" || user_phone == ("" >= 1)) {
         alert("핸드폰 번호는 필수 입력사항입니다")
     } else if (total_price == "3,000 원") {
         alert("결제하실 상품들을 담아주세요")
@@ -153,7 +153,8 @@ async function fillin() {
                     body: JSON.stringify({
                         "user_address": user_address,
                         "user_phone": user_phone,
-                        "receiver": rsp.imp_uid
+                        "receiver": receiver,
+                        "order_code": rsp.imp_uid,
                     }),
 
                 })
@@ -182,8 +183,10 @@ function new_addr() {
     if (new_addr.style.display == 'none') {
         new_addr.style.display = 'block'
         org_addr.style.display = 'none'
-    } else { new_addr.style.display = 'none'; 
-             org_addr.style.display = 'block'; }
+    } else {
+        new_addr.style.display = 'none';
+        org_addr.style.display = 'block';
+    }
 }
 // 우편번호 입력
 function execDaumPostcode() {

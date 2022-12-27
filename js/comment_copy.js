@@ -150,7 +150,6 @@ async function CommentDetailPage() {
     }
 
     like_list = comment_detail_json["like"]
-    console.log(like_list)
     
     const like_icon = document.getElementById(`like_icon${comment_detail_json.id}`)
     if (like_list.includes(parsed_payload["user_id"])) {
