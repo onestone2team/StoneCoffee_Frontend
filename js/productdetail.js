@@ -128,7 +128,7 @@ window.onload = async function ProductDetail() {
         var product_price2 = document.createElement('div')
         product_price2.innerHTML = `<h3 class="product_price">상품 가격 : <span id="product_price">${productprice.toLocaleString('ko-KR')}</span> 원</h3>`
         product_price.appendChild(product_price2)
-
+ 
         totalprice = product_json.products["price"]
         var price2 = document.getElementById('price')
         var price1 = document.createElement('div')
@@ -138,6 +138,7 @@ window.onload = async function ProductDetail() {
     } else {
         var price_per_100g = document.getElementById('price')
         var price_per_100g_2 = document.createElement('div')
+        price_per_100g_2.innerHTML = `<h3 class="price_per_100g">1개 가격 : <span id="one_product_price">${product_json.products["price"].toLocaleString('ko-KR')}</span> 원</h3>`
         price_per_100g.appendChild(price_per_100g_2)
         totalprice = product_json.products["price"]
         var price2 = document.getElementById('price')
@@ -300,12 +301,13 @@ async function comment_like(id) {
 async function cart() {
 
     var priceText = document.getElementById("priceText")
+    var etc_price = document.getElementById("one_product_price")
     var product_price = document.getElementById("product_price")
     const count = document.querySelector(".readonly");
-    
+
     if (product_json.products.category_id != 1) {
         const weight = 1;
-        var price_a = priceText.innerText.replace(',', '')
+        var price_a = etc_price.innerText.replace(',', '')
         var price_b = parseFloat(price_a)
 
         let formdata = new FormData
@@ -334,11 +336,8 @@ async function cart() {
     else if (product_json.products.category_id == 1) {
         const count = document.querySelector(".readonly");
         const weight = document.querySelectorAll("select")[0];
-
         var price_a=product_price.innerText.replace(',','')
         var price_b=parseFloat(price_a)
-
-
         let formdata = new FormData
         formdata.append('count', count.value)
         formdata.append('price', price_b)
@@ -369,10 +368,12 @@ async function orderButton() {
     var priceText = document.getElementById("priceText")
     var product_price = document.getElementById("product_price")
     const count = document.querySelector(".readonly");
+    var etc_price = document.getElementById("one_product_price")
 
     if (product_json.products.category_id != 1) {
         const weight = 1;
-        var price_a=priceText.innerText.replace(',','')
+        console.log(etc_price)
+        var price_a=etc_price.innerText.replace(',','')
         var price_b=parseFloat(price_a)
         let formdata = new FormData
 
@@ -401,6 +402,7 @@ async function orderButton() {
     else if (product_json.products.category_id == 1) {
         const count = document.querySelector(".readonly");
         const weight = document.querySelectorAll("select")[0];
+
         var price_a=product_price.innerText.replace(',','')
 
         var price_b=parseFloat(price_a)
