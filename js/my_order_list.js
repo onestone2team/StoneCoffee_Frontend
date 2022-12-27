@@ -84,9 +84,9 @@ async function order_cancel_at_import(order_id) {
     console.log(order_cancel_json)
 }
 
+
 $(document).on('click', '.status_btn', async function () {
     var order_id = this.id
-    console.log(order_id)
     const cancel_btn = document.getElementById(`${order_id}`)
 
     const response = await fetch(`${BACK_END_URL}/order/product/order_cancel/?order_id=${order_id}`, {
