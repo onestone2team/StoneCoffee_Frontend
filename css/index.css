@@ -215,6 +215,7 @@
 /*slide*/
 .slide_wrap h2{
   text-align: center;
+
 }
 .slide_show {
   width: 70%; height: 250px; overflow: hidden;
@@ -227,6 +228,7 @@
 .slide_show .slide_list > div {
   float: left; width: 5%; margin: 0px 5px; height: auto;
   box-sizing: content-box; text-align: center;
+  cursor: pointer;
 }
 .slide_show .slide_list div > h4 {
   font-size: 12px;
@@ -247,14 +249,15 @@
   width: 100%;
 }
 .slide_btn button {
-  background: rgba(0,0,0,.4);
+  background: none;
   border: 1px solid rgba(255,255,255,0.4);
-  color: #fff;
+  color: black;
   border-radius: 50%;
   width: 40px; height: 40px;
  
 }
 .slide_btn button:hover {
+  color: white;
   background: rgba(0,0,0,.8);;
 }
 

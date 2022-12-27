@@ -53,11 +53,11 @@ async function show_product_list() {
         var products = document.getElementById("products");
         var recommends = document.getElementById("slide_list");
         recommend_datas = data['recommend']
-        
-        if (parsed_payload) {
+        if (parsed_payload && recommend_datas.length!=0) {
             for (i=0; i<recommend_datas.length;i++) {
                 const recommendFrame = document.createElement('div')
                 recommendFrame.setAttribute("class", "slide")
+                recommendFrame.setAttribute("onclick", `location.href='product-detail.html?product_id=${recommend_datas[i]["id"]}';`)
                 recommendFrame.innerHTML = `<img class="slide_image" src="${BACK_END_URL}${recommend_datas[i]['image']}" alt="이미지">
                 <h4>${recommend_datas[i]['product_name']}</h4>`
     
@@ -74,7 +74,6 @@ async function show_product_list() {
         slides = slideList.find(".slide"),
         slideCount = slides.length,
         slideWidth = slides.innerWidth(),
-        console.log(slideCount)
         slideCopy = $(".slide:lt("+ showNum +")").clone();
         slideList.append(slideCopy);
 
@@ -142,15 +141,4 @@ function nextShow(){
     num++;
     slideList.stop().animate({ left : -slideWidth * num +"px"}, 400);
 }
-
-//왼쪽, 오른쪽 버튼 설정
-slideBtn.on("click","button",function(){
-    if( $(this).hasClass("prev")){
-        //왼쪽 버튼을 클릭
-        backShow();
-    } else {
-        //오른쪽 버튼을 클릭
-        nextShow();
-    }
-});
 
