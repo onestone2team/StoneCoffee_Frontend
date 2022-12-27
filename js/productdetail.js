@@ -372,7 +372,7 @@ async function orderButton() {
 
     if (product_json.products.category_id != 1) {
         const weight = 1;
-        var price_a=product_price.innerText.replace(',','')
+        var price_a=priceText.innerText.replace(',','')
         var price_b=parseFloat(price_a)
         let formdata = new FormData
 
