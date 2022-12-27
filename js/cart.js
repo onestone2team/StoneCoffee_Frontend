@@ -50,7 +50,6 @@ async function cartlist() {
     
     var cart_frame = document.getElementById('append-product')
     response_json.forEach(element => {
-        
         const cart = document.createElement('div')
         var total_price = element.price * element.count
         cart.setAttribute("class", "basket-product")
@@ -60,7 +59,7 @@ async function cartlist() {
                             </div>
                             <div class="product-details">
                                 <h4><span class="item-quantity"></span>${element.product.product_name}</h4>
-                                <p id="product_weight${element.product.id}"><strong>${element.weight*100}g</strong></p>
+                                <p id="product_weight${element.id}"><strong>${element.weight*100}g</strong></p>
                             </div>
                         </div>
                         <div id="flex_row">
@@ -72,6 +71,7 @@ async function cartlist() {
                             <button>삭제하기</button>
                         </div>`
         cart_frame.appendChild(cart)
+
         if (element.product.category == 'etc' || element.product.category == 'goods') {
                 document.getElementById(`product_weight${element.product.id}`).style.display = "none"
             }      
